@@ -23,6 +23,7 @@ const result = esbuild.buildSync({
         buildSentencePhaseRoute,
         replacementSentencePhaseWhenMuted,
       } from "./src/lib/guidedLessonPhases.ts";
+      export { missedTwiceRunning, recordAnswerPerformance } from "./src/lib/adaptivePractice.ts";
       export { wordOrderTokensMatchSentence } from "./src/lib/wordOrder.ts";
       export { getSfxAudioVolume, getTtsAudioVolume } from "./src/lib/audioMute.ts";
       export { resampleSpectrum, speechSpectrumFromFft } from "./src/lib/audioLevel.ts";
@@ -65,6 +66,8 @@ const {
   SENTENCE_PHASES,
   speechSpectrumFromFft,
   toTextedGerman,
+  missedTwiceRunning,
+  recordAnswerPerformance,
   wordOrderTokensMatchSentence,
 } = compiled.exports;
 
@@ -920,6 +923,36 @@ check(
   /reviewReason: "struggle",[\s\S]{0,900}?lastRunHadSpellingSlip\([\s\S]{0,200}?typingFailed: true \}\s*:\s*st\.item/.test(builder)
     && !/item: \{ \.\.\.st\.item, typingFailed: true \},/.test(builder),
   "every struggle review opens on the writing route, whatever went wrong"
+);
+// ── missed once is a review; missed twice running is a writing route ───────
+// One miss means the phrase is not learnt yet, and meeting it again is the
+// answer — which is why a single blank deliberately buys no writing. Missing
+// it again ON that review says the meeting was not enough, and that is when
+// writing it out earns the learner's time. A clean run clears the streak, so
+// the escalation is about what is happening now, not a lifetime tally.
+{
+  const record = (missRun) => ({ missRun, lastAnswerAt: "2026-01-01T00:00:00.000Z" });
+  check("one miss does not open the writing route", !missedTwiceRunning(record(1)));
+  check("a second miss running does", missedTwiceRunning(record(2)));
+  check("and a record with no misses at all does not", !missedTwiceRunning(record(0)) && !missedTwiceRunning(undefined));
+  // The streak is written by the same pass that records the answers, and a
+  // clean run resets it rather than leaving the phrase permanently marked.
+  let run = recordAnswerPerformance(undefined, { attempts: 4, mistakes: 1 });
+  check("the first miss is remembered as a streak of one", run.missRun === 1 && !missedTwiceRunning(run));
+  run = recordAnswerPerformance(run, { attempts: 4, mistakes: 1 });
+  check("missing it again on the review makes two", run.missRun === 2 && missedTwiceRunning(run));
+  run = recordAnswerPerformance(run, { attempts: 4, mistakes: 0 });
+  check("and getting it right clears it", run.missRun === 0 && !missedTwiceRunning(run));
+}
+// Both doors into a review, asserted apart: they are two different lines and
+// a pattern loose enough to match either would pass with one of them gone.
+check(
+  "a struggle review reads the streak as well as the slip",
+  /missedTwiceRunning\(record\)\s*\r?\n?\s*\?\s*\{ \.\.\.st\.item, typingFailed: true \}/.test(builder)
+);
+check(
+  "and so does a phrase carried back by the record",
+  /missedTwiceRunning\(record\)\s*\r?\n?\s*\?\s*\{ \.\.\.step, item: \{ \.\.\.step\.item, typingFailed: true \} \}/.test(builder)
 );
 const adaptive = fs.readFileSync(path.join(root, "src/lib/adaptivePractice.ts"), "utf8");
 check(

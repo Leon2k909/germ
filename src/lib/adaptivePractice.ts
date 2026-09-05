@@ -40,6 +40,8 @@ type AdaptivePracticeFields = {
    * are for, and a blank is not.
    */
   lastSpellingSlipAt?: string;
+  /** Consecutive runs that ended in a mistake; a clean run resets it to 0. */
+  missRun?: number;
   lastAnswerAt?: string;
   /** Last optional familiar-half repetition; does not move the SRS due date. */
   reinforcedAt?: string;
@@ -137,9 +139,27 @@ export function recordAnswerPerformance<T extends AdaptivePracticeFields>(
     answerMistakes: Math.max(0, Number(prior?.answerMistakes) || 0) + mistakes,
     difficultyDebt,
     lastAnswerAt: timestamp,
+    // Runs ending in a mistake, one after another. Cleared by a clean run,
+    // because the point is not how often a phrase has ever been missed but
+    // whether it is being missed NOW — see missedTwiceRunning.
+    missRun: mistakes > 0 ? Math.max(0, Number(prior?.missRun) || 0) + 1 : 0,
     ...(mistakes > 0 ? { lastMistakeAt: timestamp } : {}),
     ...(slips > 0 ? { lastSpellingSlipAt: timestamp } : {}),
   };
+}
+
+/**
+ * Missed once, met again, missed again.
+ *
+ * One miss means the phrase has not been learnt yet, and the answer to that
+ * is meeting it again — which is what the review it earns is for. Missing it
+ * on that review says the meeting was not enough: this phrase is not
+ * sticking, and writing it out is worth the learner's time now in a way it
+ * was not the first time round. So the writing stages, which a single blank
+ * deliberately does not buy, are bought by the second one.
+ */
+export function missedTwiceRunning(record: AdaptivePracticeFields | undefined): boolean {
+  return (Math.max(0, Number(record?.missRun) || 0)) >= 2;
 }
 
 /**
