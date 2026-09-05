@@ -48,7 +48,11 @@ const INSTITUTIONS = [
   "der U7", "Euro VB", "Bei VB", "Kompaktbrief",
   // A Sunday-night television institution. Naming it teaches nothing to
   // somebody who will never be in the room where it is on.
-  "Tatort", "DB-App",
+  // The SHOW is always bare: "dann doch Tatort", "viele schauen Tatort".
+  // With an article it is the ordinary noun for a crime scene, which exists
+  // everywhere, so the entry must not swallow it — the same over-blocking
+  // this list already made once and had to be narrowed.
+  /(?<!der )Tatort/, "DB-App",
   // German regional words for the same thing. The lesson is which German
   // region you are standing in, which is not a lesson in Russian.
   "Buletten", "Fleischpflanzerl",
