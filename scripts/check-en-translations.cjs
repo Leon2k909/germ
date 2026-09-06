@@ -67,6 +67,13 @@ const COURSES = [
     // exactly why the few that do not have to survive.
     keep: ["codice fiscale", "Ferragosto", "cappuccino"],
   },
+  {
+    label: "Vivir en España",
+    course: { module: "vivirEnEspanaCourse", symbol: "vivirEnEspanaCourse" },
+    table: { module: "vivirEnEspanaTranslationsEn", symbol: "VIVIR_EN_ESPANA_EN" },
+    sourceLetters: /[áéíóúñ¿¡]/,
+    keep: ["Cortes", "padrón", "NIE", "Bachillerato"],
+  },
 ];
 
 // Every table spread into TRANSLATIONS.en, including the ones checked
@@ -251,7 +258,7 @@ for (const entry of COURSES) {
     `${entry.table.symbol} is not registered in TRANSLATIONS, so nothing would ever look it up`
   );
 }
-for (const source of ['"pl"', '"it"']) {
+for (const source of ['"pl"', '"it"', '"es"']) {
   assert.ok(
     from[1].includes(source),
     `English must be registered as translating FROM ${source}, or it is never offered beside that course`
