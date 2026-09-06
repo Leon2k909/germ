@@ -2999,4 +2999,10 @@ export const ES: Record<string, string> = {
   "Down at the garages": "Abajo en los garajes",
   "Renting from the owner": "Alquilar al propietario",
   "Results and places": "Notas y plazas",
+  "The suburban train in season": "El tren de cercanías en temporada",
+  "Overtaking on the highway": "Adelantar en la carretera",
+  "A tooth being treated": "El tratamiento de una muela",
+  "A session at the pool": "Una sesión en la piscina",
+  "The one-stop office": "La oficina única",
+  "Watching it at home": "Verlo en casa",
 };

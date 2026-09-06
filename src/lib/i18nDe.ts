@@ -3683,4 +3683,10 @@ export const DE: Record<string, string> = {
   "Down at the garages": "Unten bei den Garagen",
   "Renting from the owner": "Mieten von der Eigentümerin",
   "Results and places": "Punkte und Studienplätze",
+  "The suburban train in season": "Die Vorortbahn im Sommer",
+  "Overtaking on the highway": "Überholen auf der Fernstraße",
+  "A tooth being treated": "Ein Zahn wird behandelt",
+  "A session at the pool": "Eine Bahn im Schwimmbad",
+  "The one-stop office": "Das Bürgerbüro",
+  "Watching it at home": "Zu Hause schauen",
 };

@@ -2980,4 +2980,10 @@ export const IT: Record<string, string> = {
   "Down at the garages": "Giù ai garage",
   "Renting from the owner": "Affittare dal proprietario",
   "Results and places": "Punteggi e posti",
+  "The suburban train in season": "Il treno locale in stagione",
+  "Overtaking on the highway": "Il sorpasso in statale",
+  "A tooth being treated": "La cura di un dente",
+  "A session at the pool": "Una seduta in piscina",
+  "The one-stop office": "Lo sportello unico",
+  "Watching it at home": "Guardarlo a casa",
 };

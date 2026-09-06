@@ -3435,4 +3435,10 @@ export const PL: Record<string, string> = {
   "Down at the garages": "Na garażach",
   "Renting from the owner": "Wynajem od właścicielki",
   "Results and places": "Wyniki i miejsca",
+  "The suburban train in season": "Podmiejski pociąg w sezonie",
+  "Overtaking on the highway": "Wyprzedzanie na trasie",
+  "A tooth being treated": "Leczenie zęba",
+  "A session at the pool": "Sesja na basenie",
+  "The one-stop office": "Punkt obsługi",
+  "Watching it at home": "Oglądanie w domu",
 };
