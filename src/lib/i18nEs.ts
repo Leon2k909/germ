@@ -3005,4 +3005,10 @@ export const ES: Record<string, string> = {
   "A session at the pool": "Una sesión en la piscina",
   "The one-stop office": "La oficina única",
   "Watching it at home": "Verlo en casa",
+  "A last-minute package": "Una oferta de última hora",
+  "The builders in the flat": "Los obreros en casa",
+  "A course of massage": "Un ciclo de masajes",
+  "Messages back and forth": "Mensajes de ida y vuelta",
+  "Signing the child up": "Apuntar al niño",
+  "Lunch on a tray": "Comida en la bandeja",
 };

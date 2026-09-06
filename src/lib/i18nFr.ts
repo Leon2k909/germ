@@ -3441,4 +3441,10 @@ export const FR: Record<string, string> = {
   "A session at the pool": "Une séance à la piscine",
   "The one-stop office": "Le guichet unique",
   "Watching it at home": "Regarder à la maison",
+  "A last-minute package": "Un départ de dernière minute",
+  "The builders in the flat": "Les ouvriers dans l'appartement",
+  "A course of massage": "Une série de massages",
+  "Messages back and forth": "Des messages échangés",
+  "Signing the child up": "Inscrire l'enfant",
+  "Lunch on a tray": "Le déjeuner sur un plateau",
 };
