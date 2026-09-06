@@ -3648,4 +3648,9 @@ export const DE: Record<string, string> = {
   "Long weekends and working Saturdays": "Lange Wochenenden und Arbeitssamstage",
   "Getting on to first-name terms": "Zum Du übergehen",
   "Starting to tell a story": "Eine Geschichte anfangen",
+  "The stairwell, the second round": "Das Treppenhaus, zweite Runde",
+  "Keeping fit without a gym": "Fit bleiben ohne Studio",
+  "Music, the second round": "Musik, zweite Runde",
+  "Tools borrowed and lent": "Geliehenes Werkzeug",
+  "The sleeper carriage": "Der Liegewagen",
 };

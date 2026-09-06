@@ -2945,4 +2945,9 @@ export const IT: Record<string, string> = {
   "Long weekends and working Saturdays": "Ponti e sabati lavorativi",
   "Getting on to first-name terms": "Passare al tu",
   "Starting to tell a story": "Cominciare a raccontare",
+  "The stairwell, the second round": "Le scale, secondo giro",
+  "Keeping fit without a gym": "Tenersi in forma senza palestra",
+  "Music, the second round": "La musica, secondo giro",
+  "Tools borrowed and lent": "Attrezzi in prestito",
+  "The sleeper carriage": "La carrozza cuccette",
 };
