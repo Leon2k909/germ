@@ -26,7 +26,8 @@ const built = esbuild.buildSync({
       'export { lifeInTheUkCourse } from "./src/lib/lifeInTheUkCourse.ts";\n' +
       'export { LIFE_IN_THE_UK_DE } from "./src/lib/lifeInTheUkTranslationsDe.ts";\n' +
       'export { LIFE_IN_THE_UK_PL } from "./src/lib/lifeInTheUkTranslationsPl.ts";\n' +
-      'export { LIFE_IN_THE_UK_FR } from "./src/lib/lifeInTheUkTranslationsFr.ts";',
+      'export { LIFE_IN_THE_UK_FR } from "./src/lib/lifeInTheUkTranslationsFr.ts";\n' +
+      'export { translateCourseText } from "./src/lib/courseTranslation.ts";',
     resolveDir: root,
     sourcefile: "uk-translations-entry.ts",
   },
@@ -43,7 +44,7 @@ const compiled = new Module("uk-translations-check", module);
 compiled.filename = path.join(root, ".uk-translations-check.cjs");
 compiled.paths = Module._nodeModulePaths(root);
 compiled._compile(built.outputFiles[0].text, compiled.filename);
-const { lifeInTheUkCourse, LIFE_IN_THE_UK_DE, LIFE_IN_THE_UK_PL, LIFE_IN_THE_UK_FR } = compiled.exports;
+const { lifeInTheUkCourse, LIFE_IN_THE_UK_DE, LIFE_IN_THE_UK_PL, LIFE_IN_THE_UK_FR, translateCourseText } = compiled.exports;
 
 // One course, one set of rules, two target languages.
 const TABLES = [
@@ -75,6 +76,24 @@ for (const lesson of lifeInTheUkCourse.lessons ?? []) {
         translatable.add(item.h4);
         translatable.add(item.p);
       }
+    }
+    // A cta closes a lesson with a title and a line beneath it, and
+    // localiseLesson translates both. Leaving them out here does not just
+    // skip a check: it drops them from the denominator too, so coverage
+    // reads 100% while they are untranslated. That is exactly what
+    // happened to the two cta strings of the last lesson.
+    if (block.type === "cta") {
+      translatable.add(block.title);
+      translatable.add(block.sub);
+    }
+    // A quiz closes a lesson, and localiseLesson translates its question,
+    // its options and its explanation. Counting them here is what makes
+    // the coverage line below describe the lesson a reader actually sees
+    // rather than the half of it that was translated first.
+    if (block.type === "quiz") {
+      translatable.add(block.q);
+      for (const option of block.options ?? []) translatable.add(option.text);
+      translatable.add(block.explanation);
     }
   }
 }
@@ -123,6 +142,23 @@ for (const { language, table } of TABLES) {
   }
 }
 
+// German has to be complete, and "complete" means what a reader gets: the
+// merged lookup behind translateCourseText, not this one table. A few of
+// these strings are bare numbers ("12", "112") that another course's German
+// table already owns, and repeating them here would put the same key twice
+// into the same merged object — the collision this file forbids everywhere
+// else. So they stay out, and the question asked here is the one a reader's
+// tap asks. A string with no answer anywhere is a real gap and fails.
+const noGerman = [...translatable].filter(
+  (english) => translateCourseText(english, "de") === null
+);
+if (noGerman.length) {
+  failures.push(
+    `${noGerman.length} string(s) of Life in the UK have no German at all, in this table or any other:\n` +
+      noGerman.slice(0, 8).map((s) => `      ${JSON.stringify(s.slice(0, 90))}`).join("\n")
+  );
+}
+
 if (failures.length) {
   console.error("FAIL check-uk-translations");
   failures.forEach((line) => console.error("  " + line));
@@ -136,6 +172,11 @@ const coverage = TABLES.map(({ language, table }) => {
   // how the last few strings stay missing for ever.
   return `${covered} of ${total} have ${language} (${Math.floor((covered / total) * 100)}%)`;
 }).join(", ");
+// The German column above counts this table. This counts what a reader
+// reaches, which is the merged lookup — the difference is the handful of
+// numbers another course's table supplies.
+const germanFromElsewhere = total - Object.keys(LIFE_IN_THE_UK_DE).length;
 console.log(
-  `check-uk-translations: ${coverage}, and every key matches real course text`
+  `check-uk-translations: ${coverage}, every key matches real course text, and a German ` +
+    `reader reaches all ${total} — ${germanFromElsewhere} of them through another course's table`
 );

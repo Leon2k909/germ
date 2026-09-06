@@ -1357,4 +1357,9 @@ export const LIFE_IN_THE_UK_FR: Record<string, string> = {
   "In one line: The values are a list you may be asked to complete or spot a gap in, and every right on it has a matching duty.":
     "En une phrase : les valeurs forment une liste qu'on peut vous demander de compléter ou dont il faut repérer le manque, et chaque droit qu'elle porte a un devoir correspondant.",
   "Now answer these": "À vous de répondre",
+
+  // ── Fin de la dernière leçon ──
+  "That is the whole syllabus": "Voilà tout le programme",
+  "Twenty-three lessons, five official chapters, and every date in the timeline. Work back through anything that felt shaky, then sit a practice test.":
+    "Vingt-trois leçons, cinq chapitres officiels et chaque date de la chronologie. Reprenez ce qui vous a semblé fragile, puis passez un test d'entraînement.",
 };

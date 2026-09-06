@@ -78,6 +78,15 @@ for (const lesson of course.lessons ?? []) {
         prose.add(item.p);
       }
     }
+    // A cta closes a lesson with a title and a line beneath it, and
+    // localiseLesson translates both. Leaving them out here does not just
+    // skip a check: it drops them from the denominator too, so coverage
+    // reads 100% while they are untranslated. That is exactly what
+    // happened to the two cta strings of the last lesson.
+    if (block.type === "cta") {
+      prose.add(block.title);
+      prose.add(block.sub);
+    }
     if (block.type === "quiz") {
       quiz.add(block.q);
       for (const option of block.options ?? []) quiz.add(option.text);

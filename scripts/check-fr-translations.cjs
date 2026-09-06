@@ -36,7 +36,8 @@ const built = esbuild.buildSync({
       'export { LIFE_IN_THE_UK_DE } from "./src/lib/lifeInTheUkTranslationsDe.ts";\n' +
       'export { LEBEN_IN_DEUTSCHLAND_EN } from "./src/lib/lebenInDeutschlandTranslationsEn.ts";\n' +
       'export { LIFE_IN_THE_UK_PL } from "./src/lib/lifeInTheUkTranslationsPl.ts";\n' +
-      'export { LEBEN_IN_DEUTSCHLAND_PL } from "./src/lib/lebenInDeutschlandTranslationsPl.ts";',
+      'export { LEBEN_IN_DEUTSCHLAND_PL } from "./src/lib/lebenInDeutschlandTranslationsPl.ts";\n' +
+      'export { translateCourseText } from "./src/lib/courseTranslation.ts";',
     resolveDir: root,
     sourcefile: "fr-translations-entry.ts",
   },
@@ -62,6 +63,7 @@ const {
   LEBEN_IN_DEUTSCHLAND_EN,
   LIFE_IN_THE_UK_PL,
   LEBEN_IN_DEUTSCHLAND_PL,
+  translateCourseText,
 } = compiled.exports;
 
 // Every French string a lesson can offer a translation for, in the same sense
@@ -81,6 +83,24 @@ for (const lesson of vivreEnFranceCourse.lessons ?? []) {
         translatable.add(item.h4);
         translatable.add(item.p);
       }
+    }
+    // A cta closes a lesson with a title and a line beneath it, and
+    // localiseLesson translates both. Leaving them out here does not just
+    // skip a check: it drops them from the denominator too, so coverage
+    // reads 100% while they are untranslated. That is exactly what
+    // happened to the two cta strings of the last lesson.
+    if (block.type === "cta") {
+      translatable.add(block.title);
+      translatable.add(block.sub);
+    }
+    // A quiz closes a lesson, and localiseLesson translates its question,
+    // its options and its explanation. Counting them here is what makes
+    // the coverage line below describe the lesson a reader actually sees
+    // rather than the half of it that was translated first.
+    if (block.type === "quiz") {
+      translatable.add(block.q);
+      for (const option of block.options ?? []) translatable.add(option.text);
+      translatable.add(block.explanation);
     }
   }
 }
@@ -157,6 +177,23 @@ assert.ok(
   "the Polish table is not registered in TRANSLATIONS, so nothing would ever look it up"
 );
 
+// German has to be complete, and "complete" means what a reader gets: the
+// merged lookup behind translateCourseText, not this one table. A few of
+// these strings are bare numbers ("15", "1776") that another course's German
+// table already owns, and repeating them here would put the same key twice
+// into the same merged object — the collision this file forbids everywhere
+// else. So they stay out, and the question asked here is the one a reader's
+// tap asks. A string with no answer anywhere is a real gap and fails.
+const noGerman = [...translatable].filter(
+  (english) => translateCourseText(english, "de") === null
+);
+if (noGerman.length) {
+  failures.push(
+    `${noGerman.length} string(s) of Vivre en France have no German at all, in this table or any other:\n` +
+      noGerman.slice(0, 8).map((s) => `      ${JSON.stringify(s.slice(0, 90))}`).join("\n")
+  );
+}
+
 if (failures.length) {
   console.error("FAIL check-fr-translations");
   failures.forEach((line) => console.error("  " + line));
@@ -172,7 +209,12 @@ const coverage = [
   ["English", VIVRE_EN_FRANCE_EN],
   ["Polish", VIVRE_EN_FRANCE_PL],
 ].map(([language, table]) => `${Object.keys(table).length} have ${language} (${share(table)}%)`).join(", ");
+// The German column above counts this table. This counts what a reader
+// reaches, which is the merged lookup — the difference is the handful of
+// numbers another course's table supplies.
+const germanFromElsewhere = total - Object.keys(VIVRE_EN_FRANCE_DE).length;
 console.log(
   `check-fr-translations: of ${total} translatable strings, ${coverage}; every key matches real course text, ` +
-    "no table collides with another course, and the picker offers them beside the French course"
+    "no table collides with another course, the picker offers them beside the French course, " +
+    `and a German reader reaches all ${total} — ${germanFromElsewhere} of them through another course's table`
 );
