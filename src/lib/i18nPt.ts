@@ -3320,4 +3320,10 @@ export const PT: Record<string, string> = {
   "Music, the second round": "A música, segunda ronda",
   "Tools borrowed and lent": "Ferramentas emprestadas",
   "The sleeper carriage": "A carruagem-cama",
+  "The animal that found you": "O animal que ficou",
+  "Mushrooming, the second round": "Apanhar cogumelos, segunda ronda",
+  "The market stall you always go to": "A banca de sempre",
+  "Putting up jars for winter": "Conservas para o inverno",
+  "Getting a tradesman in": "Chamar um técnico",
+  "Plans that stay open": "Planos que ficam em aberto",
 };

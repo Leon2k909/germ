@@ -2969,4 +2969,10 @@ export const ES: Record<string, string> = {
   "Music, the second round": "La música, segunda ronda",
   "Tools borrowed and lent": "Herramientas prestadas",
   "The sleeper carriage": "El coche cama",
+  "The animal that found you": "El animal que se quedó",
+  "Mushrooming, the second round": "Ir a setas, segunda ronda",
+  "The market stall you always go to": "El puesto de siempre",
+  "Putting up jars for winter": "Conservas para el invierno",
+  "Getting a tradesman in": "Llamar a un operario",
+  "Plans that stay open": "Planes que quedan abiertos",
 };

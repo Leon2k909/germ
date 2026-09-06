@@ -3653,4 +3653,10 @@ export const DE: Record<string, string> = {
   "Music, the second round": "Musik, zweite Runde",
   "Tools borrowed and lent": "Geliehenes Werkzeug",
   "The sleeper carriage": "Der Liegewagen",
+  "The animal that found you": "Das Tier, das geblieben ist",
+  "Mushrooming, the second round": "Pilze suchen, zweite Runde",
+  "The market stall you always go to": "Der Stand, zu dem man immer geht",
+  "Putting up jars for winter": "Einwecken für den Winter",
+  "Getting a tradesman in": "Einen Handwerker holen",
+  "Plans that stay open": "Pläne, die offen bleiben",
 };
