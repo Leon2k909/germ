@@ -3322,4 +3322,10 @@ export const FR: Record<string, string> = {
   "Start matching": "Commencer l'association",
   "{from} to {to}": "{from} vers {to}",
   "{n} pairs so far. Keep going, or move on whenever you like.": "{n} paires jusqu’ici. Continue, ou passe à la suite quand tu veux.",
+  "A night at the cinema": "Une soirée au cinéma",
+  "The tailor and the shoe repair": "La retoucherie et le cordonnier",
+  "Getting your driving licence": "Passer le permis",
+  "The beehives and the frame": "Les ruches et le châssis",
+  "The ice rink in the yard": "La patinoire dans la cour",
+  "In the hospital ward": "Dans la chambre d'hôpital",
 };

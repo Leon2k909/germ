@@ -2867,4 +2867,10 @@ export const IT: Record<string, string> = {
   "Start matching": "Inizia l'abbinamento",
   "{from} to {to}": "da {from} a {to}",
   "{n} pairs so far. Keep going, or move on whenever you like.": "{n} coppie finora. Continua, oppure vai avanti quando vuoi.",
+  "A night at the cinema": "Una serata al cinema",
+  "The tailor and the shoe repair": "La sartoria e il calzolaio",
+  "Getting your driving licence": "Prendere la patente",
+  "The beehives and the frame": "Gli alveari e il semenzaio",
+  "The ice rink in the yard": "La pista di ghiaccio nel cortile",
+  "In the hospital ward": "In corsia",
 };

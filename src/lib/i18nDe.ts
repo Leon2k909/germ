@@ -3570,4 +3570,10 @@ export const DE: Record<string, string> = {
   "Start matching": "Zuordnung starten",
   "{from} to {to}": "{from} zu {to}",
   "{n} pairs so far. Keep going, or move on whenever you like.": "{n} Paare bisher. Ordne weiter zu oder geh weiter, wann du willst.",
+  "A night at the cinema": "Ein Abend im Kino",
+  "The tailor and the shoe repair": "Änderungsschneiderei und Schuster",
+  "Getting your driving licence": "Der Führerschein",
+  "The beehives and the frame": "Bienenstand und Frühbeet",
+  "The ice rink in the yard": "Die Eisbahn im Hof",
+  "In the hospital ward": "Im Krankenzimmer",
 };

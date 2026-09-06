@@ -2886,4 +2886,10 @@ export const ES: Record<string, string> = {
   "Start matching": "Empezar a emparejar",
   "{from} to {to}": "de {from} a {to}",
   "{n} pairs so far. Keep going, or move on whenever you like.": "{n} parejas hasta ahora. Sigue, o pasa a lo siguiente cuando quieras.",
+  "A night at the cinema": "Una noche en el cine",
+  "The tailor and the shoe repair": "El sastre y el zapatero",
+  "Getting your driving licence": "Sacarse el carné de conducir",
+  "The beehives and the frame": "Las colmenas y el semillero",
+  "The ice rink in the yard": "La pista de hielo del patio",
+  "In the hospital ward": "En la sala del hospital",
 };

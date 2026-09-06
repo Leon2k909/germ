@@ -3322,4 +3322,10 @@ export const PL: Record<string, string> = {
   "Start matching": "Zacznij dopasowywanie",
   "{from} to {to}": "{from} na {to}",
   "{n} pairs so far. Keep going, or move on whenever you like.": "{n} par do tej pory. Graj dalej albo przejdź dalej, kiedy chcesz.",
+  "A night at the cinema": "Wieczór w kinie",
+  "The tailor and the shoe repair": "Krawiec i szewc",
+  "Getting your driving licence": "Egzamin na prawo jazdy",
+  "The beehives and the frame": "Pasieka i inspekt",
+  "The ice rink in the yard": "Lodowisko na podwórku",
+  "In the hospital ward": "Na szpitalnej sali",
 };
