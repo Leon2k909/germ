@@ -84,12 +84,13 @@ const CASES = [
   // of the four English could not reach to be closed.
   ["de", "ru", "off,de"],
   ["en", "ru", "off,en"],
-  // Polish is read by German alone so far. The apps with no table offer
-  // nothing beside it, which is the honest answer rather than a broken menu.
   ["pl", "ru", "off"],
   ["fr", "ru", "off"],
+  // Polish is read by German and now by English too, the second of the four
+  // courses English could not reach. French still has no table for it and
+  // offers nothing, which is the honest answer rather than a broken menu.
   ["de", "pl", "off,de"],
-  ["en", "pl", "off"],
+  ["en", "pl", "off,en"],
   ["fr", "pl", "off"],
   // A Polish app beside the Polish course offers nothing but off, the same
   // way a German one does beside Leben in Deutschland.
