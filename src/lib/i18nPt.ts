@@ -3216,4 +3216,9 @@ export const PT: Record<string, string> = {
   "The village house": "A casa da aldeia",
   "The housing estate": "O bairro de blocos",
   "The museum visit": "A visita ao museu",
+  "At the dentist": "No dentista",
+  "The garage pit and the workshop": "A fossa e a oficina",
+  "The playground in the yard": "O parque infantil do pátio",
+  "Tea and birthdays at work": "O chá e os aniversários no trabalho",
+  "The swimming pool": "A piscina",
 };

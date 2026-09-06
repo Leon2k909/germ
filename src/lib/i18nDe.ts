@@ -3552,4 +3552,9 @@ export const DE: Record<string, string> = {
   "The village house": "Das Haus im Dorf",
   "The housing estate": "Die Plattenbausiedlung",
   "The museum visit": "Der Museumsbesuch",
+  "At the dentist": "Beim Zahnarzt",
+  "The garage pit and the workshop": "Grube und Werkstatt",
+  "The playground in the yard": "Der Spielplatz im Hof",
+  "Tea and birthdays at work": "Tee und Geburtstage im Büro",
+  "The swimming pool": "Das Schwimmbad",
 };

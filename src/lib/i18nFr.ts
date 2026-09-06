@@ -3304,4 +3304,9 @@ export const FR: Record<string, string> = {
   "The village house": "La maison du village",
   "The housing estate": "La cité de barres",
   "The museum visit": "La visite au musée",
+  "At the dentist": "Chez le dentiste",
+  "The garage pit and the workshop": "La fosse et le garage",
+  "The playground in the yard": "L'aire de jeux dans la cour",
+  "Tea and birthdays at work": "Le thé et les anniversaires au bureau",
+  "The swimming pool": "La piscine",
 };

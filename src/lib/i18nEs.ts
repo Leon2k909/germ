@@ -2865,4 +2865,9 @@ export const ES: Record<string, string> = {
   "The village house": "La casa del pueblo",
   "The housing estate": "El barrio de bloques",
   "The museum visit": "La visita al museo",
+  "At the dentist": "En el dentista",
+  "The garage pit and the workshop": "El foso y el taller",
+  "The playground in the yard": "El parque infantil del patio",
+  "Tea and birthdays at work": "El té y los cumpleaños en el trabajo",
+  "The swimming pool": "La piscina",
 };
