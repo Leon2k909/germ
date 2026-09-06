@@ -507,11 +507,11 @@ export const DE: Record<string, string> = {
   "Quick quiz": "Schnelles Quiz",
   "Ten questions from anywhere. No timer.": "Zehn Fragen aus allen Bereichen. Ohne Zeitlimit.",
   "Mixed test": "Gemischter Test",
-  "24 questions spread across every category, untimed.": "24 Fragen aus allen Kategorien, ohne Zeitlimit.",
+  "24 questions spread across every chapter, untimed.": "24 Fragen aus allen Kapiteln, ohne Zeitlimit.",
   "Category test": "Kategorie-Test",
-  "Drill one part of the syllabus at a time.": "Übe einen Teil des Lehrplans nach dem anderen.",
+  "Drill one chapter of the syllabus at a time.": "Übe ein Kapitel des Lehrplans nach dem anderen.",
   "Weakness test": "Schwächen-Test",
-  "Built from the categories you get wrong most.": "Aus den Kategorien, in denen du am meisten Fehler machst.",
+  "Built from the topics you get wrong most.": "Aus den Themen, in denen du am meisten Fehler machst.",
   "Mistakes test": "Fehler-Test",
   "Only the questions you have answered incorrectly.": "Nur die Fragen, die du falsch beantwortet hast.",
   "Favourites test": "Favoriten-Test",
@@ -3115,6 +3115,7 @@ export const DE: Record<string, string> = {
     "Verankert das Set im Gedächtnis. Nur hier bewegt sich der Fortschritt.",
   "Checks where you stand. Graded, and it changes nothing.":
     "Prüft, wo du stehst. Wird bewertet und ändert nichts.",
+  "Test": "Test",
   "Written test": "Schriftlicher Test",
   "A1–A2 · Beginner": "A1–A2 · Anfänger",
   "Everyday basics: greetings, ordering, simple questions about yourself.":
