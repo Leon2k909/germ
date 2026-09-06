@@ -78,6 +78,12 @@ const CASES = [
   ["fr", "en", "off,fr"],
   ["fr", "de", "off,fr"],
   ["fr", "fr", "off"],
+  // Russian is read by German alone so far. The other three apps offer
+  // nothing beside it, which is the honest answer: no table exists.
+  ["de", "ru", "off,de"],
+  ["en", "ru", "off"],
+  ["pl", "ru", "off"],
+  ["fr", "ru", "off"],
 ];
 
 for (const [app, course, expected] of CASES) {

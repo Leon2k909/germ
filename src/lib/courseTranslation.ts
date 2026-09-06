@@ -10,6 +10,7 @@ import { LEBEN_IN_DEUTSCHLAND_FR } from "@/lib/lebenInDeutschlandTranslationsFr"
 import { LEBEN_IN_DEUTSCHLAND_EN } from "@/lib/lebenInDeutschlandTranslationsEn";
 import { VIVRE_EN_FRANCE_DE } from "@/lib/vivreEnFranceTranslationsDe";
 import { VIVRE_EN_FRANCE_EN } from "@/lib/vivreEnFranceTranslationsEn";
+import { ZHIZN_V_ROSSII_DE } from "@/lib/zhiznVRossiiTranslationsDe";
 import { CSHARP_COURSE_DE } from "@/lib/csharpCourseDe";
 import type { Block, Course, Lesson } from "@/lib/courses";
 
@@ -34,11 +35,12 @@ import type { Block, Course, Lesson } from "@/lib/courses";
  * panel.
  *
  * A table also says which language it translates FROM. Country studies holds
- * three courses written in three languages: Life in the UK is English, Leben
- * in Deutschland is German, Vivre en France is French. Without "from", the
- * picker would offer a German learner a German translation of German cards and
- * appear broken. French, being neither of the app's own two languages, offers
- * both — so "from" is a LIST rather than a single language.
+ * seven courses written in seven languages: Life in the UK is English, Leben
+ * in Deutschland is German, Vivre en France is French, and the four newer
+ * ones are Polish, Italian, Spanish and Russian. Without "from", the picker
+ * would offer a German learner a German translation of German cards and
+ * appear broken. A target language can read more than one of them, so
+ * "from" is a LIST rather than a single language.
  *
  * The tables for one target language are merged into one lookup, because a
  * table is keyed by its course's own source text and two courses written in
@@ -64,7 +66,10 @@ export const TRANSLATION_LANGUAGES: Array<{
   from: ContentLanguage[] | null;
 }> = [
   { id: "off", label: "No translation", endonym: "No translation", from: null },
-  { id: "de", label: "German", endonym: "Deutsch", from: ["en", "fr"] },
+  // Russian joins the German list: the course is written in Cyrillic, which
+  // is a harder wall than an unfamiliar Latin word, so it was the first of
+  // the four newer courses to get a table.
+  { id: "de", label: "German", endonym: "Deutsch", from: ["en", "fr", "ru"] },
   { id: "en", label: "English", endonym: "English", from: ["de", "fr"] },
   // All three country courses have Polish tables now.
   { id: "pl", label: "Polish", endonym: "Polski", from: ["en", "de", "fr"] },
@@ -74,7 +79,7 @@ export const TRANSLATION_LANGUAGES: Array<{
 ];
 
 const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>> = {
-  de: { ...LIFE_IN_THE_UK_DE, ...VIVRE_EN_FRANCE_DE, ...CSHARP_COURSE_DE },
+  de: { ...LIFE_IN_THE_UK_DE, ...VIVRE_EN_FRANCE_DE, ...ZHIZN_V_ROSSII_DE, ...CSHARP_COURSE_DE },
   en: { ...LEBEN_IN_DEUTSCHLAND_EN, ...VIVRE_EN_FRANCE_EN },
   pl: { ...LIFE_IN_THE_UK_PL, ...LEBEN_IN_DEUTSCHLAND_PL, ...VIVRE_EN_FRANCE_PL },
   fr: { ...LIFE_IN_THE_UK_FR, ...LEBEN_IN_DEUTSCHLAND_FR },
