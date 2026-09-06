@@ -1780,6 +1780,7 @@ export const IT: Record<string, string> = {
   "du · casual — friends & family": "du · informale: amici e famiglia",
   "Sie · polite — strangers, staff, elders": "Sie · di cortesia: sconosciuti, personale, anziani",
   "Parents often say": "I genitori dicono spesso",
+  "People say": "Nel parlato si dice",
   "Mark this item as a struggle. Shortcut Alt S": "Segna questo elemento come difficoltà. Scorciatoia Alt S",
   "Review tomorrow": "Ripassa domani",
   "Review in 3 days": "Ripassa fra 3 giorni",

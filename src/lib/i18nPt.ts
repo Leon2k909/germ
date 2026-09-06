@@ -1781,6 +1781,7 @@ export const PT: Record<string, string> = {
   "du · casual — friends & family": "du · informal — amigos e família",
   "Sie · polite — strangers, staff, elders": "Sie · formal — desconhecidos, funcionários, mais velhos",
   "Parents often say": "Os pais costumam dizer",
+  "People say": "Na fala diz-se",
   "Mark this item as a struggle. Shortcut Alt S": "Marcar este elemento como difícil. Atalho Alt S",
   "Review tomorrow": "Rever amanhã",
   "Review in 3 days": "Rever daqui a 3 dias",
