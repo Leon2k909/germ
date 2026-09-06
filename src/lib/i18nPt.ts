@@ -3279,4 +3279,10 @@ export const PT: Record<string, string> = {
   "The games children play in the yard": "As brincadeiras do pátio",
   "Snowdrifts and icicles": "Montes de neve e pingentes de gelo",
   "The beds and the watering": "Os canteiros e a rega",
+  "New Year, the second round": "Ano Novo, segunda ronda",
+  "The metro at rush hour": "O metro na hora de ponta",
+  "Tea, the second round": "O chá, segunda ronda",
+  "The wedding day itself": "O dia do casamento",
+  "Deadlines and the morning meeting": "Os prazos e a reunião da manhã",
+  "The square and the park bench": "A praça e o banco do jardim",
 };

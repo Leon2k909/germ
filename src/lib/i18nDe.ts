@@ -3612,4 +3612,10 @@ export const DE: Record<string, string> = {
   "The games children play in the yard": "Die Spiele im Hof",
   "Snowdrifts and icicles": "Schneewehen und Eiszapfen",
   "The beds and the watering": "Beete und Gießen",
+  "New Year, the second round": "Neujahr, zweite Runde",
+  "The metro at rush hour": "Die Metro zur Hauptverkehrszeit",
+  "Tea, the second round": "Tee, zweite Runde",
+  "The wedding day itself": "Der Hochzeitstag selbst",
+  "Deadlines and the morning meeting": "Fristen und Morgenbesprechung",
+  "The square and the park bench": "Platz und Parkbank",
 };

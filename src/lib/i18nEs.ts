@@ -2928,4 +2928,10 @@ export const ES: Record<string, string> = {
   "The games children play in the yard": "Los juegos del patio",
   "Snowdrifts and icicles": "Ventisqueros y carámbanos",
   "The beds and the watering": "Los bancales y el riego",
+  "New Year, the second round": "Año Nuevo, segunda ronda",
+  "The metro at rush hour": "El metro en hora punta",
+  "Tea, the second round": "El té, segunda ronda",
+  "The wedding day itself": "El día de la boda",
+  "Deadlines and the morning meeting": "Los plazos y la reunión de la mañana",
+  "The square and the park bench": "La plaza y el banco del parque",
 };
