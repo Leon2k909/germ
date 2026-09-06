@@ -94,6 +94,10 @@ const CASES = [
   ["en", "it", "off"],
   ["fr", "it", "off"],
   ["pl", "it", "off"],
+  ["de", "es", "off,de"],
+  ["en", "es", "off"],
+  ["fr", "es", "off"],
+  ["pl", "es", "off"],
 ];
 
 for (const [app, course, expected] of CASES) {
