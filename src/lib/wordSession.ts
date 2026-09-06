@@ -632,7 +632,22 @@ export function rankWordCatalog(
     const name = word.lookup || word.de;
     // Function words are exempt: the corpus index drops them, so their zero
     // means nothing at all.
-    if (corpusIgnores(name)) return rank;
+    //
+    // But exempt from the SETBACK, not from being ranked. This returned the
+    // written bank's answer and nothing else, and the bank lists 2,502 words
+    // of written German — so a function word it never listed came back
+    // unranked and sorted to the far end. noch and als, the 42nd and 55th
+    // commonest words in spoken German, sat at 6,482 and 6,484 of a queue
+    // promising the commonest first. The fallback below already fixes exactly
+    // this for heute, bitte and danke; it just sits under an early return
+    // these two never reached. Where the bank is silent the spoken list is
+    // the only evidence there is, so it answers alone — the same sentence
+    // written there, applied here.
+    if (corpusIgnores(name)) {
+      if (Number.isFinite(rank)) return rank;
+      const said = spokenFrequencyRank(name, nounEvidenceFor(word, name));
+      return Number.isFinite(said) ? said : rank;
+    }
     /**
      * Where our own conversational text has nothing to say, ask how often
      * people say the word on film.
