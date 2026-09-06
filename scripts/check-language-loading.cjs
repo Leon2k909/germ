@@ -155,8 +155,14 @@ for (const file of ["prototype/NewUiPrototype.tsx", "guided_learning_session.tsx
     `${file} builds a catalogue without waiting for the course's translations, so a French or `
     + "Polish course assembled at startup silently comes out short");
   // The CALL, not the import: keeping the name in the import list while
-  // asking the course again is exactly the shape this regressed from.
-  assert.ok(text.includes("Promise.all(translationLanguagesNeeded().map("),
+  // asking the course again is exactly the shape this regressed from. The
+  // whole list must be awaited together, whether it is mapped where it is
+  // asked for or held in a name first — the loading screen counts the tables
+  // as they land, and needs the list before it can await it.
+  const held = /const (\w+) = translationLanguagesNeeded\(\);/u.exec(text);
+  assert.ok(
+    /await Promise\.all\(\s*translationLanguagesNeeded\(\)\.map\(/u.test(text)
+      || (held && new RegExp(`await Promise\\.all\\(\\s*${held[1]}\\.map\\(`, "u").test(text)),
     `${file} waits for the COURSE's table only, so a German course in a French app builds `
     + "before French arrives and Listen comes out empty");
   assert.ok(text.includes("gl-interface-language-change"),
