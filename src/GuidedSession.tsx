@@ -118,6 +118,7 @@ function lessonSpeak(text: string, rate: number, lang: string): Promise<void> {
 import { ui, uiOr, uiFmt, uiNumber } from "@/lib/i18n";
 import { cefrBadgeLabel } from "@/lib/cefr";
 import { ContinueLearningSettings } from "@/components/duo/ContinueLearningSettings";
+import { germanSoundsAlike } from "@/lib/germanSoundAlike";
 import { getSittingOrder, SITTING_ORDER_LABELS } from "@/lib/sittingOrder";
 import { ArrowLeftRight, Settings2, Volume2, ChevronLeft, ChevronRight, ChevronDown, CheckCircle2, X, BookOpen, ArrowRight, MessageSquareQuote, RotateCcw, Languages, GripVertical, Eye, EyeOff, Lightbulb, Keyboard, ListChecks, MousePointerClick, SkipForward } from "lucide-react";
 // TTS now runs through the /api/tts server (premium Microsoft voices in every
@@ -727,6 +728,9 @@ function buildListeningChoices(answer: string, pool: string[], limit = 4): strin
     .filter((value) => {
       const key = choiceKey(value);
       if (!key || seen.has(key)) return false;
+      // Same rule for the whole-sentence listening choice: two readings
+      // that sound the same test the speaker, not the learner.
+      if (germanSoundsAlike(value, answer)) return false;
       seen.add(key);
       return true;
     })
@@ -746,6 +750,11 @@ function buildMissingWordChoices(answer: string, pool: string[], limit = 3): str
     .filter((word) => {
       const key = choiceKey(word);
       if (word.length < 2 || !key || seen.has(key)) return false;
+      // The learner only hears these. A distractor that arrives at the ear
+      // as the answer does — vier against wir, seid against seit — is not a
+      // harder question but an unanswerable one, and the sort below makes it
+      // likelier by preferring words the answer's length.
+      if (germanSoundsAlike(word, answer)) return false;
       seen.add(key);
       return true;
     })
