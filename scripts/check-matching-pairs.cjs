@@ -144,10 +144,23 @@ check(
   guidedSource.includes("const keys = matchingVisibleKeys(target, meaning);")
     && guidedSource.includes("keys.some((key) => seen.has(key))")
 );
+// ── the flashcards hand to the matching round ──────────────────────────────
+// This asserted the opposite until the round came back: it was written when
+// the board was removed, and it pinned the removal rather than a rule. What
+// holds now is the handover — the cards are met, then matched, then produced
+// — and the one exception that makes it honest: a sitting holding a single
+// card has nothing to match it against and goes straight to practice.
 check(
-  "the flashcards hand straight to the lesson",
-  guidedSource.includes('{ui(isLast ? "Start sentence practice" : "Next flashcard")}')
-    && !guidedSource.includes("SessionMatchingPairs")
+  "the last flashcard leads to matching, unless there is only one card",
+  guidedSource.includes('{ui(isLast ? (cards.length > 1 ? "Start matching" : "Start sentence practice") : "Next flashcard")}')
+    && guidedSource.includes("function SessionMatchingPairs")
+    && guidedSource.includes("const inMatching = matchingActive && previewCards.length > 1;")
+);
+check(
+  "and the round is reachable, scored and able to finish",
+  /<SessionMatchingPairs\s+cards=\{previewCards\}/u.test(guidedSource)
+    && /onProgress=\{\(matched, boardSize\) =>/u.test(guidedSource)
+    && /onComplete=\{\(\) => \{\s*setMatchingActive\(false\);/u.test(guidedSource)
 );
 
 if (failures) {

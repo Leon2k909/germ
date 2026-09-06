@@ -172,6 +172,17 @@ export default function GuidedLearningSession() {
   const sessionKnownBeforeRef = React.useRef<number | null>(null);
   const sessionLessonIdRef = React.useRef<string | undefined>(undefined);
   const [apiParts, setApiParts] = useState<Record<string, Part>>({});
+  /**
+   * Translation tables fetched, out of the number this course needs.
+   *
+   * The only part of preparing a lesson that can be measured. Everything
+   * after it — assembling the packs, ordering them, building the sitting —
+   * is synchronous and holds the thread, so nothing can animate during it,
+   * and a German course taught in English fetches no tables at all. Where
+   * there is nothing to count the screen shows no bar, rather than one
+   * pulsing in place to look busy.
+   */
+  const [tablesLoaded, setTablesLoaded] = useState({ done: 0, total: 0 });
   const learningMode = useLearningMode();
   const [progressStats, setProgressStats] = useState<ProgressStats>(() => ({
     totalXp:           loadScopedJson("totalXp", 0, user) as number,
@@ -478,7 +489,12 @@ export default function GuidedLearningSession() {
     // counts as well as the course's — Listen explains a card in it, out of
     // the same tables.
     const rebuild = async () => {
-      await Promise.all(translationLanguagesNeeded().map(ensureTranslations));
+      const needed = translationLanguagesNeeded();
+      setTablesLoaded({ done: 0, total: needed.length });
+      await Promise.all(needed.map((language) => ensureTranslations(language).then((result) => {
+        setTablesLoaded((current) => ({ ...current, done: current.done + 1 }));
+        return result;
+      })));
       setApiParts(orderParts(filterPartsForLearningDirection({
         ...resolved,
         ...buildBundledParts(),
@@ -1694,7 +1710,19 @@ export default function GuidedLearningSession() {
           <strong>{ui("Preparing your lesson")}</strong>
           <span>{ui("Choosing useful phrases for this session.")}</span>
         </div>
-        <div className="prototype-guided-loading-track" aria-hidden="true"><i /></div>
+        {/* A real bar, or none at all: it fills as each table lands, and a
+            course that fetches none shows the words on their own. */}
+        {tablesLoaded.total > 0 && (
+          <div
+            aria-valuemax={tablesLoaded.total}
+            aria-valuemin={0}
+            aria-valuenow={tablesLoaded.done}
+            className="prototype-guided-loading-track"
+            role="progressbar"
+          >
+            <i style={{ transform: `scaleX(${tablesLoaded.done / tablesLoaded.total})` }} />
+          </div>
+        )}
       </div>
     </div>
   );
