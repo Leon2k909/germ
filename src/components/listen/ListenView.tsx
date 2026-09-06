@@ -21,6 +21,7 @@ import {
   VolumeX,
   X,
 } from "lucide-react";
+import { literalGloss } from "@/lib/literalGloss";
 import { cn } from "@/lib/utils";
 import { usageNote, useUsageNotes } from "@/lib/usageNotes";
 import { ENGLISH_VARIANT_EVENT } from "@/lib/englishVariant";
@@ -790,6 +791,27 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
   const meaningSlot = courseSide(slotLanguage.en);
   const targetLang = targetSlot.voice;
   const meaningLang = meaningSlot.voice;
+
+  /**
+   * The word-by-word reading of this card, where there is one to give.
+   *
+   * German into English only: the word bank behind it holds German words with
+   * English meanings, so a French or Polish meaning has nothing to build the
+   * line out of, and an English course would be glossing the language the
+   * learner already speaks.
+   */
+  const literalLine = useMemo(
+    () => (slotLanguage.de === "de" && slotLanguage.en === "en" && item
+      ? literalGloss(item.de, item.en)
+      : null),
+    [item, slotLanguage.de, slotLanguage.en]
+  );
+  const turnLiterals = useMemo(
+    () => (slotLanguage.de === "de" && slotLanguage.en === "en"
+      ? (item?.turns ?? []).map((turn) => literalGloss(turn.de, turn.en))
+      : []),
+    [item, slotLanguage.de, slotLanguage.en]
+  );
 
   /**
    * Fetch the next card's audio while this one is still playing.
@@ -1811,6 +1833,16 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
                     <TappableSentence text={turn.de} lang={targetLang} meaningText={turn.en} onWordAudio={pause} />
                   </p>
                   <p className="listen-turn-means" lang={meaningSlot.htmlLang}>{turn.en}</p>
+                  {/* Every turn gets the same word-by-word reading the single
+                      sentence gets — a dialogue is where German's order is
+                      furthest from English's, so leaving it off here would
+                      drop the line exactly where it earns the most. */}
+                  {turnLiterals[turnIndex] ? (
+                    <p className="listen-literal listen-turn-literal" lang="en">
+                      <b>{ui("Literally")}</b>
+                      {turnLiterals[turnIndex]}
+                    </p>
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -1822,6 +1854,19 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
               <p className="text-base font-bold leading-relaxed text-[var(--accent)]" lang={meaningSlot.htmlLang}>
                 {item.en}
               </p>
+              {/* The same sentence read word by word, in German's order. The
+                  translation above says what the sentence means and hides how
+                  it is built; this line puts the words back where German has
+                  them, which is the half a listener cannot hear. It is derived
+                  from the same word bank a tap uses, so nothing here is a
+                  second translation that could drift from the first, and it
+                  stays away where every word would have to be guessed at. */}
+              {literalLine ? (
+                <p className="listen-literal" lang="en">
+                  <b>{ui("Literally")}</b>
+                  {literalLine}
+                </p>
+              ) : null}
             </>
           )}
           {/* How the same sentence is WRITTEN, when the card teaches how it is

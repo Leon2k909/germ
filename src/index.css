@@ -10955,6 +10955,33 @@ html[data-theme="dark"] {
   text-transform: uppercase;
 }
 
+/* The word-by-word reading, under the meaning it belongs to. Quieter than
+   both lines above it and not a pill: it is a way of reading the sentence
+   already on the card, not a third thing to learn, so it sits closer to the
+   meaning than to anything else and never competes with it for the eye. */
+.listen-literal {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.45;
+  color: var(--text-3);
+  overflow-wrap: anywhere;
+}
+
+.listen-literal > b {
+  flex: 0 0 auto;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
 .matcher-tile-note {
   margin-top: 6px;
   font-size: 10px;
@@ -11251,6 +11278,16 @@ html[data-theme="dark"] {
   font-size: 13px;
   font-weight: 700;
   line-height: 1.5;
+}
+
+/* In a dialogue the turns are a two-column grid and every line starts at the
+   speaker's own edge, so the centred single-sentence version would leave this
+   one floating away from the words it reads. */
+.listen-turn-literal {
+  grid-column: 2;
+  justify-content: flex-start;
+  margin-top: 2px;
+  font-size: 12px;
 }
 
 @media (max-width: 640px) {

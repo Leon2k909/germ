@@ -763,6 +763,7 @@ export const IT: Record<string, string> = {
   "{items} cards at a time, heard {passes}×": "{items} carte alla volta, ascoltate {passes}×",
   "Learning pass {pass} of {passes}": "Passaggio di apprendimento {pass} di {passes}",
   "Written": "Scritta",
+  "Literally": "Letteralmente",
   "Meaning here: {sense}": "Significato qui: {sense}",
   "Not everyday neutral German — use in the right company": "Non è tedesco neutro di tutti i giorni: usalo con le persone giuste",
   "Review this item": "Ripassa questo elemento",

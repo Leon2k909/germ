@@ -22,6 +22,7 @@ export const FR: Record<string, string> = {
   "{count} of the items you learned here are past their review date, so you are assumed to have forgotten some of them. Answering them once each puts them back to full.": "{count} des \u00e9l\u00e9ments appris ici ont d\u00e9pass\u00e9 leur date de r\u00e9vision : on suppose donc que vous en avez oubli\u00e9 une partie. Une bonne r\u00e9ponse pour chacun les remet \u00e0 100 %.",
   // ── the written form of a line the course teaches as it is said ───────────
   "Written": "À l'écrit",
+  "Literally": "Littéralement",
   // ── the picker, for a language already on this device ─────────────────────
   "Downloaded": "Téléchargée",
   "Remove?": "Retirer ?",

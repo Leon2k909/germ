@@ -26,6 +26,7 @@ export const PL: Record<string, string> = {
   "{count} fading": "{count} blaknie",
   "{count} of the items you learned here are past their review date, so you are assumed to have forgotten some of them. Answering them once each puts them back to full.": "{count} z nauczonych tu element\u00f3w ma za sob\u0105 termin powt\u00f3rki, wi\u0119c zak\u0142adamy, \u017ce cz\u0119\u015b\u0107 z nich zosta\u0142a zapomniana. Jedna poprawna odpowied\u017a przy ka\u017cdym przywraca pe\u0142n\u0105 warto\u015b\u0107.",
   "Written": "Zapisane",
+  "Literally": "Dosłownie",
   "Downloaded": "Pobrane",
   "Remove?": "Usunąć?",
   "Downloaded — remove": "Pobrane — usuń",
