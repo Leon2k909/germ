@@ -90,6 +90,10 @@ const CASES = [
   // A Polish app beside the Polish course offers nothing but off, the same
   // way a German one does beside Leben in Deutschland.
   ["pl", "pl", "off"],
+  ["de", "it", "off,de"],
+  ["en", "it", "off"],
+  ["fr", "it", "off"],
+  ["pl", "it", "off"],
 ];
 
 for (const [app, course, expected] of CASES) {
