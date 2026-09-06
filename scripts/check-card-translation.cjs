@@ -78,12 +78,18 @@ const CASES = [
   ["fr", "en", "off,fr"],
   ["fr", "de", "off,fr"],
   ["fr", "fr", "off"],
-  // Russian is read by German alone so far. The other three apps offer
-  // nothing beside it, which is the honest answer: no table exists.
+  // Russian and Polish are read by German alone so far. The other apps
+  // offer nothing beside them, which is the honest answer: no table exists.
   ["de", "ru", "off,de"],
   ["en", "ru", "off"],
   ["pl", "ru", "off"],
   ["fr", "ru", "off"],
+  ["de", "pl", "off,de"],
+  ["en", "pl", "off"],
+  ["fr", "pl", "off"],
+  // A Polish app beside the Polish course offers nothing but off, the same
+  // way a German one does beside Leben in Deutschland.
+  ["pl", "pl", "off"],
 ];
 
 for (const [app, course, expected] of CASES) {

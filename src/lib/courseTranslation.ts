@@ -11,6 +11,7 @@ import { LEBEN_IN_DEUTSCHLAND_EN } from "@/lib/lebenInDeutschlandTranslationsEn"
 import { VIVRE_EN_FRANCE_DE } from "@/lib/vivreEnFranceTranslationsDe";
 import { VIVRE_EN_FRANCE_EN } from "@/lib/vivreEnFranceTranslationsEn";
 import { ZHIZN_V_ROSSII_DE } from "@/lib/zhiznVRossiiTranslationsDe";
+import { ZYCIE_W_POLSCE_DE } from "@/lib/zycieWPolsceTranslationsDe";
 import { CSHARP_COURSE_DE } from "@/lib/csharpCourseDe";
 import type { Block, Course, Lesson } from "@/lib/courses";
 
@@ -66,10 +67,11 @@ export const TRANSLATION_LANGUAGES: Array<{
   from: ContentLanguage[] | null;
 }> = [
   { id: "off", label: "No translation", endonym: "No translation", from: null },
-  // Russian joins the German list: the course is written in Cyrillic, which
-  // is a harder wall than an unfamiliar Latin word, so it was the first of
-  // the four newer courses to get a table.
-  { id: "de", label: "German", endonym: "Deutsch", from: ["en", "fr", "ru"] },
+  // Russian joined the German list first: the course is written in Cyrillic,
+  // which is a harder wall than an unfamiliar Latin word. Polish came next,
+  // for the same reason one step down — a German reader can guess at an
+  // Italian sentence and cannot guess at a Polish one.
+  { id: "de", label: "German", endonym: "Deutsch", from: ["en", "fr", "ru", "pl"] },
   { id: "en", label: "English", endonym: "English", from: ["de", "fr"] },
   // All three country courses have Polish tables now.
   { id: "pl", label: "Polish", endonym: "Polski", from: ["en", "de", "fr"] },
@@ -79,7 +81,10 @@ export const TRANSLATION_LANGUAGES: Array<{
 ];
 
 const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>> = {
-  de: { ...LIFE_IN_THE_UK_DE, ...VIVRE_EN_FRANCE_DE, ...ZHIZN_V_ROSSII_DE, ...CSHARP_COURSE_DE },
+  de: {
+    ...LIFE_IN_THE_UK_DE, ...VIVRE_EN_FRANCE_DE, ...ZHIZN_V_ROSSII_DE, ...ZYCIE_W_POLSCE_DE,
+    ...CSHARP_COURSE_DE,
+  },
   en: { ...LEBEN_IN_DEUTSCHLAND_EN, ...VIVRE_EN_FRANCE_EN },
   pl: { ...LIFE_IN_THE_UK_PL, ...LEBEN_IN_DEUTSCHLAND_PL, ...VIVRE_EN_FRANCE_PL },
   fr: { ...LIFE_IN_THE_UK_FR, ...LEBEN_IN_DEUTSCHLAND_FR },
