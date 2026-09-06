@@ -3600,4 +3600,10 @@ export const DE: Record<string, string> = {
   "At the bank counter": "Am Bankschalter",
   "Bringing in the potatoes": "Die Kartoffelernte",
   "The back and the massage course": "Rücken und Massageserie",
+  "The summer without hot water": "Der Sommer ohne Warmwasser",
+  "Flooded from upstairs": "Wasserschaden von oben",
+  "Dressing for the cold": "Sich für die Kälte anziehen",
+  "The entry phone and the concierge": "Sprechanlage und Pförtnerin",
+  "A day at the river": "Ein Tag am Fluss",
+  "Discounts and dates in the shop": "Aktionen und Haltbarkeitsdaten",
 };

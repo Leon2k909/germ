@@ -3352,4 +3352,10 @@ export const FR: Record<string, string> = {
   "At the bank counter": "Au guichet de la banque",
   "Bringing in the potatoes": "L'arrachage des pommes de terre",
   "The back and the massage course": "Le dos et la série de massages",
+  "The summer without hot water": "L'été sans eau chaude",
+  "Flooded from upstairs": "Le dégât des eaux venu d'en haut",
+  "Dressing for the cold": "S'habiller pour le froid",
+  "The entry phone and the concierge": "L'interphone et la concierge",
+  "A day at the river": "Une journée à la rivière",
+  "Discounts and dates in the shop": "Promotions et dates en magasin",
 };

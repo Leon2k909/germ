@@ -2897,4 +2897,10 @@ export const IT: Record<string, string> = {
   "At the bank counter": "Allo sportello della banca",
   "Bringing in the potatoes": "La raccolta delle patate",
   "The back and the massage course": "La schiena e il ciclo di massaggi",
+  "The summer without hot water": "L'estate senza acqua calda",
+  "Flooded from upstairs": "L'allagamento dal piano di sopra",
+  "Dressing for the cold": "Vestirsi per il freddo",
+  "The entry phone and the concierge": "Il citofono e la portinaia",
+  "A day at the river": "Una giornata al fiume",
+  "Discounts and dates in the shop": "Offerte e scadenze al negozio",
 };
