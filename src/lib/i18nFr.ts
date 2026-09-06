@@ -3334,4 +3334,10 @@ export const FR: Record<string, string> = {
   "An afternoon at the circus": "Un après-midi au cirque",
   "At the airport": "À l'aéroport",
   "The children's sports club": "Le club de sport des enfants",
+  "Applying for a pension": "Demander sa retraite",
+  "The river crossing": "La traversée de la rivière",
+  "The fire alarm": "L'alarme incendie",
+  "The house of culture": "La maison de la culture",
+  "Moving house": "Le déménagement",
+  "Getting things repaired": "Faire réparer ses affaires",
 };

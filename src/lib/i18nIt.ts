@@ -2879,4 +2879,10 @@ export const IT: Record<string, string> = {
   "An afternoon at the circus": "Un pomeriggio al circo",
   "At the airport": "In aeroporto",
   "The children's sports club": "La squadra sportiva dei bambini",
+  "Applying for a pension": "Chiedere la pensione",
+  "The river crossing": "L'attraversamento del fiume",
+  "The fire alarm": "L'allarme antincendio",
+  "The house of culture": "La casa della cultura",
+  "Moving house": "Il trasloco",
+  "Getting things repaired": "Far riparare le cose",
 };

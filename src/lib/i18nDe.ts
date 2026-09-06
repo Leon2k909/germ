@@ -3582,4 +3582,10 @@ export const DE: Record<string, string> = {
   "An afternoon at the circus": "Ein Nachmittag im Zirkus",
   "At the airport": "Am Flughafen",
   "The children's sports club": "Die Sportgruppe der Kinder",
+  "Applying for a pension": "Die Rente beantragen",
+  "The river crossing": "Die Flussüberquerung",
+  "The fire alarm": "Der Feueralarm",
+  "The house of culture": "Das Kulturhaus",
+  "Moving house": "Der Umzug",
+  "Getting things repaired": "Sachen reparieren lassen",
 };
