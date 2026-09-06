@@ -27,6 +27,7 @@
  * Both parts read the card's own two sides. Nothing here is a dictionary of
  * German, so it cannot drift out of step with the content.
  */
+import { englishWordGloss } from "@/lib/englishWordGloss";
 
 type SpeechSegment = { text: string; lang: string };
 
@@ -79,6 +80,38 @@ function unmistakablyGerman(word: string): boolean {
 }
 
 /**
+ * A capital in the middle of an English sentence, on a word the German line
+ * also uses.
+ *
+ * English capitalises the start of a sentence and proper nouns; it does not
+ * capitalise common nouns, and German capitalises every one of them. So a
+ * capitalised word sitting mid-sentence in the English line, which the German
+ * line also contains, is a German noun being quoted — as good a proof as an
+ * umlaut, and the only proof available to the many that have none.
+ *
+ * "We're having Abendbrot: bread, cheese, cold cuts" is the case: the whole
+ * line went to the English voice, which read the one German word in it as
+ * though it were English.
+ *
+ * Sentence-initial words are excluded, because every English sentence starts
+ * with a capital and that says nothing about the language. Four letters and
+ * up: a short capitalised token is as likely to be an initial or an English
+ * proper noun, and neither is worth the risk of the wrong voice.
+ *
+ * And a word English HAS is never proof, however it is capitalised. "I have a
+ * Gift for you!" beside a German line about Gift — poison — would otherwise
+ * hand the ordinary English word to the German voice, which is the whole
+ * mistake this file exists to avoid. The gloss table answers that: it knows
+ * gift and kindergarten as English and has never heard of Abendbrot.
+ */
+function quotedGermanNoun(word: string, at: number, line: string): boolean {
+  if (word.length < 4 || word[0] !== word[0].toLocaleUpperCase("de-DE")) return false;
+  if (englishWordGloss(fold(word))) return false;
+  const before = line.slice(0, at).replace(/[\s"'“”‘’(\[]+$/u, "");
+  return before !== "" && !/[.!?…]$/u.test(before);
+}
+
+/**
  * Split an English line into what the English voice says and what the German
  * voice says. One segment, all English, whenever the rule does not fire —
  * which is almost always.
@@ -96,7 +129,7 @@ export function borrowedWordSegments(
   const germanSide = new Set(wordsOf(german));
   if (!germanSide.size) return plain;
 
-  const marks: Array<{ end: number; word: string; german: boolean; shared: boolean; certain: boolean }> = [];
+  const marks: Array<{ end: number; word: string; german: boolean; shared: boolean; certain: boolean; quoted: boolean }> = [];
   for (const match of source.matchAll(WORD)) {
     const word = match[0];
     const shared = germanSide.has(fold(word));
@@ -106,9 +139,15 @@ export function borrowedWordSegments(
       german: false,
       shared,
       certain: shared && unmistakablyGerman(word),
+      // Kept apart from `certain` on purpose. A capitalised noun speaks for
+      // ITSELF and lends nothing to its neighbours: the article rescue below
+      // is for a "die" that cannot prove its own language, and letting a
+      // Tisch or an Abendbrot vouch for the word beside it would widen that
+      // exception into the thing it was narrowed down from.
+      quoted: shared && quotedGermanNoun(word, match.index ?? 0, source),
     });
   }
-  if (!marks.some((mark) => mark.certain)) return plain;
+  if (!marks.some((mark) => mark.certain || mark.quoted)) return plain;
 
   /**
    * One word can be rescued by its neighbours, and it is always an article.
@@ -127,6 +166,7 @@ export function borrowedWordSegments(
   const ARTICLES = new Set(["der", "die", "das", "den", "dem", "des"]);
   for (let index = 0; index < marks.length; index += 1) {
     marks[index].german = marks[index].certain
+      || marks[index].quoted
       || (marks[index].shared
         && ARTICLES.has(marks[index].word)
         && Boolean(marks[index - 1]?.certain || marks[index + 1]?.certain));

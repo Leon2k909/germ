@@ -202,6 +202,44 @@ const ordinary = buildListenSpeechPlan({
 assert.strictEqual(ordinary.length, 2, "an ordinary card no longer plays as two clips");
 assert.strictEqual(ordinary[1].lang, EN, "an ordinary English line was handed to the German voice");
 
+// ── a German noun with no umlaut in it ──────────────────────────────────────
+// The proof used to be an umlaut or a short list of function words, so the one
+// German word in "We're having Abendbrot: bread, cheese, cold cuts" had no way
+// to declare itself and the English voice read it as English. A capital in the
+// MIDDLE of an English sentence, on a word the German line also uses, is the
+// proof: English does not capitalise common nouns and German capitalises all
+// of them.
+{
+  const segments = borrowedWordSegments(
+    "Cooking? Nothing. We're having Abendbrot: bread, cheese, cold cuts, a few pickles.",
+    "Kochen? Nichts. Es gibt Abendbrot: Brot, Käse, Wurst, ein paar Gurken.",
+    EN, DE
+  );
+  const german = segments.filter((segment) => segment.lang === DE).map((segment) => segment.text.trim());
+  assert.deepStrictEqual(german, ["Abendbrot"],
+    `only the German noun should reach the German voice, got ${JSON.stringify(german)}`);
+  assert.ok(segments.some((segment) => segment.lang === EN && /pickles/u.test(segment.text)),
+    "the English around it must stay English");
+}
+// And an English word is never proof, however it is capitalised — the gloss
+// table knows gift and has never heard of Abendbrot.
+{
+  const segments = borrowedWordSegments("I have a Gift for you!", "Ich habe Gift für dich!", EN, DE);
+  assert.ok(segments.every((segment) => segment.lang === EN),
+    "a capitalised ENGLISH word was handed to the German voice");
+}
+// A capitalised noun speaks only for itself: it must not rescue the article
+// beside it, which is a narrower exception for a "die" that cannot prove its
+// own language.
+{
+  const segments = borrowedWordSegments(
+    "Then the Tisch is over there.", "Dann steht der Tisch da drüben.", EN, DE
+  );
+  const german = segments.filter((segment) => segment.lang === DE).map((segment) => segment.text.trim());
+  assert.deepStrictEqual(german, ["Tisch"],
+    `the noun should not pull its neighbours across, got ${JSON.stringify(german)}`);
+}
+
 console.log(
   `check-borrowed-words: ${changed.length} card(s) quote German inside their English and are read `
   + "that way, every one of them recognisably German; ordinary English — 'to die', 'one die', "
