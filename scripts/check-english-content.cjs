@@ -369,6 +369,37 @@ if (failures) {
 }
 
 
+// ── the English must not contradict the German's verb ──────────────────────
+// Tatoeba pairs are two real sentences linked by meaning, not a translation
+// of one into the other, so a pairing can be loose in a way an authored card
+// never is: "Ich brauche das nicht mehr." was taught as "I no longer want
+// that", and a learner who correctly wrote "I don't need that any more" was
+// marked wrong for it. brauchen is need and wollen is want; where one side
+// says one and the other says the other, and nothing in the sentence supplies
+// the second verb, the pair is teaching a mistranslation.
+const verbFailures = [];
+for (const [parts, source] of [[tatoebaParts, "tatoeba"]]) {
+  for (const [key, part] of Object.entries(parts)) {
+    for (const phrase of part.phrases ?? []) {
+      const de = String(phrase.de ?? "");
+      const en = String(phrase.en ?? "");
+      const saysNeed = /\bbrauch\w*\b/iu.test(de);
+      const saysWant = /\b(will|willst|wollen|wollt|wollte\w*|möcht\w*)\b/iu.test(de);
+      if (saysNeed && !saysWant && /\bwants?\b/iu.test(en) && !/\bneed/iu.test(en)) {
+        verbFailures.push(`${source}/${key}: ${de} — taught as "${en}" (brauchen is need)`);
+      }
+      if (saysWant && !saysNeed && /\bneeds?\b/iu.test(en) && !/\bwant/iu.test(en)) {
+        verbFailures.push(`${source}/${key}: ${de} — taught as "${en}" (wollen is want)`);
+      }
+    }
+  }
+}
+if (verbFailures.length) {
+  console.error(`FAIL check-english-content: ${verbFailures.length} pair(s) whose English contradicts the German's verb`);
+  verbFailures.slice(0, 10).forEach((line) => console.error("  " + line));
+  process.exit(1);
+}
+
 if (britishFailures.length || youTwoFailures.length) {
   console.error("FAIL check-english-content (British English rules)");
   britishFailures.forEach((line) => console.error("  " + line));
