@@ -214,10 +214,28 @@ function CodeBlock({ code, small }: { code: string; small?: boolean }) {
   );
 }
 
+/**
+ * A quiz, which reveals the whole block in the reading language at once.
+ *
+ * One marker for the block rather than one per string: the options are
+ * buttons already, and a button inside a button is not a thing. Revealing
+ * only the question would not help anyway — a reader who cannot read the
+ * question cannot read the four answers under it either.
+ *
+ * Until this existed the tables could hold a perfectly good translation for
+ * every question and no reader could ever see it: the prose above carried the
+ * marker, the quiz closing the lesson did not.
+ */
 function Quiz({ q, options, explanation, onCorrect }: { q: string; options: QuizOption[]; explanation: string; onCorrect?: () => void }) {
+  const language = useTranslationLanguage();
   const [picked, setPicked] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
   const answered = picked !== null;
   const correctIdx = options.findIndex((o) => o.correct);
+  const questionDe = translateCourseText(q, language);
+  const optionsDe = options.map((option) => translateCourseText(option.text, language));
+  const explanationDe = translateCourseText(explanation, language);
+  const hasTranslation = Boolean(questionDe || explanationDe || optionsDe.some(Boolean));
 
   const choose = (i: number) => {
     if (answered) return;
@@ -226,10 +244,30 @@ function Quiz({ q, options, explanation, onCorrect }: { q: string; options: Quiz
   };
 
   return (
-    <div className="my-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5">
-      <p className="text-sm font-black text-[var(--text-1)]">
+    <div className="relative my-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5">
+      {hasTranslation && (
+        <button
+          aria-expanded={open}
+          aria-label={open ? ui("Tap to hide the translation") : ui("Tap for the translation")}
+          className={cn(
+            "absolute right-4 top-4 inline-flex items-center transition-opacity",
+            open ? "opacity-100" : "opacity-45 hover:opacity-90"
+          )}
+          onClick={() => setOpen((value) => !value)}
+          title={open ? ui("Tap to hide the translation") : ui("Tap for the translation")}
+          type="button"
+        >
+          <Languages className={cn("h-3.5 w-3.5", open ? "text-[var(--accent)]" : "text-[var(--text-3)]")} />
+        </button>
+      )}
+      <p className={cn("text-sm font-black text-[var(--text-1)]", hasTranslation && "pr-7")}>
         <RichText text={q} />
       </p>
+      {open && questionDe ? (
+        <p className="mt-1.5 border-l-2 border-[var(--accent)] pl-3 text-sm font-bold text-[var(--text-2)]">
+          <RichText text={questionDe} />
+        </p>
+      ) : null}
       <div className="mt-3 flex flex-col gap-2">
         {options.map((opt, i) => {
           const showCorrect = answered && i === correctIdx;
@@ -250,6 +288,9 @@ function Quiz({ q, options, explanation, onCorrect }: { q: string; options: Quiz
               )}
             >
               {opt.text}
+              {open && optionsDe[i] ? (
+                <span className="mt-1 block text-[13px] font-semibold text-[var(--text-2)]">{optionsDe[i]}</span>
+              ) : null}
             </button>
           );
         })}
@@ -269,9 +310,72 @@ function Quiz({ q, options, explanation, onCorrect }: { q: string; options: Quiz
       {answered && (
         <div className="mt-3 rounded-lg bg-[var(--info-bg)] px-3.5 py-2.5 text-sm leading-relaxed text-[var(--info-text)]">
           <RichText text={explanation} />
+          {open && explanationDe ? (
+            <p className="mt-2 border-t border-[var(--border-2)] pt-2">
+              <RichText text={explanationDe} />
+            </p>
+          ) : null}
         </div>
       )}
     </div>
+  );
+}
+
+/**
+ * The two lines that close a lesson, which turn over the way a card does.
+ *
+ * Same reasoning as LessonCard: it only becomes a button when there is
+ * something to reveal, so a course with no table for the reader's language
+ * renders exactly the panel it always did.
+ */
+function LessonCta({ title, sub }: { title: string; sub: string }) {
+  const language = useTranslationLanguage();
+  const [open, setOpen] = useState(false);
+  const titleDe = translateCourseText(title, language);
+  const subDe = translateCourseText(sub, language);
+  const hasTranslation = Boolean(titleDe || subDe);
+
+  const body = (
+    <>
+      <p className="text-base font-black text-[var(--text-1)]">{title}</p>
+      <p className="mt-1 text-sm font-semibold text-[var(--text-2)]">{sub}</p>
+      {open && (
+        <div className="mt-3 border-t border-[var(--border-2)] pt-2.5">
+          {titleDe ? <p className="text-sm font-black text-[var(--accent)]">{titleDe}</p> : null}
+          {subDe ? <p className="mt-1 text-sm font-semibold text-[var(--text-2)]">{subDe}</p> : null}
+        </div>
+      )}
+    </>
+  );
+
+  if (!hasTranslation) {
+    return (
+      <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5 text-center">{body}</div>
+    );
+  }
+
+  return (
+    <button
+      aria-expanded={open}
+      className={cn(
+        "group relative mt-6 w-full rounded-2xl border p-5 text-center transition-colors",
+        open
+          ? "border-[var(--accent)] bg-[var(--accent-dim)]"
+          : "border-[var(--border)] bg-[var(--surface-2)] hover:border-[var(--border-2)] hover:bg-[var(--surface-3)]"
+      )}
+      onClick={() => setOpen((value) => !value)}
+      title={open ? ui("Tap to hide the translation") : ui("Tap for the translation")}
+      type="button"
+    >
+      <Languages
+        aria-hidden="true"
+        className={cn(
+          "absolute right-4 top-4 h-3.5 w-3.5 transition-opacity",
+          open ? "text-[var(--accent)] opacity-100" : "text-[var(--text-3)] opacity-45 group-hover:opacity-90"
+        )}
+      />
+      {body}
+    </button>
   );
 }
 
@@ -348,12 +452,7 @@ export function LessonBlocks({
               <Quiz key={i} q={block.q} options={block.options} explanation={block.explanation} onCorrect={onQuizCorrect} />
             );
           case "cta":
-            return (
-              <div key={i} className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5 text-center">
-                <p className="text-base font-black text-[var(--text-1)]">{block.title}</p>
-                <p className="mt-1 text-sm font-semibold text-[var(--text-2)]">{block.sub}</p>
-              </div>
-            );
+            return <LessonCta key={i} sub={block.sub} title={block.title} />;
           default:
             return null;
         }

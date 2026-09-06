@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Check, ChevronRight, Code2, RotateCcw, X, Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ChevronRight, Code2, Languages, RotateCcw, X, Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ui, uiFmt } from "@/lib/i18n";
+import { translateCourseText, useTranslationLanguage } from "@/lib/courseTranslation";
 import { resolveLessonForBackground, type Course, type Lesson } from "@/lib/courses";
 import { getCodeBackground } from "@/lib/codeBackground";
 import { buildLessonSession, checkCode, type QuizStep, type SessionStep } from "@/lib/courseSession";
@@ -321,10 +322,28 @@ function ConceptStepView({ blocks, onNext }: { blocks: SessionStep extends never
   );
 }
 
+/**
+ * One question of a stepped lesson, with the reading translation behind a tap.
+ *
+ * This is the quiz a reader actually meets: the one-page LessonBlocks view
+ * hides the questions and the session shows them one at a time. Both carry
+ * the marker now — a table can hold every question in the reader's language
+ * and it means nothing unless the screen offers to show it.
+ *
+ * One marker for the whole block, as in LessonBlocks: the options are buttons
+ * already, and a reader who cannot read the question cannot read the four
+ * answers under it either.
+ */
 function QuizStepView({ q, options, explanation, onNext, onAnswered }: { q: string; options: { text: string; correct: boolean }[]; explanation: string; onNext: () => void; onAnswered?: (correct: boolean, chosen: number) => void }) {
+  const language = useTranslationLanguage();
   const [picked, setPicked] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
   const answered = picked !== null;
   const correctIdx = options.findIndex((o) => o.correct);
+  const questionRead = translateCourseText(q, language);
+  const optionsRead = options.map((option) => translateCourseText(option.text, language));
+  const explanationRead = translateCourseText(explanation, language);
+  const hasTranslation = Boolean(questionRead || explanationRead || optionsRead.some(Boolean));
   const chooseOption = (index: number) => {
     if (answered) return;
     setPicked(index);
@@ -337,8 +356,26 @@ function QuizStepView({ q, options, explanation, onNext, onAnswered }: { q: stri
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-3xl space-y-4">
-      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5">
-        <p className="text-base font-black text-[var(--text-1)]">{q}</p>
+      <div className="relative rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5">
+        {hasTranslation && (
+          <button
+            aria-expanded={open}
+            aria-label={open ? ui("Tap to hide the translation") : ui("Tap for the translation")}
+            className={cn(
+              "absolute right-4 top-4 inline-flex items-center transition-opacity",
+              open ? "opacity-100" : "opacity-45 hover:opacity-90"
+            )}
+            onClick={() => setOpen((value) => !value)}
+            title={open ? ui("Tap to hide the translation") : ui("Tap for the translation")}
+            type="button"
+          >
+            <Languages className={cn("h-4 w-4", open ? "text-[var(--accent)]" : "text-[var(--text-3)]")} />
+          </button>
+        )}
+        <p className={cn("text-base font-black text-[var(--text-1)]", hasTranslation && "pr-8")}>{q}</p>
+        {open && questionRead ? (
+          <p className="mt-2 border-l-2 border-[var(--accent)] pl-3 text-base font-bold text-[var(--text-2)]">{questionRead}</p>
+        ) : null}
         <div className="mt-3 flex flex-col gap-2">
           {options.map((opt, i) => {
             const showCorrect = answered && i === correctIdx;
@@ -357,6 +394,9 @@ function QuizStepView({ q, options, explanation, onNext, onAnswered }: { q: stri
                 )}
               >
                 {opt.text}
+                {open && optionsRead[i] ? (
+                  <span className="mt-1 block text-[13px] font-semibold opacity-80">{optionsRead[i]}</span>
+                ) : null}
               </button>
             );
           })}
@@ -364,6 +404,9 @@ function QuizStepView({ q, options, explanation, onNext, onAnswered }: { q: stri
         {answered && (
           <div className="mt-3 rounded-xl bg-[var(--info-bg)] px-4 py-3 text-sm leading-relaxed text-[var(--info-text)]">
             {explanation}
+            {open && explanationRead ? (
+              <p className="mt-2 pt-2 opacity-80">{explanationRead}</p>
+            ) : null}
           </div>
         )}
       </div>
