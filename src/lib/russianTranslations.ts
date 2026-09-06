@@ -4392,9 +4392,9 @@ export const RUSSIAN_BY_GERMAN: Record<string, string> = {
   "Ich hab meine PIN dreimal falsch eingegeben, jetzt ist die Karte gesperrt.": "ПИН у меня трижды введён неверно, теперь карта заблокирована.",
   "leiden": "страдать",
 
-  // Pendeln, Friseur und der Rest des Arbeitstags. Die deutsche Note Vier
-  // wird erklaert statt uebersetzt: eine Vier ist in Russland eine gute
-  // Note, im deutschen Zeugnis fast ein Ungenuegend.
+  // Pendeln, Friseur und der Rest des Arbeitstags. Die Zeugnis-Zeile nennt
+  // gar keine Note mehr, weder auf Deutsch noch hier: Schulnoten bedeuten
+  // ueberall etwas anderes, und schlecht ist schlecht in jeder Sprache.
   "Ich hänge dir die Unterlagen gleich in einer Mail an.": "Документы я сейчас пришлю тебе во вложении к письму.",
   "Womit beschäftigst du dich gerade?": "Чем ты сейчас занимаешься?",
   "Mir fehlt Schraube Nummer sechs.": "У меня не хватает винта номер шесть.",
@@ -4495,7 +4495,7 @@ export const RUSSIAN_BY_GERMAN: Record<string, string> = {
   "Wie hoch ist das Porto für diesen Brief?": "Сколько стоит отправка этого письма?",
   "aussteigen": "выходить из транспорта",
   "Klar, du putzt bei voller Sonne.": "Ну конечно, ты моешь на самом солнце.",
-  "Autsch, das ist eine Vier. Im Ernst, lass das von jemandem prüfen.": "Ой, это плохая оценка. Серьёзно, дай кому-нибудь это проверить.",
+  "Autsch, das ist eine schlechte Note. Im Ernst, lass das von jemandem prüfen.": "Ой, это плохая оценка. Серьёзно, дай кому-нибудь это проверить.",
   "Ich zeig dir gleich welche Einstellung du ändern musst.": "Я тебе сейчас покажу, какую настройку надо поменять.",
   "Was schulde ich dir?": "Сколько с меня?",
   "Können Sie mir die Haare hochstecken? Ich geh auf eine Hochzeit.": "Вы можете мне заколоть волосы наверх? Я иду на свадьбу.",
