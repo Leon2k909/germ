@@ -3624,4 +3624,10 @@ export const DE: Record<string, string> = {
   "The long drive": "Die lange Fahrt",
   "At the pharmacy counter": "Am Apothekentresen",
   "The parcel and the slip in the letterbox": "Das Paket und der Zettel im Briefkasten",
+  "Taking offence and making up": "Gekränkt sein und sich versöhnen",
+  "Vague time and putting things off": "Unscharfe Zeitangaben und Aufschieben",
+  "Agreeing to differ": "Sich einig sein, uneinig zu bleiben",
+  "Lectures and lecture notes": "Vorlesungen und Mitschriften",
+  "When the line breaks up": "Wenn die Verbindung wegbricht",
+  "Clothes that suit and clothes that don't": "Was steht und was nicht",
 };

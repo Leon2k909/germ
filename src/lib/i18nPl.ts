@@ -3376,4 +3376,10 @@ export const PL: Record<string, string> = {
   "The long drive": "Długa trasa",
   "At the pharmacy counter": "Przy okienku w aptece",
   "The parcel and the slip in the letterbox": "Paczka i awizo w skrzynce",
+  "Taking offence and making up": "Obraza i pogodzenie się",
+  "Vague time and putting things off": "Nieokreślony czas i odkładanie",
+  "Agreeing to differ": "Zgoda na to, że się nie zgadzamy",
+  "Lectures and lecture notes": "Wykłady i notatki",
+  "When the line breaks up": "Kiedy zrywa się połączenie",
+  "Clothes that suit and clothes that don't": "Co pasuje, a co nie",
 };

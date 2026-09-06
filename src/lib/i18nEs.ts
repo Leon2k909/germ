@@ -2940,4 +2940,10 @@ export const ES: Record<string, string> = {
   "The long drive": "El viaje largo en coche",
   "At the pharmacy counter": "En el mostrador de la farmacia",
   "The parcel and the slip in the letterbox": "El paquete y el aviso en el buzón",
+  "Taking offence and making up": "Ofenderse y reconciliarse",
+  "Vague time and putting things off": "El tiempo vago y el aplazar",
+  "Agreeing to differ": "Acordar que no se está de acuerdo",
+  "Lectures and lecture notes": "Las clases y los apuntes",
+  "When the line breaks up": "Cuando se corta la llamada",
+  "Clothes that suit and clothes that don't": "Lo que sienta bien y lo que no",
 };
