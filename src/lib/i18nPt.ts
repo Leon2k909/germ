@@ -3297,4 +3297,10 @@ export const PT: Record<string, string> = {
   "Lectures and lecture notes": "As aulas e os apontamentos",
   "When the line breaks up": "Quando a linha se corta",
   "Clothes that suit and clothes that don't": "O que fica bem e o que não fica",
+  "Leftovers and cooking for two days": "As sobras e cozinhar para dois dias",
+  "The spring clear-out": "As limpezas da primavera",
+  "Making it to payday": "Chegar ao dia do ordenado",
+  "Lending a hand": "Dar uma ajuda",
+  "Getting over it at home": "Curar-se em casa",
+  "A quiet evening in": "Uma noite calma em casa",
 };

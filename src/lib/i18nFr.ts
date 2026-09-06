@@ -3382,4 +3382,10 @@ export const FR: Record<string, string> = {
   "Lectures and lecture notes": "Les cours et les notes",
   "When the line breaks up": "Quand la ligne coupe",
   "Clothes that suit and clothes that don't": "Ce qui va et ce qui ne va pas",
+  "Leftovers and cooking for two days": "Les restes et cuisiner pour deux jours",
+  "The spring clear-out": "Le grand nettoyage de printemps",
+  "Making it to payday": "Tenir jusqu'à la paie",
+  "Lending a hand": "Donner un coup de main",
+  "Getting over it at home": "Se soigner à la maison",
+  "A quiet evening in": "Une soirée tranquille chez soi",
 };

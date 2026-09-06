@@ -2946,4 +2946,10 @@ export const ES: Record<string, string> = {
   "Lectures and lecture notes": "Las clases y los apuntes",
   "When the line breaks up": "Cuando se corta la llamada",
   "Clothes that suit and clothes that don't": "Lo que sienta bien y lo que no",
+  "Leftovers and cooking for two days": "Las sobras y cocinar para dos días",
+  "The spring clear-out": "La limpieza de primavera",
+  "Making it to payday": "Llegar a fin de mes",
+  "Lending a hand": "Echar una mano",
+  "Getting over it at home": "Curarse en casa",
+  "A quiet evening in": "Una noche tranquila en casa",
 };

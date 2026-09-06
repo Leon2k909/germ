@@ -2927,4 +2927,10 @@ export const IT: Record<string, string> = {
   "Lectures and lecture notes": "Le lezioni e gli appunti",
   "When the line breaks up": "Quando cade la linea",
   "Clothes that suit and clothes that don't": "Quello che sta bene e quello che no",
+  "Leftovers and cooking for two days": "Gli avanzi e cucinare per due giorni",
+  "The spring clear-out": "Le pulizie di primavera",
+  "Making it to payday": "Arrivare allo stipendio",
+  "Lending a hand": "Dare una mano",
+  "Getting over it at home": "Rimettersi a casa",
+  "A quiet evening in": "Una serata tranquilla a casa",
 };

@@ -3630,4 +3630,10 @@ export const DE: Record<string, string> = {
   "Lectures and lecture notes": "Vorlesungen und Mitschriften",
   "When the line breaks up": "Wenn die Verbindung wegbricht",
   "Clothes that suit and clothes that don't": "Was steht und was nicht",
+  "Leftovers and cooking for two days": "Reste und für zwei Tage kochen",
+  "The spring clear-out": "Der Frühjahrsputz",
+  "Making it to payday": "Bis zum Zahltag kommen",
+  "Lending a hand": "Mit anpacken",
+  "Getting over it at home": "Sich zu Hause auskurieren",
+  "A quiet evening in": "Ein stiller Abend zu Hause",
 };
