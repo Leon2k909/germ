@@ -3243,4 +3243,10 @@ export const PT: Record<string, string> = {
   "The beehives and the frame": "As colmeias e a estufa fria",
   "The ice rink in the yard": "A pista de gelo do pátio",
   "In the hospital ward": "Na enfermaria",
+  "The music school": "A escola de música",
+  "A round birthday at work": "Um aniversário redondo no trabalho",
+  "The lending library": "A biblioteca de empréstimo",
+  "An afternoon at the circus": "Uma tarde no circo",
+  "At the airport": "No aeroporto",
+  "The children's sports club": "O clube desportivo das crianças",
 };
