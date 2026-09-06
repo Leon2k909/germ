@@ -3677,4 +3677,10 @@ export const DE: Record<string, string> = {
   "A set at the gym": "Ein Satz im Kraftraum",
   "Looking in on the old people": "Nach den Alten sehen",
   "An hour on the ice": "Eine Stunde auf dem Eis",
+  "Under the big top": "Unter der Zirkuskuppel",
+  "The driving test": "Die Fahrprüfung",
+  "A course of treatment": "Die Kur",
+  "Down at the garages": "Unten bei den Garagen",
+  "Renting from the owner": "Mieten von der Eigentümerin",
+  "Results and places": "Punkte und Studienplätze",
 };
