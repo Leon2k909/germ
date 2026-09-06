@@ -3292,4 +3292,10 @@ export const FR: Record<string, string> = {
   "Working away up north": "La rotation dans le Nord",
   "Fishing through the ice": "La pêche sur la glace",
   "The housewarming": "La pendaison de crémaillère",
+  "The hike with a tent": "La randonnée sous tente",
+  "The exam season": "La session d'examens",
+  "The maternity hospital": "La maternité",
+  "The twelve days after Christmas": "Les douze jours après Noël",
+  "Hailing a car": "Héler une voiture",
+  "The second-hand market": "Le marché aux puces",
 };

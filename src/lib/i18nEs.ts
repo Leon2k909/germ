@@ -2853,4 +2853,10 @@ export const ES: Record<string, string> = {
   "Working away up north": "El turno en el norte",
   "Fishing through the ice": "La pesca en el hielo",
   "The housewarming": "La fiesta de estreno de casa",
+  "The hike with a tent": "La excursión con tienda",
+  "The exam season": "La época de exámenes",
+  "The maternity hospital": "La maternidad",
+  "The twelve days after Christmas": "Los doce días de Navidad",
+  "Hailing a car": "Parar un coche",
+  "The second-hand market": "El mercadillo de segunda mano",
 };

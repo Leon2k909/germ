@@ -3292,4 +3292,10 @@ export const PL: Record<string, string> = {
   "Working away up north": "Praca na Północy",
   "Fishing through the ice": "Wędkowanie pod lodem",
   "The housewarming": "Parapetówka",
+  "The hike with a tent": "Wyprawa z namiotem",
+  "The exam season": "Sesja egzaminacyjna",
+  "The maternity hospital": "Szpital położniczy",
+  "The twelve days after Christmas": "Dwanaście dni po Bożym Narodzeniu",
+  "Hailing a car": "Łapanie samochodu",
+  "The second-hand market": "Pchli targ",
 };

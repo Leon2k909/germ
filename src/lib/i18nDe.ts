@@ -3540,4 +3540,10 @@ export const DE: Record<string, string> = {
   "Working away up north": "Die Schicht im Norden",
   "Fishing through the ice": "Angeln auf dem Eis",
   "The housewarming": "Die Einweihung der Wohnung",
+  "The hike with a tent": "Die Zelttour",
+  "The exam season": "Die Prüfungszeit",
+  "The maternity hospital": "Die Entbindungsklinik",
+  "The twelve days after Christmas": "Die Zwölf Nächte",
+  "Hailing a car": "Ein Auto heranwinken",
+  "The second-hand market": "Der Trödelmarkt",
 };

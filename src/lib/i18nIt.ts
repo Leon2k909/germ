@@ -2834,4 +2834,10 @@ export const IT: Record<string, string> = {
   "Working away up north": "Il turno al Nord",
   "Fishing through the ice": "La pesca sul ghiaccio",
   "The housewarming": "La festa per la casa nuova",
+  "The hike with a tent": "Il trekking con la tenda",
+  "The exam season": "La sessione d'esami",
+  "The maternity hospital": "Il reparto maternità",
+  "The twelve days after Christmas": "I dodici giorni dopo Natale",
+  "Hailing a car": "Fermare una macchina",
+  "The second-hand market": "Il mercatino dell'usato",
 };
