@@ -3665,4 +3665,10 @@ export const DE: Record<string, string> = {
   "At the till": "An der Kasse",
   "Life on a pension": "Das Leben in Rente",
   "Paying your fare forward": "Das Fahrgeld nach vorn reichen",
+  "Settling into nursery": "Die Eingewöhnung in der Kita",
+  "Boarding the plane": "An Bord gehen",
+  "Changing over for winter": "Der Wechsel auf Winterreifen",
+  "Down at the river": "Unten am Fluss",
+  "Moving day": "Der Umzugstag",
+  "Taking it in at the tailor's": "Beim Schneider ändern lassen",
 };

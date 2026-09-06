@@ -3417,4 +3417,10 @@ export const FR: Record<string, string> = {
   "At the till": "À la caisse",
   "Life on a pension": "La vie à la retraite",
   "Paying your fare forward": "Faire passer le prix de la course",
+  "Settling into nursery": "L'adaptation à la crèche",
+  "Boarding the plane": "L'embarquement",
+  "Changing over for winter": "Le passage aux pneus d'hiver",
+  "Down at the river": "Au bord de la rivière",
+  "Moving day": "Le jour du déménagement",
+  "Taking it in at the tailor's": "Les retouches chez le tailleur",
 };
