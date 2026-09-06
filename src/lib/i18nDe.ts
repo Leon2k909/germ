@@ -3659,4 +3659,10 @@ export const DE: Record<string, string> = {
   "Putting up jars for winter": "Einwecken für den Winter",
   "Getting a tradesman in": "Einen Handwerker holen",
   "Plans that stay open": "Pläne, die offen bleiben",
+  "What kind of flat it is": "Was für eine Wohnung es ist",
+  "The parents' evening": "Der Elternabend",
+  "Riding in the taxi": "Die Fahrt im Taxi",
+  "At the till": "An der Kasse",
+  "Life on a pension": "Das Leben in Rente",
+  "Paying your fare forward": "Das Fahrgeld nach vorn reichen",
 };

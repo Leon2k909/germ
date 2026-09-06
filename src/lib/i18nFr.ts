@@ -3411,4 +3411,10 @@ export const FR: Record<string, string> = {
   "Putting up jars for winter": "Les bocaux pour l'hiver",
   "Getting a tradesman in": "Faire venir un artisan",
   "Plans that stay open": "Des projets qui restent ouverts",
+  "What kind of flat it is": "Quel genre d'appartement",
+  "The parents' evening": "La réunion de parents",
+  "Riding in the taxi": "Le trajet en taxi",
+  "At the till": "À la caisse",
+  "Life on a pension": "La vie à la retraite",
+  "Paying your fare forward": "Faire passer le prix de la course",
 };
