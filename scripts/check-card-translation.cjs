@@ -95,8 +95,9 @@ const CASES = [
   // A Polish app beside the Polish course offers nothing but off, the same
   // way a German one does beside Leben in Deutschland.
   ["pl", "pl", "off"],
+  // Italy is the third English has reached. Only Spain is left of the four.
   ["de", "it", "off,de"],
-  ["en", "it", "off"],
+  ["en", "it", "off,en"],
   ["fr", "it", "off"],
   ["pl", "it", "off"],
   ["de", "es", "off,de"],

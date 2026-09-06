@@ -51,6 +51,22 @@ const COURSES = [
     sourceLetters: /[ąćęłńóśźż]/,
     keep: ["Sejm", "Senat", "wójt", "starosta", "PESEL"],
   },
+  {
+    label: "Vivere in Italia",
+    course: { module: "vivereInItaliaCourse", symbol: "vivereInItaliaCourse" },
+    table: { module: "vivereInItaliaTranslationsEn", symbol: "VIVERE_IN_ITALIA_EN" },
+    // Italian and English share their alphabet apart from the grave and
+    // acute accents, so the untranslated-value test rests on those alone. It
+    // is a weaker net than the Polish one, which is why the identical-
+    // sentence test below carries more of the weight here.
+    sourceLetters: /[àèéìòù]/,
+    // Only terms with NO English equivalent belong here. Costituzione and
+    // Parlamento do have one and should be translated; putting them in this
+    // list would demand the opposite of good English. What is left is short
+    // because Italian institutions mostly have English names — which is
+    // exactly why the few that do not have to survive.
+    keep: ["codice fiscale", "Ferragosto", "cappuccino"],
+  },
 ];
 
 // Every table spread into TRANSLATIONS.en, including the ones checked
@@ -235,10 +251,12 @@ for (const entry of COURSES) {
     `${entry.table.symbol} is not registered in TRANSLATIONS, so nothing would ever look it up`
   );
 }
-assert.ok(
-  from[1].includes('"pl"'),
-  "English must be registered as translating FROM Polish, or it is never offered beside that course"
-);
+for (const source of ['"pl"', '"it"']) {
+  assert.ok(
+    from[1].includes(source),
+    `English must be registered as translating FROM ${source}, or it is never offered beside that course`
+  );
+}
 
 if (failures.length) {
   console.error("FAIL check-en-translations");
