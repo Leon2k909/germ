@@ -3338,4 +3338,10 @@ export const PT: Record<string, string> = {
   "Down at the river": "Lá no rio",
   "Moving day": "O dia da mudança",
   "Taking it in at the tailor's": "Os arranjos no alfaiate",
+  "The small claims court": "O tribunal de pequenas causas",
+  "A problem with the card": "Um problema com o cartão",
+  "Borrowing and bringing back": "Requisitar e devolver",
+  "A set at the gym": "Uma série no ginásio",
+  "Looking in on the old people": "Passar pelos mais velhos",
+  "An hour on the ice": "Uma hora no gelo",
 };

@@ -2968,4 +2968,10 @@ export const IT: Record<string, string> = {
   "Down at the river": "Giù al fiume",
   "Moving day": "Il giorno del trasloco",
   "Taking it in at the tailor's": "Le modifiche dal sarto",
+  "The small claims court": "Il giudice di pace",
+  "A problem with the card": "Un problema con la carta",
+  "Borrowing and bringing back": "Prendere e riportare",
+  "A set at the gym": "Una serie in palestra",
+  "Looking in on the old people": "Passare dagli anziani",
+  "An hour on the ice": "Un'ora sul ghiaccio",
 };

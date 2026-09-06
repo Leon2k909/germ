@@ -3423,4 +3423,10 @@ export const FR: Record<string, string> = {
   "Down at the river": "Au bord de la rivière",
   "Moving day": "Le jour du déménagement",
   "Taking it in at the tailor's": "Les retouches chez le tailleur",
+  "The small claims court": "Le tribunal d'instance",
+  "A problem with the card": "Un problème de carte",
+  "Borrowing and bringing back": "Emprunter et rendre",
+  "A set at the gym": "Une série à la salle",
+  "Looking in on the old people": "Prendre des nouvelles des anciens",
+  "An hour on the ice": "Une heure sur la glace",
 };
