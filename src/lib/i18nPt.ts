@@ -3210,4 +3210,10 @@ export const PT: Record<string, string> = {
   "The twelve days after Christmas": "Os doze dias depois do Natal",
   "Hailing a car": "Parar um carro",
   "The second-hand market": "O mercado de usados",
+  "The cheap eating house": "A casa de pastel",
+  "At the barber and the nail bar": "No barbeiro e na manicure",
+  "On the building site": "Na obra",
+  "The village house": "A casa da aldeia",
+  "The housing estate": "O bairro de blocos",
+  "The museum visit": "A visita ao museu",
 };

@@ -3546,4 +3546,10 @@ export const DE: Record<string, string> = {
   "The twelve days after Christmas": "Die Zwölf Nächte",
   "Hailing a car": "Ein Auto heranwinken",
   "The second-hand market": "Der Trödelmarkt",
+  "The cheap eating house": "Die Teigtaschenstube",
+  "At the barber and the nail bar": "Beim Friseur und beim Nagelstudio",
+  "On the building site": "Auf der Baustelle",
+  "The village house": "Das Haus im Dorf",
+  "The housing estate": "Die Plattenbausiedlung",
+  "The museum visit": "Der Museumsbesuch",
 };

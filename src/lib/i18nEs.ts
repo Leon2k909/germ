@@ -2859,4 +2859,10 @@ export const ES: Record<string, string> = {
   "The twelve days after Christmas": "Los doce días de Navidad",
   "Hailing a car": "Parar un coche",
   "The second-hand market": "El mercadillo de segunda mano",
+  "The cheap eating house": "La casa de comidas",
+  "At the barber and the nail bar": "En la barbería y el salón de uñas",
+  "On the building site": "En la obra",
+  "The village house": "La casa del pueblo",
+  "The housing estate": "El barrio de bloques",
+  "The museum visit": "La visita al museo",
 };

@@ -3298,4 +3298,10 @@ export const FR: Record<string, string> = {
   "The twelve days after Christmas": "Les douze jours après Noël",
   "Hailing a car": "Héler une voiture",
   "The second-hand market": "Le marché aux puces",
+  "The cheap eating house": "La cantine populaire",
+  "At the barber and the nail bar": "Chez le coiffeur et la manucure",
+  "On the building site": "Sur le chantier",
+  "The village house": "La maison du village",
+  "The housing estate": "La cité de barres",
+  "The museum visit": "La visite au musée",
 };
