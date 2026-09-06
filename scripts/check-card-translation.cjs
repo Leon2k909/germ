@@ -78,10 +78,14 @@ const CASES = [
   ["fr", "en", "off,fr"],
   ["fr", "de", "off,fr"],
   ["fr", "fr", "off"],
-  // Russian and Polish are read by German alone so far. The other apps
-  // offer nothing beside them, which is the honest answer: no table exists.
+  // Russian is read by German and now by English. Cyrillic was the place
+  // where a missing table actually stopped a reader — the rest of the country
+  // courses are at least guessable in a Latin alphabet — so it was the first
+  // of the four English could not reach to be closed.
   ["de", "ru", "off,de"],
-  ["en", "ru", "off"],
+  ["en", "ru", "off,en"],
+  // Polish is read by German alone so far. The apps with no table offer
+  // nothing beside it, which is the honest answer rather than a broken menu.
   ["pl", "ru", "off"],
   ["fr", "ru", "off"],
   ["de", "pl", "off,de"],
