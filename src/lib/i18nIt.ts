@@ -2817,4 +2817,9 @@ export const IT: Record<string, string> = {
   "Hello, goodbye & small talk": "Ciao, arrivederci e due chiacchiere",
   "Which of these would you say when greeting someone, or leaving?": "Quali di questi diresti per salutare qualcuno, all'arrivo o all'uscita?",
   "Which of these would you say when making plans with someone?": "Quali di questi diresti per organizzare qualcosa con qualcuno?",
+  "Paragraphs at a time": "Paragrafi alla volta",
+  "paragraphs": "paragrafi",
+  "How many paragraphs you hear before they come round again": "Quanti paragrafi senti prima che tornino",
+  "{mix} at a time, heard {passes}×": "{mix} alla volta, ascoltati {passes}×",
+  "Right now: {mix} = {total} cards at a time, each heard {passes}×. The first {total} play {passes} times over, then the next {total} do the same.": "Adesso: {mix} = {total} carte alla volta, ognuna ascoltata {passes}×. Le prime {total} girano {passes} volte, poi le successive {total} fanno lo stesso.",
 };

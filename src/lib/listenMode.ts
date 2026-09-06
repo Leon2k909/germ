@@ -120,12 +120,39 @@ const MAX_LANGUAGE_GAP_MS = 30_000;
 export const DEFAULT_TARGET_REPEATS = 2;
 export const DEFAULT_MEANING_REPEATS = 1;
 export const DEFAULT_LISTEN_LOOP_ITEMS = 3;
-type ListenMixedCounts = { words: number; sentences: number };
-export const DEFAULT_LISTEN_MIXED_COUNTS: ListenMixedCounts = { words: 1, sentences: 2 };
+/**
+ * How many of each kind play before the loop comes round again.
+ *
+ * One number per body of material Listen can draw from, so a learner who
+ * wants mostly sentences with the odd paragraph can say exactly that. Ticking
+ * a kind decides whether it plays at all; these decide how much of it.
+ *
+ * Paragraphs were missing here for as long as they have existed as a content
+ * source: the deal split words from everything-else, so a paragraph counted
+ * as a sentence and there was no way to ask for fewer of them — the one kind
+ * where the difference is most felt, a paragraph being many times the length
+ * of a sentence.
+ */
+type ListenMixedCounts = { words: number; sentences: number; passages: number };
+export const LISTEN_MIXED_TOTAL = 12;
+export const DEFAULT_LISTEN_MIXED_COUNTS: ListenMixedCounts = { words: 1, sentences: 2, passages: 1 };
+/**
+ * Every count is at least 1 and the three together never exceed twelve.
+ *
+ * Read in a fixed order, each taking what the ones before it left, so a
+ * stored value that is too large is clamped rather than rejected and the
+ * result is always a usable loop. Passages last because it is the kind most
+ * people want least of.
+ */
 function normalizeListenMixedCounts(value: Partial<ListenMixedCounts> | null | undefined): ListenMixedCounts {
-  const words = Number.isFinite(value?.words) ? Math.max(1, Math.min(11, Math.round(value?.words as number))) : DEFAULT_LISTEN_MIXED_COUNTS.words;
-  const sentences = Number.isFinite(value?.sentences) ? Math.max(1, Math.min(12 - words, Math.round(value?.sentences as number))) : DEFAULT_LISTEN_MIXED_COUNTS.sentences;
-  return { words, sentences };
+  const read = (raw: unknown, fallback: number, room: number) => {
+    const n = Number.isFinite(raw) ? Math.round(raw as number) : fallback;
+    return Math.max(1, Math.min(room, n));
+  };
+  const words = read(value?.words, DEFAULT_LISTEN_MIXED_COUNTS.words, LISTEN_MIXED_TOTAL - 2);
+  const sentences = read(value?.sentences, DEFAULT_LISTEN_MIXED_COUNTS.sentences, LISTEN_MIXED_TOTAL - words - 1);
+  const passages = read(value?.passages, DEFAULT_LISTEN_MIXED_COUNTS.passages, LISTEN_MIXED_TOTAL - words - sentences);
+  return { words, sentences, passages };
 }
 export function getListenMixedCounts(direction: LearningDirection = getLearningDirection()): ListenMixedCounts {
   try {
@@ -1184,17 +1211,26 @@ export function arrangeListenMixedQueue(
   groupOf?: (item: ListenItem) => number | string | undefined
 ): ListenItem[] {
   const wanted = normalizeListenMixedCounts(counts);
+  // Paragraphs used to deal on the sentence side, on the reasoning that the
+  // cadence was between single words and running language and that a pool of
+  // ten paragraphs would otherwise put one in every round. But that left the
+  // one kind whose length is most felt — a paragraph runs many times a
+  // sentence — as the only kind nobody could ask for less of. It has its own
+  // stream now, and how many is the learner's to say; a small pool simply
+  // runs out and the other streams carry on, which is what the loop already
+  // does for any kind that empties first.
   const deal = (rows: ListenItem[], out: ListenItem[]) => {
-    const words = rows.filter((item) => item.kind === "word");
-    // Paragraphs deal on the sentence side. The counts below are a
-    // cadence between single words and running language, and a paragraph
-    // belongs to the second; giving it a third slot of its own would put
-    // one in every round off a pool of ten.
-    const sentences = rows.filter((item) => item.kind !== "word");
-    let wi = 0; let si = 0;
-    while (wi < words.length || si < sentences.length) {
-      for (let i = 0; i < wanted.words && wi < words.length; i += 1) out.push(words[wi++]);
-      for (let i = 0; i < wanted.sentences && si < sentences.length; i += 1) out.push(sentences[si++]);
+    const streams: Array<{ rows: ListenItem[]; want: number; at: number }> = [
+      { rows: rows.filter((item) => item.kind === "word"), want: wanted.words, at: 0 },
+      { rows: rows.filter((item) => item.kind === "sentence"), want: wanted.sentences, at: 0 },
+      { rows: rows.filter((item) => item.kind === "passage"), want: wanted.passages, at: 0 },
+    ];
+    while (streams.some((stream) => stream.at < stream.rows.length)) {
+      for (const stream of streams) {
+        for (let i = 0; i < stream.want && stream.at < stream.rows.length; i += 1) {
+          out.push(stream.rows[stream.at++]);
+        }
+      }
     }
   };
   const out: ListenItem[] = [];

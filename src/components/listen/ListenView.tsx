@@ -53,6 +53,7 @@ import {
   getListenLanguageOrder,
   getListenLoopItems,
   getListenMixedCounts,
+  LISTEN_MIXED_TOTAL,
   arrangeListenMixedQueue,
   listenMixGroupFor,
   getListenLoopPasses,
@@ -509,13 +510,15 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
    */
   const contentKey = listenContentSourceKey(contentKinds);
   /**
-   * Whether the loop is a mix of single words and running language.
+   * Whether the loop is a mix of more than one kind of material.
    *
-   * The two-count control has exactly those two knobs, so it belongs on
-   * screen when both are being played and not otherwise — sentences and
-   * paragraphs together are one stream to this setting, not two.
+   * A count per kind only means anything when there is more than one kind to
+   * balance; with a single source ticked the loop is simply "cards at a
+   * time". This used to ask specifically for words AND sentences, which left
+   * a learner playing sentences and paragraphs together — two kinds of very
+   * different length — with no way to say how much of each.
    */
-  const interleaves = contentKinds.includes("words") && contentKinds.includes("sentences");
+  const interleaves = contentKinds.length > 1;
   const [queueOrder, setQueueOrder] = useState<ListenQueueOrder>(
     () => getListenQueueOrder(learningDirection)
   );
@@ -535,6 +538,14 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
     () => getListenUsefulnessFilters(learningDirection)
   );
   const [mixedCounts, setMixedCounts] = useState(() => getListenMixedCounts(learningDirection));
+  /** The counts on screen, in Content source order, for the kinds ticked. */
+  const mixedKinds = ([
+    ["words", ui("Words at a time"), ui("words"), ui("How many words you hear before they come round again")],
+    ["sentences", ui("Sentences at a time"), ui("sentences"), ui("How many sentences and phrases you hear before they come round again")],
+    ["passages", ui("Paragraphs at a time"), ui("paragraphs"), ui("How many paragraphs you hear before they come round again")],
+  ] as const).filter(([kind]) => contentKinds.includes(kind));
+  /** What one round adds up to: the ticked kinds only. */
+  const mixedTotal = mixedKinds.reduce((sum, [kind]) => sum + mixedCounts[kind], 0);
   useEffect(() => { setMixedCounts(getListenMixedCounts(learningDirection)); }, [learningDirection, profile?.id]);
   // Grade writes made elsewhere (the tracker's "never review" star, lesson
   // grades) must reach this queue: it stays mounted across tab switches, so
@@ -732,7 +743,7 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
     visibleKeys: visiblePetKeys,
   } = useCodexPets();
 
-  const effectiveLoopItems = Math.min(Math.max(1, queue.length), interleaves ? mixedCounts.words + mixedCounts.sentences : loopItems);
+  const effectiveLoopItems = Math.min(Math.max(1, queue.length), interleaves ? mixedTotal : loopItems);
   const queueIndex = listenQueueIndexForPlayhead(
     playhead,
     queue.length,
@@ -1408,7 +1419,7 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
     return next;
   };
 
-  const commitMixedCounts = (counts: { words: number; sentences: number }) => {
+  const commitMixedCounts = (counts: { words: number; sentences: number; passages: number }) => {
     const currentId = item?.id ?? "";
     const next = setListenMixedCounts(counts, learningDirection);
     const visible = baseQueue.filter((candidate) => !hiddenIds.has(candidate.id));
@@ -1418,7 +1429,10 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
     setPlayhead(listenPlayheadForQueueIndex(
       nextIndex,
       nextQueue.length,
-      next.words + next.sentences,
+      // The loop is as long as the kinds being played add up to — counting a
+      // kind that is not ticked would put the playhead on a card the queue
+      // does not contain.
+      contentKinds.reduce((sum, kind) => sum + next[kind], 0),
       loopPasses
     ));
     return next;
@@ -1731,7 +1745,7 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
             )}
             <span aria-hidden="true" className="text-[var(--text-3)]">·</span>
             <span>{interleaves
-              ? uiFmt("{words} words + {sentences} sentences at a time, heard {passes}×", { words: mixedCounts.words, sentences: mixedCounts.sentences, passes: loopPasses })
+              ? uiFmt("{mix} at a time, heard {passes}×", { mix: mixedKinds.map(([kind, , suffix]) => `${mixedCounts[kind]} ${suffix}`).join(" + "), passes: loopPasses })
               : uiFmt("{items} cards at a time, heard {passes}×", { items: effectiveLoopItems, passes: loopPasses })}</span>
           </div>
         </div>
@@ -2409,10 +2423,24 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
                 </span>
               </div>
               <div className="mt-3 space-y-2">
-                {interleaves ? <>
-                  <NumberSetting label={ui("Words at a time")} max={Math.max(1, 12 - mixedCounts.sentences)} min={1} note={ui("How many words you hear before they come round again")} onCommit={(value) => commitMixedCounts({ ...mixedCounts, words: value }).words} suffix={ui("words")} testId="listen-loop-words" value={mixedCounts.words} />
-                  <NumberSetting label={ui("Sentences at a time")} max={Math.max(1, 12 - mixedCounts.words)} min={1} note={ui("How many sentences and phrases you hear before they come round again")} onCommit={(value) => commitMixedCounts({ ...mixedCounts, sentences: value }).sentences} suffix={ui("sentences")} testId="listen-loop-sentences" value={mixedCounts.sentences} />
-                </> : <NumberSetting label={ui("Cards at a time")} max={12} min={1} note={ui("How many cards you hear before they come round again")} onCommit={commitLoopItems} suffix={ui("cards")} testId="listen-loop-items" value={loopItems} />}
+                {/*
+                  One number per kind the learner is playing. Each may take
+                  whatever the others leave of the twelve, so the controls
+                  cannot be driven into a loop that does not add up.
+                */}
+                {interleaves ? mixedKinds.map(([kind, label, suffix, note]) => (
+                  <NumberSetting
+                    key={kind}
+                    label={label}
+                    max={Math.max(1, LISTEN_MIXED_TOTAL - (mixedTotal - mixedCounts[kind]))}
+                    min={1}
+                    note={note}
+                    onCommit={(value) => commitMixedCounts({ ...mixedCounts, [kind]: value })[kind]}
+                    suffix={suffix}
+                    testId={`listen-loop-${kind}`}
+                    value={mixedCounts[kind]}
+                  />
+                )) : <NumberSetting label={ui("Cards at a time")} max={12} min={1} note={ui("How many cards you hear before they come round again")} onCommit={commitLoopItems} suffix={ui("cards")} testId="listen-loop-items" value={loopItems} />}
                 <NumberSetting
                   label={ui("Times you hear each card")}
                   max={6}
@@ -2427,11 +2455,10 @@ export function ListenView({ active, apiParts, learningDirection, onOpen, profil
               <p className="mt-3 text-[11px] font-semibold leading-snug text-[var(--text-2)]" data-testid="listen-loop-example">
                 {interleaves
                   ? uiFmt(
-                    "Right now: {words} words + {sentences} sentences = {total} cards at a time, each heard {passes}×. The first {total} play {passes} times over, then the next {total} do the same.",
+                    "Right now: {mix} = {total} cards at a time, each heard {passes}×. The first {total} play {passes} times over, then the next {total} do the same.",
                     {
-                      words: mixedCounts.words,
-                      sentences: mixedCounts.sentences,
-                      total: mixedCounts.words + mixedCounts.sentences,
+                      mix: mixedKinds.map(([kind, , suffix]) => `${mixedCounts[kind]} ${suffix}`).join(" + "),
+                      total: mixedTotal,
                       passes: loopPasses,
                     }
                   )

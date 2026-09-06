@@ -1477,30 +1477,52 @@ check("Listen defaults to a real learning loop rather than one-pass exposure",
   && DEFAULT_LISTEN_LOOP_PASSES === 2
   && getListenLoopItems("learn-de") === 3
   && getListenLoopPasses("learn-de") === 2);
-check("Both defaults to one word and two sentences per loop",
+// ── how much of each kind, in numbers ───────────────────────────────────
+// Ticking a source says whether it plays; these say how much of it. There
+// was a count for words and one for sentences, and none for paragraphs —
+// they dealt on the sentence side, so the one kind whose length is most felt
+// was the one nobody could ask for less of.
+check("every content kind has a count, and the default is one word, two sentences, one paragraph",
   DEFAULT_LISTEN_MIXED_COUNTS.words === 1
   && DEFAULT_LISTEN_MIXED_COUNTS.sentences === 2
-  && JSON.stringify(getListenMixedCounts("learn-de")) === JSON.stringify({ words: 1, sentences: 2 }));
-setListenMixedCounts({ words: 2, sentences: 1 }, "learn-de");
-setListenMixedCounts({ words: 1, sentences: 4 }, "learn-en");
-check("each course remembers its own Both split",
-  JSON.stringify(getListenMixedCounts("learn-de")) === JSON.stringify({ words: 2, sentences: 1 })
-  && JSON.stringify(getListenMixedCounts("learn-en")) === JSON.stringify({ words: 1, sentences: 4 }));
+  && DEFAULT_LISTEN_MIXED_COUNTS.passages === 1
+  && JSON.stringify(getListenMixedCounts("learn-de")) === JSON.stringify({ words: 1, sentences: 2, passages: 1 }));
+setListenMixedCounts({ words: 2, sentences: 1, passages: 3 }, "learn-de");
+setListenMixedCounts({ words: 1, sentences: 4, passages: 1 }, "learn-en");
+check("each course remembers its own split",
+  JSON.stringify(getListenMixedCounts("learn-de")) === JSON.stringify({ words: 2, sentences: 1, passages: 3 })
+  && JSON.stringify(getListenMixedCounts("learn-en")) === JSON.stringify({ words: 1, sentences: 4, passages: 1 }));
 const mixedFixture = [
   ...Array.from({ length: 5 }, (_, i) => ({ id: `w${i}`, kind: "word" })),
   ...Array.from({ length: 7 }, (_, i) => ({ id: `s${i}`, kind: "sentence" })),
 ];
-check("Both emits exact 1+2 chunks while preserving each lane's order",
-  arrangeListenMixedQueue(mixedFixture, { words: 1, sentences: 2 }).map((item) => item.id).join(",")
+check("the loop emits exact 1+2 chunks while preserving each lane's order",
+  arrangeListenMixedQueue(mixedFixture, { words: 1, sentences: 2, passages: 1 }).map((item) => item.id).join(",")
     === "w0,s0,s1,w1,s2,s3,w2,s4,s5,w3,s6,w4");
-check("Both emits exact 2+1 chunks and drains the available tail without duplication",
-  arrangeListenMixedQueue(mixedFixture, { words: 2, sentences: 1 }).map((item) => item.id).join(",")
+check("and exact 2+1 chunks, draining the available tail without duplication",
+  arrangeListenMixedQueue(mixedFixture, { words: 2, sentences: 1, passages: 1 }).map((item) => item.id).join(",")
     === "w0,w1,s0,w2,w3,s1,w4,s2,s3,s4,s5,s6");
+// Paragraphs are their own lane now, not sentences wearing a different kind.
+const threeWayFixture = [
+  ...Array.from({ length: 4 }, (_, i) => ({ id: `w${i}`, kind: "word" })),
+  ...Array.from({ length: 4 }, (_, i) => ({ id: `s${i}`, kind: "sentence" })),
+  ...Array.from({ length: 2 }, (_, i) => ({ id: `p${i}`, kind: "passage" })),
+];
+check("a paragraph is dealt as a paragraph, one per round when asked for one",
+  arrangeListenMixedQueue(threeWayFixture, { words: 1, sentences: 2, passages: 1 }).map((item) => item.id).join(",")
+    === "w0,s0,s1,p0,w1,s2,s3,p1,w2,w3");
+check("asking for no more than one paragraph per round really means one",
+  arrangeListenMixedQueue(threeWayFixture, { words: 2, sentences: 1, passages: 1 })
+    .slice(0, 4).map((item) => item.id).join(",") === "w0,w1,s0,p0");
+check("a lane that runs out lets the others carry on",
+  arrangeListenMixedQueue(threeWayFixture, { words: 1, sentences: 1, passages: 4 }).length === threeWayFixture.length
+  && new Set(arrangeListenMixedQueue(threeWayFixture, { words: 1, sentences: 1, passages: 4 }).map((i) => i.id)).size === threeWayFixture.length);
 stored.set("gl-listen-mixed-counts-v1:learn-de", "not-json");
-check("corrupt Both counts fall back safely",
-  JSON.stringify(getListenMixedCounts("learn-de")) === JSON.stringify({ words: 1, sentences: 2 }));
-check("Both count writers keep at least one of each and cap the combined loop at twelve",
-  JSON.stringify(setListenMixedCounts({ words: 20, sentences: 20 }, "learn-de")) === JSON.stringify({ words: 11, sentences: 1 }));
+check("corrupt counts fall back safely",
+  JSON.stringify(getListenMixedCounts("learn-de")) === JSON.stringify({ words: 1, sentences: 2, passages: 1 }));
+check("the writers keep at least one of each and cap the loop at twelve",
+  JSON.stringify(setListenMixedCounts({ words: 20, sentences: 20, passages: 20 }, "learn-de")) === JSON.stringify({ words: 10, sentences: 1, passages: 1 })
+  && Object.values(setListenMixedCounts({ words: 5, sentences: 5, passages: 5 }, "learn-de")).reduce((a, b) => a + b, 0) <= 12);
 check("Listen defaults to every source, easiest level first",
   getListenContentKinds("learn-de").join("+") === "sentences+words+passages"
   && getListenQueueOrder("learn-de") === "level");
@@ -1785,12 +1807,19 @@ check("whole items return through a visible, learner-controlled learning loop",
   && view.includes('testId="listen-loop-items"')
   && view.includes('testId="listen-loop-passes"')
   && view.includes('"Learning pass {pass} of {passes}"'));
-check("Both exposes independent word and sentence loop counts and preserves the current card",
-  view.includes('testId="listen-loop-words"')
-  && view.includes('testId="listen-loop-sentences"')
+check("a count is shown for each kind being played, and the current card is kept",
+  // One control per ticked kind rather than a hardcoded pair, so playing
+  // sentences and paragraphs together is as adjustable as words and
+  // sentences was.
+  view.includes("testId={`listen-loop-${kind}`}")
+  && /const mixedKinds = \(\[/u.test(view)
+  && /\["passages", ui\("Paragraphs at a time"\)/u.test(view)
+  && view.includes("const interleaves = contentKinds.length > 1;")
   && view.includes("const currentId = item?.id")
   && view.includes("nextQueue.findIndex((candidate) => candidate.id === currentId)")
-  && view.includes("next.words + next.sentences"));
+  // The loop is as long as the ticked kinds add up to — counting an
+  // unticked one puts the playhead on a card the queue does not hold.
+  && view.includes("contentKinds.reduce((sum, kind) => sum + next[kind], 0)"));
 // Easiest first is the default order now, and a walk up through the levels is
 // only a walk if you can see which rung you are on.
 //
@@ -1914,10 +1943,14 @@ check("the source control ticks rather than picks, so pairs are reachable",
 check("...and it will not let the last one be turned off",
   view.includes("if (on && contentKinds.length === 1) return;"),
   "turning off the last kind leaves an empty queue, which is not a setting anybody means");
-check("the two-count loop control appears when words and sentences are both playing",
-  view.includes('const interleaves = contentKinds.includes("words") && contentKinds.includes("sentences");')
+check("the per-kind loop counts appear whenever more than one kind is playing",
+  // Was: words AND sentences specifically, back when those were the only two
+  // counts. A learner playing sentences and paragraphs together got the
+  // single "cards at a time" control and no way to balance two kinds of very
+  // different length, so the question is now how many kinds, not which.
+  view.includes("const interleaves = contentKinds.length > 1;")
   && !view.includes('contentSource === "mixed"'),
-  "the control has a words knob and a sentences knob, so it belongs on screen when both are on");
+  "with one source ticked the loop is just cards at a time; with two or more, each kind gets its own number");
 check("the next-card delay is visible and drives auto-advance",
   view.includes('testId="listen-next-card-delay"')
   && view.includes("}, nextCardDelayMs);"));
