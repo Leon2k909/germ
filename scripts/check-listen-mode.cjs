@@ -636,8 +636,33 @@ const newestQueue = buildListenQueue(parts, {}, { contentSource: "mixed", order:
 const newestWithinNewest = buildListenQueue(parts, {}, {
   contentSource: "mixed", order: "newest", within: "newest",
 });
-check("an order cannot lead its own groups",
-  newestQueue.every((item, index) => item.id === newestWithinNewest[index].id));
+// Which pack each card came from, and where that pack sits in curriculum
+// order — the axis "newest first" actually promises. Taken from the
+// catalogues rather than from the queue under test, which would make the
+// assertion true by construction.
+const newestPackOf = new Map();
+for (const word of buildWordCatalog(parts)) newestPackOf.set(word.id, word.partKey);
+for (const line of buildCatalog(parts)) if (!newestPackOf.has(line.id)) newestPackOf.set(line.id, line.partKey);
+const newestPackRank = new Map(Object.keys(parts).map((key, index) => [key, index]));
+// Asserted as the property rather than against the default within-setting.
+// The comparison used to be "newest, default within" against "newest within
+// newest", which passed only while the default did nothing to words. It does
+// something now — Most common first means the spoken list — so the question
+// is put directly: choosing newest inside newest still walks the packs newest
+// first, which is what makes the option redundant and droppable.
+{
+  // Tatoeba is pinned behind the authored packs rather than owning "newest"
+  // (see buildListenQueue), so it is not part of the claim being made here.
+  const rankOf = (item) => {
+    const key = String(newestPackOf.get(item.id) ?? "");
+    return key && !key.startsWith("tatoeba") ? newestPackRank.get(key) ?? null : null;
+  };
+  const ranks = newestWithinNewest.map(rankOf).filter((rank) => rank != null);
+  const slips = ranks.filter((rank, index) => index > 0 && rank > ranks[index - 1]).length;
+  check("an order cannot lead its own groups",
+    ranks.length > 100 && slips === 0,
+    `${slips} of ${ranks.length} cards came from an older pack than the one before`);
+}
 
 setListenQueueWithin(DEFAULT_LISTEN_QUEUE_WITHIN);
 check("the stored answer survives being written and read back",
@@ -848,8 +873,14 @@ const wordQueue = buildListenQueue(parts, {}, { contentSource: "words", order: "
 const wordAt = (text) => wordQueue.findIndex((item) => item.de === text) + 1;
 const coreWords = ["haben", "sein", "k\önnen", "m\üssen", "machen", "bitte", "geben", "gut"];
 const worst = coreWords.map((text) => [text, wordAt(text)]).sort((a, b) => b[1] - a[1])[0];
+// Forty became eighty when Most common first started meaning the spoken list
+// rather than the course's teaching rank: inside the first rung the words are
+// now in the order people actually say them, and geben has sixty-six commoner
+// words ahead of it. That is the ordering working. The bound still catches
+// the regression this exists for by three orders of magnitude — haben at
+// 1,045 and bitte at 3,372 — which is what it is for.
 check(`the commonest words in the language open the queue (worst: ${worst[0]} at ${worst[1]})`,
-  coreWords.every((text) => wordAt(text) > 0 && wordAt(text) <= 40));
+  coreWords.every((text) => wordAt(text) > 0 && wordAt(text) <= 80));
 // Asserted through the rung as well as the position, so this still fails if
 // the ordering changes but the difficulty question does not.
 check("a core word is on the A1 rung even when its pack says A2",
@@ -926,9 +957,21 @@ for (const source of ["words", "sentences", "mixed"]) {
 // 3. The words this course says most are ALL on the first rung — the whole
 //    of the promise, asserted as one statement rather than as a hand-picked
 //    list that could be trimmed until it passed.
-const spokenOrder = buildListenQueue(parts, {}, { contentSource: "words", order: "common" });
-const strandedCore = spokenOrder.slice(0, 300).filter((item) => item.rung !== 1);
-check(`the 300 words this course says most all sit on the first rung (${strandedCore.length} did not: ${strandedCore.slice(0, 5).map((item) => item.de).join(", ")})`,
+// Asked of the RANKING, not of the common-ordered queue.
+//
+// It used to read the first 300 of Most common first, which was the same
+// thing while that order was the teaching rank. It is not any more: the order
+// now means the spoken list, and its own description promises cards "whatever
+// level they are", so der Vater and die Mutter arriving early with a rung
+// above one is that promise being kept rather than broken. The claim being
+// made here is about the course's own count — the words it says most are the
+// words it treats as easiest — so it is put to the ranking directly, where it
+// cannot be quietly weakened by a change of order.
+const saidMostCatalogue = buildWordCatalog(parts).filter((word) => word.listenSafe !== false);
+const saidMostIndex = buildCorpusIndex(parts);
+const saidMost = rankWordCatalog(saidMostCatalogue, saidMostIndex).slice(0, 300);
+const strandedCore = saidMost.filter((word, index) => spokenWordRung(word, index, saidMostIndex) !== 1);
+check(`the 300 words this course says most all sit on the first rung (${strandedCore.length} did not: ${strandedCore.slice(0, 5).map((word) => word.de).join(", ")})`,
   strandedCore.length === 0);
 check("and the queue opens with three hundred cards of them before anything harder",
   buildListenQueue(parts, {}, { contentSource: "words", order: "level" })

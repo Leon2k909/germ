@@ -32,6 +32,7 @@ import { italianFor } from "@/lib/italianCourse";
 import { primaryAnswer } from "@/lib/germanTextMatch";
 import { buildCatalog } from "@/session";
 import { buildWordCatalog, rankWordCatalog, spokenWordRung } from "@/lib/wordSession";
+import { spokenFrequencyRank } from "@/lib/spokenFrequency";
 import { buildCorpusIndex, sentenceCommonality } from "@/lib/corpusFrequency";
 import {
   conversationPriorityInfo,
@@ -1503,7 +1504,56 @@ export function buildListenQueue(
     return keepUsefulness(word.partKey);
   });
   rankedWords.forEach((word) => rememberPack(word.id, word.partKey));
-  const words: ListenItem[] = rankedWords
+  /**
+   * When the learner asks for the commonest first, they mean the commonest.
+   *
+   * rankWordCatalog answers a different question, deliberately and well: what
+   * this COURSE should teach next, which puts the words its own conversational
+   * sentences say ahead of words the spoken list ranks higher. That is the
+   * right default and it is what Easiest first rests on.
+   *
+   * It is not what the button says. Read as a teaching rank it put der Vater
+   * at 614 and die Liebe at 1,021 while the spoken list has them at 178 and
+   * 188, and left 702 places in the queue where the next word was commoner
+   * than the one before it. Both settings are the learner saying what matters
+   * to them, so where they have asked for frequency, frequency answers.
+   *
+   * The spoken list decides; the teaching rank orders whatever that list has
+   * never heard of, behind everything it has. The two are never mixed on one
+   * scale — the discipline rankWordCatalog already keeps.
+   */
+  const wantsCommonest = order === "common" || within === "common";
+  const teachingPlace = new Map(rankedWords.map((word, index) => [word.id, index]));
+  /**
+   * Swearing counts. It is what people say.
+   *
+   * The list is film subtitles, and the first instinct was to hold its
+   * coarser end back — to keep das Arschloch out of the first five hundred
+   * words on the grounds that it is true of thrillers. But it is true of
+   * Tuesday as well, and this app exists to teach the German people actually
+   * speak to each other. A frequency order that quietly declines to be a
+   * frequency order for the words somebody found blunt is not the setting the
+   * learner chose. Register is already shown on the card that carries it;
+   * that is the honest place for it, not the queue position.
+   */
+  // The subtitle list pools "die Macht" with "er macht"; our own sentences can
+  // tell a capital away from a full stop from a verb, and referee it.
+  const nounEvidence = (word: { pos?: string; lookup?: string; de: string }) => {
+    if (word.pos !== "noun" || !corpusIndex) return null;
+    const key = String(word.lookup || word.de).toLocaleLowerCase("de-DE").replace(/^(der|die|das)\s+/, "").trim();
+    return { noun: corpusIndex.nounCount.get(key) ?? 0, other: corpusIndex.otherCount.get(key) ?? 0 };
+  };
+  const heardAs = (word: { pos?: string; lookup?: string; de: string }) =>
+    spokenFrequencyRank(word.lookup || word.de, nounEvidence(word));
+  const wordsInAskedOrder = !wantsCommonest ? rankedWords : [...rankedWords].sort((a, b) => {
+    const fa = heardAs(a);
+    const fb = heardAs(b);
+    // Infinity both sides: the list knows neither, and the course's own order
+    // is the only thing left that knows anything.
+    if (fa !== fb) return fa < fb ? -1 : 1;
+    return (teachingPlace.get(a.id) ?? 0) - (teachingPlace.get(b.id) ?? 0);
+  });
+  const words: ListenItem[] = wordsInAskedOrder
     .map((word, index, ranked) => ({
       id: word.id,
       // Catalog dedup preserves old progress ids as aliases. Dropping them
