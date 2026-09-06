@@ -195,6 +195,7 @@
     "check:portuguese-table": "node scripts/check-portuguese-table.cjs",
     "check:russian-script": "node scripts/check-russian-script.cjs",
     "check:russian-own-cards": "node scripts/check-russian-own-cards.cjs",
+    "verify:ru": "npm run typecheck && npm run check:russian-script && npm run check:russian-own-cards && npm run check:interface-coverage",
     "build:content-packs": "node scripts/build-content-packs.cjs",
     "check:content-packs": "node scripts/check-content-packs.cjs",
     "check:duo-text": "node scripts/check-duo-text.cjs",
