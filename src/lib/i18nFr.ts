@@ -3340,4 +3340,10 @@ export const FR: Record<string, string> = {
   "The house of culture": "La maison de la culture",
   "Moving house": "Le déménagement",
   "Getting things repaired": "Faire réparer ses affaires",
+  "The work trip": "Le déplacement professionnel",
+  "Collecting an online order": "Retirer une commande en ligne",
+  "Renting by the minute": "Louer à la minute",
+  "Taking leave from work": "Poser des congés",
+  "The residents' meeting": "L'assemblée des habitants",
+  "The children's clinic": "Le centre médical pour enfants",
 };
