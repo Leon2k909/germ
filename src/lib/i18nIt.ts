@@ -2903,4 +2903,10 @@ export const IT: Record<string, string> = {
   "The entry phone and the concierge": "Il citofono e la portinaia",
   "A day at the river": "Una giornata al fiume",
   "Discounts and dates in the shop": "Offerte e scadenze al negozio",
+  "In-laws and second cousins": "I parenti acquisiti e i cugini lontani",
+  "The bathhouse, the second round": "La banja, secondo giro",
+  "The table, the second round": "La tavolata, secondo giro",
+  "The games children play in the yard": "I giochi nel cortile",
+  "Snowdrifts and icicles": "Cumuli di neve e ghiaccioli",
+  "The beds and the watering": "Le aiuole e l'irrigazione",
 };

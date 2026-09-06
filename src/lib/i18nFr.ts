@@ -3358,4 +3358,10 @@ export const FR: Record<string, string> = {
   "The entry phone and the concierge": "L'interphone et la concierge",
   "A day at the river": "Une journée à la rivière",
   "Discounts and dates in the shop": "Promotions et dates en magasin",
+  "In-laws and second cousins": "La belle-famille et les cousins éloignés",
+  "The bathhouse, the second round": "Les bains, deuxième tour",
+  "The table, the second round": "La tablée, deuxième tour",
+  "The games children play in the yard": "Les jeux de la cour",
+  "Snowdrifts and icicles": "Congères et glaçons",
+  "The beds and the watering": "Les planches et l'arrosage",
 };

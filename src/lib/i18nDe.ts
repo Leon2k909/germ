@@ -3606,4 +3606,10 @@ export const DE: Record<string, string> = {
   "The entry phone and the concierge": "Sprechanlage und Pförtnerin",
   "A day at the river": "Ein Tag am Fluss",
   "Discounts and dates in the shop": "Aktionen und Haltbarkeitsdaten",
+  "In-laws and second cousins": "Schwiegerleute und entfernte Verwandte",
+  "The bathhouse, the second round": "Die Badstube, zweite Runde",
+  "The table, the second round": "Die Tafel, zweite Runde",
+  "The games children play in the yard": "Die Spiele im Hof",
+  "Snowdrifts and icicles": "Schneewehen und Eiszapfen",
+  "The beds and the watering": "Beete und Gießen",
 };

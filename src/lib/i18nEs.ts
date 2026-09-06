@@ -2922,4 +2922,10 @@ export const ES: Record<string, string> = {
   "The entry phone and the concierge": "El portero automático y la conserje",
   "A day at the river": "Un día en el río",
   "Discounts and dates in the shop": "Ofertas y fechas en la tienda",
+  "In-laws and second cousins": "Los parientes políticos y los primos segundos",
+  "The bathhouse, the second round": "La casa de baños, segunda ronda",
+  "The table, the second round": "La mesa, segunda ronda",
+  "The games children play in the yard": "Los juegos del patio",
+  "Snowdrifts and icicles": "Ventisqueros y carámbanos",
+  "The beds and the watering": "Los bancales y el riego",
 };

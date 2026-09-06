@@ -3273,4 +3273,10 @@ export const PT: Record<string, string> = {
   "The entry phone and the concierge": "O intercomunicador e a porteira",
   "A day at the river": "Um dia no rio",
   "Discounts and dates in the shop": "Promoções e datas na loja",
+  "In-laws and second cousins": "Os parentes por casamento e os primos afastados",
+  "The bathhouse, the second round": "A casa de banhos, segunda ronda",
+  "The table, the second round": "A mesa, segunda ronda",
+  "The games children play in the yard": "As brincadeiras do pátio",
+  "Snowdrifts and icicles": "Montes de neve e pingentes de gelo",
+  "The beds and the watering": "Os canteiros e a rega",
 };
