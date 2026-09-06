@@ -3261,4 +3261,10 @@ export const PT: Record<string, string> = {
   "Taking leave from work": "Tirar férias",
   "The residents' meeting": "A assembleia de moradores",
   "The children's clinic": "O centro de saúde infantil",
+  "Exams and getting into university": "Os exames e a entrada na universidade",
+  "The gym in the basement": "O ginásio na cave",
+  "Walking the dog": "Passear o cão",
+  "At the bank counter": "Ao balcão do banco",
+  "Bringing in the potatoes": "A apanha da batata",
+  "The back and the massage course": "As costas e o ciclo de massagens",
 };

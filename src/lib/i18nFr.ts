@@ -3346,4 +3346,10 @@ export const FR: Record<string, string> = {
   "Taking leave from work": "Poser des congés",
   "The residents' meeting": "L'assemblée des habitants",
   "The children's clinic": "Le centre médical pour enfants",
+  "Exams and getting into university": "Les examens et l'entrée à l'université",
+  "The gym in the basement": "La salle de muscu au sous-sol",
+  "Walking the dog": "Sortir le chien",
+  "At the bank counter": "Au guichet de la banque",
+  "Bringing in the potatoes": "L'arrachage des pommes de terre",
+  "The back and the massage course": "Le dos et la série de massages",
 };

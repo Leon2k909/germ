@@ -3594,4 +3594,10 @@ export const DE: Record<string, string> = {
   "Taking leave from work": "Urlaub nehmen",
   "The residents' meeting": "Die Eigentümerversammlung",
   "The children's clinic": "Die Kinderarztpraxis",
+  "Exams and getting into university": "Prüfungen und der Studienplatz",
+  "The gym in the basement": "Der Kraftraum im Keller",
+  "Walking the dog": "Mit dem Hund raus",
+  "At the bank counter": "Am Bankschalter",
+  "Bringing in the potatoes": "Die Kartoffelernte",
+  "The back and the massage course": "Rücken und Massageserie",
 };

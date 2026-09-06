@@ -2910,4 +2910,10 @@ export const ES: Record<string, string> = {
   "Taking leave from work": "Pedir vacaciones",
   "The residents' meeting": "La junta de vecinos",
   "The children's clinic": "El centro de salud infantil",
+  "Exams and getting into university": "Los exámenes y la entrada a la universidad",
+  "The gym in the basement": "El gimnasio del sótano",
+  "Walking the dog": "Sacar al perro",
+  "At the bank counter": "En la ventanilla del banco",
+  "Bringing in the potatoes": "La recogida de las patatas",
+  "The back and the massage course": "La espalda y el ciclo de masajes",
 };
