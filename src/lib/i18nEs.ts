@@ -2934,4 +2934,10 @@ export const ES: Record<string, string> = {
   "The wedding day itself": "El día de la boda",
   "Deadlines and the morning meeting": "Los plazos y la reunión de la mañana",
   "The square and the park bench": "La plaza y el banco del parque",
+  "Superstitions, the third round": "Supersticiones, tercera ronda",
+  "Small children and the daily routine": "Los niños pequeños y la rutina diaria",
+  "Neighbours through the wall": "Los vecinos al otro lado de la pared",
+  "The long drive": "El viaje largo en coche",
+  "At the pharmacy counter": "En el mostrador de la farmacia",
+  "The parcel and the slip in the letterbox": "El paquete y el aviso en el buzón",
 };

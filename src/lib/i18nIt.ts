@@ -2915,4 +2915,10 @@ export const IT: Record<string, string> = {
   "The wedding day itself": "Il giorno delle nozze",
   "Deadlines and the morning meeting": "Le scadenze e la riunione del mattino",
   "The square and the park bench": "La piazza e la panchina",
+  "Superstitions, the third round": "Superstizioni, terzo giro",
+  "Small children and the daily routine": "I bambini piccoli e la routine",
+  "Neighbours through the wall": "I vicini dietro il muro",
+  "The long drive": "Il viaggio lungo in auto",
+  "At the pharmacy counter": "Al banco della farmacia",
+  "The parcel and the slip in the letterbox": "Il pacco e l'avviso in cassetta",
 };
