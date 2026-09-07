@@ -3121,4 +3121,10 @@ export const IT: Record<string, string> = {
   "Ordering in a café": "Ordinare al bar",
   "How are you": "Come stai",
   "Getting around by bus": "Muoversi in autobus",
+  "Saying you feel ill": "Dire che ti senti male",
+  "What you do for a living": "Che lavoro fai",
+  "Talking about the language": "Parlare della lingua",
+  "The parts of the day": "I momenti della giornata",
+  "Sizes and trying things on": "Taglie e camerino",
+  "Where you live": "Dove abiti",
 };

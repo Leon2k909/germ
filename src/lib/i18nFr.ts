@@ -3575,4 +3575,10 @@ export const FR: Record<string, string> = {
   "Ordering in a café": "Commander au café",
   "How are you": "Comment ça va",
   "Getting around by bus": "Se déplacer en bus",
+  "Saying you feel ill": "Dire qu'on se sent mal",
+  "What you do for a living": "Ce qu'on fait dans la vie",
+  "Talking about the language": "Parler de la langue",
+  "The parts of the day": "Les moments de la journée",
+  "Sizes and trying things on": "Tailles et essayage",
+  "Where you live": "Où l'on habite",
 };

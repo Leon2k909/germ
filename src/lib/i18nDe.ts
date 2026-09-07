@@ -3823,4 +3823,10 @@ export const DE: Record<string, string> = {
   "Ordering in a café": "Im Café bestellen",
   "How are you": "Wie geht es dir",
   "Getting around by bus": "Mit dem Bus unterwegs",
+  "Saying you feel ill": "Sagen, dass es einem schlecht geht",
+  "What you do for a living": "Was man beruflich macht",
+  "Talking about the language": "Über die Sprache sprechen",
+  "The parts of the day": "Die Tageszeiten",
+  "Sizes and trying things on": "Größen und Anprobieren",
+  "Where you live": "Wo man wohnt",
 };

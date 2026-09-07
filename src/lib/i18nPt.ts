@@ -3491,4 +3491,10 @@ export const PT: Record<string, string> = {
   "Ordering in a café": "Pedir no café",
   "How are you": "Como estás",
   "Getting around by bus": "Andar de autocarro",
+  "Saying you feel ill": "Dizer que se sente mal",
+  "What you do for a living": "O que se faz na vida",
+  "Talking about the language": "Falar da língua",
+  "The parts of the day": "As partes do dia",
+  "Sizes and trying things on": "Tamanhos e provar roupa",
+  "Where you live": "Onde se mora",
 };
