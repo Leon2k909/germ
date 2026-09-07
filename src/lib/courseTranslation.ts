@@ -2,6 +2,7 @@ import { useSyncExternalStore } from "react";
 import { resolveInterfaceLanguage, type ResolvedInterfaceLanguage } from "@/lib/interfaceLanguage";
 import { syncLocalStorageItem } from "@/lib/profileStorage";
 import { LIFE_IN_THE_UK_DE } from "@/lib/lifeInTheUkTranslationsDe";
+import { UK_QUESTION_BANK_DE } from "@/lib/ukQuestionBankTranslationsDe";
 import { LIFE_IN_THE_UK_PL } from "@/lib/lifeInTheUkTranslationsPl";
 import { LEBEN_IN_DEUTSCHLAND_PL } from "@/lib/lebenInDeutschlandTranslationsPl";
 import { VIVRE_EN_FRANCE_PL } from "@/lib/vivreEnFranceTranslationsPl";
@@ -97,6 +98,9 @@ const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>>
   de: {
     ...LIFE_IN_THE_UK_DE, ...VIVRE_EN_FRANCE_DE, ...ZHIZN_V_ROSSII_DE, ...ZYCIE_W_POLSCE_DE,
     ...VIVERE_IN_ITALIA_DE, ...VIVIR_EN_ESPANA_DE, ...CSHARP_COURSE_DE,
+    // The practice questions, which are not lesson text but reach the reader
+    // through the same stepped session and the same marker.
+    ...UK_QUESTION_BANK_DE,
   },
   en: { ...LEBEN_IN_DEUTSCHLAND_EN, ...VIVRE_EN_FRANCE_EN, ...ZHIZN_V_ROSSII_EN, ...ZYCIE_W_POLSCE_EN, ...VIVERE_IN_ITALIA_EN, ...VIVIR_EN_ESPANA_EN },
   pl: { ...LIFE_IN_THE_UK_PL, ...LEBEN_IN_DEUTSCHLAND_PL, ...VIVRE_EN_FRANCE_PL },
