@@ -61,6 +61,7 @@ import { matchSpanishSentence, SPANISH_SPECIAL_CHARACTERS } from "@/lib/spanishT
 import { italianMeaningLanguage } from "@/lib/italianCourse";
 import { matchItalianSentence, ITALIAN_SPECIAL_CHARACTERS } from "@/lib/italianTextMatch";
 import { portugueseMeaningLanguage } from "@/lib/portugueseCourse";
+import { russianMeaningLanguage } from "@/lib/russianCourse";
 import { matchPortugueseSentence, PORTUGUESE_SPECIAL_CHARACTERS } from "@/lib/portugueseTextMatch";
 import { matchRussianSentence } from "@/lib/russianTextMatch";
 import { INTERFACE_LANGUAGE_CHANGE_EVENT } from "@/lib/interfaceLanguage";
@@ -423,7 +424,7 @@ function CharBar({ onInsert }: { onInsert: (c: string) => void }) {
  */
 // Written out per language rather than composed, so the German reads as
 // German ("Deutsche Wörter zum Anordnen") rather than as a slot filled in.
-const WORDS_TO_ARRANGE_LABEL: Record<"de" | "en" | "fr" | "pl" | "es" | "it" | "pt", string> = {
+const WORDS_TO_ARRANGE_LABEL: Record<"de" | "en" | "fr" | "pl" | "es" | "it" | "pt" | "ru", string> = {
   de: "German words to arrange",
   en: "English words to arrange",
   fr: "French words to arrange",
@@ -431,6 +432,7 @@ const WORDS_TO_ARRANGE_LABEL: Record<"de" | "en" | "fr" | "pl" | "es" | "it" | "
   es: "Spanish words to arrange",
   it: "Italian words to arrange",
   pt: "Portuguese words to arrange",
+  ru: "Russian words to arrange",
 };
 
 function AccentKeys({ language, onInsert }: { language: "de" | "en" | "fr" | "pl" | "es" | "it" | "pt" | "ru"; onInsert: (c: string) => void }) {
@@ -1280,9 +1282,14 @@ function LangBlock({ label, text, active, onHear, onKnown, onStruggle }: {
   );
 }
 
-function guidedTargetLanguageTag(): "de-DE" | "en-GB" | "en-US" | "fr-FR" {
+function guidedTargetLanguageTag(): "de-DE" | "en-GB" | "en-US" | "fr-FR" | "ru-RU" {
   const direction = getLearningDirection();
   if (direction === "learn-fr") return "fr-FR";
+  // Russian was missing here, so a Russian lesson called itself German: the
+  // sentence was read out by a German voice, and TappableSentence — which
+  // only transcribes when the tag says Russian — left the Cyrillic alone
+  // whichever alphabet the learner had chosen.
+  if (direction === "learn-ru") return "ru-RU";
   if (direction !== "learn-en") return "de-DE";
   return resolveEnglishVariant(getEnglishVariant()) === "british" ? "en-GB" : "en-US";
 }
@@ -1972,8 +1979,9 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
   // wrong beside a French sentence — which is why it is asked as its own
   // question rather than as !learnEn.
   const targetIsGermanCourse = direction === "learn-de";
-  const targetLanguage: "de" | "en" | "fr" | "pl" | "es" | "it" | "pt" =
-    learnFr ? "fr" : learnPl ? "pl" : learnEs ? "es" : learnIt ? "it" : learnPt ? "pt" : learnEn ? "en" : "de";
+  const targetLanguage: "de" | "en" | "fr" | "pl" | "es" | "it" | "pt" | "ru" =
+    learnFr ? "fr" : learnPl ? "pl" : learnEs ? "es" : learnIt ? "it" : learnPt ? "pt"
+      : learnRu ? "ru" : learnEn ? "en" : "de";
   // Which language the meaning column is written in: German in the English
   // course, and in the French course whenever the app itself is in German.
   const meaningLanguage: "de" | "en" = learnFr
@@ -1982,6 +1990,7 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
     : learnEs ? spanishMeaningLanguage()
     : learnIt ? italianMeaningLanguage()
     : learnPt ? portugueseMeaningLanguage()
+    : learnRu ? russianMeaningLanguage()
     : learnEn ? "de" : "en";
   const meaningIsGerman = meaningLanguage === "de";
   // A picture of the word, where we have an honest one. It is a cue to the
@@ -2004,6 +2013,7 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
     : learnPl ? "Polish"
     : learnEs ? "Spanish"
     : learnPt ? "Portuguese"
+    : learnRu ? "Russian"
     : learnEn ? "English"
     : "German";
   const meaningLabel = meaningIsGerman ? "German" : "English";
