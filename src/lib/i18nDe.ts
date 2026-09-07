@@ -3811,4 +3811,10 @@ export const DE: Record<string, string> = {
   "Getting connected at home": "Zu Hause ans Netz kommen",
   "Moving to another city": "In eine andere Stadt ziehen",
   "Picking berries in the forest": "Beeren im Wald sammeln",
+  "Saying who you are": "Sich vorstellen",
+  "Numbers you need on day one": "Die Zahlen für den ersten Tag",
+  "The polite words": "Die höflichen Wörter",
+  "When you don't understand": "Wenn man nicht versteht",
+  "Telling the time": "Die Uhrzeit sagen",
+  "The days of the week": "Die Wochentage",
 };

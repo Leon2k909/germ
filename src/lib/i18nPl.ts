@@ -3563,4 +3563,10 @@ export const PL: Record<string, string> = {
   "Getting connected at home": "Podłączyć internet w domu",
   "Moving to another city": "Przeprowadzka do innego miasta",
   "Picking berries in the forest": "Zbierać jagody w lesie",
+  "Saying who you are": "Przedstawić się",
+  "Numbers you need on day one": "Liczby na pierwszy dzień",
+  "The polite words": "Słowa grzecznościowe",
+  "When you don't understand": "Kiedy nie rozumiesz",
+  "Telling the time": "Podawanie godziny",
+  "The days of the week": "Dni tygodnia",
 };

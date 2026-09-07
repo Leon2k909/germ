@@ -3479,4 +3479,10 @@ export const PT: Record<string, string> = {
   "Getting connected at home": "Ligar a internet em casa",
   "Moving to another city": "Mudar-se para outra cidade",
   "Picking berries in the forest": "Apanhar bagas na floresta",
+  "Saying who you are": "Dizer quem se é",
+  "Numbers you need on day one": "Os números do primeiro dia",
+  "The polite words": "As palavras de cortesia",
+  "When you don't understand": "Quando não se percebe",
+  "Telling the time": "Dizer as horas",
+  "The days of the week": "Os dias da semana",
 };
