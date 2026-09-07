@@ -3493,4 +3493,10 @@ export const FR: Record<string, string> = {
   "Changing the flat around": "Réaménager l'appartement",
   "Making it together at the table": "Préparer ensemble à table",
   "Staying longer than planned": "Rester plus longtemps que prévu",
+  "The names for in-laws": "Les noms de la belle-famille",
+  "Getting through the term": "Traverser le semestre",
+  "The people you work with": "Les gens avec qui on travaille",
+  "Round the museum halls": "Dans les salles du musée",
+  "Saturday night at the culture house": "Samedi soir à la maison de la culture",
+  "Taking the honey off": "Récolter le miel",
 };

@@ -3039,4 +3039,10 @@ export const IT: Record<string, string> = {
   "Changing the flat around": "Rifare la casa",
   "Making it together at the table": "Prepararlo insieme a tavola",
   "Staying longer than planned": "Restare più del previsto",
+  "The names for in-laws": "I nomi dei parenti acquisiti",
+  "Getting through the term": "Superare il semestre",
+  "The people you work with": "Le persone con cui lavori",
+  "Round the museum halls": "Per le sale del museo",
+  "Saturday night at the culture house": "Sabato sera alla casa della cultura",
+  "Taking the honey off": "Smielare",
 };

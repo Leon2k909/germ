@@ -3409,4 +3409,10 @@ export const PT: Record<string, string> = {
   "Changing the flat around": "Remodelar a casa",
   "Making it together at the table": "Preparar juntos à mesa",
   "Staying longer than planned": "Ficar mais do que o previsto",
+  "The names for in-laws": "Os nomes dos parentes por afinidade",
+  "Getting through the term": "Aguentar o semestre",
+  "The people you work with": "As pessoas com quem trabalhas",
+  "Round the museum halls": "Pelas salas do museu",
+  "Saturday night at the culture house": "Sábado à noite na casa da cultura",
+  "Taking the honey off": "Tirar o mel",
 };
