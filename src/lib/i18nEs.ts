@@ -3018,4 +3018,9 @@ export const ES: Record<string, string> = {
   "Fixing a time to meet": "Quedar a una hora",
   "Building on your own plot": "Construir en tu parcela",
   "Coming home with the baby": "Volver a casa con el bebé",
+  "Cooking on a weekday": "Cocinar entre semana",
+  "Leaving the job": "Dejar el trabajo",
+  "The edge of town": "Las afueras",
+  "Through the wall": "A través de la pared",
+  "Collecting the parcel": "Recoger el paquete",
 };

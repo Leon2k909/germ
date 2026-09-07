@@ -3701,4 +3701,9 @@ export const DE: Record<string, string> = {
   "Fixing a time to meet": "Sich verabreden",
   "Building on your own plot": "Auf dem eigenen Grundstück bauen",
   "Coming home with the baby": "Mit dem Kind nach Hause",
+  "Cooking on a weekday": "Kochen an einem Werktag",
+  "Leaving the job": "Die Stelle verlassen",
+  "The edge of town": "Der Stadtrand",
+  "Through the wall": "Durch die Wand",
+  "Collecting the parcel": "Das Paket abholen",
 };

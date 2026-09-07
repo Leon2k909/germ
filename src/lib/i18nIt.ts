@@ -2999,4 +2999,9 @@ export const IT: Record<string, string> = {
   "Fixing a time to meet": "Darsi appuntamento",
   "Building on your own plot": "Costruire sul proprio terreno",
   "Coming home with the baby": "Tornare a casa col bambino",
+  "Cooking on a weekday": "Cucinare nei giorni feriali",
+  "Leaving the job": "Lasciare il lavoro",
+  "The edge of town": "La periferia",
+  "Through the wall": "Attraverso il muro",
+  "Collecting the parcel": "Ritirare il pacco",
 };
