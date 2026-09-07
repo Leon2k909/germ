@@ -3487,4 +3487,10 @@ export const FR: Record<string, string> = {
   "The main course comes out": "Le plat chaud arrive",
   "The man who can fix it": "Celui qui répare tout",
   "Music you carry with you": "La musique qu'on emporte",
+  "Clearing the snow": "Déblayer la neige",
+  "The bench by the entrance": "Le banc devant l'entrée",
+  "Following the satnav": "Suivre le GPS",
+  "Changing the flat around": "Réaménager l'appartement",
+  "Making it together at the table": "Préparer ensemble à table",
+  "Staying longer than planned": "Rester plus longtemps que prévu",
 };

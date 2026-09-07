@@ -3735,4 +3735,10 @@ export const DE: Record<string, string> = {
   "The main course comes out": "Das Warme kommt auf den Tisch",
   "The man who can fix it": "Der, der alles repariert",
   "Music you carry with you": "Musik, die man mitnimmt",
+  "Clearing the snow": "Schnee räumen",
+  "The bench by the entrance": "Die Bank vor dem Haus",
+  "Following the satnav": "Dem Navi folgen",
+  "Changing the flat around": "Die Wohnung umbauen",
+  "Making it together at the table": "Gemeinsam am Tisch zubereiten",
+  "Staying longer than planned": "Länger bleiben als gedacht",
 };

@@ -3403,4 +3403,10 @@ export const PT: Record<string, string> = {
   "The main course comes out": "Chega o prato principal",
   "The man who can fix it": "Aquele que arranja tudo",
   "Music you carry with you": "A música que levas contigo",
+  "Clearing the snow": "Limpar a neve",
+  "The bench by the entrance": "O banco à entrada",
+  "Following the satnav": "Seguir o navegador",
+  "Changing the flat around": "Remodelar a casa",
+  "Making it together at the table": "Preparar juntos à mesa",
+  "Staying longer than planned": "Ficar mais do que o previsto",
 };

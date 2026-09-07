@@ -3487,4 +3487,10 @@ export const PL: Record<string, string> = {
   "The main course comes out": "Wjeżdża danie główne",
   "The man who can fix it": "Ten, co wszystko naprawi",
   "Music you carry with you": "Muzyka, którą nosisz ze sobą",
+  "Clearing the snow": "Odśnieżanie",
+  "The bench by the entrance": "Ławka przed klatką",
+  "Following the satnav": "Jazda z nawigacją",
+  "Changing the flat around": "Przebudowa mieszkania",
+  "Making it together at the table": "Robić to razem przy stole",
+  "Staying longer than planned": "Zostać dłużej niż planowano",
 };

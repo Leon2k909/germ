@@ -3033,4 +3033,10 @@ export const IT: Record<string, string> = {
   "The main course comes out": "Arriva il secondo",
   "The man who can fix it": "Quello che aggiusta tutto",
   "Music you carry with you": "La musica che porti con te",
+  "Clearing the snow": "Spalare la neve",
+  "The bench by the entrance": "La panchina davanti al portone",
+  "Following the satnav": "Seguire il navigatore",
+  "Changing the flat around": "Rifare la casa",
+  "Making it together at the table": "Prepararlo insieme a tavola",
+  "Staying longer than planned": "Restare più del previsto",
 };

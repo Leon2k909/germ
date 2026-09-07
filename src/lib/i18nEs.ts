@@ -3052,4 +3052,10 @@ export const ES: Record<string, string> = {
   "The main course comes out": "Sale el segundo plato",
   "The man who can fix it": "El que lo arregla todo",
   "Music you carry with you": "La música que llevas contigo",
+  "Clearing the snow": "Quitar la nieve",
+  "The bench by the entrance": "El banco del portal",
+  "Following the satnav": "Seguir el navegador",
+  "Changing the flat around": "Reformar el piso",
+  "Making it together at the table": "Prepararlo juntos en la mesa",
+  "Staying longer than planned": "Quedarse más de la cuenta",
 };
