@@ -3551,4 +3551,10 @@ export const FR: Record<string, string> = {
   "At the pet shop": "À l'animalerie",
   "The building's group chat": "Le groupe de l'immeuble",
   "At the notary's office": "Chez le notaire",
+  "Calling an ambulance": "Appeler une ambulance",
+  "A child's birthday party": "L'anniversaire d'un enfant",
+  "In the DIY store": "Au magasin de bricolage",
+  "Losing and finding things": "Perdre et retrouver",
+  "Taking things to be recycled": "Apporter au recyclage",
+  "The bus station": "La gare routière",
 };

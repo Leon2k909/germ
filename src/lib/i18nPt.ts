@@ -3467,4 +3467,10 @@ export const PT: Record<string, string> = {
   "At the pet shop": "Na loja de animais",
   "The building's group chat": "O grupo do prédio",
   "At the notary's office": "No notário",
+  "Calling an ambulance": "Chamar uma ambulância",
+  "A child's birthday party": "A festa de anos de uma criança",
+  "In the DIY store": "Na loja de bricolage",
+  "Losing and finding things": "Perder e encontrar coisas",
+  "Taking things to be recycled": "Levar coisas para reciclar",
+  "The bus station": "A estação de autocarros",
 };
