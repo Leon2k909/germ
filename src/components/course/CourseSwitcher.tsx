@@ -9,6 +9,16 @@ import { COUNTRY_PACKS } from "@/lib/countryPacks";
 import { PLANNED_LANGUAGES } from "@/lib/languageCatalogue";
 import { FlagRoundel, hasFlagArt } from "@/components/course/FlagRoundel";
 import { ui, uiFmt, uiLocale } from "@/lib/i18n";
+import { resolveInterfaceLanguage } from "@/lib/interfaceLanguage";
+import {
+  RUSSIAN_SCRIPT_EVENT,
+  getRussianScript,
+  latiniseRussian,
+  resolveRussianScript,
+  russianScriptAfterToggle,
+  russianScriptShows,
+  setRussianScript,
+} from "@/lib/russianScript";
 
 /**
  * Which course a language pack belongs to.
@@ -511,6 +521,102 @@ export function CourseSwitcher({
     );
   };
 
+  /**
+   * Russian, with its two alphabets offered as two latches.
+   *
+   * Written beside EnglishCard rather than folded together with it, although
+   * the two look alike from here. English picks ONE of two spellings — the
+   * buttons are a choice and turning one on turns the other off. Russian picks
+   * ANY of two alphabets, including both at once, because the Cyrillic is the
+   * lesson and the Latin is the crutch and a learner mid-way wants them
+   * together. One shared component would have to carry that difference as a
+   * flag, and the flag would be read wrong on the day somebody edits it.
+   *
+   * The card itself still selects the course, as every other row does; the
+   * latches sit under it and only change how Russian is drawn.
+   */
+  const RussianCard = ({ course }: { course: (typeof COURSES)[number] }) => {
+    const active = course.id === activeCourseId;
+    const [stored, setStored] = useState(() => getRussianScript());
+    useEffect(() => {
+      const sync = () => setStored(getRussianScript());
+      window.addEventListener(RUSSIAN_SCRIPT_EVENT, sync);
+      return () => window.removeEventListener(RUSSIAN_SCRIPT_EVENT, sync);
+    }, []);
+    const script = resolveRussianScript(stored);
+    // The sample is transcribed, not written down: a German reader is promised
+    // Priwet and a French one Priviet, and hard-coding either would show one
+    // of them a spelling they will never see again.
+    const sample = "Привет";
+    const scripts = [
+      { key: "cyrillic" as const, label: "Cyrillic", sample },
+      { key: "latin" as const, label: "Latin", sample: latiniseRussian(sample, resolveInterfaceLanguage()) },
+    ];
+    return (
+      <div
+        className={cn(
+          "rounded-2xl border p-4 transition-all",
+          active
+            ? "border-[var(--accent)] bg-[var(--accent-dim)]"
+            : "border-[var(--border)] bg-[var(--surface-2)]"
+        )}
+      >
+        <div className="flex items-start gap-3">
+          <button
+            type="button"
+            onClick={() => { onSelect(course.id); onClose(); }}
+            className="flex min-w-0 flex-1 items-start gap-3 text-left"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--surface)] shadow-[inset_0_0_0_1px_var(--border)]">
+              <CourseArtwork id={course.id} />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="flex items-center gap-2">
+                <span className="text-sm font-black text-[var(--text-1)]">{ui(course.name)}</span>
+                {course.builtIn && (
+                  <span className="rounded-full bg-[var(--surface-3)] px-2 py-0.5 text-[11px] font-black uppercase tracking-wide text-[var(--text-3)]">
+                    {ui("Built-in")}
+                  </span>
+                )}
+              </span>
+              <span className="mt-1 block text-[13px] font-bold leading-5 text-[var(--text-3)]">
+                {ui(course.tagline)}
+              </span>
+            </span>
+          </button>
+          <FavouriteStar id={course.id} />
+          {active && <Check className="h-4 w-4 shrink-0 text-[var(--accent)]" />}
+        </div>
+
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          {scripts.map((entry) => {
+            const on = russianScriptShows(script, entry.key);
+            return (
+              <button
+                key={entry.key}
+                type="button"
+                aria-pressed={on}
+                onClick={() => setRussianScript(russianScriptAfterToggle(script, entry.key))}
+                className={cn(
+                  "flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-left transition-all",
+                  on
+                    ? "border-[var(--accent)] bg-[var(--surface)]"
+                    : "border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-2)] hover:bg-[var(--surface-3)]"
+                )}
+              >
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[13px] font-black text-[var(--text-1)]">{ui(entry.label)}</span>
+                  <span className="block truncate text-[11px] font-bold text-[var(--text-3)]">{entry.sample}</span>
+                </span>
+                {on && <Check className="h-3.5 w-3.5 shrink-0 text-[var(--accent)]" />}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <AnimatePresence>
       {open && (
@@ -598,7 +704,11 @@ export function CourseSwitcher({
                   {favouritesOpen && (
                     <div className="mt-2 grid gap-2">
                       {englishStarred && mergedEnglish && <EnglishCard uk={mergedEnglish.uk} us={mergedEnglish.us} />}
-                      {favouriteCourses.map((c) => <Card key={c.id} {...c} />)}
+                      {favouriteCourses.map((c) => (
+                        c.id === "russian"
+                          ? <RussianCard key={c.id} course={c} />
+                          : <Card key={c.id} {...c} />
+                      ))}
                     </div>
                   )}
                 </>
@@ -620,7 +730,9 @@ export function CourseSwitcher({
                     {shownLanguages.map((c) => (
                       mergedEnglish && c.id === "english-uk"
                         ? <EnglishCard key={c.id} uk={mergedEnglish.uk} us={mergedEnglish.us} />
-                        : <Card key={c.id} {...c} />
+                        : c.id === "russian"
+                          ? <RussianCard key={c.id} course={c} />
+                          : <Card key={c.id} {...c} />
                     ))}
                   </div>
                   {hiddenLanguageCount > 0 && (

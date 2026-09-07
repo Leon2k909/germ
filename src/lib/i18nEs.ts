@@ -517,6 +517,7 @@ export const ES: Record<string, string> = {
   "Portuguese": "Portugués",
   "Russian": "Ruso",
   "Cyrillic": "Cirílico",
+  "Cyrillic and Latin": "Cirílico y latino",
   "Latin": "Latino",
   "Read, listen, type and translate real Portuguese.": "Lee, escucha, escribe y traduce portugués real.",
   "Learn Russian in Cyrillic, or in letters you already read.": "Aprende ruso en cirílico o con letras que ya lees.",

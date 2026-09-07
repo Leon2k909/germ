@@ -1388,9 +1388,13 @@ function PromptLanguageBadge({ label }: { label: string }) {
         className={cn("fs-prompt-language", "is-switchable")}
         aria-label={scriptTitle}
         title={scriptTitle}
-        onClick={() => setRussianScript(script === "cyrillic" ? "latin" : "cyrillic")}
+        onClick={() => setRussianScript(
+          // Three states now, so the badge steps through them rather than
+          // flipping: Cyrillic, Latin, then both at once.
+          script === "cyrillic" ? "latin" : script === "latin" ? "both" : "cyrillic"
+        )}
       >
-        {script === "cyrillic" ? "Аа" : "Aa"}
+        {script === "cyrillic" ? "Аа" : script === "latin" ? "Aa" : "Аа/Aa"}
       </button>
     );
   }

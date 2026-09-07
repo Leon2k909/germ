@@ -351,6 +351,7 @@ export const RU: Record<string, string> = {
   "Correct!": "Верно!",
   "Currency": "Валюта",
   "Cyrillic": "Кириллица",
+  "Cyrillic and Latin": "Кириллица и латиница",
   "Deselect": "Снять выбор",
   "Edit set": "Изменить набор",
   "English:": "Английский:",

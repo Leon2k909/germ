@@ -3107,6 +3107,17 @@ a { color: inherit; text-decoration: none; }
   contain-intrinsic-size: auto 76px;
 }
 .fs-tappable-sentence { display: contents; }
+/* The transcription under a Russian line, when both scripts are switched on.
+   The sentence itself is display:contents, so its words are laid out by the
+   board above; this claims a whole row of that flex line and drops onto its
+   own line underneath, the way a pronunciation hint sits under a phrase. It
+   is deliberately quiet: the Cyrillic is the lesson, this is the crutch. */
+.fs-translit-line {
+  flex-basis: 100%; width: 100%; display: block; text-align: center;
+  margin-top: 0.12em; color: var(--fs-text-soft, var(--text-3));
+  font-size: 0.44em; font-weight: 700; letter-spacing: 0.005em; line-height: 1.25;
+  text-shadow: none;
+}
 :is(.guided-session, .fs-tappable-sentence) .fs-word {
   position: relative; display: inline-block; border: 0; border-radius: 0.24em; padding: 0.1em 0.08em 0.14em;
   user-select: text; -webkit-user-select: text; -webkit-user-drag: none;

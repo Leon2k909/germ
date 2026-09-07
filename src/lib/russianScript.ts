@@ -16,8 +16,17 @@ import { loadScopedJson, saveScopedJson, type UserProfile } from "@/lib/profileS
  * ONLY CYRILLIC IS EVER STORED. The Latin form is computed here, every time,
  * and never written down. Two tables would drift; one cannot.
  */
-type RussianScript = "auto" | "cyrillic" | "latin";
-type ResolvedRussianScript = "cyrillic" | "latin";
+/**
+ * "both" is one setting, not two.
+ *
+ * The picker offers it as two latches that can be down at the same time,
+ * because that is what the choice feels like — I want the letters I know AND
+ * the letters I am learning. What gets stored is still a single value, so
+ * every reader stays a switch statement and no call site has to reconcile two
+ * booleans that could both be false.
+ */
+type RussianScript = "auto" | "cyrillic" | "latin" | "both";
+type ResolvedRussianScript = "cyrillic" | "latin" | "both";
 
 const RUSSIAN_SCRIPT_KEY = "russian-script";
 
@@ -78,7 +87,34 @@ export function russianVoiceLang(): "ru-RU" {
 
 /** Human name for a script, for labels like "Auto-detect (Cyrillic)". */
 export function russianScriptLabel(script: ResolvedRussianScript): string {
+  if (script === "both") return "Cyrillic and Latin";
   return script === "cyrillic" ? "Cyrillic" : "Latin";
+}
+
+/**
+ * Which of the two latches in the picker are down, and what pressing one does.
+ *
+ * The picker shows two independent toggles over a single stored value, so the
+ * mapping lives here rather than in the component: the component asks which
+ * latches are down and what a press should store, and never has to know that
+ * "both" exists.
+ *
+ * The last latch down cannot be released — a state with no script at all would
+ * leave the card blank — so releasing it returns the value unchanged.
+ */
+export function russianScriptShows(script: ResolvedRussianScript, which: "cyrillic" | "latin"): boolean {
+  return script === "both" || script === which;
+}
+
+export function russianScriptAfterToggle(
+  script: ResolvedRussianScript,
+  which: "cyrillic" | "latin"
+): ResolvedRussianScript {
+  const other = which === "cyrillic" ? "latin" : "cyrillic";
+  if (!russianScriptShows(script, which)) return script === other ? "both" : which;
+  // Releasing the one that is down: the other carries on alone, unless it is
+  // the only one down, in which case nothing changes.
+  return script === "both" ? other : script;
 }
 
 /**
@@ -515,8 +551,29 @@ export function formatRussianText(
   interfaceLanguage: ResolvedInterfaceLanguage = resolveInterfaceLanguage()
 ): string {
   const resolved = script === "auto" ? detectRussianScript() : script;
-  if (resolved === "cyrillic") return String(text ?? "");
+  if (resolved === "cyrillic" || resolved === "both") return String(text ?? "");
   return latiniseRussian(text, interfaceLanguage);
+}
+
+/**
+ * The quieter line underneath, or nothing.
+ *
+ * Only "both" has a second line, and it is the whole phrase transcribed at
+ * once rather than the words the line above is built from: the top line is
+ * split into tappable words so a single one can be heard, and a transcription
+ * interleaved word by word would put a Latin form under every Cyrillic one
+ * and read as noise. So the caller draws the top line as it always did and
+ * asks this for the line to set beneath it.
+ */
+export function russianSecondLine(
+  text: string,
+  script: RussianScript | ResolvedRussianScript,
+  interfaceLanguage: ResolvedInterfaceLanguage = resolveInterfaceLanguage()
+): string | null {
+  const resolved = script === "auto" ? detectRussianScript() : script;
+  if (resolved !== "both") return null;
+  const latin = latiniseRussian(text, interfaceLanguage);
+  return latin === String(text ?? "") ? null : latin;
 }
 
 /**

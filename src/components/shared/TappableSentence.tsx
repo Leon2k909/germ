@@ -8,7 +8,7 @@ import { germanWordGloss } from "@/lib/germanWordGloss";
 import { englishWordGloss } from "@/lib/englishWordGloss";
 import { addCustomEntries, getCustomPacks } from "@/lib/customContent";
 import { pronounNote } from "@/lib/pronounNotes";
-import { formatRussianText, getRussianScript } from "@/lib/russianScript";
+import { formatRussianText, getRussianScript, russianSecondLine } from "@/lib/russianScript";
 
 /**
  * A sentence you can take apart a word at a time.
@@ -203,6 +203,19 @@ export function TappableSentence({ text, lang, meaningText, glosses, onWordAudio
     event.clipboardData.setData("text/plain", copiedText);
   };
 
+  /**
+   * The transcription under the line, when the learner asked for both.
+   *
+   * Taken from the whole sentence rather than from `words`, because the row
+   * above is split so a single word can be tapped and heard: a Latin form
+   * threaded between the Cyrillic ones would double the line rather than
+   * caption it. Null in every other mode and for every other language, so
+   * nothing but Russian-in-both-scripts renders a second row.
+   */
+  const secondLine = lang.toLowerCase().startsWith("ru")
+    ? russianSecondLine(String(text ?? ""), getRussianScript())
+    : null;
+
   return (
     <span className="fs-tappable-sentence" onCopy={copySelectionWithSpaces}>
       {words.map((w, i) => {
@@ -292,6 +305,7 @@ export function TappableSentence({ text, lang, meaningText, glosses, onWordAudio
           </React.Fragment>
         );
       })}
+      {secondLine && <span className="fs-translit-line">{secondLine}</span>}
     </span>
   );
 }
