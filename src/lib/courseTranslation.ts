@@ -15,6 +15,7 @@ import { VIVERE_IN_ITALIA_PL } from "@/lib/vivereInItaliaTranslationsPl";
 import { VIVIR_EN_ESPANA_PL } from "@/lib/vivirEnEspanaTranslationsPl";
 import { ZHIZN_V_ROSSII_PL } from "@/lib/zhiznVRossiiTranslationsPl";
 import { UK_QUESTION_BANK_PL } from "@/lib/ukQuestionBankTranslationsPl";
+import { LEBEN_IN_DEUTSCHLAND_RU } from "@/lib/lebenInDeutschlandTranslationsRu";
 import { LIFE_IN_THE_UK_FR } from "@/lib/lifeInTheUkTranslationsFr";
 import { LEBEN_IN_DEUTSCHLAND_FR } from "@/lib/lebenInDeutschlandTranslationsFr";
 import { ZYCIE_W_POLSCE_FR } from "@/lib/zycieWPolsceTranslationsFr";
@@ -73,7 +74,7 @@ const KEY = "gl-course-translation";
 const COURSE_TRANSLATION_CHANGE_EVENT = "gl-course-translation-change";
 
 /** "off" means cards are not tappable and nothing is offered. */
-export type TranslationLanguage = "off" | "de" | "en" | "pl" | "fr";
+export type TranslationLanguage = "off" | "de" | "en" | "pl" | "fr" | "ru";
 
 /** The language a course is written in, which decides what can be offered. */
 type ContentLanguage = "en" | "de" | "fr" | "pl" | "it" | "es" | "ru";
@@ -105,6 +106,13 @@ export const TRANSLATION_LANGUAGES: Array<{
   // English, German and now Polish. Vivre en France needs no French table —
   // those cards are already French.
   { id: "fr", label: "French", endonym: "Français", from: ["en", "de", "pl", "it", "es", "ru"] },
+  // Russian became a complete interface language before it could read a
+  // single country course: the app spoke Russian everywhere except at the one
+  // switch beside a card. Leben in Deutschland is the first course it can
+  // read, and deliberately the first — a Russian speaker sitting the German
+  // citizenship test is who this course is for. The others follow, one entry
+  // in this list each.
+  { id: "ru", label: "Russian", endonym: "Русский", from: ["de"] },
 ];
 
 const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>> = {
@@ -129,6 +137,7 @@ const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>>
     ...UK_QUESTION_BANK_PL,
   },
   fr: { ...LIFE_IN_THE_UK_FR, ...LEBEN_IN_DEUTSCHLAND_FR, ...ZYCIE_W_POLSCE_FR, ...VIVERE_IN_ITALIA_FR, ...VIVIR_EN_ESPANA_FR, ...ZHIZN_V_ROSSII_FR },
+  ru: { ...LEBEN_IN_DEUTSCHLAND_RU },
 };
 
 /**
@@ -155,7 +164,7 @@ export function getTranslationLanguage(): TranslationLanguage {
   if (typeof window === "undefined") return "off";
   try {
     const stored = localStorage.getItem(KEY);
-    inMemory = stored === "de" || stored === "en" || stored === "pl" || stored === "fr" ? stored : "off";
+    inMemory = stored === "de" || stored === "en" || stored === "pl" || stored === "fr" || stored === "ru" ? stored : "off";
   } catch {
     // Keep the in-memory preference when browser storage is blocked.
   }
