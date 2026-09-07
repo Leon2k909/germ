@@ -135,6 +135,7 @@ import sceneryMonkeyWorld from "./assets/guided-monkey-world-v2.webp";
 import homeLanguagesImage from "./assets/home-languages-de-v2.webp";
 import homeLanguagesGermanImage from "./assets/home-languages-german-v1.webp";
 import homeLanguagesUkImage from "./assets/home-languages-uk-v1.webp";
+import homeLanguagesUsImage from "./assets/home-languages-us-v1.webp";
 import homeLanguagesFrImage from "./assets/home-languages-fr-v1.webp";
 import homeLanguagesPlImage from "./assets/home-languages-pl-v1.webp";
 import homeLanguagesEsImage from "./assets/home-languages-es-v1.webp";
@@ -449,7 +450,12 @@ function languageCardArt(targetCode: string, englishVariant: "british" | "americ
   if (targetCode === "fr") return homeLanguagesFrImage;
   if (targetCode === "pl") return homeLanguagesPlImage;
   if (targetCode === "es") return homeLanguagesEsImage;
-  if (targetCode === "en") return englishVariant === "american" ? homeLanguagesImage : homeLanguagesUkImage;
+  // American English was reading homeLanguagesImage, which is the German
+  // scene the fallback happens to point at - so somebody learning American
+  // English was shown Germany on their own course card. It has its own
+  // picture now, and the two spellings are two places rather than one and a
+  // borrowed one.
+  if (targetCode === "en") return englishVariant === "american" ? homeLanguagesUsImage : homeLanguagesUkImage;
   return PLANNED_CARD_ART[targetCode] ?? homeLanguagesImage;
 }
 

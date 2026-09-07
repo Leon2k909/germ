@@ -179,6 +179,7 @@ assert.ok(
 pinPicture("home-languages-de-v2.webp", "homeLanguagesImage");
 pinPicture("home-languages-german-v1.webp", "homeLanguagesGermanImage");
 pinPicture("home-languages-uk-v1.webp", "homeLanguagesUkImage");
+pinPicture("home-languages-us-v1.webp", "homeLanguagesUsImage");
 pinPicture("home-languages-fr-v1.webp", "homeLanguagesFrImage");
 pinPicture("home-languages-pl-v1.webp", "homeLanguagesPlImage");
 pinPicture("home-languages-es-v1.webp", "homeLanguagesEsImage");
@@ -191,7 +192,7 @@ for (const line of [
   '  if (targetCode === "de") return homeLanguagesGermanImage;',
   '  if (targetCode === "fr") return homeLanguagesFrImage;',
   '  if (targetCode === "pl") return homeLanguagesPlImage;',
-  '  if (targetCode === "en") return englishVariant === "american" ? homeLanguagesImage : homeLanguagesUkImage;',
+  '  if (targetCode === "en") return englishVariant === "american" ? homeLanguagesUsImage : homeLanguagesUkImage;',
   "  return PLANNED_CARD_ART[targetCode] ?? homeLanguagesImage;",
 ]) {
   assert.ok(
