@@ -87,6 +87,20 @@ const COURSES = [
     // asking for worse French.
     keep: ["Cortes", "padrón", "NIE", "Bachillerato", "empadronamiento"],
   },
+  {
+    label: "Zhizn v Rossii",
+    source: "ru",
+    course: { module: "zhiznVRossiiCourse", symbol: "zhiznVRossiiCourse" },
+    table: { module: "zhiznVRossiiTranslationsFr", symbol: "ZHIZN_V_ROSSII_FR" },
+    // Cyrillic in a French sentence is untranslated text, whatever the word
+    // is — so unlike the Latin-alphabet rows above, proper names are not
+    // exempt and this net actually catches things.
+    sourceLetters: /[Ѐ-ӿ]/,
+    cyrillic: true,
+    // Only terms the exam asks for that French has no word of its own for.
+    // Конституция and Правительство both have one and should be translated.
+    keep: [["СНИЛС", "SNILS"], ["ЕГЭ", "EGE"], ["МРОТ", "MROT"]],
+  },
 ];
 
 // Every table spread into TRANSLATIONS.fr, including the two checked
@@ -229,13 +243,20 @@ for (const entry of COURSES) {
   // The words the course is about have to survive. A translation that turned
   // the Sejm into a parliament and the wójt into a mayor would read more
   // smoothly and teach a word nobody in the country uses.
-  for (const term of entry.keep) {
-    const withTerm = Object.entries(table).filter(([key]) => key.includes(term));
-    const dropped = withTerm.filter(([, value]) => !value.includes(term));
+  //
+  // A keep entry is normally one string, looked for on both sides. For a
+  // Cyrillic source it has to be a PAIR — the Russian to look for in the key,
+  // the transliteration to require in the French — because the rule above
+  // forbids Cyrillic in the value, and a single string could never be found
+  // on both sides at once.
+  for (const keep of entry.keep) {
+    const [source, target] = Array.isArray(keep) ? keep : [keep, keep];
+    const withTerm = Object.entries(table).filter(([key]) => key.includes(source));
+    const dropped = withTerm.filter(([, value]) => !value.includes(target));
     if (withTerm.length >= 4 && dropped.length > withTerm.length / 2) {
       failures.push(
-        `${label}: ${JSON.stringify(term)} survives in only ${withTerm.length - dropped.length} of ${withTerm.length} `
-        + "entries about it — that is the word the country uses and it should stay in the sentence"
+        `${label}: ${JSON.stringify(target)} survives in only ${withTerm.length - dropped.length} of ${withTerm.length} `
+        + `entries about ${JSON.stringify(source)} — that is the word the country uses and it should stay in the sentence`
       );
     }
   }
