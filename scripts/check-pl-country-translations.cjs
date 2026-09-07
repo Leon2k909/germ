@@ -77,6 +77,23 @@ const COURSES = [
     // asking for worse Polish.
     keep: ["Cortes", "padrón", "NIE", "Bachillerato", "empadronamiento"],
   },
+  {
+    label: "Zhizn v Rossii",
+    source: "ru",
+    course: { module: "zhiznVRossiiCourse", symbol: "zhiznVRossiiCourse" },
+    table: { module: "zhiznVRossiiTranslationsPl", symbol: "ZHIZN_V_ROSSII_PL" },
+    // Cyrillic in a Polish sentence is untranslated text, whatever the word
+    // is — so unlike the Latin-alphabet rows above, proper names are not
+    // exempt and this net actually catches things.
+    sourceLetters: /[Ѐ-ӿ]/,
+    cyrillic: true,
+    // Only terms the exam asks for that Polish has no word of its own for,
+    // and each has to be a PAIR: the Russian to find in the key, the
+    // transliteration to require in the Polish, because the rule above
+    // forbids Cyrillic in the value. Конституция and Правительство both have
+    // a Polish word and should be translated.
+    keep: [["СНИЛС", "SNILS"], ["ЕГЭ", "EGE"], ["МРОТ", "MROT"]],
+  },
 ];
 
 // Every table spread into TRANSLATIONS.pl, including the three checked

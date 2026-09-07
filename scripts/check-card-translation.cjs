@@ -78,14 +78,14 @@ const CASES = [
   ["fr", "en", "off,fr"],
   ["fr", "de", "off,fr"],
   ["fr", "fr", "off"],
-  // Russian is read by German, by English and now by French. Cyrillic was the
-  // place where a missing table actually stopped a reader — the rest of the
-  // country courses are at least guessable in a Latin alphabet — so it was
-  // the first of the four English could not reach to be closed, and the last
-  // for French, which now reads all seven.
+  // Russian is read by all four. Cyrillic was the place where a missing table
+  // actually stopped a reader — the rest of the country courses are at least
+  // guessable in a Latin alphabet — so it was the first of the four English
+  // could not reach to be closed, and the last for both French and Polish,
+  // each of which now reads all seven.
   ["de", "ru", "off,de"],
   ["en", "ru", "off,en"],
-  ["pl", "ru", "off"],
+  ["pl", "ru", "off,pl"],
   ["fr", "ru", "off,fr"],
   // Polish is read by German, by English and now by French as well — the
   // first of the four French could not reach. Italy, Spain and Russia still
