@@ -230,7 +230,7 @@ export const VIVIR_EN_ESPANA_PL: Record<string, string> = {
   "El **artículo 30** establece el derecho y el deber de **defender a España**. La ley regulaba con él el servicio militar obligatorio, que quedó **suspendido en 2001**: desde entonces las Fuerzas Armadas son enteramente profesionales. El mismo artículo prevé la objeción de conciencia y, para casos de grave riesgo, deberes de protección civil.":
     "**Artykuł 30** ustanawia prawo i obowiązek **obrony Hiszpanii**. Ustawa regulowała na jego podstawie obowiązkową służbę wojskową, **zawieszoną w 2001 roku**: od tego czasu siły zbrojne są w całości zawodowe. Ten sam artykuł przewiduje sprzeciw sumienia oraz, na wypadek poważnego zagrożenia, obowiązki obrony cywilnej.",
   "El **artículo 31** es el deber que se cumple cada año: todos contribuirán al sostenimiento de los gastos públicos **de acuerdo con su capacidad económica**, mediante un sistema tributario **justo**, inspirado en los principios de **igualdad y progresividad**, y que en ningún caso tendrá alcance **confiscatorio**. Progresividad significa que quien más gana no paga solo más dinero, sino un porcentaje mayor.":
-    "**Artykuł 31** to obowiązek wypełniany co roku: wszyscy będą się przyczyniać do pokrywania wydatków publicznych **stosownie do swojej zdolności ekonomicznej**, przez **sprawiedliwy** system podatkowy, oparty na zasadach **równości i progresywności**, który w żadnym razie nie będzie miał charakteru konfiskaty. Progresywność znaczy, że kto więcej zarabia, płaci nie tylko więcej pieniędzy, ale większy procent.",
+    "**Artykuł 31** to obowiązek wypełniany co roku: wszyscy będą się przyczyniać do pokrywania wydatków publicznych **stosownie do swojej zdolności ekonomicznej**, przez **sprawiedliwy** system podatkowy, oparty na zasadach **równości i progresywności**, który w żadnym razie nie będzie miał **charakteru konfiskaty**. Progresywność znaczy, że kto więcej zarabia, płaci nie tylko więcej pieniędzy, ale większy procent.",
   "Defender a España · art. 30": "Obrona Hiszpanii · art. 30",
   "Derecho y deber. El servicio militar obligatorio está suspendido desde 2001.":
     "Prawo i obowiązek. Obowiązkowa służba wojskowa jest zawieszona od 2001 roku.",
@@ -599,6 +599,7 @@ export const VIVIR_EN_ESPANA_PL: Record<string, string> = {
   "Autonómicas": "Wspólnotowe",
   "Para el parlamento de cada comunidad. Muchas coinciden en el mismo día, pero no todas.":
     "Do parlamentu każdej wspólnoty. Wiele wypada tego samego dnia, ale nie wszystkie.",
+  "Municipales": "Samorządowe",
   "Para el pleno del ayuntamiento. Se celebran a la vez en toda España.":
     "Do rady gminy w pełnym składzie. Odbywają się jednocześnie w całej Hiszpanii.",
   "Europeas": "Europejskie",
@@ -854,8 +855,10 @@ export const VIVIR_EN_ESPANA_PL: Record<string, string> = {
   "La guerra terminó el **1 de abril de 1939**. Dejó cientos de miles de muertos y un **exilio** de medio millón de personas, entre ellas buena parte de los científicos, escritores y maestros del país.":
     "Wojna skończyła się **1 kwietnia 1939 roku**. Zostawiła setki tysięcy zabitych i **emigrację** pół miliona osób, wśród nich sporą część naukowców, pisarzy i nauczycieli kraju.",
   "¿Cuándo terminó la Guerra Civil española?": "Kiedy skończyła się hiszpańska wojna domowa?",
+  "En 1936": "W 1936",
   "En 1937": "W 1937",
   "En 1939": "W 1939",
+  "En 1945": "W 1945",
   "El 1 de abril de 1939, cinco meses antes de que empezara la Segunda Guerra Mundial. El bombardeo de Guernica fue en 1937.":
     "1 kwietnia 1939 roku, pięć miesięcy przed wybuchem drugiej wojny światowej. Bombardowanie Guerniki było w 1937.",
   "La dictadura": "Dyktatura",
@@ -870,6 +873,7 @@ export const VIVIR_EN_ESPANA_PL: Record<string, string> = {
   "El desarrollismo": "Desarrollismo",
   "En los sesenta llegan la industria, el turismo de sol y playa y las divisas de dos millones de emigrantes en Europa.":
     "W latach sześćdziesiątych przychodzą przemysł, turystyka słońca i plaży oraz dewizy dwóch milionów emigrantów w Europie.",
+  "1973": "1973",
   "El almirante Carrero Blanco, sucesor previsto en la presidencia, muere en un atentado de ETA. El plan de continuidad se rompe.":
     "Admirał Carrero Blanco, przewidziany następca na stanowisku premiera, ginie w zamachu ETA. Plan ciągłości pęka.",
   "En **1969** Franco designó sucesor a título de rey a **Juan Carlos de Borbón**, nieto de Alfonso XIII. Franco murió el **20 de noviembre de 1975**, y lo que ocurrió después no estaba escrito en ninguna parte.":

@@ -221,6 +221,28 @@ for (const entry of COURSES) {
     );
   }
 
+  // The terms a card is about are bold, and the reader is meant to see which
+  // ones. Two ways that breaks, neither of them visible in the table:
+  //
+  //   - an ODD number of markers renders a literal ** in the middle of the
+  //     sentence, because the run never closes;
+  //   - FEWER bold spans than the source means a term the course emphasised
+  //     is now plain text, and the card quietly stops pointing at it.
+  //
+  // More spans than the source is fine and happens for real reasons: French
+  // needs two words for one negation, Polish two for one Spanish adjective.
+  const spans = (text) => (String(text).match(/\*\*/g) || []).length;
+  const emphasis = Object.entries(table).filter(([key, value]) => {
+    if (spans(value) % 2 === 1) return true;
+    return spans(value) < spans(key);
+  });
+  if (emphasis.length) {
+    failures.push(
+      `${label}: ${emphasis.length} translation(s) lose the emphasis the course put on a term, or leave a ** unclosed: `
+      + emphasis.slice(0, 4).map(([key]) => JSON.stringify(key.slice(0, 60))).join(", ")
+    );
+  }
+
   const looksLikeSentence = (text) => {
     const trimmed = String(text).trim();
     const words = trimmed.split(/\s+/).length;
@@ -266,17 +288,30 @@ for (const entry of COURSES) {
 }
 
 // ── the collision that has no symptom ──────────────────────────────────────
+//
+// Short strings repeat across courses on their own: a year, a one-word
+// heading. "En 1936" is a Spanish card and a French one, "1973" a Spanish
+// card and a British one, and no wording will make them different.
+//
+// Sharing the key costs nothing while both tables say the SAME thing, since
+// whichever spread lands last puts back what the other one held. What has to
+// fail is two DIFFERENT translations under one key, where one course silently
+// shows the other course's sentence — so that, and only that, is the test.
+// Demanding the keys be unique would mean leaving cards untranslated to keep
+// a table tidy, which is the wrong trade for the reader.
 const seen = new Map();
 for (const entry of [...COURSES.map((c) => ({ label: c.label, symbol: c.table.symbol })), ...MERGED]) {
   const table = compiled.exports[entry.symbol];
-  for (const key of Object.keys(table)) {
-    if (seen.has(key)) {
+  for (const [key, value] of Object.entries(table)) {
+    const earlier = seen.get(key);
+    if (earlier && earlier.value !== String(value)) {
       failures.push(
-        `${entry.label} and ${seen.get(key)} both hold the key ${JSON.stringify(key.slice(0, 70))}, and both are `
-        + "spread into TRANSLATIONS.pl — one of the two translations is lost with no error anywhere"
+        `${entry.label} and ${earlier.label} both hold the key ${JSON.stringify(key.slice(0, 70))} with different `
+        + `translations (${JSON.stringify(earlier.value.slice(0, 40))} and ${JSON.stringify(String(value).slice(0, 40))}), `
+        + "and both are spread into TRANSLATIONS.pl — one of the two is lost with no error anywhere"
       );
-    } else {
-      seen.set(key, entry.label);
+    } else if (!earlier) {
+      seen.set(key, { label: entry.label, value: String(value) });
     }
   }
 }

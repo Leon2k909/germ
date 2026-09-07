@@ -3,6 +3,7 @@ import {
   INTERFACE_LANGUAGE_CHANGE_EVENT,
   INTERFACE_STRINGS_READY_EVENT,
   resolveInterfaceLanguage,
+  type ResolvedInterfaceLanguage,
 } from "@/lib/interfaceLanguage";
 
 /**
@@ -195,14 +196,41 @@ export function uiIsEnglish(): boolean {
   return resolveInterfaceLanguage() === "en";
 }
 
+/** The voices the app can be read aloud in, one per language it speaks. */
+type UiSpeechLanguage =
+  | "de-DE" | "en-US" | "es-ES" | "fr-FR" | "it-IT" | "pl-PL" | "pt-PT" | "ru-RU";
+
+/**
+ * How each language the app can be set to writes its numbers and dates, and
+ * what voice it is read aloud in.
+ *
+ * A table rather than a chain of ifs, and typed on ResolvedInterfaceLanguage
+ * so it cannot be short of a language. Both helpers below used to end in a
+ * bare `return` for English, and a language nobody added to the chain fell
+ * into it without a word: Spanish, Italian and Portuguese shipped as complete
+ * interface languages and still wrote their dates the English way and spoke
+ * to their reader in an English voice. Now a missing row is a type error in
+ * the same edit that adds the language.
+ *
+ * `format` and `speech` are separate because for one language they differ:
+ * the app writes English dates and numbers the British way and speaks them
+ * in the American voice it has always used.
+ */
+const UI_LOCALES: Record<ResolvedInterfaceLanguage, { format: string; speech: UiSpeechLanguage }> = {
+  de: { format: "de-DE", speech: "de-DE" },
+  en: { format: "en-GB", speech: "en-US" },
+  es: { format: "es-ES", speech: "es-ES" },
+  fr: { format: "fr-FR", speech: "fr-FR" },
+  it: { format: "it-IT", speech: "it-IT" },
+  pl: { format: "pl-PL", speech: "pl-PL" },
+  // Portugal rather than Brazil, the same way the Portuguese course chooses.
+  pt: { format: "pt-PT", speech: "pt-PT" },
+  ru: { format: "ru-RU", speech: "ru-RU" },
+};
+
 /** Locale used for UI-only dates and number formatting. */
 export function uiLocale(): string {
-  const language = resolveInterfaceLanguage();
-  if (language === "de") return "de-DE";
-  if (language === "fr") return "fr-FR";
-  if (language === "pl") return "pl-PL";
-  if (language === "ru") return "ru-RU";
-  return "en-GB";
+  return UI_LOCALES[resolveInterfaceLanguage()].format;
 }
 
 /**
@@ -213,13 +241,8 @@ export function uiLocale(): string {
  * written as `uiIsGerman() ? "de-DE" : "en-US"` at every one of those sites,
  * which made French silently English the moment French existed.
  */
-export function uiSpeechLang(): "de-DE" | "fr-FR" | "pl-PL" | "ru-RU" | "en-US" {
-  const language = resolveInterfaceLanguage();
-  if (language === "de") return "de-DE";
-  if (language === "fr") return "fr-FR";
-  if (language === "pl") return "pl-PL";
-  if (language === "ru") return "ru-RU";
-  return "en-US";
+export function uiSpeechLang(): UiSpeechLanguage {
+  return UI_LOCALES[resolveInterfaceLanguage()].speech;
 }
 
 /**

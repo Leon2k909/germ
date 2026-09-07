@@ -54,15 +54,34 @@ const i18n = fs.readFileSync(path.join(source, "lib/i18n.ts"), "utf8");
 assert.ok(/export function uiNumber\b/.test(i18n), "uiNumber has gone missing");
 assert.ok(/uiNumber[\s\S]{0,400}toLocaleString\(uiLocale\(\)/.test(i18n),
   "uiNumber must format with uiLocale(), or it is the same bug with a new name");
-// Three languages now, so this is a lookup rather than a ternary. What has to
-// hold is unchanged: uiLocale asks the interface language, and answers with a
-// real locale for every language it can be given.
-const uiLocale = i18n.slice(i18n.indexOf("export function uiLocale"), i18n.indexOf("export function uiLocale") + 400);
+// Eight languages now, so this is a table rather than a ternary or a chain.
+// What has to hold is unchanged: uiLocale asks the interface language, and
+// answers with a real locale for every language it can be given.
+const uiLocale = i18n.slice(i18n.indexOf("export function uiLocale"), i18n.indexOf("export function uiLocale") + 200);
 assert.ok(/resolveInterfaceLanguage\(\)/.test(uiLocale),
   "uiLocale must follow the interface language");
-for (const tag of ["de-DE", "fr-FR", "en-GB"]) {
-  assert.ok(uiLocale.includes(`"${tag}"`),
-    `uiLocale no longer answers ${tag}, so that language formats its numbers for another one`);
+
+// EVERY language, not a list written out here that goes stale the next time
+// one is added. Three of them — Spanish, Italian, Portuguese — shipped as
+// complete interface languages while this chain still fell through to English,
+// so the app formatted their dates and spoke to them in the wrong language for
+// months with nothing failing. The table is typed on ResolvedInterfaceLanguage,
+// which makes a missing row a type error; this checks the rows are real tags
+// rather than the same language wearing eight names.
+const table = i18n.slice(i18n.indexOf("const UI_LOCALES"), i18n.indexOf("export function uiLocale"));
+assert.ok(table.includes("Record<ResolvedInterfaceLanguage,"),
+  "UI_LOCALES must be typed on ResolvedInterfaceLanguage, or a new language can be forgotten in silence");
+const languages = /ResolvedInterfaceLanguage = ([^;]+);/
+  .exec(fs.readFileSync(path.join(source, "lib/interfaceLanguage.ts"), "utf8"))[1]
+  .match(/"([a-z]{2})"/g)
+  .map((quoted) => quoted.slice(1, -1));
+for (const language of languages) {
+  const row = new RegExp(`\\b${language}: \\{ format: "([a-z]{2}-[A-Z]{2})", speech: "([a-z]{2}-[A-Z]{2})" \\}`).exec(table);
+  assert.ok(row, `UI_LOCALES has no row for "${language}", so that language formats its numbers for another one`);
+  assert.ok(row[1].startsWith(`${language}-`) || language === "en",
+    `UI_LOCALES gives "${language}" the locale ${row[1]}, which belongs to another language`);
+  assert.ok(row[2].startsWith(`${language}-`) || language === "en",
+    `UI_LOCALES gives "${language}" the voice ${row[2]}, so the app would speak to that reader in another language`);
 }
 
 // The reported case, end to end: an English interface writes thousands with a

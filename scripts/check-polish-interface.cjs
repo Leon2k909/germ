@@ -148,8 +148,8 @@ const i18n = fs.readFileSync(path.join(root, "src/lib/i18n.ts"), "utf8");
 if (!/pl: \(\) => import\("@\/lib\/i18nPl"\)/.test(i18n)) {
   failures.push("i18n.ts has no loader for the Polish table, so choosing Polish leaves the app in English");
 }
-if (!/language === "pl"\) return "pl-PL"/.test(i18n)) {
-  failures.push("uiLocale or uiSpeechLang does not answer for Polish, so a Polish app formats dates or speaks in English");
+if (!/\bpl: \{ format: "pl-PL", speech: "pl-PL" \}/.test(i18n)) {
+  failures.push("UI_LOCALES does not answer for Polish, so a Polish app formats dates or speaks in English");
 }
 
 if (failures.length) {
