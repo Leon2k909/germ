@@ -3085,4 +3085,10 @@ export const IT: Record<string, string> = {
   "At the flower shop": "Dal fioraio",
   "Registering a marriage": "Registrare il matrimonio",
   "Dealing with the insurer": "Trattare con l'assicurazione",
+  "Getting the phone fixed": "Far riparare il telefono",
+  "The pawnshop on the corner": "Il banco dei pegni all'angolo",
+  "Photographs for documents": "Foto per i documenti",
+  "The print and copy shop": "La copisteria",
+  "Registering where you live": "La residenza anagrafica",
+  "When the order comes to the door": "Quando l'ordine arriva alla porta",
 };

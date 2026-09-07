@@ -3455,4 +3455,10 @@ export const PT: Record<string, string> = {
   "At the flower shop": "Na florista",
   "Registering a marriage": "Registar o casamento",
   "Dealing with the insurer": "Lidar com a seguradora",
+  "Getting the phone fixed": "Arranjar o telemóvel",
+  "The pawnshop on the corner": "A casa de penhores da esquina",
+  "Photographs for documents": "Fotografias para documentos",
+  "The print and copy shop": "A loja de cópias",
+  "Registering where you live": "O registo de morada",
+  "When the order comes to the door": "Quando a encomenda chega à porta",
 };

@@ -3539,4 +3539,10 @@ export const FR: Record<string, string> = {
   "At the flower shop": "Chez le fleuriste",
   "Registering a marriage": "Enregistrer le mariage",
   "Dealing with the insurer": "Traiter avec l'assurance",
+  "Getting the phone fixed": "Faire réparer le téléphone",
+  "The pawnshop on the corner": "Le mont-de-piété du coin",
+  "Photographs for documents": "Photos d'identité",
+  "The print and copy shop": "Le magasin de photocopies",
+  "Registering where you live": "L'enregistrement du domicile",
+  "When the order comes to the door": "Quand la commande arrive à la porte",
 };
