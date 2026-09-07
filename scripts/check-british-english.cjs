@@ -87,6 +87,10 @@ const AMERICAN = [
   [/\bapartment(s)?\b/g, "flat"],
   [/\belevator(s)?\b/g, "lift"],
   [/\bsidewalk(s)?\b/g, "pavement"],
+  // Every school here names it differently — a report, a school report —
+  // and "report card" is the American one, so it is the one that must not be
+  // the gloss for das Zeugnis.
+  [/\breport card(s)?\b/gi, "school report"],
   [/\b(trash|garbage)\b/g, "rubbish"],
   [/\bcell ?phone(s)?\b/g, "mobile"],
   [/\bsoccer\b/g, "football"],

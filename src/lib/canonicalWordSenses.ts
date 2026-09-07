@@ -674,7 +674,7 @@ const REVIEWED_WORD_SENSES: Record<string, CanonicalWordSense> = {
   zeugnis: {
     de: "das Zeugnis",
     en: "school report or reference",
-    use: "The end-of-year report card, or an employer's reference: das Arbeitszeugnis.",
+    use: "The end-of-year school report, or an employer's reference: das Arbeitszeugnis.",
     pos: "noun",
   },
   absichern: {
