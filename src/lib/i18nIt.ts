@@ -3056,4 +3056,9 @@ export const IT: Record<string, string> = {
   "Before the curtain": "Prima che si alzi il sipario",
   "The bill for the flat": "Le spese della casa",
   "Two weeks without hot water": "Due settimane senz'acqua calda",
+  "The women's day in March": "La festa della donna a marzo",
+  "Sharing a room in halls": "Dividere la stanza in collegio",
+  "The flood from upstairs": "L'allagamento dal piano di sopra",
+  "The baby's check-up": "Il controllo del neonato",
+  "Renting a scooter": "Noleggiare un monopattino",
 };

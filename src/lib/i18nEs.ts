@@ -3075,4 +3075,9 @@ export const ES: Record<string, string> = {
   "Before the curtain": "Antes de que se alce el telón",
   "The bill for the flat": "La factura del piso",
   "Two weeks without hot water": "Dos semanas sin agua caliente",
+  "The women's day in March": "El día de la mujer en marzo",
+  "Sharing a room in halls": "Compartir habitación en la residencia",
+  "The flood from upstairs": "La inundación del piso de arriba",
+  "The baby's check-up": "La revisión del bebé",
+  "Renting a scooter": "Alquilar un patinete",
 };
