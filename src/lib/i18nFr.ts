@@ -3504,4 +3504,10 @@ export const FR: Record<string, string> = {
   "At the desk by the door": "Au bureau de l'entrée",
   "Buying second-hand": "Acheter d'occasion",
   "Lifting the potatoes": "Arracher les pommes de terre",
+  "Getting into the block": "Entrer dans l'immeuble",
+  "After the business trip": "Après le déplacement",
+  "When the device plays up": "Quand l'appareil fait des siennes",
+  "Before the curtain": "Avant le lever de rideau",
+  "The bill for the flat": "Les charges de l'appartement",
+  "Two weeks without hot water": "Deux semaines sans eau chaude",
 };

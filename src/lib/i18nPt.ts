@@ -3420,4 +3420,10 @@ export const PT: Record<string, string> = {
   "At the desk by the door": "Na portaria",
   "Buying second-hand": "Comprar em segunda mão",
   "Lifting the potatoes": "Arrancar as batatas",
+  "Getting into the block": "Entrar no prédio",
+  "After the business trip": "Depois da viagem de trabalho",
+  "When the device plays up": "Quando o aparelho se porta mal",
+  "Before the curtain": "Antes de subir o pano",
+  "The bill for the flat": "A conta da casa",
+  "Two weeks without hot water": "Duas semanas sem água quente",
 };
