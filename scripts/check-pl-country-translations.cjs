@@ -64,6 +64,19 @@ const COURSES = [
     // reader will meet on a form or at a counter and nowhere else.
     keep: ["codice fiscale", "Ferragosto", "questura", "IRPEF", "INPS"],
   },
+  {
+    label: "Vivir en Espana",
+    source: "es",
+    course: { module: "vivirEnEspanaCourse", symbol: "vivirEnEspanaCourse" },
+    table: { module: "vivirEnEspanaTranslationsPl", symbol: "VIVIR_EN_ESPANA_PL" },
+    // Polish has ó but never á, í, ú, ñ or the opening marks, so a value
+    // carrying those is a line nobody translated.
+    sourceLetters: /[áíúñ¿¡]/,
+    // Only terms with NO Polish equivalent. Constitución and Parlamento have
+    // one and should be translated; asking for those to survive would be
+    // asking for worse Polish.
+    keep: ["Cortes", "padrón", "NIE", "Bachillerato", "empadronamiento"],
+  },
 ];
 
 // Every table spread into TRANSLATIONS.pl, including the three checked

@@ -104,12 +104,12 @@ const CASES = [
   ["fr", "it", "off,fr"],
   ["pl", "it", "off,pl"],
   // Spain is the last of the four for English, which reads every country
-  // course there is, and the third of the four for French — only Russia is
-  // left there.
+  // course there is, the third of the four for French, and the second of the
+  // three Polish is closing.
   ["de", "es", "off,de"],
   ["en", "es", "off,en"],
   ["fr", "es", "off,fr"],
-  ["pl", "es", "off"],
+  ["pl", "es", "off,pl"],
 ];
 
 for (const [app, course, expected] of CASES) {
