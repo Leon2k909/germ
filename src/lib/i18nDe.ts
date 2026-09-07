@@ -3829,4 +3829,10 @@ export const DE: Record<string, string> = {
   "The parts of the day": "Die Tageszeiten",
   "Sizes and trying things on": "Größen und Anprobieren",
   "Where you live": "Wo man wohnt",
+  "Talking about the weather": "Über das Wetter reden",
+  "Yes, no and maybe": "Ja, nein und vielleicht",
+  "A simple phone call": "Ein einfaches Telefonat",
+  "Saying what you like": "Sagen, was einem gefällt",
+  "Saying what you want": "Sagen, was man möchte",
+  "Checking into a hotel": "Im Hotel einchecken",
 };

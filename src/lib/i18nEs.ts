@@ -3146,4 +3146,10 @@ export const ES: Record<string, string> = {
   "The parts of the day": "Las partes del día",
   "Sizes and trying things on": "Tallas y probarse la ropa",
   "Where you live": "Dónde vives",
+  "Talking about the weather": "Hablar del tiempo",
+  "Yes, no and maybe": "Sí, no y quizá",
+  "A simple phone call": "Una llamada sencilla",
+  "Saying what you like": "Decir lo que te gusta",
+  "Saying what you want": "Decir lo que quieres",
+  "Checking into a hotel": "Registrarse en el hotel",
 };

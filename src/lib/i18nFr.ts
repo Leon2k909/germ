@@ -3581,4 +3581,10 @@ export const FR: Record<string, string> = {
   "The parts of the day": "Les moments de la journée",
   "Sizes and trying things on": "Tailles et essayage",
   "Where you live": "Où l'on habite",
+  "Talking about the weather": "Parler du temps qu'il fait",
+  "Yes, no and maybe": "Oui, non et peut-être",
+  "A simple phone call": "Un appel tout simple",
+  "Saying what you like": "Dire ce qu'on aime",
+  "Saying what you want": "Dire ce qu'on veut",
+  "Checking into a hotel": "Arriver à l'hôtel",
 };

@@ -3127,4 +3127,10 @@ export const IT: Record<string, string> = {
   "The parts of the day": "I momenti della giornata",
   "Sizes and trying things on": "Taglie e camerino",
   "Where you live": "Dove abiti",
+  "Talking about the weather": "Parlare del tempo",
+  "Yes, no and maybe": "Sì, no e forse",
+  "A simple phone call": "Una telefonata semplice",
+  "Saying what you like": "Dire che cosa ti piace",
+  "Saying what you want": "Dire che cosa vuoi",
+  "Checking into a hotel": "Il check-in in albergo",
 };
