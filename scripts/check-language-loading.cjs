@@ -283,7 +283,14 @@ while (queue.length) {
  */
 const FINGERPRINTS = [
   ["French content", "Qu'est-ce que tu veux"],
-  ["Polish content", "przynajmniej"],
+  // A WHOLE SENTENCE, and one only a language course can hold. The Polish
+  // needle used to be the bare word "przynajmniej" — an everyday adverb, the
+  // Polish for "at least" — and it accused the wrong chunk the moment a
+  // country-studies quiz answer happened to use it. That is not a leak, and
+  // rewording the Polish to dodge the needle would have hidden a broken test
+  // rather than fixed one. A learner sentence about studying German for
+  // twenty minutes a day cannot appear anywhere but the language course.
+  ["Polish content", "Uczę się niemieckiego dwadzieścia minut dziennie."],
   // The INTERFACE tables are the same fault a layer up: English is the source
   // key and needs no table at all, yet an English app was downloading every
   // other language's chrome — 235 KB of German and 227 KB of French, on every
