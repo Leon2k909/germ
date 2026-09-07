@@ -1039,4 +1039,554 @@ export const LEBEN_IN_DEUTSCHLAND_FR: Record<string, string> = {
   "Politik in der Demokratie": "La politique en démocratie",
   "Geschichte und Verantwortung": "Histoire et responsabilité",
   "Mensch und Gesellschaft": "L'individu et la société",
+
+  // ── Les questions des leçons ──
+  // Le texte des leçons se lisait en français depuis longtemps, mais le quiz
+  // qui les ferme restait en allemand : la leçon changeait de langue à la
+  // dernière carte. Ces 397 chaînes-là — la question, ses options et
+  // l'explication — sont ce qui manquait.
+  "Wie viele Fragen musst du im Einbürgerungstest richtig beantworten, um zu bestehen?":
+    "Combien de questions faut-il réussir à l'Einbürgerungstest pour être reçu ?",
+  "15 von 33": "15 sur 33",
+  "17 von 33": "17 sur 33",
+  "20 von 33": "20 sur 33",
+  "25 von 33": "25 sur 33",
+  "17 von 33 Fragen genügen. Du hast 60 Minuten Zeit, und wer nicht besteht, darf beliebig oft wiederholen.":
+    "17 questions sur 33 suffisent. On dispose de 60 minutes, et qui échoue peut repasser autant de fois qu'il le veut.",
+  "Wie lautet der erste Artikel des Grundgesetzes?":
+    "Que dit le premier article du Grundgesetz ?",
+  "Alle Menschen sind vor dem Gesetz gleich.": "Tous les hommes sont égaux devant la loi.",
+  "Die Würde des Menschen ist unantastbar.": "La dignité de l'être humain est intangible.",
+  "Deutschland ist ein demokratischer und sozialer Bundesstaat.":
+    "L'Allemagne est un État fédéral démocratique et social.",
+  "Jeder hat das Recht auf freie Meinungsäußerung.":
+    "Chacun a le droit d'exprimer librement son opinion.",
+  "Artikel 1 stellt die Menschenwürde an den Anfang. Die Gleichheit steht in Artikel 3, der Bundesstaat in Artikel 20, die Meinungsfreiheit in Artikel 5.":
+    "L'article 1 place la dignité humaine en tête. L'égalité est à l'article 3, l'État fédéral à l'article 20, la liberté d'opinion à l'article 5.",
+  "Was bedeutet die Ewigkeitsklausel im Grundgesetz?":
+    "Que signifie la Ewigkeitsklausel du Grundgesetz ?",
+  "Das Grundgesetz kann nie geändert werden": "Le Grundgesetz ne peut jamais être modifié",
+  "Die Menschenwürde und der Kern der Grundrechte können nicht abgeschafft werden":
+    "La dignité humaine et le noyau des droits fondamentaux ne peuvent pas être abolis",
+  "Gesetze gelten unbefristet": "Les lois valent sans limite de durée",
+  "Der Bundespräsident wird auf Lebenszeit gewählt": "Le Bundespräsident est élu à vie",
+  "Das Grundgesetz ist änderbar — aber Artikel 1 und der Kern der Grundrechte sind es nicht, auch nicht mit einer Mehrheit im Parlament.":
+    "Le Grundgesetz est modifiable — mais l'article 1 et le noyau des droits fondamentaux ne le sont pas, pas même avec une majorité au parlement.",
+  "Welche drei Gewalten teilen sich in Deutschland die Staatsgewalt?":
+    "Quels trois pouvoirs se partagent la puissance publique en Allemagne ?",
+  "Bundestag, Bundesrat und Bundesregierung": "Bundestag, Bundesrat et Bundesregierung",
+  "Legislative, Exekutive und Judikative": "Le législatif, l'exécutif et le judiciaire",
+  "Bund, Länder und Gemeinden": "Le Bund, les Länder et les communes",
+  "Regierung, Opposition und Presse": "Le gouvernement, l'opposition et la presse",
+  "Gesetzgebung, Vollzug und Rechtsprechung. Bundestag und Bundesrat sind Teil der Legislative, die Regierung Teil der Exekutive.":
+    "Faire la loi, l'exécuter, la dire. Le Bundestag et le Bundesrat font partie du législatif, le gouvernement de l'exécutif.",
+  "Wer darf in Deutschland eine Partei verbieten?": "Qui peut interdire un parti en Allemagne ?",
+  "Der Bundestag mit Zweidrittelmehrheit": "Le Bundestag à la majorité des deux tiers",
+  "Das Bundesinnenministerium": "Le ministère fédéral de l'Intérieur",
+  "Nur das Bundesverfassungsgericht in Karlsruhe. Dass keine Regierung ihre Gegner verbieten kann, ist genau der Punkt.":
+    "Seul le Bundesverfassungsgericht, à Karlsruhe. Qu'aucun gouvernement ne puisse interdire ses adversaires, c'est précisément le point.",
+  "Was bedeutet „Sozialstaat“?": "Que signifie « Sozialstaat » ?",
+  "Der Staat sichert Menschen in Notlagen ab":
+    "L'État protège ceux qui se trouvent en difficulté",
+  "Alle verdienen gleich viel": "Tout le monde gagne la même chose",
+  "Der Staat besitzt alle Betriebe": "L'État possède toutes les entreprises",
+  "Soziale Netzwerke werden staatlich geprüft": "Les réseaux sociaux sont contrôlés par l'État",
+  "Der Sozialstaat fängt auf, wer krank, arbeitslos, alt oder in Not ist — über Sozialversicherungen und staatliche Leistungen.":
+    "L'État social rattrape celui qui est malade, au chômage, âgé ou dans le besoin — par les assurances sociales et les prestations publiques.",
+  "Für wie viele Jahre wird der Bundestag gewählt?":
+    "Pour combien d'années le Bundestag est-il élu ?",
+  "Drei Jahre": "Trois ans",
+  "Vier Jahre": "Quatre ans",
+  "Sechs Jahre": "Six ans",
+  "Vier Jahre. Fünf Jahre ist die Amtszeit des Bundespräsidenten — genau diese Verwechslung wird gern geprüft.":
+    "Quatre ans. Cinq ans, c'est la durée du mandat du Bundespräsident — et c'est justement cette confusion que le test aime vérifier.",
+  "Wer sitzt im Bundesrat?": "Qui siège au Bundesrat ?",
+  "Direkt gewählte Abgeordnete": "Des députés élus directement",
+  "Vertreter der 16 Landesregierungen": "Des représentants des 16 gouvernements de Land",
+  "Die Bundesminister": "Les ministres fédéraux",
+  "Vertreter der Städte und Gemeinden": "Des représentants des villes et des communes",
+  "Der Bundesrat besteht aus Mitgliedern der Landesregierungen. Dadurch wirken die Länder an der Gesetzgebung des Bundes mit.":
+    "Le Bundesrat est composé de membres des gouvernements des Länder. Les Länder participent ainsi à la législation fédérale.",
+  "Ab wann gilt ein beschlossenes Gesetz?":
+    "À partir de quand une loi votée s'applique-t-elle ?",
+  "Sofort nach der Abstimmung im Bundestag": "Aussitôt après le vote au Bundestag",
+  "Nach der Verkündung im Bundesgesetzblatt": "Après sa publication au Bundesgesetzblatt",
+  "Nach der Zustimmung des Bundesverfassungsgerichts":
+    "Après l'accord du Bundesverfassungsgericht",
+  "Nach einer Volksabstimmung": "Après un référendum",
+  "Erst die Veröffentlichung im Bundesgesetzblatt setzt ein Gesetz in Kraft — nach Abstimmung, gegebenenfalls Bundesrat und Ausfertigung durch den Bundespräsidenten.":
+    "Seule la publication au Bundesgesetzblatt met une loi en vigueur — après le vote, le cas échéant le Bundesrat, et la signature du Bundespräsident.",
+  "Wer wählt den Bundeskanzler?": "Qui élit le Bundeskanzler ?",
+  "Das Volk direkt": "Le peuple, directement",
+  "Der Bundestag": "Le Bundestag",
+  "Die Bundesversammlung": "La Bundesversammlung",
+  "Der Bundestag wählt den Kanzler auf Vorschlag des Bundespräsidenten. Die Bundesversammlung wählt den Bundespräsidenten — nicht den Kanzler.":
+    "Le Bundestag élit le chancelier sur proposition du Bundespräsident. La Bundesversammlung élit le Bundespräsident — pas le chancelier.",
+  "Wie lange dauert die Amtszeit des Bundespräsidenten?":
+    "Combien de temps dure le mandat du Bundespräsident ?",
+  "Acht Jahre": "Huit ans",
+  "Fünf Jahre, einmal wiederwählbar. Der Bundestag dagegen wird für vier Jahre gewählt.":
+    "Cinq ans, renouvelables une fois. Le Bundestag, lui, est élu pour quatre ans.",
+  "Was ist ein konstruktives Misstrauensvotum?":
+    "Qu'est-ce qu'une motion de censure constructive ?",
+  "Der Bundestag stürzt den Kanzler und wählt zugleich einen Nachfolger":
+    "Le Bundestag renverse le chancelier et élit en même temps un successeur",
+  "Das Volk stimmt über den Kanzler ab": "Le peuple se prononce sur le chancelier",
+  "Der Bundespräsident entlässt den Kanzler": "Le Bundespräsident révoque le chancelier",
+  "Die Minister treten geschlossen zurück": "Les ministres démissionnent tous ensemble",
+  "Abwahl nur mit gleichzeitiger Wahl eines Nachfolgers. Aus Weimar gelernt: Stürzen ohne Alternative soll nicht möglich sein.":
+    "On ne destitue qu'en élisant en même temps un successeur. Leçon de Weimar : renverser sans solution de rechange ne doit pas être possible.",
+  "Welche Stimme entscheidet bei der Bundestagswahl über die Stärke einer Partei?":
+    "Quelle voix décide du poids d'un parti aux élections du Bundestag ?",
+  "Die Erststimme": "La Erststimme",
+  "Die Zweitstimme": "La Zweitstimme",
+  "Beide zu gleichen Teilen": "Les deux à parts égales",
+  "Es gibt nur eine Stimme": "Il n'y a qu'une seule voix",
+  "Die Zweitstimme bestimmt, wie viele Sitze eine Partei bekommt. Die Erststimme wählt eine Person im Wahlkreis.":
+    "La Zweitstimme détermine le nombre de sièges d'un parti. La Erststimme élit une personne dans la circonscription.",
+  "Was bedeutet „geheime Wahl“?": "Que veut dire « scrutin secret » ?",
+  "Der Wahltermin wird nicht bekannt gegeben": "La date du scrutin n'est pas annoncée",
+  "Niemand darf erfahren, wie du gewählt hast": "Personne ne doit savoir comment vous avez voté",
+  "Die Kandidaten sind unbekannt": "Les candidats sont inconnus",
+  "Das Ergebnis bleibt geheim": "Le résultat reste secret",
+  "Deine Wahlentscheidung ist deine Sache. Deshalb gibt es die Wahlkabine — niemand darf dir hineinschauen.":
+    "Votre vote ne regarde que vous. C'est à cela que sert l'isoloir — personne n'a le droit d'y regarder.",
+  "Ab welchem Alter darf man in Deutschland den Bundestag wählen?":
+    "À partir de quel âge peut-on élire le Bundestag en Allemagne ?",
+  "Ab 16 Jahren": "À partir de 16 ans",
+  "Ab 18 Jahren": "À partir de 18 ans",
+  "Ab 21 Jahren": "À partir de 21 ans",
+  "Ab 25 Jahren": "À partir de 25 ans",
+  "Ab 18. Bei manchen Kommunal- und Landtagswahlen liegt das Alter niedriger, bei der Bundestagswahl bleibt es bei 18.":
+    "À partir de 18 ans. Pour certaines élections communales et régionales l'âge est plus bas ; pour le Bundestag il reste à 18 ans.",
+  "Wie viele Bundesländer hat Deutschland?":
+    "Combien l'Allemagne compte-t-elle de Bundesländer ?",
+  "12": "12",
+  "14": "14",
+  "16": "16",
+  "18": "18",
+  "16 seit der Wiedervereinigung 1990: die alten elf plus die fünf neuen Länder und das wiedervereinigte Berlin.":
+    "16 depuis la réunification de 1990 : les onze anciens, les cinq nouveaux Länder et Berlin réunifié.",
+  "Wer ist in Deutschland für die Schulen zuständig?":
+    "Qui est compétent pour les écoles en Allemagne ?",
+  "Der Bund": "Le Bund",
+  "Die Bundesländer": "Les Bundesländer",
+  "Die Gemeinden allein": "Les communes seules",
+  "Bildung ist Ländersache. Deshalb unterscheiden sich Lehrpläne, Schulformen und Ferien von Land zu Land.":
+    "L'éducation est l'affaire des Länder. C'est pourquoi les programmes, les types d'école et les vacances diffèrent d'un Land à l'autre.",
+  "Welche drei Bundesländer sind Stadtstaaten?":
+    "Quels trois Bundesländer sont des villes-États ?",
+  "Berlin, Hamburg, Bremen": "Berlin, Hambourg, Brême",
+  "Berlin, München, Köln": "Berlin, Munich, Cologne",
+  "Hamburg, Frankfurt, Stuttgart": "Hambourg, Francfort, Stuttgart",
+  "Bremen, Hannover, Leipzig": "Brême, Hanovre, Leipzig",
+  "Berlin, Hamburg und Bremen sind zugleich Stadt und Bundesland. München, Köln und Frankfurt sind nur Städte.":
+    "Berlin, Hambourg et Brême sont à la fois ville et Bundesland. Munich, Cologne et Francfort ne sont que des villes.",
+  "Wo hat das Bundesverfassungsgericht seinen Sitz?": "Où siège le Bundesverfassungsgericht ?",
+  "Berlin": "Berlin",
+  "Karlsruhe": "Karlsruhe",
+  "München": "Munich",
+  "Leipzig": "Leipzig",
+  "Karlsruhe. Bewusst nicht in der Hauptstadt — räumliche Distanz zur Politik gehört zur Unabhängigkeit.":
+    "À Karlsruhe. Volontairement pas dans la capitale — la distance physique avec la politique fait partie de l'indépendance.",
+  "Was bedeutet die Unschuldsvermutung?": "Que signifie la présomption d'innocence ?",
+  "Wer sich nicht äußert, ist unschuldig": "Celui qui garde le silence est innocent",
+  "Jeder gilt als unschuldig, bis ein Gericht ihn rechtskräftig verurteilt":
+    "Chacun est présumé innocent jusqu'à ce qu'un tribunal le condamne définitivement",
+  "Der Angeklagte muss seine Unschuld beweisen": "L'accusé doit prouver son innocence",
+  "Bei Zweifeln entscheidet die Polizei": "En cas de doute, c'est la police qui tranche",
+  "Beweisen muss die Anklage, nicht der Angeklagte. Bis zum rechtskräftigen Urteil gilt die Unschuldsvermutung.":
+    "C'est à l'accusation de prouver, pas à l'accusé. Jusqu'au jugement définitif, la présomption d'innocence s'applique.",
+  "Ein Nachbar schuldet dir Geld und zahlt nicht. Was ist richtig?":
+    "Un voisin vous doit de l'argent et ne paie pas. Quelle est la bonne réponse ?",
+  "Du darfst dir etwas aus seiner Wohnung nehmen": "Vous pouvez prendre quelque chose chez lui",
+  "Du kannst vor Gericht klagen": "Vous pouvez saisir la justice",
+  "Du darfst ihn festhalten, bis er zahlt": "Vous pouvez le retenir jusqu'à ce qu'il paie",
+  "Du darfst sein Auto beschädigen": "Vous pouvez abîmer sa voiture",
+  "Selbstjustiz ist strafbar, auch wenn die Forderung berechtigt ist. Der Weg führt über das Gericht.":
+    "Se faire justice soi-même est punissable, même quand la créance est fondée. Le chemin passe par le tribunal.",
+  "Welche gehört NICHT zu den fünf Sozialversicherungen?":
+    "Laquelle ne fait PAS partie des cinq assurances sociales ?",
+  "Hausratversicherung": "L'assurance habitation",
+  "Die Hausratversicherung ist eine private Sache. Die fünf gesetzlichen sind Kranken-, Renten-, Arbeitslosen-, Pflege- und Unfallversicherung.":
+    "L'assurance habitation est une affaire privée. Les cinq assurances légales sont l'assurance maladie, l'assurance vieillesse, l'assurance chômage, l'assurance dépendance et l'assurance accidents.",
+  "Wer bezahlt die gesetzliche Unfallversicherung?": "Qui paie l'assurance accidents légale ?",
+  "Arbeitgeber und Arbeitnehmer je zur Hälfte": "L'employeur et le salarié, à parts égales",
+  "Der Arbeitgeber allein": "L'employeur seul",
+  "Der Arbeitnehmer allein": "Le salarié seul",
+  "Der Staat aus Steuermitteln": "L'État, sur les impôts",
+  "Die Unfallversicherung ist die Ausnahme: Sie zahlt der Arbeitgeber allein. Bei den anderen vier teilen sich beide Seiten den Beitrag.":
+    "L'assurance accidents est l'exception : elle est payée par le seul employeur. Pour les quatre autres, les deux parties se partagent la cotisation.",
+  "Was besagt das Solidarprinzip?": "Que dit le principe de solidarité ?",
+  "Alle zahlen den gleichen Betrag": "Tout le monde verse le même montant",
+  "Beiträge richten sich nach dem Einkommen, Leistungen nach dem Bedarf":
+    "Les cotisations suivent le revenu, les prestations le besoin",
+  "Nur wer einzahlt, bekommt Hilfe": "Seul celui qui cotise reçoit de l'aide",
+  "Der Staat zahlt alles aus Steuern": "L'État paie tout sur les impôts",
+  "Wer mehr verdient, zahlt mehr — behandelt wird aber nach Bedarf, nicht nach Beitragshöhe.":
+    "Qui gagne plus paie plus — mais on est soigné selon le besoin, pas selon le montant de la cotisation.",
+  "In welchem Jahr wurde das Deutsche Kaiserreich gegründet?":
+    "En quelle année l'Empire allemand a-t-il été fondé ?",
+  "1848": "1848",
+  "1871": "1871",
+  "1888": "1888",
+  "1871, nach dem Krieg gegen Frankreich. Bis dahin bestand Deutschland aus vielen Einzelstaaten.":
+    "En 1871, après la guerre contre la France. Jusque-là, l'Allemagne était faite de nombreux États séparés.",
+  "Ab wann durften Frauen in Deutschland wählen?":
+    "À partir de quand les femmes ont-elles eu le droit de vote en Allemagne ?",
+  "Seit 1871": "Depuis 1871",
+  "Seit 1919": "Depuis 1919",
+  "Seit 1949": "Depuis 1949",
+  "Seit 1969": "Depuis 1969",
+  "Das Frauenwahlrecht kam mit der Weimarer Republik 1919 — eine der wichtigsten Neuerungen der ersten deutschen Demokratie.":
+    "Le droit de vote des femmes est venu avec la République de Weimar, en 1919 — l'une des nouveautés les plus importantes de la première démocratie allemande.",
+  "Warum heißt die Weimarer Republik so?":
+    "Pourquoi la République de Weimar porte-t-elle ce nom ?",
+  "Weimar war die Hauptstadt": "Weimar était la capitale",
+  "Die Verfassung wurde in Weimar beschlossen": "La constitution y a été adoptée",
+  "Der erste Präsident stammte aus Weimar": "Le premier président venait de Weimar",
+  "Das Parlament tagte dauerhaft in Weimar": "Le parlement y siégeait à demeure",
+  "Die Nationalversammlung tagte 1919 in Weimar und beschloss dort die Verfassung. Hauptstadt blieb Berlin.":
+    "L'Assemblée nationale a siégé à Weimar en 1919 et y a adopté la constitution. La capitale est restée Berlin.",
+  "Wann begann der Zweite Weltkrieg?": "Quand la Seconde Guerre mondiale a-t-elle commencé ?",
+  "Am 30. Januar 1933": "Le 30 janvier 1933",
+  "Am 9. November 1938": "Le 9 novembre 1938",
+  "Am 1. September 1939": "Le 1er septembre 1939",
+  "Am 8. Mai 1945": "Le 8 mai 1945",
+  "Mit dem deutschen Überfall auf Polen am 1. September 1939. Der 8. Mai 1945 ist das Kriegsende in Europa.":
+    "Avec l'attaque allemande contre la Pologne, le 1er septembre 1939. Le 8 mai 1945 est la fin de la guerre en Europe.",
+  "Was geschah in der Nacht vom 9. auf den 10. November 1938?":
+    "Que s'est-il passé dans la nuit du 9 au 10 novembre 1938 ?",
+  "Die Berliner Mauer fiel": "Le mur de Berlin est tombé",
+  "Synagogen wurden angezündet und jüdische Geschäfte zerstört":
+    "Des synagogues ont été incendiées et des commerces juifs détruits",
+  "Der Zweite Weltkrieg begann": "La Seconde Guerre mondiale a commencé",
+  "Das Grundgesetz trat in Kraft": "Le Grundgesetz est entré en vigueur",
+  "Die Pogromnacht. Der Mauerfall fällt auf denselben Kalendertag — den 9. November 1989 — und wird deshalb gern verwechselt.":
+    "La nuit de pogrom. La chute du Mur tombe le même jour du calendrier — le 9 novembre 1989 — d'où la confusion fréquente.",
+  "Wer gehörte zur Widerstandsgruppe „Weiße Rose“?":
+    "Qui faisait partie du groupe de résistance « la Rose blanche » ?",
+  "Sophie und Hans Scholl": "Sophie et Hans Scholl",
+  "Konrad Adenauer": "Konrad Adenauer",
+  "Claus Schenk Graf von Stauffenberg": "Claus Schenk Graf von Stauffenberg",
+  "Willy Brandt": "Willy Brandt",
+  "Die Geschwister Scholl verteilten in München Flugblätter gegen das Regime und wurden 1943 hingerichtet. Stauffenberg gehörte zum militärischen Widerstand des 20. Juli 1944.":
+    "Le frère et la sœur Scholl distribuaient à Munich des tracts contre le régime et furent exécutés en 1943. Stauffenberg appartenait à la résistance militaire du 20 juillet 1944.",
+  "Ist es in Deutschland erlaubt, öffentlich zu behaupten, der Holocaust habe nie stattgefunden?":
+    "Est-il permis en Allemagne d'affirmer publiquement que l'Holocauste n'a jamais eu lieu ?",
+  "Ja, das ist Meinungsfreiheit": "Oui, c'est la liberté d'opinion",
+  "Nein, das ist eine Straftat": "Non, c'est une infraction pénale",
+  "Nur in wissenschaftlichen Texten": "Seulement dans des textes scientifiques",
+  "Nur mit Genehmigung": "Seulement avec une autorisation",
+  "Die Leugnung des Holocaust ist strafbar. Die Meinungsfreiheit endet dort, wo Volksverhetzung beginnt.":
+    "La négation de l'Holocauste est punissable. La liberté d'opinion s'arrête là où commence la Volksverhetzung, l'incitation à la haine.",
+  "Woran erinnert der 27. Januar in Deutschland?": "Que commémore le 27 janvier en Allemagne ?",
+  "An die Gründung der Bundesrepublik": "La fondation de la République fédérale",
+  "An die Opfer des Nationalsozialismus": "Les victimes du national-socialisme",
+  "An den Mauerfall": "La chute du Mur",
+  "An das Ende des Ersten Weltkriegs": "La fin de la Première Guerre mondiale",
+  "Am 27. Januar 1945 wurde Auschwitz befreit. Der Tag ist deutschlandweiter Gedenktag für die Opfer des Nationalsozialismus.":
+    "Le 27 janvier 1945, Auschwitz a été libéré. Ce jour est, dans toute l'Allemagne, la journée du souvenir des victimes du national-socialisme.",
+  "Was waren die Nürnberger Prozesse?": "Qu'étaient les procès de Nuremberg ?",
+  "Verfahren gegen führende Nationalsozialisten nach dem Krieg":
+    "Des procès contre les dirigeants nationaux-socialistes après la guerre",
+  "Die Verhandlungen zur Wiedervereinigung": "Les négociations de la réunification",
+  "Die Gesetze gegen jüdische Deutsche von 1935": "Les lois de 1935 contre les Allemands juifs",
+  "Die Verhandlungen über den Versailler Vertrag":
+    "Les négociations sur le traité de Versailles",
+  "1945/46 klagten die Alliierten die Hauptverantwortlichen an. Die Nürnberger *Gesetze* von 1935 sind etwas anderes — hier lohnt genaues Lesen.":
+    "En 1945-1946, les Alliés ont mis en accusation les principaux responsables. Les *lois* de Nuremberg de 1935 sont autre chose — ici, il vaut la peine de lire de près.",
+  "Welche vier Mächte besetzten Deutschland nach 1945?":
+    "Quelles quatre puissances ont occupé l'Allemagne après 1945 ?",
+  "USA, Großbritannien, Frankreich, Sowjetunion":
+    "Les États-Unis, la Grande-Bretagne, la France, l'Union soviétique",
+  "USA, Großbritannien, Italien, Sowjetunion":
+    "Les États-Unis, la Grande-Bretagne, l'Italie, l'Union soviétique",
+  "USA, Frankreich, Polen, Sowjetunion":
+    "Les États-Unis, la France, la Pologne, l'Union soviétique",
+  "Großbritannien, Frankreich, Österreich, Sowjetunion":
+    "La Grande-Bretagne, la France, l'Autriche, l'Union soviétique",
+  "Die vier Siegermächte. Aus den drei westlichen Zonen entstand 1949 die Bundesrepublik, aus der sowjetischen die DDR.":
+    "Les quatre puissances victorieuses. Des trois zones occidentales est née en 1949 la République fédérale, de la zone soviétique la RDA.",
+  "Wer war der erste Bundeskanzler der Bundesrepublik Deutschland?":
+    "Qui a été le premier Bundeskanzler de la République fédérale d'Allemagne ?",
+  "Ludwig Erhard": "Ludwig Erhard",
+  "Helmut Kohl": "Helmut Kohl",
+  "Konrad Adenauer, ab 1949. Erhard folgte ihm 1963, Brandt kam 1969, Kohl 1982.":
+    "Konrad Adenauer, à partir de 1949. Erhard lui a succédé en 1963, Brandt est venu en 1969, Kohl en 1982.",
+  "Was war die Berliner Luftbrücke?": "Qu'était le pont aérien de Berlin ?",
+  "Eine Brücke über die Spree": "Un pont sur la Spree",
+  "Die Versorgung West-Berlins aus der Luft während der Blockade":
+    "Le ravitaillement de Berlin-Ouest par les airs pendant le blocus",
+  "Der Bau des Flughafens Tegel": "La construction de l'aéroport de Tegel",
+  "Eine Fluchtroute über die Mauer": "Une voie d'évasion par-dessus le Mur",
+  "1948/49 blockierte die Sowjetunion die Zufahrtswege. Die Westalliierten versorgten die Stadt fast ein Jahr lang per Flugzeug.":
+    "En 1948-1949, l'Union soviétique a bloqué les voies d'accès. Les Alliés occidentaux ont ravitaillé la ville par avion pendant près d'un an.",
+  "Wann wurde die Berliner Mauer gebaut?": "Quand le mur de Berlin a-t-il été construit ?",
+  "1949": "1949",
+  "1953": "1953",
+  "1961": "1961",
+  "1968": "1968",
+  "Am 13. August 1961, um die Fluchtbewegung zu stoppen. 1953 war der Aufstand, 1949 die Staatsgründung.":
+    "Le 13 août 1961, pour arrêter les départs. 1953, c'est le soulèvement ; 1949, la fondation des deux États.",
+  "Was war die Stasi?": "Qu'était la Stasi ?",
+  "Die Armee der DDR": "L'armée de la RDA",
+  "Der Geheimdienst, der die eigene Bevölkerung überwachte":
+    "Le service secret qui surveillait sa propre population",
+  "Die Jugendorganisation der SED": "L'organisation de jeunesse du SED",
+  "Die Wirtschaftsbehörde der DDR": "L'administration économique de la RDA",
+  "Das Ministerium für Staatssicherheit überwachte die eigenen Bürger. Die Armee hieß Nationale Volksarmee, die Jugendorganisation FDJ.":
+    "Le ministère de la Sûreté de l'État surveillait ses propres citoyens. L'armée s'appelait Nationale Volksarmee, l'organisation de jeunesse FDJ.",
+  "Warum war die DDR keine Demokratie?": "Pourquoi la RDA n'était-elle pas une démocratie ?",
+  "Weil es keine Verfassung gab": "Parce qu'il n'y avait pas de constitution",
+  "Weil eine Partei herrschte und es keine freien Wahlen gab":
+    "Parce qu'un seul parti gouvernait et qu'il n'y avait pas d'élections libres",
+  "Weil es kein Parlament gab": "Parce qu'il n'y avait pas de parlement",
+  "Weil sie zu klein war": "Parce qu'elle était trop petite",
+  "Eine Verfassung und ein Parlament gab es durchaus. Entscheidend ist: Die SED bestimmte, echte Wahlmöglichkeiten und Meinungsfreiheit fehlten.":
+    "Une constitution et un parlement, il y en avait bel et bien. Ce qui compte, c'est que le SED décidait : ni vrai choix électoral, ni liberté d'opinion.",
+  "Welcher Tag ist der deutsche Nationalfeiertag?":
+    "Quel jour est la fête nationale allemande ?",
+  "Der 9. November": "Le 9 novembre",
+  "Der 3. Oktober": "Le 3 octobre",
+  "Der 23. Mai": "Le 23 mai",
+  "Der 1. Mai": "Le 1er mai",
+  "Der 3. Oktober, Tag der Deutschen Einheit. Der 9. November ist der Tag des Mauerfalls — aber auch der Pogromnacht 1938.":
+    "Le 3 octobre, jour de l'Unité allemande. Le 9 novembre est celui de la chute du Mur — mais aussi de la nuit de pogrom de 1938.",
+  "Wann fiel die Berliner Mauer?": "Quand le mur de Berlin est-il tombé ?",
+  "Am 13. August 1961": "Le 13 août 1961",
+  "Am 9. November 1989": "Le 9 novembre 1989",
+  "Am 3. Oktober 1990": "Le 3 octobre 1990",
+  "Am 23. Mai 1949": "Le 23 mai 1949",
+  "Am 9. November 1989 wurden die Grenzübergänge geöffnet. Die staatliche Einheit folgte knapp elf Monate später.":
+    "Le 9 novembre 1989, les postes-frontières ont été ouverts. L'unité étatique a suivi près de onze mois plus tard.",
+  "Welche Länder kamen 1990 als „neue Bundesländer“ dazu?":
+    "Quels Länder se sont ajoutés en 1990 comme « nouveaux Bundesländer » ?",
+  "Bayern, Hessen, Saarland, Bremen, Hamburg": "La Bavière, la Hesse, la Sarre, Brême, Hambourg",
+  "Brandenburg, Mecklenburg-Vorpommern, Sachsen, Sachsen-Anhalt, Thüringen":
+    "Le Brandebourg, le Mecklembourg-Poméranie-Occidentale, la Saxe, la Saxe-Anhalt, la Thuringe",
+  "Nur Sachsen und Thüringen": "La Saxe et la Thuringe seulement",
+  "Berlin, Brandenburg, Sachsen, Bayern, Hessen":
+    "Berlin, le Brandebourg, la Saxe, la Bavière, la Hesse",
+  "Diese fünf Länder wurden auf dem Gebiet der DDR wiedergegründet. Zusammen mit dem vereinigten Berlin ergeben sich die heutigen 16 Länder.":
+    "Ces cinq Länder ont été refondés sur le territoire de la RDA. Avec Berlin réunifié, on arrive aux 16 Länder d'aujourd'hui.",
+  "Seit wann gibt es in Deutschland Euro-Bargeld?":
+    "Depuis quand y a-t-il des espèces en euros en Allemagne ?",
+  "Seit 1990": "Depuis 1990",
+  "Seit 1999": "Depuis 1999",
+  "Seit 2002": "Depuis 2002",
+  "Seit 2010": "Depuis 2010",
+  "Die Scheine und Münzen kamen 2002. Als Buchgeld existierte der Euro schon seit 1999 — im Portemonnaie aber erst 2002.":
+    "Les billets et les pièces sont arrivés en 2002. Comme monnaie scripturale, l'euro existait depuis 1999 — mais dans le porte-monnaie, seulement à partir de 2002.",
+  "An wie viele Nachbarländer grenzt Deutschland?":
+    "Avec combien de pays voisins l'Allemagne a-t-elle une frontière ?",
+  "Sechs": "Six",
+  "Sieben": "Sept",
+  "Neun": "Neuf",
+  "Elf": "Onze",
+  "Neun: Dänemark, Polen, Tschechien, Österreich, Schweiz, Frankreich, Luxemburg, Belgien und die Niederlande.":
+    "Neuf : le Danemark, la Pologne, la Tchéquie, l'Autriche, la Suisse, la France, le Luxembourg, la Belgique et les Pays-Bas.",
+  "Wer entscheidet über Auslandseinsätze der Bundeswehr?":
+    "Qui décide des missions de la Bundeswehr à l'étranger ?",
+  "Der Bundeskanzler allein": "Le Bundeskanzler seul",
+  "Die NATO": "L'OTAN",
+  "Die Bundeswehr ist eine Parlamentsarmee: Ohne Zustimmung des Bundestages gibt es keinen Auslandseinsatz.":
+    "La Bundeswehr est une armée parlementaire : sans l'accord du Bundestag, pas de mission à l'étranger.",
+  "Welche Farben hat die deutsche Flagge von oben nach unten?":
+    "Quelles sont les couleurs du drapeau allemand, de haut en bas ?",
+  "Schwarz, Rot, Gold": "Noir, rouge, or",
+  "Gold, Rot, Schwarz": "Or, rouge, noir",
+  "Schwarz, Gold, Rot": "Noir, or, rouge",
+  "Rot, Schwarz, Gold": "Rouge, noir, or",
+  "Schwarz oben, Rot in der Mitte, Gold unten. Die unterste Farbe heißt Gold, nicht Gelb.":
+    "Noir en haut, rouge au milieu, or en bas. La couleur du bas s'appelle or, pas jaune.",
+  "Welche Strophe des Deutschlandlieds ist die Nationalhymne?":
+    "Quelle strophe du Deutschlandlied est l'hymne national ?",
+  "Die erste": "La première",
+  "Die zweite": "La deuxième",
+  "Die dritte": "La troisième",
+  "Alle drei": "Les trois",
+  "Die dritte Strophe: „Einigkeit und Recht und Freiheit“. Nur sie wird bei offiziellen Anlässen gesungen.":
+    "La troisième strophe : « Einigkeit und Recht und Freiheit ». C'est la seule que l'on chante aux occasions officielles.",
+  "Wie heißt der höchste Berg Deutschlands?":
+    "Comment s'appelle le plus haut sommet d'Allemagne ?",
+  "Der Brocken": "Le Brocken",
+  "Die Zugspitze": "La Zugspitze",
+  "Der Feldberg": "Le Feldberg",
+  "Der Watzmann": "Le Watzmann",
+  "Die Zugspitze in Bayern, 2.962 Meter. Der Brocken im Harz ist der höchste Berg Norddeutschlands.":
+    "La Zugspitze, en Bavière, 2 962 mètres. Le Brocken, dans le Harz, est le plus haut sommet de l'Allemagne du Nord.",
+  "Was bedeutet Religionsfreiheit in Deutschland?":
+    "Que signifie la liberté de religion en Allemagne ?",
+  "Jeder muss einer Religion angehören": "Chacun doit appartenir à une religion",
+  "Jeder darf glauben, was er möchte, oder gar nichts glauben":
+    "Chacun peut croire ce qu'il veut, ou ne rien croire du tout",
+  "Nur christliche Religionen sind erlaubt": "Seules les religions chrétiennes sont autorisées",
+  "Religion ist Privatsache und in der Öffentlichkeit verboten":
+    "La religion est une affaire privée et interdite en public",
+  "Artikel 4 schützt beides: den Glauben und die Freiheit, keiner Religion anzugehören.":
+    "L'article 4 protège les deux : la foi et la liberté de n'appartenir à aucune religion.",
+  "Eine religiöse Vorschrift widerspricht einem deutschen Gesetz. Was gilt?":
+    "Une prescription religieuse contredit une loi allemande. Laquelle l'emporte ?",
+  "Die religiöse Vorschrift": "La prescription religieuse",
+  "Das deutsche Gesetz": "La loi allemande",
+  "Die Entscheidung der Familie": "La décision de la famille",
+  "Das kommt auf die Religion an": "Cela dépend de la religion",
+  "Das staatliche Recht gilt für alle gleichermaßen. Religionsfreiheit erlaubt den Glauben, nicht den Rechtsbruch.":
+    "Le droit de l'État vaut pour tous de la même façon. La liberté de religion permet de croire, pas d'enfreindre la loi.",
+  "Muss ein Kind an staatlichen Schulen am Religionsunterricht teilnehmen?":
+    "Un enfant doit-il suivre le cours de religion dans les écoles publiques ?",
+  "Ja, das ist Pflicht": "Oui, c'est obligatoire",
+  "Nein, man kann sich abmelden und meist Ethik belegen":
+    "Non, on peut s'en dispenser et suivre le plus souvent un cours d'éthique",
+  "Nur bei christlichen Familien": "Seulement dans les familles chrétiennes",
+  "Nur in der Grundschule": "Seulement à l'école primaire",
+  "Religionsunterricht ist ein reguläres Fach, aber niemand ist dazu verpflichtet. Als Alternative gibt es meist Ethik oder Philosophie.":
+    "Le cours de religion est une matière ordinaire, mais personne n'y est tenu. Il existe en général un cours d'éthique ou de philosophie à la place.",
+  "Ein Mann verbietet seiner Frau, arbeiten zu gehen. Was gilt in Deutschland?":
+    "Un homme interdit à sa femme de travailler. Qu'en est-il en Allemagne ?",
+  "Er darf das als Familienoberhaupt": "Il en a le droit comme chef de famille",
+  "Sie entscheidet selbst, denn Männer und Frauen sind gleichberechtigt":
+    "C'est elle qui décide, car les hommes et les femmes sont égaux en droits",
+  "Nur mit Zustimmung der Familie": "Seulement avec l'accord de la famille",
+  "Das Standesamt entscheidet": "C'est le Standesamt qui tranche",
+  "Artikel 3 des Grundgesetzes: gleichberechtigt. Über Arbeit, Geld und Lebensweg entscheidet jede Person selbst.":
+    "Article 3 du Grundgesetz : égalité en droits. Chacun décide seul de son travail, de son argent et de sa vie.",
+  "Wie ist körperliche Bestrafung von Kindern in Deutschland geregelt?":
+    "Comment le châtiment corporel des enfants est-il réglé en Allemagne ?",
+  "Erlaubt, wenn es die Eltern für nötig halten": "Autorisé si les parents le jugent nécessaire",
+  "Verboten — Kinder haben ein Recht auf gewaltfreie Erziehung":
+    "Interdit — les enfants ont droit à une éducation sans violence",
+  "Erlaubt bis zum 10. Lebensjahr": "Autorisé jusqu'à dix ans",
+  "Nur Lehrern verboten": "Interdit aux seuls enseignants",
+  "Seit 2000 steht das Recht auf gewaltfreie Erziehung im Gesetz. Schläge sind keine Erziehungsmethode, sondern strafbar.":
+    "Depuis 2000, le droit à une éducation sans violence figure dans la loi. Les coups ne sont pas une méthode d'éducation : ils sont punissables.",
+  "Was gilt für die Ehe in Deutschland?": "Qu'en est-il du mariage en Allemagne ?",
+  "Man kann mit mehreren Personen gleichzeitig verheiratet sein":
+    "On peut être marié à plusieurs personnes à la fois",
+  "Die Ehe muss freiwillig geschlossen werden; Zwangsheirat ist strafbar":
+    "Le mariage doit être conclu librement ; le mariage forcé est punissable",
+  "Die Eltern wählen den Ehepartner aus": "Ce sont les parents qui choisissent le conjoint",
+  "Eine Scheidung ist nicht möglich": "Le divorce est impossible",
+  "Freiwilligkeit ist Voraussetzung. Zwangsheirat ist eine Straftat, Mehrehe verboten, und geschieden werden kann jede Ehe.":
+    "Le libre consentement est la condition. Le mariage forcé est un délit, la polygamie est interdite, et tout mariage peut être dissous.",
+  "Was bedeutet „duale Ausbildung“?": "Que veut dire « duale Ausbildung » ?",
+  "Zwei Berufe gleichzeitig lernen": "Apprendre deux métiers en même temps",
+  "Ausbildung im Betrieb und in der Berufsschule zugleich":
+    "Une formation en entreprise et à l'école professionnelle à la fois",
+  "Eine Ausbildung mit doppelter Dauer": "Une formation de durée double",
+  "Ausbildung in zwei Bundesländern": "Une formation dans deux Bundesländer",
+  "Zwei Lernorte: der Betrieb für die Praxis, die Berufsschule für die Theorie. Bezahlt wird von Anfang an.":
+    "Deux lieux d'apprentissage : l'entreprise pour la pratique, l'école professionnelle pour la théorie. Et l'on est payé dès le début.",
+  "Gilt die Schulpflicht in Deutschland auch für Mädchen?":
+    "L'obligation scolaire vaut-elle aussi pour les filles en Allemagne ?",
+  "Ja, für alle Kinder gleichermaßen": "Oui, pour tous les enfants de la même façon",
+  "Nein, Eltern entscheiden das": "Non, ce sont les parents qui décident",
+  "Nur bis zur vierten Klasse": "Seulement jusqu'à la quatrième classe",
+  "Nur für deutsche Staatsangehörige": "Seulement pour les ressortissants allemands",
+  "Die Schulpflicht gilt für alle Kinder, unabhängig von Geschlecht, Herkunft oder Religion — einschließlich Sport- und Schwimmunterricht.":
+    "L'obligation scolaire vaut pour tous les enfants, quels que soient le sexe, l'origine ou la religion — cours de sport et de natation compris.",
+  "Welcher Abschluss berechtigt in der Regel zum Studium an einer Universität?":
+    "Quel diplôme ouvre en règle générale l'accès à l'université ?",
+  "Der Hauptschulabschluss": "Le Hauptschulabschluss",
+  "Die Mittlere Reife": "La Mittlere Reife",
+  "Das Abitur": "L'Abitur",
+  "Der Gesellenbrief": "Le Gesellenbrief",
+  "Das Abitur ist die allgemeine Hochschulreife. Über Fachhochschulreife und berufliche Qualifikationen gibt es weitere Wege.":
+    "L'Abitur est la maturité générale. La Fachhochschulreife et les qualifications professionnelles ouvrent d'autres voies.",
+  "Wie lange zahlt der Arbeitgeber bei Krankheit den Lohn weiter?":
+    "Combien de temps l'employeur continue-t-il de verser le salaire en cas de maladie ?",
+  "Zwei Wochen": "Deux semaines",
+  "Sechs Wochen": "Six semaines",
+  "Drei Monate": "Trois mois",
+  "Gar nicht": "Pas du tout",
+  "Sechs Wochen Lohnfortzahlung. Danach zahlt die Krankenkasse Krankengeld.":
+    "Six semaines de maintien du salaire. Ensuite, la caisse maladie verse une indemnité journalière.",
+  "Was ist ein Betriebsrat?": "Qu'est-ce qu'un Betriebsrat ?",
+  "Die Geschäftsführung eines Betriebs": "La direction d'une entreprise",
+  "Eine von den Beschäftigten gewählte Vertretung": "Une représentation élue par les salariés",
+  "Eine Behörde für Betriebsprüfungen": "Une administration chargée des contrôles d'entreprise",
+  "Der Zusammenschluss mehrerer Firmen": "Le regroupement de plusieurs sociétés",
+  "Die Belegschaft wählt ihn. Er vertritt ihre Interessen gegenüber dem Arbeitgeber und hat bei vielen Entscheidungen ein Mitspracherecht.":
+    "Le personnel l'élit. Il défend ses intérêts face à l'employeur et a voix au chapitre dans beaucoup de décisions.",
+  "Du wurdest gekündigt und hältst das für unrechtmäßig. Wie lange hast du Zeit für eine Klage?":
+    "Vous avez été licencié et jugez cela illégal. De combien de temps disposez-vous pour saisir la justice ?",
+  "Drei Wochen": "Trois semaines",
+  "Ein Jahr": "Un an",
+  "Unbegrenzt": "Sans limite",
+  "Drei Wochen ab Zugang der Kündigung. Danach gilt die Kündigung in aller Regel als wirksam.":
+    "Trois semaines à compter de la réception de la lettre. Passé ce délai, le licenciement est en règle générale réputé valable.",
+  "Du ziehst in eine neue Wohnung. Was musst du tun?":
+    "Vous emménagez dans un nouveau logement. Que devez-vous faire ?",
+  "Nichts, das macht der Vermieter": "Rien, le bailleur s'en charge",
+  "Dich innerhalb von zwei Wochen beim Einwohnermeldeamt anmelden":
+    "Vous inscrire dans les deux semaines à l'Einwohnermeldeamt",
+  "Dich beim Finanzamt anmelden": "Vous inscrire au Finanzamt",
+  "Die Nachbarn informieren": "Informer les voisins",
+  "Es gilt die Meldepflicht: Anmeldung beim Einwohnermeldeamt oder Bürgeramt innerhalb von zwei Wochen.":
+    "L'inscription est obligatoire : à l'Einwohnermeldeamt ou au Bürgeramt, le bureau des habitants, dans les deux semaines.",
+  "Wie hoch darf die Mietkaution höchstens sein?":
+    "À combien peut s'élever au maximum le dépôt de garantie ?",
+  "Eine Monatsmiete": "Un mois de loyer",
+  "Drei Monatsmieten": "Trois mois de loyer",
+  "Sechs Monatsmieten": "Six mois de loyer",
+  "Das ist frei verhandelbar": "Cela se négocie librement",
+  "Höchstens drei Monatskaltmieten. Mehr darf der Vermieter nicht verlangen.":
+    "Trois mois de loyer hors charges au maximum. Le bailleur ne peut pas exiger davantage.",
+  "Ab wann gilt in Deutschland üblicherweise die Nachtruhe?":
+    "À partir de quelle heure le repos nocturne s'applique-t-il d'ordinaire en Allemagne ?",
+  "Ab 20 Uhr": "À partir de 20 heures",
+  "Ab 22 Uhr": "À partir de 22 heures",
+  "Ab 24 Uhr": "À partir de minuit",
+  "Es gibt keine Nachtruhe": "Il n'y a pas de repos nocturne",
+  "In der Regel von 22 bis 6 Uhr. Sonn- und Feiertage sind meist ganztägig Ruhetage.":
+    "En règle générale de 22 heures à 6 heures. Les dimanches et jours fériés sont le plus souvent chômés toute la journée.",
+  "Welche Nummer wählst du in Deutschland bei einem medizinischen Notfall?":
+    "Quel numéro appelle-t-on en Allemagne en cas d'urgence médicale ?",
+  "110": "110",
+  "112": "112",
+  "116117": "116117",
+  "115": "115",
+  "112 für Notarzt und Feuerwehr, 110 für die Polizei. 116117 ist der ärztliche Bereitschaftsdienst außerhalb der Sprechzeiten.":
+    "Le 112 pour le SAMU et les pompiers, le 110 pour la police. Le 116117 est le service de garde médicale en dehors des heures de consultation.",
+  "Wer ist in der gesetzlichen Krankenversicherung beitragsfrei mitversichert?":
+    "Qui est assuré gratuitement dans l'assurance maladie légale ?",
+  "Niemand, jeder zahlt selbst": "Personne, chacun paie pour soi",
+  "Kinder und Ehepartner ohne eigenes Einkommen":
+    "Les enfants et le conjoint sans revenu propre",
+  "Nur Kinder bis 6 Jahre": "Seulement les enfants jusqu'à 6 ans",
+  "Alle Verwandten im selben Haushalt": "Tous les parents vivant sous le même toit",
+  "Die Familienversicherung deckt Kinder und nicht erwerbstätige Ehepartner ohne zusätzlichen Beitrag ab.":
+    "L'assurance familiale couvre les enfants et le conjoint sans activité, sans cotisation supplémentaire.",
+  "Darf dein Arzt dem Arbeitgeber sagen, welche Krankheit du hast?":
+    "Votre médecin peut-il dire à votre employeur de quelle maladie vous souffrez ?",
+  "Ja, das ist üblich": "Oui, c'est l'usage",
+  "Nein, es gilt die ärztliche Schweigepflicht": "Non, le secret médical s'applique",
+  "Nur bei längerer Krankheit": "Seulement en cas de maladie longue",
+  "Nur wenn der Arbeitgeber fragt": "Seulement si l'employeur le demande",
+  "Die Diagnose bleibt zwischen dir und dem Arzt. Der Arbeitgeber erfährt nur, dass und wie lange du arbeitsunfähig bist.":
+    "Le diagnostic reste entre vous et le médecin. L'employeur apprend seulement que vous êtes en arrêt, et pour combien de temps.",
+  "Darf eine deutsche Zeitung die Bundesregierung öffentlich kritisieren?":
+    "Un journal allemand peut-il critiquer publiquement le gouvernement fédéral ?",
+  "Nein, das ist verboten": "Non, c'est interdit",
+  "Ja, denn es gilt die Pressefreiheit": "Oui, car la liberté de la presse s'applique",
+  "Nur mit Genehmigung des Ministeriums": "Seulement avec l'autorisation du ministère",
+  "Nur vor Wahlen": "Seulement avant les élections",
+  "Artikel 5 des Grundgesetzes garantiert Presse- und Meinungsfreiheit. Eine Zensur findet nicht statt.":
+    "L'article 5 du Grundgesetz garantit la liberté de la presse et d'opinion. Il n'y a pas de censure.",
+  "Was wird am 1. Mai in Deutschland gefeiert?": "Que célèbre-t-on le 1er mai en Allemagne ?",
+  "Der Tag der Deutschen Einheit": "Le jour de l'Unité allemande",
+  "Der Tag der Arbeit": "La fête du Travail",
+  "Das Ende des Zweiten Weltkriegs": "La fin de la Seconde Guerre mondiale",
+  "Der Geburtstag des Grundgesetzes": "L'anniversaire du Grundgesetz",
+  "Der 1. Mai ist der Tag der Arbeit. Der 3. Oktober ist der Tag der Deutschen Einheit, der 23. Mai der Tag des Grundgesetzes.":
+    "Le 1er mai est la fête du Travail. Le 3 octobre est le jour de l'Unité allemande, le 23 mai celui du Grundgesetz.",
+  "Wer sammelte die bekannten deutschen Märchen?":
+    "Qui a recueilli les contes allemands les plus connus ?",
+  "Johann Wolfgang von Goethe": "Johann Wolfgang von Goethe",
+  "Die Brüder Grimm": "Les frères Grimm",
+  "Friedrich Schiller": "Friedrich Schiller",
+  "Thomas Mann": "Thomas Mann",
+  "Jacob und Wilhelm Grimm sammelten im 19. Jahrhundert Märchen wie Hänsel und Gretel und Rotkäppchen.":
+    "Jacob et Wilhelm Grimm ont recueilli au XIXe siècle des contes comme Hansel et Gretel ou le Petit Chaperon rouge.",
 };

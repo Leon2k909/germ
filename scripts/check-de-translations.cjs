@@ -75,6 +75,17 @@ for (const lesson of course.lessons ?? []) {
     if (block.type === "h3" || block.type === "p" || block.type === "callout") translatable.add(block.text);
     if (block.type === "cards") for (const item of block.items ?? []) { translatable.add(item.h4); translatable.add(item.p); }
     if (block.type === "cta") { translatable.add(block.title); translatable.add(block.sub); }
+    // A quiz closes a lesson, and localiseLesson translates its question, its
+    // options and its explanation. Leaving them out here did not just skip a
+    // check: it dropped them from the denominator, so English, Polish and
+    // French all read far higher than a reader would have said. 397 of these
+    // strings were untranslated in French while the line below called the
+    // course 64% done.
+    if (block.type === "quiz") {
+      translatable.add(block.q);
+      for (const option of block.options ?? []) translatable.add(option.text);
+      translatable.add(block.explanation);
+    }
   }
 }
 translatable.delete(undefined);
