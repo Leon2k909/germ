@@ -1113,4 +1113,499 @@ export const VIVRE_EN_FRANCE_PL: Record<string, string> = {
     "Interesant · skarga · dyskryminacja · prefektura · karta pobytu.",
   "En une phrase : trois numéros pour l'urgence, quatre guichets pour le reste — et un recours gratuit quand un guichet vous traite mal.":
     "W jednym zdaniu: trzy numery na wypadek nagły, cztery okienka na całą resztę — i bezpłatne odwołanie, gdy okienko potraktuje was źle.",
+
+  // ── The questions that close each lesson ────────────────────────────────
+  // Added long after the lesson text. Without them a Polish reader gets
+  // through the whole lesson and then meets three untranslated questions.
+  //
+  // The French stays wherever the exam asks for the French — laïcité, SMIC,
+  // carte Vitale, tiers payant, Conseil constitutionnel, prud'hommes — and
+  // the Polish carries the explanation around it. Four strings this course
+  // shares with Life in the UK and Leben in Deutschland are answered by
+  // those tables and are deliberately absent: a second entry for one key
+  // would be a silent collision.
+  "Combien de bonnes réponses faut-il pour réussir l'examen civique ?":
+    "Ile poprawnych odpowiedzi trzeba, żeby zdać egzamin obywatelski?",
+  "20 sur 40": "20 na 40",
+  "26 sur 40": "26 na 40",
+  "32 sur 40": "32 na 40",
+  "40 sur 40": "40 na 40",
+  "Il faut 32 bonnes réponses sur 40, soit 80 %, en 45 minutes au maximum.":
+    "Trzeba 32 poprawnych odpowiedzi na 40, czyli 80 %, w najwyżej 45 minut.",
+  "Que porte Marianne sur la tête ?": "Co Marianne nosi na głowie?",
+  "Une couronne": "Koronę",
+  "Un bonnet phrygien": "Czapkę frygijską",
+  "Un casque": "Hełm",
+  "Un chapeau de paille": "Słomkowy kapelusz",
+  "Le bonnet phrygien, porté par les esclaves affranchis de la Rome antique : il signifie la liberté conquise.":
+    "Czapkę frygijską, noszoną przez wyzwoleńców w starożytnym Rzymie: oznacza wywalczoną wolność.",
+  "Qui a écrit et composé La Marseillaise ?": "Kto napisał i skomponował La Marseillaise?",
+  "Rouget de Lisle": "Rouget de Lisle",
+  "Napoléon Bonaparte": "Napoleon Bonaparte",
+  "Hector Berlioz": "Hector Berlioz",
+  "Claude Joseph Rouget de Lisle l'a écrite à Strasbourg en 1792. Elle est devenue l'hymne national en 1795.":
+    "Claude Joseph Rouget de Lisle napisał ją w Strasburgu w 1792 roku. Hymnem narodowym stała się w 1795.",
+  "Que signifie l'Égalité dans la devise de la République ?":
+    "Co oznacza Égalité w dewizie Republiki?",
+  "Tout le monde gagne la même chose": "Że wszyscy zarabiają tyle samo",
+  "La loi est la même pour tous et tous ont les mêmes droits":
+    "Że prawo jest takie samo dla wszystkich i wszyscy mają te same prawa",
+  "Tout le monde doit avoir le même travail": "Że wszyscy muszą mieć tę samą pracę",
+  "Tout le monde doit penser pareil": "Że wszyscy muszą myśleć tak samo",
+  "C'est l'égalité devant la loi et l'égalité des droits, pas l'égalité des revenus ou des situations.":
+    "Chodzi o równość wobec prawa i równość praw, nie o równość dochodów czy położenia.",
+  "Qu'est-ce que la liberté d'association ?": "Czym jest wolność zrzeszania się?",
+  "Le droit de créer une association ou d'y adhérer librement":
+    "Prawem do swobodnego zakładania stowarzyszenia i wstępowania do niego",
+  "Le droit d'entrer dans n'importe quel bâtiment": "Prawem wejścia do dowolnego budynku",
+  "L'obligation d'appartenir à une association": "Obowiązkiem przynależenia do stowarzyszenia",
+  "Le droit de fonder une entreprise": "Prawem do założenia firmy",
+  "Depuis la loi de 1901, on peut créer une association ou y adhérer sans autorisation préalable — et on peut aussi n'en faire partie d'aucune.":
+    "Od ustawy z 1901 roku można założyć stowarzyszenie albo do niego wstąpić bez uprzedniego zezwolenia — i można też nie należeć do żadnego.",
+  "En quelle année la loi de séparation des Églises et de l'État a-t-elle été votée ?":
+    "W którym roku uchwalono ustawę o rozdziale Kościołów i państwa?",
+  "1881": "1881",
+  "1905": "1905",
+  "1958": "1958",
+  "Le 9 décembre 1905. C'est le texte fondateur de la laïcité, et le 9 décembre est aujourd'hui la journée de la laïcité.":
+    "9 grudnia 1905 roku. To akt założycielski laïcité, a 9 grudnia jest dziś dniem laïcité.",
+  "Qui doit respecter la neutralité religieuse dans les services publics ?":
+    "Kto musi przestrzegać neutralności religijnej w służbach publicznych?",
+  "Les usagers du service": "Interesanci danej służby",
+  "Les agents du service public": "Funkcjonariusze służby publicznej",
+  "Tout le monde dans la rue": "Wszyscy na ulicy",
+  "Personne, la neutralité n'est pas obligatoire": "Nikt, neutralność nie jest obowiązkowa",
+  "La neutralité s'impose aux agents, pas aux usagers. Une personne qui se rend à la mairie reste libre de ses convictions et de sa tenue.":
+    "Neutralność obowiązuje funkcjonariuszy, nie interesantów. Osoba, która przychodzi do merostwa, zachowuje swobodę przekonań i stroju.",
+  "Une personne déclare ne croire en aucun dieu. On peut dire :":
+    "Ktoś oświadcza, że nie wierzy w żadnego boga. Można powiedzieć:",
+  "qu'elle est athée": "że jest ateistą",
+  "qu'elle est croyante": "że jest osobą wierzącą",
+  "qu'elle enfreint la loi": "że łamie prawo",
+  "qu'elle doit choisir une religion": "że musi wybrać sobie religię",
+  "Elle est athée, et c'est parfaitement légal : la liberté de conscience comprend le droit de ne rien croire.":
+    "Jest ateistą i jest to całkowicie legalne: wolność sumienia obejmuje prawo do niewiary.",
+  "À quoi sert le droit de grève ?": "Do czego służy prawo do strajku?",
+  "À défendre des revendications professionnelles": "Do obrony postulatów zawodowych",
+  "À obtenir des vacances supplémentaires automatiquement":
+    "Do automatycznego uzyskania dodatkowego urlopu",
+  "À refuser de payer ses impôts": "Do odmowy płacenia podatków",
+  "À quitter son emploi sans préavis": "Do porzucenia pracy bez wypowiedzenia",
+  "La grève est l'arrêt collectif et concerté du travail pour défendre des revendications professionnelles. C'est un droit constitutionnel.":
+    "Strajk to zbiorowe i uzgodnione wstrzymanie pracy w obronie postulatów zawodowych. To prawo konstytucyjne.",
+  "Au nom de quoi l'État peut-il restreindre une liberté ?":
+    "W imię czego państwo może ograniczyć wolność?",
+  "De l'opinion du gouvernement": "Opinii rządu",
+  "De l'ordre public, dans les limites fixées par la loi":
+    "Porządku publicznego, w granicach wyznaczonych przez ustawę",
+  "De la volonté d'une majorité de citoyens": "Woli większości obywateli",
+  "D'une décision d'un employeur": "Decyzji pracodawcy",
+  "Seul l'ordre public — sécurité, santé publique, droits d'autrui — justifie une restriction, et elle doit être prévue par la loi.":
+    "Tylko porządek publiczny — bezpieczeństwo, zdrowie publiczne, prawa innych — uzasadnia ograniczenie, i musi ono być przewidziane w ustawie.",
+  "Déclarer ses revenus aux services fiscaux est :":
+    "Zgłoszenie dochodów służbom podatkowym jest:",
+  "facultatif": "dobrowolne",
+  "obligatoire chaque année": "obowiązkowe co roku",
+  "obligatoire seulement pour les salariés": "obowiązkowe tylko dla pracowników najemnych",
+  "réservé aux personnes imposables": "zastrzeżone dla osób podlegających opodatkowaniu",
+  "La déclaration est annuelle et obligatoire, même si l'on ne paie pas d'impôt sur le revenu au bout du compte.":
+    "Deklaracja jest roczna i obowiązkowa, nawet jeśli ostatecznie nie płaci się podatku dochodowego.",
+  "Quand la Sécurité sociale a-t-elle été établie en France ?":
+    "Kiedy powołano we Francji Sécurité sociale?",
+  "En 1905": "W 1905",
+  "En 1936": "W 1936",
+  "En 1945": "W 1945",
+  "En 1958": "W 1958",
+  "En 1945, à la Libération. Elle couvre la maladie, la vieillesse, la famille et les accidents du travail.":
+    "W 1945 roku, po wyzwoleniu. Obejmuje chorobę, starość, rodzinę i wypadki przy pracy.",
+  "Quels sont les trois pouvoirs de la séparation des pouvoirs ?":
+    "Jakie są trzy władze w trójpodziale władzy?",
+  "Législatif, exécutif, judiciaire": "Ustawodawcza, wykonawcza, sądownicza",
+  "Militaire, religieux, civil": "Wojskowa, religijna, cywilna",
+  "National, régional, communal": "Krajowa, regionalna, gminna",
+  "Politique, économique, social": "Polityczna, gospodarcza, społeczna",
+  "Le législatif fait la loi, l'exécutif l'applique, le judiciaire juge. Les séparer empêche la concentration du pouvoir.":
+    "Władza ustawodawcza tworzy prawo, wykonawcza je stosuje, sądownicza sądzi. Ich rozdzielenie zapobiega skupieniu władzy.",
+  "A-t-on le droit de ne pas respecter une loi que l'on juge injuste ?":
+    "Czy wolno nie przestrzegać ustawy, którą uważa się za niesprawiedliwą?",
+  "Oui, si beaucoup de gens la trouvent injuste":
+    "Tak, jeśli wielu ludzi uważa ją za niesprawiedliwą",
+  "Non : on peut la contester, mais pas s'en dispenser":
+    "Nie: można ją zaskarżyć, ale nie można się z niej zwolnić",
+  "Oui, à condition de le dire à la mairie": "Tak, pod warunkiem zgłoszenia tego w merostwie",
+  "Oui, si elle est ancienne": "Tak, jeśli jest stara",
+  "La loi s'impose à tous. On peut la critiquer, manifester, saisir un juge ou faire campagne pour la changer — pas décider de ne pas l'appliquer.":
+    "Ustawa obowiązuje wszystkich. Można ją krytykować, demonstrować, iść do sądu albo prowadzić kampanię o jej zmianę — ale nie postanowić, że się jej nie stosuje.",
+  "Comment est désigné le Premier ministre ?": "W jaki sposób wyłania się premiera?",
+  "Il est élu par les Français": "Wybierają go Francuzi",
+  "Il est nommé par le président de la République": "Mianuje go Prezydent Republiki",
+  "Il est élu par les sénateurs": "Wybierają go senatorowie",
+  "Il est tiré au sort parmi les députés": "Jest losowany spośród deputowanych",
+  "Le Premier ministre est nommé par le président. Il n'est jamais élu directement par les citoyens.":
+    "Premiera mianuje prezydent. Nigdy nie jest wybierany bezpośrednio przez obywateli.",
+  "Qui assure l'intérim du président de la République en cas de décès ?":
+    "Kto pełni obowiązki Prezydenta Republiki w razie jego śmierci?",
+  "Le président du Sénat": "Przewodniczący Senatu",
+  "Le président de l'Assemblée nationale": "Przewodniczący Zgromadzenia Narodowego",
+  "Le président du Conseil constitutionnel": "Przewodniczący Conseil constitutionnel",
+  "C'est le président du Sénat, jusqu'à l'élection d'un nouveau président de la République.":
+    "Przewodniczący Senatu, aż do wyboru nowego Prezydenta Republiki.",
+  "Quelle est la durée du mandat du président de la République ?":
+    "Ile trwa kadencja Prezydenta Republiki?",
+  "4 ans": "4 lata",
+  "5 ans": "5 lat",
+  "6 ans": "6 lat",
+  "7 ans": "7 lat",
+  "Cinq ans depuis la réforme du quinquennat de 2000. Auparavant, le mandat durait sept ans.":
+    "Pięć lat od reformy quinquennat z 2000 roku. Wcześniej kadencja trwała siedem lat.",
+  "Quelle est la durée du mandat des députés ?": "Ile trwa kadencja deputowanych?",
+  "9 ans": "9 lat",
+  "Cinq ans, sauf dissolution de l'Assemblée nationale par le président. Les sénateurs, eux, sont élus pour six ans.":
+    "Pięć lat, chyba że prezydent rozwiąże Zgromadzenie Narodowe. Senatorowie natomiast wybierani są na sześć lat.",
+  "Comment sont désignés les députés ?": "W jaki sposób wyłania się deputowanych?",
+  "Élus au suffrage universel direct par les citoyens":
+    "Wybierani przez obywateli w wyborach powszechnych bezpośrednich",
+  "Nommés par le président de la République": "Mianowani przez Prezydenta Republiki",
+  "Élus par les conseillers municipaux": "Wybierani przez radnych gminnych",
+  "Désignés par les partis politiques": "Wyznaczani przez partie polityczne",
+  "Au suffrage universel direct, dans chaque circonscription, au scrutin majoritaire à deux tours. Ce sont les sénateurs qui sont élus indirectement.":
+    "W wyborach powszechnych bezpośrednich, w każdym okręgu, w głosowaniu większościowym dwuturowym. To senatorowie wybierani są pośrednio.",
+  "Qui sanctionne l'auteur d'un vol ?": "Kto karze sprawcę kradzieży?",
+  "Le maire de la commune": "Mer gminy",
+  "Un juge": "Sędzia",
+  "La victime elle-même": "Sama ofiara",
+  "Seul un juge peut prononcer une peine. La police interpelle et enquête ; elle ne juge pas.":
+    "Tylko sędzia może orzec karę. Policja zatrzymuje i prowadzi śledztwo; nie sądzi.",
+  "Quel est le rôle du Conseil constitutionnel ?": "Jaka jest rola Conseil constitutionnel?",
+  "Juger les crimes les plus graves": "Sądzenie najcięższych zbrodni",
+  "Vérifier que les lois sont conformes à la Constitution":
+    "Sprawdzanie, czy ustawy są zgodne z Konstytucją",
+  "Nommer le Premier ministre": "Mianowanie premiera",
+  "Gérer les collèges publics": "Zarządzanie publicznymi collèges",
+  "Il contrôle la constitutionnalité des lois et veille à la régularité des élections nationales et des référendums.":
+    "Kontroluje konstytucyjność ustaw i czuwa nad prawidłowością wyborów krajowych oraz referendów.",
+  "En France, est-ce obligatoire de voter ?": "Czy we Francji głosowanie jest obowiązkowe?",
+  "Oui, sous peine d'amende": "Tak, pod groźbą grzywny",
+  "Non : voter est un droit, seule l'inscription est obligatoire":
+    "Nie: głosowanie jest prawem, obowiązkowy jest tylko wpis do rejestru",
+  "Oui, mais seulement aux présidentielles": "Tak, ale tylko w wyborach prezydenckich",
+  "Non, et l'inscription non plus": "Nie, i wpis do rejestru też nie",
+  "L'inscription sur les listes électorales est obligatoire ; l'acte de voter reste un droit que personne n'est contraint d'exercer.":
+    "Wpis na listy wyborcze jest obowiązkowy; samo głosowanie pozostaje prawem, do którego nikogo nie można zmusić.",
+  "À qui appartient la souveraineté nationale ?": "Do kogo należy suwerenność narodowa?",
+  "Au président de la République": "Do Prezydenta Republiki",
+  "Au peuple": "Do narodu",
+  "Au Parlement": "Do parlamentu",
+  "Au gouvernement": "Do rządu",
+  "Elle appartient au peuple, qui l'exerce par ses représentants et par le référendum.":
+    "Należy do narodu, który wykonuje ją przez swoich przedstawicieli i w referendum.",
+  "Qui gère les collèges publics ?": "Kto zarządza publicznymi collèges?",
+  "L'État seul": "Samo państwo",
+  "Le département gère les collèges. La commune gère les écoles maternelles et élémentaires, la région les lycées.":
+    "Collèges prowadzi departament. Przedszkola i szkoły podstawowe prowadzi gmina, a licea region.",
+  "Comment sont désignés les maires ?": "W jaki sposób wyłania się merów?",
+  "Élus directement par les habitants": "Wybierani bezpośrednio przez mieszkańców",
+  "Élus par le conseil municipal": "Wybierani przez radę gminy",
+  "Nommés par le préfet": "Mianowani przez prefekta",
+  "Les habitants élisent le conseil municipal ; le conseil élit ensuite le maire parmi ses membres.":
+    "Mieszkańcy wybierają radę gminy; rada wybiera potem mera spośród swoich członków.",
+  "Où est le siège de la Banque centrale européenne ?":
+    "Gdzie mieści się siedziba Europejskiego Banku Centralnego?",
+  "À Bruxelles": "W Brukseli",
+  "À Strasbourg": "W Strasburgu",
+  "À Francfort": "We Frankfurcie",
+  "À Luxembourg": "W Luksemburgu",
+  "À Francfort, en Allemagne. Le Parlement siège à Strasbourg et la Commission à Bruxelles.":
+    "We Frankfurcie, w Niemczech. Parlament obraduje w Strasburgu, a Komisja w Brukseli.",
+  "Quel État a quitté l'Union européenne en 2020 ?":
+    "Które państwo opuściło Unię Europejską w 2020 roku?",
+  "La Norvège": "Norwegia",
+  "Le Royaume-Uni": "Wielka Brytania",
+  "La Suisse": "Szwajcaria",
+  "L'Irlande": "Irlandia",
+  "Le Royaume-Uni, à l'issue du Brexit. La Norvège et la Suisse n'ont jamais été membres.":
+    "Wielka Brytania, w wyniku brexitu. Norwegia i Szwajcaria nigdy nie były członkami.",
+  "Quel est l'hymne de l'Union européenne ?": "Co jest hymnem Unii Europejskiej?",
+  "L'Ode à la joie de Beethoven": "Oda do radości Beethovena",
+  "L'Hymne à l'amour": "L'Hymne à l'amour",
+  "Le Chant des partisans": "Le Chant des partisans",
+  "L'Ode à la joie, extraite de la Neuvième Symphonie de Beethoven. Elle est jouée sans paroles.":
+    "Oda do radości z IX Symfonii Beethovena. Grana jest bez słów.",
+  "Quel texte affirme que tous les hommes naissent libres et égaux en droits ?":
+    "Który tekst stwierdza, że wszyscy ludzie rodzą się wolni i równi w prawach?",
+  "La Constitution de 1958": "Konstytucja z 1958 roku",
+  "La Déclaration des droits de l'homme et du citoyen de 1789":
+    "Deklaracja praw człowieka i obywatela z 1789 roku",
+  "Le Code civil de 1804": "Kodeks cywilny z 1804 roku",
+  "La loi de 1905": "Ustawa z 1905 roku",
+  "C'est l'article 1er de la Déclaration de 1789 : « Les hommes naissent et demeurent libres et égaux en droits. »":
+    "To artykuł 1 Deklaracji z 1789 roku: „Ludzie rodzą się i pozostają wolni i równi w prawach”.",
+  "Que sont les droits fondamentaux ?": "Czym są prawa podstawowe?",
+  "Des avantages accordés aux personnes méritantes":
+    "Przywilejami przyznawanymi osobom zasłużonym",
+  "Des droits reconnus à toute personne du seul fait qu'elle est humaine":
+    "Prawami przysługującymi każdemu z samego faktu bycia człowiekiem",
+  "Des droits réservés aux citoyens français": "Prawami zastrzeżonymi dla obywateli francuskich",
+  "Des règles qui s'appliquent seulement aux fonctionnaires":
+    "Zasadami, które dotyczą tylko urzędników",
+  "Ils appartiennent à toute personne, sans condition de nationalité, de mérite ou de fortune.":
+    "Przysługują każdemu człowiekowi, bez względu na obywatelstwo, zasługi czy majątek.",
+  "Quel droit protège une personne contre une arrestation arbitraire ?":
+    "Które prawo chroni człowieka przed samowolnym zatrzymaniem?",
+  "Le droit de propriété": "Prawo własności",
+  "Le droit à la sûreté": "Prawo do bezpieczeństwa osobistego",
+  "Le droit de grève": "Prawo do strajku",
+  "Le droit d'association": "Prawo do zrzeszania się",
+  "Le droit à la sûreté : nul ne peut être arrêté ni détenu en dehors des cas et des formes prévus par la loi.":
+    "Prawo do bezpieczeństwa osobistego: nikogo nie wolno zatrzymać ani pozbawić wolności poza przypadkami i w formach przewidzianych ustawą.",
+  "À quel âge est fixée la majorité numérique en France ?":
+    "Na jaki wiek ustalono we Francji cyfrową pełnoletność?",
+  "13 ans": "13 lat",
+  "15 ans. En dessous, l'inscription sur un réseau social nécessite l'accord d'un parent.":
+    "15 lat. Poniżej tego wieku rejestracja w serwisie społecznościowym wymaga zgody rodzica.",
+  "Est-il obligatoire de porter secours à une personne en danger ?":
+    "Czy udzielenie pomocy osobie w niebezpieczeństwie jest obowiązkowe?",
+  "Oui, c'est une obligation légale": "Tak, to obowiązek prawny",
+  "Non, c'est un choix personnel": "Nie, to osobisty wybór",
+  "Seulement pour les professionnels de santé": "Tylko dla pracowników ochrony zdrowia",
+  "Seulement si l'on connaît la personne": "Tylko jeśli zna się tę osobę",
+  "Ne pas porter secours — ou au minimum appeler les secours — est le délit de non-assistance à personne en danger.":
+    "Nieudzielenie pomocy — albo choćby niewezwanie pomocy — jest występkiem nieudzielenia pomocy osobie w niebezpieczeństwie.",
+  "Qu'est-ce que le devoir de mémoire ?": "Czym jest obowiązek pamięci?",
+  "L'obligation d'apprendre l'histoire par cœur": "Obowiązkiem uczenia się historii na pamięć",
+  "Se souvenir des événements douloureux du passé pour qu'ils ne se répètent pas":
+    "Pamiętaniem o bolesnych wydarzeniach przeszłości, żeby się nie powtórzyły",
+  "Le droit de garder le silence devant un juge": "Prawem do milczenia przed sędzią",
+  "L'obligation de conserver ses documents administratifs":
+    "Obowiązkiem przechowywania dokumentów urzędowych",
+  "C'est le travail collectif de mémoire sur la Shoah, l'esclavage, les guerres — commémorations, enseignement, lieux de mémoire.":
+    "To zbiorowa praca pamięci o Shoah, niewolnictwie i wojnach — obchody, nauczanie, miejsca pamięci.",
+  "La vente d'alcool en France est interdite aux personnes de moins de :":
+    "Sprzedaż alkoholu we Francji jest zakazana osobom poniżej:",
+  "20 ans": "20 lat",
+  "21 ans": "21 lat",
+  "18 ans, pour l'alcool comme pour le tabac. Le commerçant doit refuser la vente en cas de doute.":
+    "18 lat, tak dla alkoholu, jak i dla tytoniu. W razie wątpliwości sprzedawca musi odmówić sprzedaży.",
+  "Quelle est l'infraction la plus grave ?": "Które naruszenie prawa jest najcięższe?",
+  "La contravention": "Wykroczenie",
+  "Le délit": "Występek",
+  "Le crime": "Zbrodnia",
+  "L'amende": "Grzywna",
+  "Dans l'ordre croissant : contravention, délit, crime. Le crime est jugé par la cour d'assises.":
+    "W kolejności rosnącej: wykroczenie, występek, zbrodnia. Zbrodnię sądzi cour d'assises.",
+  "Dans le cadre d'un entretien d'embauche, que peut-on demander au candidat ?":
+    "O co można zapytać kandydata na rozmowie kwalifikacyjnej?",
+  "Sa religion": "O religię",
+  "Ce qui permet d'évaluer sa capacité à occuper le poste":
+    "O to, co pozwala ocenić zdolność do objęcia stanowiska",
+  "S'il compte avoir des enfants": "O to, czy zamierza mieć dzieci",
+  "Son origine ethnique": "O pochodzenie etniczne",
+  "Les questions doivent porter uniquement sur l'aptitude professionnelle. Religion, origine, santé, vie familiale et opinions politiques sont hors sujet et discriminatoires.":
+    "Pytania mogą dotyczyć wyłącznie przydatności zawodowej. Religia, pochodzenie, zdrowie, życie rodzinne i poglądy polityczne są nie na temat i dyskryminujące.",
+  "Une personne peut-elle changer librement de religion en France ?":
+    "Czy we Francji można swobodnie zmienić religię?",
+  "Oui, la liberté de conscience le garantit": "Tak, gwarantuje to wolność sumienia",
+  "Non, il faut une autorisation de la mairie": "Nie, potrzebne jest zezwolenie merostwa",
+  "Seulement avec l'accord de sa famille": "Tylko za zgodą rodziny",
+  "Seulement une fois dans sa vie": "Tylko raz w życiu",
+  "La liberté de conscience comprend le droit de croire, de ne pas croire et de changer de conviction à tout moment, sans se justifier.":
+    "Wolność sumienia obejmuje prawo do wiary, do niewiary i do zmiany przekonań w każdej chwili, bez tłumaczenia się.",
+  "En quelle année a débuté la Révolution française ?":
+    "W którym roku zaczęła się rewolucja francuska?",
+  "1789 : prise de la Bastille le 14 juillet, Déclaration des droits de l'homme et du citoyen le 26 août.":
+    "1789: zdobycie Bastylii 14 lipca, Deklaracja praw człowieka i obywatela 26 sierpnia.",
+  "Parmi ces textes, lequel a été adopté sous Napoléon Ier ?":
+    "Który z tych aktów uchwalono za Napoleona I?",
+  "Le Code civil": "Kodeks cywilny",
+  "La loi de séparation des Églises et de l'État": "Ustawa o rozdziale Kościołów i państwa",
+  "La Constitution de la Ve République": "Konstytucja V Republiki",
+  "Le Code civil, en 1804. Il unifie le droit privé et reste la base du droit français.":
+    "Kodeks cywilny, w 1804 roku. Ujednolicił prawo prywatne i pozostaje podstawą prawa francuskiego.",
+  "Dans quelle ville les rois de France étaient-ils couronnés ?":
+    "W którym mieście koronowano królów Francji?",
+  "À Paris": "W Paryżu",
+  "À Versailles": "W Wersalu",
+  "À Reims": "W Reims",
+  "À Orléans": "W Orleanie",
+  "À Reims, dans la cathédrale. Versailles était la résidence du pouvoir, pas le lieu du sacre.":
+    "W Reims, w katedrze. Wersal był siedzibą władzy, a nie miejscem koronacji.",
+  "Le 11 novembre est un jour férié. À quoi correspond cette date ?":
+    "11 listopada jest dniem wolnym. Czemu odpowiada ta data?",
+  "À l'armistice de 1918, fin de la Première Guerre mondiale":
+    "Rozejmowi z 1918 roku, końcowi pierwszej wojny światowej",
+  "À la victoire de 1945": "Zwycięstwu z 1945 roku",
+  "Au débarquement de Normandie": "Lądowaniu w Normandii",
+  "À la prise de la Bastille": "Zdobyciu Bastylii",
+  "L'armistice du 11 novembre 1918. Le 8 mai commémore la victoire de 1945.":
+    "Rozejm z 11 listopada 1918 roku. 8 maja upamiętnia zwycięstwo z 1945.",
+  "Sous quel président a été abolie la peine de mort en France ?":
+    "Za którego prezydenta zniesiono we Francji karę śmierci?",
+  "Charles de Gaulle": "Charles de Gaulle",
+  "Valéry Giscard d'Estaing": "Valéry Giscard d'Estaing",
+  "François Mitterrand": "François Mitterrand",
+  "Jacques Chirac": "Jacques Chirac",
+  "En 1981, sous François Mitterrand, sur proposition de Robert Badinter, alors garde des Sceaux.":
+    "W 1981 roku, za Françoisa Mitterranda, na wniosek Roberta Badintera, ówczesnego garde des Sceaux — ministra sprawiedliwości.",
+  "Qu'est-ce que la Shoah ?": "Czym jest Shoah?",
+  "Une bataille de la Seconde Guerre mondiale": "Bitwą drugiej wojny światowej",
+  "Le génocide des Juifs d'Europe pendant la Seconde Guerre mondiale":
+    "Ludobójstwem Żydów europejskich podczas drugiej wojny światowej",
+  "Un traité de paix signé en 1945": "Traktatem pokojowym podpisanym w 1945 roku",
+  "Un mouvement de résistance français": "Francuskim ruchem oporu",
+  "Le génocide des Juifs d'Europe perpétré par l'Allemagne nazie. Le nier est un délit en France.":
+    "Ludobójstwo Żydów europejskich dokonane przez nazistowskie Niemcy. Zaprzeczanie mu jest we Francji występkiem.",
+  "Depuis quand l'esclavage est-il aboli définitivement en France ?":
+    "Od kiedy niewolnictwo jest we Francji zniesione ostatecznie?",
+  "1794": "1794",
+  "1946": "1946",
+  "1848, sur l'initiative de Victor Schœlcher. L'abolition de 1794 avait été annulée par Napoléon en 1802.":
+    "Od 1848 roku, z inicjatywy Victora Schœlchera. Zniesienie z 1794 roku Napoleon uchylił w 1802.",
+  "Quelle est la plus haute montagne de France ?": "Która góra jest najwyższa we Francji?",
+  "Le pic du Midi": "Pic du Midi",
+  "Le puy de Dôme": "Puy de Dôme",
+  "Le mont Ventoux": "Mont Ventoux",
+  "Le mont Blanc, dans les Alpes, à environ 4 800 mètres. C'est aussi le plus haut sommet d'Europe occidentale.":
+    "Mont Blanc w Alpach, około 4800 metrów. To także najwyższy szczyt Europy Zachodniej.",
+  "Quel fleuve traverse Paris ?": "Która rzeka przepływa przez Paryż?",
+  "La Loire": "Loara",
+  "Le Rhône": "Rodan",
+  "La Garonne": "Garonna",
+  "La Seine. Elle prend sa source en Bourgogne et se jette dans la Manche au Havre.":
+    "Sekwana. Wypływa w Burgundii i uchodzi do kanału La Manche w Hawrze.",
+  "Quel est le chef-lieu de la région Bretagne ?": "Które miasto jest stolicą regionu Bretania?",
+  "Brest": "Brest",
+  "Rennes": "Rennes",
+  "Nantes": "Nantes",
+  "Quimper": "Quimper",
+  "Rennes. Nantes est la plus grande ville de la région voisine des Pays de la Loire.":
+    "Rennes. Nantes to największe miasto sąsiedniego regionu Pays de la Loire.",
+  "Quel département français a une frontière avec le Brésil ?":
+    "Który francuski departament graniczy z Brazylią?",
+  "La Guyane, en Amérique du Sud. Elle a aussi une frontière avec le Suriname.":
+    "Gujana Francuska w Ameryce Południowej. Graniczy także z Surinamem.",
+  "Quelle île française est située dans l'océan Indien ?":
+    "Która francuska wyspa leży na Oceanie Indyjskim?",
+  "La Corse": "Korsyka",
+  "La Réunion, au sud-est de l'Afrique, près de Madagascar. Mayotte s'y trouve également.":
+    "Reunion, na południowy wschód od Afryki, blisko Madagaskaru. Znajduje się tam również Majotta.",
+  "Qui a peint « La Liberté guidant le peuple » ?":
+    "Kto namalował „Wolność wiodącą lud na barykady”?",
+  "Eugène Delacroix": "Eugène Delacroix",
+  "Eugène Delacroix, en 1830. Le tableau est exposé au Louvre ; la figure centrale est une allégorie de la liberté.":
+    "Eugène Delacroix, w 1830 roku. Obraz jest w Luwrze; postać w centrum to alegoria wolności.",
+  "Qui était Simone de Beauvoir ?": "Kim była Simone de Beauvoir?",
+  "Une peintre impressionniste": "Malarką impresjonistyczną",
+  "Une philosophe et écrivaine, figure du féminisme": "Filozofką i pisarką, postacią feminizmu",
+  "Une scientifique prix Nobel": "Uczoną, noblistką",
+  "Une résistante fusillée en 1943": "Członkinią ruchu oporu rozstrzelaną w 1943 roku",
+  "Philosophe et écrivaine, autrice du Deuxième Sexe (1949), l'un des textes fondateurs du féminisme moderne.":
+    "Filozofka i pisarka, autorka Drugiej płci (1949), jednego z tekstów założycielskich współczesnego feminizmu.",
+  "À quelle occasion a été construite la tour Eiffel ?":
+    "Z jakiej okazji zbudowano wieżę Eiffla?",
+  "Pour le centenaire de la Révolution et l'Exposition universelle de 1889":
+    "Na stulecie rewolucji i wystawę światową w 1889 roku",
+  "Pour les Jeux olympiques de 1900": "Na igrzyska olimpijskie w 1900 roku",
+  "Pour la Libération de Paris": "Na wyzwolenie Paryża",
+  "Pour l'Exposition coloniale de 1931": "Na wystawę kolonialną w 1931 roku",
+  "Pour l'Exposition universelle de 1889, qui marquait le centenaire de la Révolution française.":
+    "Na wystawę światową w 1889 roku, która przypadała na stulecie rewolucji francuskiej.",
+  "Où faut-il déclarer la naissance d'un enfant ?": "Gdzie trzeba zgłosić urodzenie dziecka?",
+  "À la préfecture": "W prefekturze",
+  "À la mairie": "W merostwie",
+  "Au commissariat": "Na komisariacie",
+  "À la caisse d'allocations familiales": "W kasie zasiłków rodzinnych",
+  "À la mairie du lieu de naissance, dans les cinq jours. C'est elle qui tient l'état civil.":
+    "W merostwie miejsca urodzenia, w ciągu pięciu dni. To ono prowadzi akta stanu cywilnego.",
+  "En cas de divorce, qui exerce l'autorité parentale ?":
+    "Kto sprawuje władzę rodzicielską po rozwodzie?",
+  "La mère seule": "Sama matka",
+  "Le père seul": "Sam ojciec",
+  "Les deux parents, en commun": "Oboje rodzice, wspólnie",
+  "Le juge, à la place des parents": "Sędzia, zamiast rodziców",
+  "Le divorce ne change rien à l'autorité parentale : elle reste conjointe, sauf décision contraire d'un juge.":
+    "Rozwód nic nie zmienia we władzy rodzicielskiej: pozostaje wspólna, chyba że sędzia postanowi inaczej.",
+  "Est-ce possible de punir physiquement ses enfants ?": "Czy wolno karać dzieci fizycznie?",
+  "Oui, si la punition reste légère": "Tak, jeśli kara pozostaje lekka",
+  "Non : les violences éducatives sont interdites": "Nie: przemoc wychowawcza jest zakazana",
+  "Oui, jusqu'à l'âge de 10 ans": "Tak, do 10 roku życia",
+  "Oui, avec l'accord de l'autre parent": "Tak, za zgodą drugiego rodzica",
+  "La loi de 2019 interdit toute violence physique ou psychologique dans l'éducation. L'autorité parentale s'exerce sans violence.":
+    "Ustawa z 2019 roku zakazuje wszelkiej przemocy fizycznej i psychicznej w wychowaniu. Władzę rodzicielską sprawuje się bez przemocy.",
+  "Qu'est-ce que le tiers payant ?": "Czym jest tiers payant?",
+  "Une aide financière versée chaque mois": "Comiesięcznym świadczeniem pieniężnym",
+  "Le dispositif qui évite d'avancer les frais de santé":
+    "Rozwiązaniem, dzięki któremu nie trzeba wykładać pieniędzy za leczenie",
+  "Une assurance privée obligatoire": "Obowiązkowym ubezpieczeniem prywatnym",
+  "Un impôt sur les soins médicaux": "Podatkiem od świadczeń medycznych",
+  "Avec le tiers payant, le professionnel de santé est payé directement par l'Assurance maladie : le patient n'avance rien.":
+    "Przy tiers payant lekarza opłaca bezpośrednio Assurance maladie: pacjent nie wykłada nic.",
+  "À quoi sert la carte Vitale ?": "Do czego służy carte Vitale?",
+  "À payer les consultations": "Do płacenia za wizyty",
+  "À attester des droits à l'Assurance maladie et transmettre les soins":
+    "Do poświadczania uprawnień w Assurance maladie i przekazywania danych o leczeniu",
+  "À prouver son identité": "Do potwierdzania tożsamości",
+  "À souscrire une mutuelle": "Do wykupienia mutuelle",
+  "Elle prouve les droits et transmet la feuille de soins par voie électronique. Ce n'est ni un moyen de paiement ni une pièce d'identité.":
+    "Poświadcza uprawnienia i przesyła kartę leczenia drogą elektroniczną. Nie jest ani środkiem płatniczym, ani dokumentem tożsamości.",
+  "Qu'est-ce que le SMIC ?": "Czym jest SMIC?",
+  "Le salaire moyen des Français": "Średnią płacą Francuzów",
+  "Le salaire minimum légal": "Ustawową płacą minimalną",
+  "Une aide versée aux chômeurs": "Świadczeniem dla bezrobotnych",
+  "Un impôt prélevé sur les salaires": "Podatkiem pobieranym od wynagrodzeń",
+  "Le salaire minimum interprofessionnel de croissance : le plancher légal en dessous duquel aucun salarié ne peut être payé.":
+    "Salaire minimum interprofessionnel de croissance: ustawowy próg, poniżej którego nie wolno zapłacić żadnemu pracownikowi.",
+  "Quelles sont les affaires traitées par le conseil de prud'hommes ?":
+    "Jakimi sprawami zajmuje się conseil de prud'hommes?",
+  "Les crimes les plus graves": "Najcięższymi zbrodniami",
+  "Les litiges entre un salarié et son employeur": "Sporami między pracownikiem a pracodawcą",
+  "Les divorces": "Rozwodami",
+  "Les infractions au code de la route": "Naruszeniami kodeksu drogowego",
+  "Le conseil de prud'hommes juge les conflits individuels du travail : licenciement, salaires, contrat, harcèlement.":
+    "Conseil de prud'hommes rozstrzyga indywidualne spory pracownicze: zwolnienie, wynagrodzenie, umowa, mobbing.",
+  "Travailler sans être déclaré est :": "Praca bez zgłoszenia jest:",
+  "légal si l'employeur est d'accord": "legalna, jeśli pracodawca się zgadza",
+  "illégal, pour l'employeur comme pour le salarié":
+    "nielegalna, tak dla pracodawcy, jak i dla pracownika",
+  "autorisé pour les emplois de courte durée": "dozwolona przy krótkotrwałym zatrudnieniu",
+  "autorisé dans le secteur agricole": "dozwolona w rolnictwie",
+  "C'est le travail dissimulé, un délit. Le salarié perd toute couverture : retraite, chômage, accident du travail.":
+    "To praca na czarno, występek. Pracownik traci całą ochronę: emeryturę, zasiłek dla bezrobotnych, ubezpieczenie wypadkowe.",
+  "À quel âge commence l'instruction obligatoire des enfants ?":
+    "W jakim wieku zaczyna się obowiązek nauki dzieci?",
+  "À 2 ans": "W wieku 2 lat",
+  "À 3 ans": "W wieku 3 lat",
+  "À 6 ans": "W wieku 6 lat",
+  "À 7 ans": "W wieku 7 lat",
+  "Depuis la rentrée 2019, l'instruction est obligatoire dès 3 ans. Auparavant, elle commençait à 6 ans.":
+    "Od roku szkolnego 2019 nauka jest obowiązkowa od 3 roku życia. Wcześniej zaczynała się w wieku 6 lat.",
+  "Comment s'appellent les établissements que les élèves intègrent après l'école élémentaire ?":
+    "Jak nazywają się placówki, do których uczniowie trafiają po szkole podstawowej?",
+  "Les lycées": "Licea",
+  "Les collèges": "Collèges",
+  "Les universités": "Uniwersytety",
+  "Les écoles maternelles": "Przedszkola",
+  "Le collège, de la sixième à la troisième. Le lycée vient après le collège.":
+    "Collège, od klasy szóstej do trzeciej. Liceum przychodzi po collège.",
+  "Quel numéro d'urgence permet d'appeler le SAMU ?":
+    "Pod którym numerem alarmowym wzywa się SAMU?",
+  "17": "17",
+  "Le 15 pour le SAMU, le 17 pour la police, le 18 pour les pompiers. Le 112 fonctionne partout en Europe.":
+    "15 do SAMU, 17 na policję, 18 do straży pożarnej. 112 działa w całej Europie.",
+  "Que peut faire un usager du service public dans une mairie ?":
+    "Co interesant może załatwić w merostwie?",
+  "Demander un acte d'état civil et s'inscrire sur les listes électorales":
+    "Poprosić o odpis aktu stanu cywilnego i wpisać się na listy wyborcze",
+  "Obtenir un titre de séjour": "Uzyskać kartę pobytu",
+  "Faire juger un litige avec son employeur": "Rozstrzygnąć spór z pracodawcą",
+  "Demander le remboursement de ses frais de santé": "Wystąpić o zwrot kosztów leczenia",
+  "La mairie tient l'état civil et les listes électorales. Le titre de séjour relève de la préfecture, les frais de santé de la CPAM, les litiges du travail des prud'hommes.":
+    "Merostwo prowadzi akta stanu cywilnego i listy wyborcze. Karta pobytu należy do prefektury, koszty leczenia do CPAM, a spory pracownicze do prud'hommes.",
+  "Quel est le rôle du Défenseur des droits ?": "Jaka jest rola Défenseur des droits?",
+  "Juger les crimes": "Sądzenie zbrodni",
+  "Défendre les personnes dont les droits ne sont pas respectés, gratuitement":
+    "Bezpłatna obrona osób, których prawa nie są przestrzegane",
+  "Nommer les préfets": "Mianowanie prefektów",
+  "Voter les lois": "Uchwalanie ustaw",
+  "C'est une autorité indépendante que toute personne peut saisir gratuitement, notamment en cas de discrimination ou de litige avec une administration.":
+    "To niezależny organ, do którego każdy może zwrócić się bezpłatnie, zwłaszcza w razie dyskryminacji lub sporu z administracją.",
 };
