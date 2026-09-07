@@ -3513,4 +3513,5 @@ export const PT: Record<string, string> = {
   "Sending something by post": "Enviar algo pelo correio",
   "Arriving as a guest": "Chegar como convidado",
   "Wishing someone well": "Desejar as felicidades",
+  "words inside": "palavras dentro",
 };

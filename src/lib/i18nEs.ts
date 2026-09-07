@@ -3162,4 +3162,5 @@ export const ES: Record<string, string> = {
   "Sending something by post": "Enviar algo por correo",
   "Arriving as a guest": "Llegar de visita",
   "Wishing someone well": "Desear lo mejor a alguien",
+  "words inside": "palabras dentro",
 };

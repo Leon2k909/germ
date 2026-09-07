@@ -31,6 +31,7 @@ const UI_LOADERS: Record<string, () => Promise<Record<string, string>>> = {
   es: () => import("@/lib/i18nEs").then((m) => m.ES),
   it: () => import("@/lib/i18nIt").then((m) => m.IT),
   pt: () => import("@/lib/i18nPt").then((m) => m.PT),
+  ru: () => import("@/lib/i18nRu").then((m) => m.RU),
 };
 
 const UI_TABLES: Record<string, Record<string, string>> = {};
@@ -200,6 +201,7 @@ export function uiLocale(): string {
   if (language === "de") return "de-DE";
   if (language === "fr") return "fr-FR";
   if (language === "pl") return "pl-PL";
+  if (language === "ru") return "ru-RU";
   return "en-GB";
 }
 
@@ -211,11 +213,12 @@ export function uiLocale(): string {
  * written as `uiIsGerman() ? "de-DE" : "en-US"` at every one of those sites,
  * which made French silently English the moment French existed.
  */
-export function uiSpeechLang(): "de-DE" | "fr-FR" | "pl-PL" | "en-US" {
+export function uiSpeechLang(): "de-DE" | "fr-FR" | "pl-PL" | "ru-RU" | "en-US" {
   const language = resolveInterfaceLanguage();
   if (language === "de") return "de-DE";
   if (language === "fr") return "fr-FR";
   if (language === "pl") return "pl-PL";
+  if (language === "ru") return "ru-RU";
   return "en-US";
 }
 

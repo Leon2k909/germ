@@ -387,6 +387,11 @@ const IT_TABLE: ScriptTable = {
  * English table. That is a stopgap and nothing more: nobody has looked up
  * what Portuguese practice actually is, and this line must not be read as an
  * answer to that question. A pt row belongs here the day somebody does.
+ *
+ * Russian reads it too, for a different reason: a reader of Russian has no
+ * convention for transcribing their own alphabet, because they never need
+ * one. The setting still exists for them, so the row has to answer
+ * something, and English is the neutral answer rather than a claim.
  */
 const TABLES: Record<ResolvedInterfaceLanguage, ScriptTable> = {
   de: DE_TABLE,
@@ -396,6 +401,7 @@ const TABLES: Record<ResolvedInterfaceLanguage, ScriptTable> = {
   es: ES_TABLE,
   it: IT_TABLE,
   pt: EN_TABLE,
+  ru: EN_TABLE,
 };
 
 /** The five tables, named — for the sample sheet and the build gate. */
@@ -545,6 +551,7 @@ const AMBIGUOUS: Record<ResolvedInterfaceLanguage, Set<string>> = {
   es: ambiguousLetters(ES_TABLE),
   it: ambiguousLetters(IT_TABLE),
   pt: ambiguousLetters(EN_TABLE),
+  ru: ambiguousLetters(EN_TABLE),
 };
 
 /** Whether a Cyrillic answer has a Latin form that reads back more than one way. */

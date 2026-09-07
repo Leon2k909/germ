@@ -32,10 +32,10 @@ export const INTERFACE_STRINGS_READY_EVENT = "gl-interface-strings-ready";
  * app French on its own, because the people learning French from here are
  * reading German or English while they do it. It is chosen, or it is not.
  */
-export type InterfaceLanguage = "auto" | "en" | "de" | "fr" | "pl" | "es" | "it" | "pt";
+export type InterfaceLanguage = "auto" | "en" | "de" | "fr" | "pl" | "es" | "it" | "pt" | "ru";
 
 /** The languages the app itself can be written in, without "auto". */
-export type ResolvedInterfaceLanguage = "en" | "de" | "fr" | "pl" | "es" | "it" | "pt";
+export type ResolvedInterfaceLanguage = "en" | "de" | "fr" | "pl" | "es" | "it" | "pt" | "ru";
 
 /**
  * The app languages, as a list rather than as options typed out twice.
@@ -69,6 +69,7 @@ export const INTERFACE_LANGUAGES: ReadonlyArray<{
   { value: "it", label: "Italiano", search: ["italian", "italienisch", "italien", "włoski", "wloski", "italiano"] },
   { value: "pl", label: "Polski", search: ["polish", "polnisch", "polonais", "polski", "polaco"] },
   { value: "pt", label: "Português", search: ["portuguese", "portugiesisch", "portugais", "portugalski", "portugues", "português", "brasileiro", "brazilian"] },
+  { value: "ru", label: "Русский", search: ["russian", "russisch", "russe", "rosyjski", "ruso", "russo", "russkiy", "русский", "россия"] },
 ];
 
 const INTERFACE_LANGUAGE_VALUES = new Set<string>(INTERFACE_LANGUAGES.map((entry) => entry.value));

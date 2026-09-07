@@ -49,6 +49,7 @@ const LANGUAGES = [
   ["es", "usageNotesEs.ts", "USE_ES"],
   ["it", "usageNotesIt.ts", "USE_IT"],
   ["pt", "usageNotesPt.ts", "USE_PT"],
+  ["ru", "usageNotesRu.ts", "USE_RU"],
 ];
 
 const failures = [];
@@ -108,7 +109,7 @@ for (const [code] of LANGUAGES) {
     failures.push(`usageNotes.ts has no loader for ${code}, so its file is never fetched`);
   }
 }
-if (/^import .*usageNotes(De|Fr|Pl|Es|It|Pt)/m.test(loader)) {
+if (/^import .*usageNotes(De|Fr|Pl|Es|It|Pt|Ru)/m.test(loader)) {
   failures.push("a notes table is imported statically, which puts all fourteen thousand into the bundle");
 }
 for (const [file, what] of [
@@ -133,5 +134,5 @@ const done = first ? first.size : 0;
 const pct = ((done / cardNotes.size) * 100).toFixed(1);
 console.log(
   `check-usage-notes: ${done} of ${cardNotes.size} card notes translated (${pct}%), `
-  + `the same set in all six languages, every key matches a card, and all five places ask for them`
+  + `the same set in all seven languages, every key matches a card, and all five places ask for them`
 );
