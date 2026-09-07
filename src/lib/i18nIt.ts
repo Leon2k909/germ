@@ -3133,4 +3133,9 @@ export const IT: Record<string, string> = {
   "Saying what you like": "Dire che cosa ti piace",
   "Saying what you want": "Dire che cosa vuoi",
   "Checking into a hotel": "Il check-in in albergo",
+  "Can and can't": "Potere e non potere",
+  "Months and seasons": "Mesi e stagioni",
+  "How much and how many": "Molto e poco",
+  "How it tastes": "Che sapore ha",
+  "The question words": "Le parole per domandare",
 };

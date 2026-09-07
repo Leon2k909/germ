@@ -3587,4 +3587,9 @@ export const FR: Record<string, string> = {
   "Saying what you like": "Dire ce qu'on aime",
   "Saying what you want": "Dire ce qu'on veut",
   "Checking into a hotel": "Arriver à l'hôtel",
+  "Can and can't": "Pouvoir et ne pas pouvoir",
+  "Months and seasons": "Mois et saisons",
+  "How much and how many": "Beaucoup et peu",
+  "How it tastes": "Quel goût ça a",
+  "The question words": "Les mots interrogatifs",
 };

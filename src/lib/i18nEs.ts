@@ -3152,4 +3152,9 @@ export const ES: Record<string, string> = {
   "Saying what you like": "Decir lo que te gusta",
   "Saying what you want": "Decir lo que quieres",
   "Checking into a hotel": "Registrarse en el hotel",
+  "Can and can't": "Poder y no poder",
+  "Months and seasons": "Meses y estaciones",
+  "How much and how many": "Cuánto y cuántos",
+  "How it tastes": "A qué sabe",
+  "The question words": "Las palabras interrogativas",
 };
