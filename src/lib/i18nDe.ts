@@ -3718,4 +3718,10 @@ export const DE: Record<string, string> = {
   "Inside the church": "In der Kirche",
   "A hole in the ice": "Ein Loch im Eis",
   "The first of September": "Der erste September",
+  "Sayings people still use": "Sprichwörter, die man noch sagt",
+  "Reacting out loud": "Laut reagieren",
+  "Speaking to a stranger": "Einen Fremden ansprechen",
+  "Weekdays and the weekend": "Werktage und Wochenende",
+  "The little words that colour a sentence": "Die kleinen Wörter im Satz",
+  "How you call out to someone": "Wie man jemanden anspricht",
 };

@@ -3035,4 +3035,10 @@ export const ES: Record<string, string> = {
   "Inside the church": "Dentro del templo",
   "A hole in the ice": "Un agujero en el hielo",
   "The first of September": "El primero de septiembre",
+  "Sayings people still use": "Refranes que aún se usan",
+  "Reacting out loud": "Reaccionar en voz alta",
+  "Speaking to a stranger": "Dirigirse a un desconocido",
+  "Weekdays and the weekend": "Entre semana y fin de semana",
+  "The little words that colour a sentence": "Las palabritas que dan tono",
+  "How you call out to someone": "Cómo llamar a alguien",
 };

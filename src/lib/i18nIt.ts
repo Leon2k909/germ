@@ -3016,4 +3016,10 @@ export const IT: Record<string, string> = {
   "Inside the church": "Dentro la chiesa",
   "A hole in the ice": "Un buco nel ghiaccio",
   "The first of September": "Il primo settembre",
+  "Sayings people still use": "Proverbi ancora in uso",
+  "Reacting out loud": "Reagire ad alta voce",
+  "Speaking to a stranger": "Rivolgersi a uno sconosciuto",
+  "Weekdays and the weekend": "Giorni feriali e fine settimana",
+  "The little words that colour a sentence": "Le paroline che danno il tono",
+  "How you call out to someone": "Come rivolgersi a qualcuno",
 };

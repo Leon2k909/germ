@@ -3470,4 +3470,10 @@ export const PL: Record<string, string> = {
   "Inside the church": "W cerkwi",
   "A hole in the ice": "Przerębel",
   "The first of September": "Pierwszy września",
+  "Sayings people still use": "Przysłowia wciąż żywe",
+  "Reacting out loud": "Reakcje na głos",
+  "Speaking to a stranger": "Zagadnąć obcą osobę",
+  "Weekdays and the weekend": "Dni robocze i weekend",
+  "The little words that colour a sentence": "Słówka, które barwią zdanie",
+  "How you call out to someone": "Jak kogoś zagadnąć",
 };

@@ -3470,4 +3470,10 @@ export const FR: Record<string, string> = {
   "Inside the church": "Dans l'église",
   "A hole in the ice": "Un trou dans la glace",
   "The first of September": "Le premier septembre",
+  "Sayings people still use": "Des proverbes encore vivants",
+  "Reacting out loud": "Réagir à voix haute",
+  "Speaking to a stranger": "Aborder un inconnu",
+  "Weekdays and the weekend": "La semaine et le week-end",
+  "The little words that colour a sentence": "Les petits mots qui colorent",
+  "How you call out to someone": "Comment interpeller quelqu'un",
 };
