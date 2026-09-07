@@ -3073,4 +3073,10 @@ export const IT: Record<string, string> = {
   "Two calendars at once": "Due calendari insieme",
   "Answers that keep it open": "Risposte che lasciano aperto",
   "At the weighing scales": "Alla bilancia",
+  "At the hairdresser's": "Dal parrucchiere",
+  "Taking it to the cleaner's": "Portare in tintoria",
+  "The tax office": "L'agenzia delle entrate",
+  "The car wash": "L'autolavaggio",
+  "In the station hall": "Nell'atrio della stazione",
+  "On the city bus": "Sull'autobus di città",
 };
