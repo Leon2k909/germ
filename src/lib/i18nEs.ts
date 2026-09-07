@@ -3122,4 +3122,10 @@ export const ES: Record<string, string> = {
   "Losing and finding things": "Perder y encontrar cosas",
   "Taking things to be recycled": "Llevar cosas a reciclar",
   "The bus station": "La estación de autobuses",
+  "A tour round the town": "Una visita guiada por la ciudad",
+  "Hiring skis for the day": "Alquilar esquís por un día",
+  "Eating from a street kiosk": "Comer en un puesto callejero",
+  "Getting connected at home": "Conectar internet en casa",
+  "Moving to another city": "Mudarse a otra ciudad",
+  "Picking berries in the forest": "Recoger bayas en el bosque",
 };

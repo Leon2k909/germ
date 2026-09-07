@@ -3557,4 +3557,10 @@ export const PL: Record<string, string> = {
   "Losing and finding things": "Zgubić i odnaleźć",
   "Taking things to be recycled": "Oddać surowce wtórne",
   "The bus station": "Dworzec autobusowy",
+  "A tour round the town": "Wycieczka po mieście",
+  "Hiring skis for the day": "Wypożyczyć narty na dzień",
+  "Eating from a street kiosk": "Jeść przy ulicznej budce",
+  "Getting connected at home": "Podłączyć internet w domu",
+  "Moving to another city": "Przeprowadzka do innego miasta",
+  "Picking berries in the forest": "Zbierać jagody w lesie",
 };
