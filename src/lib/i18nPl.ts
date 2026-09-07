@@ -3569,4 +3569,10 @@ export const PL: Record<string, string> = {
   "When you don't understand": "Kiedy nie rozumiesz",
   "Telling the time": "Podawanie godziny",
   "The days of the week": "Dni tygodnia",
+  "Asking the way": "Pytać o drogę",
+  "Talking about your family": "Opowiadać o rodzinie",
+  "Buying something simple": "Kupić coś prostego",
+  "Ordering in a café": "Zamawiać w kawiarni",
+  "How are you": "Jak się masz",
+  "Getting around by bus": "Poruszać się autobusem",
 };

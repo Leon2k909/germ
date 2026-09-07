@@ -3115,4 +3115,10 @@ export const IT: Record<string, string> = {
   "When you don't understand": "Quando non capisci",
   "Telling the time": "Dire l'ora",
   "The days of the week": "I giorni della settimana",
+  "Asking the way": "Chiedere la strada",
+  "Talking about your family": "Parlare della propria famiglia",
+  "Buying something simple": "Comprare qualcosa di semplice",
+  "Ordering in a café": "Ordinare al bar",
+  "How are you": "Come stai",
+  "Getting around by bus": "Muoversi in autobus",
 };
