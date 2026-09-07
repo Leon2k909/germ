@@ -3763,4 +3763,10 @@ export const DE: Record<string, string> = {
   "The flood from upstairs": "Der Wasserschaden von oben",
   "The baby's check-up": "Die Vorsorge beim Säugling",
   "Renting a scooter": "Einen E-Roller mieten",
+  "The twelve days after the new year": "Die Tage zwischen den Festen",
+  "Summer at the grandmother's village": "Sommer im Dorf der Großmutter",
+  "What people are called": "Wie die Leute heißen",
+  "Remembering in May": "Erinnern im Mai",
+  "Days on the ward": "Tage auf der Station",
+  "Crossing the river": "Über den Fluss kommen",
 };

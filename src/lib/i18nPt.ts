@@ -3431,4 +3431,10 @@ export const PT: Record<string, string> = {
   "The flood from upstairs": "A inundação do andar de cima",
   "The baby's check-up": "A consulta do bebé",
   "Renting a scooter": "Alugar uma trotinete",
+  "The twelve days after the new year": "Os dias entre as festas",
+  "Summer at the grandmother's village": "Verão na aldeia da avó",
+  "What people are called": "Como as pessoas se chamam",
+  "Remembering in May": "Lembrar em maio",
+  "Days on the ward": "Dias na enfermaria",
+  "Crossing the river": "Atravessar o rio",
 };

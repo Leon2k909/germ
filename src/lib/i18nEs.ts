@@ -3080,4 +3080,10 @@ export const ES: Record<string, string> = {
   "The flood from upstairs": "La inundación del piso de arriba",
   "The baby's check-up": "La revisión del bebé",
   "Renting a scooter": "Alquilar un patinete",
+  "The twelve days after the new year": "Los días entre fiestas",
+  "Summer at the grandmother's village": "Verano en el pueblo de la abuela",
+  "What people are called": "Cómo se llama la gente",
+  "Remembering in May": "Recordar en mayo",
+  "Days on the ward": "Días en la planta",
+  "Crossing the river": "Cruzar el río",
 };
