@@ -3004,4 +3004,10 @@ export const IT: Record<string, string> = {
   "The edge of town": "La periferia",
   "Through the wall": "Attraverso il muro",
   "Collecting the parcel": "Ritirare il pacco",
+  "Getting them to bed": "Metterli a letto",
+  "Going through the tests": "Fare gli esami",
+  "Homework and marks": "Compiti e voti",
+  "A bad line": "La linea disturbata",
+  "The public holidays": "I giorni festivi",
+  "When it turns cold": "Quando arriva il freddo",
 };

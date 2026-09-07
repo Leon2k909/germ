@@ -3023,4 +3023,10 @@ export const ES: Record<string, string> = {
   "The edge of town": "Las afueras",
   "Through the wall": "A través de la pared",
   "Collecting the parcel": "Recoger el paquete",
+  "Getting them to bed": "Llevarlos a la cama",
+  "Going through the tests": "Pasar por las pruebas",
+  "Homework and marks": "Deberes y notas",
+  "A bad line": "Mala cobertura",
+  "The public holidays": "Los días festivos",
+  "When it turns cold": "Cuando llega el frío",
 };
