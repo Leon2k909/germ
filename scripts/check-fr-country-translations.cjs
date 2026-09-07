@@ -59,6 +59,21 @@ const COURSES = [
     // reader will meet on a form or a signpost and nowhere else.
     keep: ["Sejm", "Senat", "PESEL", "wójt", "gmina", "sejmik"],
   },
+  {
+    label: "Vivere in Italia",
+    source: "it",
+    course: { module: "vivereInItaliaCourse", symbol: "vivereInItaliaCourse" },
+    table: { module: "vivereInItaliaTranslationsFr", symbol: "VIVERE_IN_ITALIA_FR" },
+    // Italian and French share their alphabet apart from the grave and acute
+    // accents, which French has too — so this net is weak, and the identical-
+    // sentence test below carries more of the weight here. Only the letters
+    // French does not use at all are worth testing on.
+    sourceLetters: /[àìòù]/,
+    // Only terms with NO French equivalent belong here. Costituzione and
+    // Parlamento do have one and should be translated; demanding that they
+    // survive would ask for worse French.
+    keep: ["codice fiscale", "Ferragosto", "questura", "IRPEF", "INPS"],
+  },
 ];
 
 // Every table spread into TRANSLATIONS.fr, including the two checked

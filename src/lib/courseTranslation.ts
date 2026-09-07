@@ -14,6 +14,7 @@ import { VIVRE_EN_FRANCE_PL } from "@/lib/vivreEnFranceTranslationsPl";
 import { LIFE_IN_THE_UK_FR } from "@/lib/lifeInTheUkTranslationsFr";
 import { LEBEN_IN_DEUTSCHLAND_FR } from "@/lib/lebenInDeutschlandTranslationsFr";
 import { ZYCIE_W_POLSCE_FR } from "@/lib/zycieWPolsceTranslationsFr";
+import { VIVERE_IN_ITALIA_FR } from "@/lib/vivereInItaliaTranslationsFr";
 import { LEBEN_IN_DEUTSCHLAND_EN } from "@/lib/lebenInDeutschlandTranslationsEn";
 import { VIVRE_EN_FRANCE_DE } from "@/lib/vivreEnFranceTranslationsDe";
 import { VIVRE_EN_FRANCE_EN } from "@/lib/vivreEnFranceTranslationsEn";
@@ -97,7 +98,7 @@ export const TRANSLATION_LANGUAGES: Array<{
   { id: "pl", label: "Polish", endonym: "Polski", from: ["en", "de", "fr"] },
   // English, German and now Polish. Vivre en France needs no French table —
   // those cards are already French.
-  { id: "fr", label: "French", endonym: "Français", from: ["en", "de", "pl"] },
+  { id: "fr", label: "French", endonym: "Français", from: ["en", "de", "pl", "it"] },
 ];
 
 const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>> = {
@@ -115,7 +116,7 @@ const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>>
   },
   en: { ...LEBEN_IN_DEUTSCHLAND_EN, ...VIVRE_EN_FRANCE_EN, ...ZHIZN_V_ROSSII_EN, ...ZYCIE_W_POLSCE_EN, ...VIVERE_IN_ITALIA_EN, ...VIVIR_EN_ESPANA_EN },
   pl: { ...LIFE_IN_THE_UK_PL, ...LEBEN_IN_DEUTSCHLAND_PL, ...VIVRE_EN_FRANCE_PL },
-  fr: { ...LIFE_IN_THE_UK_FR, ...LEBEN_IN_DEUTSCHLAND_FR, ...ZYCIE_W_POLSCE_FR },
+  fr: { ...LIFE_IN_THE_UK_FR, ...LEBEN_IN_DEUTSCHLAND_FR, ...ZYCIE_W_POLSCE_FR, ...VIVERE_IN_ITALIA_FR },
 };
 
 /**
