@@ -3840,4 +3840,9 @@ export const DE: Record<string, string> = {
   "How much and how many": "Viel und wenig",
   "How it tastes": "Wie es schmeckt",
   "The question words": "Die Fragewörter",
+  "How something feels": "Wie sich etwas anfühlt",
+  "Something to drink": "Etwas zu trinken",
+  "Sending something by post": "Etwas mit der Post schicken",
+  "Arriving as a guest": "Als Gast ankommen",
+  "Wishing someone well": "Jemandem Gutes wünschen",
 };

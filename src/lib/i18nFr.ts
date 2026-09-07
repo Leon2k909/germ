@@ -3592,4 +3592,9 @@ export const FR: Record<string, string> = {
   "How much and how many": "Beaucoup et peu",
   "How it tastes": "Quel goût ça a",
   "The question words": "Les mots interrogatifs",
+  "How something feels": "L'impression que ça fait",
+  "Something to drink": "Quelque chose à boire",
+  "Sending something by post": "Envoyer quelque chose par la poste",
+  "Arriving as a guest": "Arriver en visite",
+  "Wishing someone well": "Souhaiter du bien à quelqu'un",
 };
