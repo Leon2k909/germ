@@ -94,6 +94,37 @@ for (const [kind, places] of Object.entries(RENDERED)) {
   }
 }
 
+/**
+ * The screens that show a QUESTION BANK, which is not lesson text.
+ *
+ * The practice tab and the test draw from the seven country banks and printed
+ * them raw, so the German written for the Life in the UK questions was
+ * readable inside a lesson and invisible in the two places you go to
+ * practise. Both are shared by all seven countries, so this is the one insert
+ * point each language will ever need.
+ */
+const QUESTION_VIEWS = [
+  "src/components/course/UkPracticeView.tsx",
+  "src/components/lifeInTheUk/UkTestView.tsx",
+];
+for (const file of QUESTION_VIEWS) {
+  const source = read(file);
+  if (!source.includes("<QuestionReading")) {
+    failures.push(
+      `${file} shows bank questions without rendering QuestionReading, so a reader with a ` +
+        "translation for them is never offered it"
+    );
+  }
+}
+{
+  const shared = read("src/components/course/questionReading.tsx");
+  if (!shared.includes("translateCourseText(")) {
+    failures.push(
+      "questionReading.tsx no longer asks translateCourseText, so the marker it renders shows nothing"
+    );
+  }
+}
+
 // The switch has to point at those components and no others, or the check
 // above tests a component the screen never mounts.
 const blocks = read("src/components/course/LessonBlocks.tsx");
@@ -111,6 +142,7 @@ if (failures.length) {
 }
 
 console.log(
-  `check-translation-reaches-screen: all ${kinds.length} kinds of translatable block have a component that offers the reader the translation`
+  `check-translation-reaches-screen: all ${kinds.length} kinds of translatable block, and the ` +
+    `${QUESTION_VIEWS.length} screens that show a question bank, offer the reader the translation`
 );
 process.exit(0);

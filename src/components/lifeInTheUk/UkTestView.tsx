@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { ui, uiFmt } from "@/lib/i18n";
+import { QuestionReading } from "@/components/course/questionReading";
 import { cn } from "@/lib/utils";
 import type { CountryPack } from "@/lib/countryStudies";
 import { UK_PACK, packChapters, packLessonTitle } from "@/lib/countryPacks";
@@ -213,6 +214,7 @@ export function UkTestView({
               <h3 className="mt-3 text-xl font-black leading-snug tracking-tight text-[var(--text-1)]">
                 {question.q}
               </h3>
+              <QuestionReading options={question.options} question={question.q} />
             </div>
             <button
               type="button"
@@ -440,6 +442,12 @@ export function UkTestView({
                     <p className="mt-3 rounded-xl bg-[var(--surface)] p-3 text-xs font-semibold leading-5 text-[var(--text-2)]">
                       {question.explanation}
                     </p>
+                    {/* The review is over, so the explanation can be read too. */}
+                    <QuestionReading
+                      explanation={question.explanation}
+                      options={question.options}
+                      question={question.q}
+                    />
                   </div>
                 );
               })}

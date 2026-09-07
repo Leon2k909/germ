@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { ui, uiFmt } from "@/lib/i18n";
+import { QuestionReading } from "@/components/course/questionReading";
 import type { UserProfile } from "@/lib/profileStorage";
 import {
   COUNTRY_LEVELS,
@@ -284,6 +285,7 @@ export function UkPracticeView({
           </div>
 
           <h2 className="mt-4 text-xl font-black leading-tight tracking-tight text-[var(--text-1)]">{question.q}</h2>
+          <QuestionReading explanation={question.explanation} options={question.options} question={question.q} />
 
           <div className="mt-5 grid gap-2.5">
             {question.options.map((option, index) => {
