@@ -3022,4 +3022,9 @@ export const IT: Record<string, string> = {
   "Weekdays and the weekend": "Giorni feriali e fine settimana",
   "The little words that colour a sentence": "Le paroline che danno il tono",
   "How you call out to someone": "Come rivolgersi a qualcuno",
+  "Names people use for each other": "I nomignoli tra le persone",
+  "Hurt feelings and calming down": "Offese e calma ritrovata",
+  "Keeping your place in line": "Tenere il posto in fila",
+  "Asking a favour of someone close": "Chiedere un favore a chi ti è vicino",
+  "Saying what you think, carefully": "Dire la propria con cautela",
 };

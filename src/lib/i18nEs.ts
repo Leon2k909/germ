@@ -3041,4 +3041,9 @@ export const ES: Record<string, string> = {
   "Weekdays and the weekend": "Entre semana y fin de semana",
   "The little words that colour a sentence": "Las palabritas que dan tono",
   "How you call out to someone": "Cómo llamar a alguien",
+  "Names people use for each other": "Cómo se llaman entre ellos",
+  "Hurt feelings and calming down": "Enfados y calma",
+  "Keeping your place in line": "Guardar el sitio en la cola",
+  "Asking a favour of someone close": "Pedir un favor a alguien cercano",
+  "Saying what you think, carefully": "Opinar con cuidado",
 };

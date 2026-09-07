@@ -3476,4 +3476,9 @@ export const PL: Record<string, string> = {
   "Weekdays and the weekend": "Dni robocze i weekend",
   "The little words that colour a sentence": "Słówka, które barwią zdanie",
   "How you call out to someone": "Jak kogoś zagadnąć",
+  "Names people use for each other": "Jak się do siebie zwracają",
+  "Hurt feelings and calming down": "Urazy i uspokojenie",
+  "Keeping your place in line": "Trzymać miejsce w kolejce",
+  "Asking a favour of someone close": "Prosić bliskich o przysługę",
+  "Saying what you think, carefully": "Ostrożnie wyrazić zdanie",
 };

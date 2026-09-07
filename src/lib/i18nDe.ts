@@ -3724,4 +3724,9 @@ export const DE: Record<string, string> = {
   "Weekdays and the weekend": "Werktage und Wochenende",
   "The little words that colour a sentence": "Die kleinen Wörter im Satz",
   "How you call out to someone": "Wie man jemanden anspricht",
+  "Names people use for each other": "Wie man einander nennt",
+  "Hurt feelings and calming down": "Gekränkt sein und sich beruhigen",
+  "Keeping your place in line": "Den Platz in der Schlange halten",
+  "Asking a favour of someone close": "Einen Freund um etwas bitten",
+  "Saying what you think, carefully": "Vorsichtig widersprechen",
 };
