@@ -3437,4 +3437,10 @@ export const PT: Record<string, string> = {
   "Remembering in May": "Lembrar em maio",
   "Days on the ward": "Dias na enfermaria",
   "Crossing the river": "Atravessar o rio",
+  "The small disasters of childhood": "Os pequenos desastres da infância",
+  "The big spring clean": "As limpezas de primavera",
+  "Putting money aside": "Pôr dinheiro de lado",
+  "Two calendars at once": "Dois calendários ao mesmo tempo",
+  "Answers that keep it open": "Respostas que deixam em aberto",
+  "At the weighing scales": "Na balança",
 };

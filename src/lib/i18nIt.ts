@@ -3067,4 +3067,10 @@ export const IT: Record<string, string> = {
   "Remembering in May": "Ricordare a maggio",
   "Days on the ward": "Giorni in reparto",
   "Crossing the river": "Attraversare il fiume",
+  "The small disasters of childhood": "I piccoli disastri dell'infanzia",
+  "The big spring clean": "Le grandi pulizie di primavera",
+  "Putting money aside": "Mettere da parte i soldi",
+  "Two calendars at once": "Due calendari insieme",
+  "Answers that keep it open": "Risposte che lasciano aperto",
+  "At the weighing scales": "Alla bilancia",
 };
