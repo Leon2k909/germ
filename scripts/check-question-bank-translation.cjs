@@ -37,10 +37,12 @@ const built = esbuild.buildSync({
       'export { FR_QUESTIONS } from "./src/lib/frQuestionBank.ts";\n' +
       'export { PL_QUESTIONS } from "./src/lib/plQuestionBank.ts";\n' +
       'export { IT_QUESTIONS } from "./src/lib/itQuestionBank.ts";\n' +
+      'export { ES_QUESTIONS } from "./src/lib/esQuestionBank.ts";\n' +
       'export { UK_QUESTION_BANK_DE } from "./src/lib/ukQuestionBankTranslationsDe.ts";\n' +
       'export { FR_QUESTION_BANK_DE } from "./src/lib/frQuestionBankTranslationsDe.ts";\n' +
       'export { PL_QUESTION_BANK_DE } from "./src/lib/plQuestionBankTranslationsDe.ts";\n' +
       'export { IT_QUESTION_BANK_DE } from "./src/lib/itQuestionBankTranslationsDe.ts";\n' +
+      'export { ES_QUESTION_BANK_DE } from "./src/lib/esQuestionBankTranslationsDe.ts";\n' +
       'export { LIFE_IN_THE_UK_DE } from "./src/lib/lifeInTheUkTranslationsDe.ts";\n' +
       'export { VIVRE_EN_FRANCE_DE } from "./src/lib/vivreEnFranceTranslationsDe.ts";\n' +
       'export { ZHIZN_V_ROSSII_DE } from "./src/lib/zhiznVRossiiTranslationsDe.ts";\n' +
@@ -84,6 +86,7 @@ const BANKS = [
   { label: "Vivre en France", questions: M.FR_QUESTIONS, table: M.FR_QUESTION_BANK_DE },
   { label: "Zycie w Polsce", questions: M.PL_QUESTIONS, table: M.PL_QUESTION_BANK_DE },
   { label: "Vivere in Italia", questions: M.IT_QUESTIONS, table: M.IT_QUESTION_BANK_DE },
+  { label: "Vivir en Espana", questions: M.ES_QUESTIONS, table: M.ES_QUESTION_BANK_DE },
 ];
 
 const failures = [];
@@ -173,7 +176,10 @@ for (const { label, questions, table } of BANKS) {
 // A bank table nobody spread into the lookup would pass every check above and
 // still show a reader nothing, so make sure each is registered.
 const registered = require("fs").readFileSync(path.join(root, "src/lib/courseTranslation.ts"), "utf8");
-for (const name of ["UK_QUESTION_BANK_DE", "FR_QUESTION_BANK_DE", "PL_QUESTION_BANK_DE", "IT_QUESTION_BANK_DE"]) {
+for (const name of [
+  "UK_QUESTION_BANK_DE", "FR_QUESTION_BANK_DE", "PL_QUESTION_BANK_DE",
+  "IT_QUESTION_BANK_DE", "ES_QUESTION_BANK_DE",
+]) {
   if (!registered.includes(`...${name}`)) {
     failures.push(`${name} is never spread into TRANSLATIONS.de, so nothing in it can ever be found`);
   }
