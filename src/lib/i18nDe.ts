@@ -3712,4 +3712,10 @@ export const DE: Record<string, string> = {
   "A bad line": "Eine schlechte Verbindung",
   "The public holidays": "Die Feiertage",
   "When it turns cold": "Wenn es kalt wird",
+  "Soon and not so soon": "Bald und nicht so bald",
+  "Chatting and holding back": "Plaudern und schweigen",
+  "A change in how someone looks": "Wenn jemand anders aussieht",
+  "Inside the church": "In der Kirche",
+  "A hole in the ice": "Ein Loch im Eis",
+  "The first of September": "Der erste September",
 };

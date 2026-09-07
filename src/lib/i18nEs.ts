@@ -3029,4 +3029,10 @@ export const ES: Record<string, string> = {
   "A bad line": "Mala cobertura",
   "The public holidays": "Los días festivos",
   "When it turns cold": "Cuando llega el frío",
+  "Soon and not so soon": "Pronto y no tan pronto",
+  "Chatting and holding back": "Charlar y callar",
+  "A change in how someone looks": "Cuando alguien cambia de aspecto",
+  "Inside the church": "Dentro del templo",
+  "A hole in the ice": "Un agujero en el hielo",
+  "The first of September": "El primero de septiembre",
 };

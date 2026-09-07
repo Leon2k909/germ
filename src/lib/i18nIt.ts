@@ -3010,4 +3010,10 @@ export const IT: Record<string, string> = {
   "A bad line": "La linea disturbata",
   "The public holidays": "I giorni festivi",
   "When it turns cold": "Quando arriva il freddo",
+  "Soon and not so soon": "Presto e non così presto",
+  "Chatting and holding back": "Chiacchierare e trattenersi",
+  "A change in how someone looks": "Quando qualcuno cambia aspetto",
+  "Inside the church": "Dentro la chiesa",
+  "A hole in the ice": "Un buco nel ghiaccio",
+  "The first of September": "Il primo settembre",
 };

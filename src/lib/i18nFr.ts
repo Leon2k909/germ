@@ -3464,4 +3464,10 @@ export const FR: Record<string, string> = {
   "A bad line": "Une mauvaise ligne",
   "The public holidays": "Les jours fériés",
   "When it turns cold": "Quand le froid arrive",
+  "Soon and not so soon": "Bientôt et moins bientôt",
+  "Chatting and holding back": "Bavarder et se retenir",
+  "A change in how someone looks": "Quand quelqu'un change d'allure",
+  "Inside the church": "Dans l'église",
+  "A hole in the ice": "Un trou dans la glace",
+  "The first of September": "Le premier septembre",
 };
