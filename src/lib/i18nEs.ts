@@ -3012,4 +3012,10 @@ export const ES: Record<string, string> = {
   "Messages back and forth": "Mensajes de ida y vuelta",
   "Signing the child up": "Apuntar al niño",
   "Lunch on a tray": "Comida en la bandeja",
+  "Staying in bed with it": "Guardar cama",
+  "What actually gets given": "Lo que se regala de verdad",
+  "Wetting the new flat": "Estrenar el piso nuevo",
+  "Fixing a time to meet": "Quedar a una hora",
+  "Building on your own plot": "Construir en tu parcela",
+  "Coming home with the baby": "Volver a casa con el bebé",
 };

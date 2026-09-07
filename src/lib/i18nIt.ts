@@ -2993,4 +2993,10 @@ export const IT: Record<string, string> = {
   "Messages back and forth": "Messaggi avanti e indietro",
   "Signing the child up": "Iscrivere il bambino",
   "Lunch on a tray": "Il pranzo sul vassoio",
+  "Staying in bed with it": "Restare a letto",
+  "What actually gets given": "Che cosa si regala davvero",
+  "Wetting the new flat": "Inaugurare la casa nuova",
+  "Fixing a time to meet": "Darsi appuntamento",
+  "Building on your own plot": "Costruire sul proprio terreno",
+  "Coming home with the baby": "Tornare a casa col bambino",
 };

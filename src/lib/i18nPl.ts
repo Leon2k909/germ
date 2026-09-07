@@ -3447,4 +3447,10 @@ export const PL: Record<string, string> = {
   "Messages back and forth": "Wiadomości tam i z powrotem",
   "Signing the child up": "Zapisać dziecko",
   "Lunch on a tray": "Obiad na tacy",
+  "Staying in bed with it": "Wyleżeć chorobę",
+  "What actually gets given": "Co się naprawdę daje",
+  "Wetting the new flat": "Oblać nowe mieszkanie",
+  "Fixing a time to meet": "Umówić się na spotkanie",
+  "Building on your own plot": "Budowa na własnej działce",
+  "Coming home with the baby": "Powrót do domu z dzieckiem",
 };
