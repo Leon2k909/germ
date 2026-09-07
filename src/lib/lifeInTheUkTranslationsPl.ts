@@ -1368,4 +1368,454 @@ export const LIFE_IN_THE_UK_PL: Record<string, string> = {
   "That is the whole syllabus": "To cały program",
   "Twenty-three lessons, five official chapters, and every date in the timeline. Work back through anything that felt shaky, then sit a practice test.":
     "Dwadzieścia trzy lekcje, pięć oficjalnych rozdziałów i każda data na osi czasu. Wróć do tego, co szło niepewnie, a potem zrób test próbny.",
+
+  // ── The questions that close each lesson ────────────────────────────────
+  // Added long after the lesson text, which is why they sit apart. Without
+  // them a Polish reader gets through the whole lesson and then meets three
+  // untranslated questions, which is not a lesson anybody can finish.
+  //
+  // Answer options keep the English name of anything the exam asks for by
+  // name — Magna Carta, Bill of Rights, Royal Assent, the Acts — because an
+  // answer translated away is the wrong answer at the test centre.
+  "Which of these is one of the UK's fundamental values?":
+    "Która z tych rzeczy jest jedną z podstawowych wartości Wielkiej Brytanii?",
+  "Loyalty to a political party": "Lojalność wobec partii politycznej",
+  "Compulsory military service": "Obowiązkowa służba wojskowa",
+  "Membership of an established church": "Przynależność do kościoła państwowego",
+  "The rule of law means everyone is subject to the law, including those who govern. The other three are not British values at all.":
+    "Rządy prawa oznaczają, że każdy podlega prawu, także rządzący. Pozostałe trzy nie są brytyjskimi wartościami.",
+  "What does 'individual liberty' mean as a British value?":
+    "Co jako brytyjska wartość oznacza wolność osobista?",
+  "Freedom to do anything at all": "Wolność robienia absolutnie wszystkiego",
+  "Freedom to live as you choose, within the law": "Wolność życia po swojemu, w granicach prawa",
+  "Freedom from paying tax": "Zwolnienie z płacenia podatków",
+  "Freedom to ignore laws you disagree with":
+    "Wolność ignorowania praw, z którymi się nie zgadzasz",
+  "Liberty operates inside the law, not outside it. You change laws you disagree with by campaigning and voting.":
+    "Wolność działa wewnątrz prawa, a nie poza nim. Prawa, z którymi się nie zgadzasz, zmienia się przez kampanie i głosowanie.",
+  "Which of these is NOT one of the nine protected characteristics under the Equality Act 2010?":
+    "Która z tych cech NIE należy do dziewięciu cech chronionych w Equality Act 2010?",
+  "Political opinion": "Poglądy polityczne",
+  "Gender reassignment": "Zmiana płci",
+  "Religion or belief": "Religia lub przekonania",
+  "Sexual orientation": "Orientacja seksualna",
+  "Political opinion is not a protected characteristic. The nine are age, disability, gender reassignment, marriage and civil partnership, pregnancy and maternity, race, religion or belief, sex, and sexual orientation.":
+    "Poglądy polityczne nie są cechą chronioną. Tych dziewięć to: wiek, niepełnosprawność, zmiana płci, małżeństwo i związek partnerski, ciąża i macierzyństwo, rasa, religia lub przekonania, płeć oraz orientacja seksualna.",
+  "Which of these is in the UK but NOT in Great Britain?":
+    "Które z tych miejsc leży w UK, ale NIE w Great Britain?",
+  "The Isle of Man": "Isle of Man",
+  "Great Britain is the island: England, Scotland and Wales. The UK adds Northern Ireland. The Isle of Man is in neither — it is a Crown Dependency.":
+    "Great Britain to wyspa: Anglia, Szkocja i Walia. UK dokłada Irlandię Północną. Isle of Man nie należy do żadnego z nich — to Crown Dependency.",
+  "What is the longest river in the UK?": "Która rzeka jest najdłuższa w Wielkiej Brytanii?",
+  "The Thames": "Tamiza",
+  "The Severn": "Severn",
+  "The Trent": "Trent",
+  "The Clyde": "Clyde",
+  "The Severn, at roughly 220 miles, is longer than the Thames. It rises in Wales and reaches the sea through the Bristol Channel.":
+    "Severn, licząca około 220 mil, jest dłuższa niż Tamiza. Wypływa w Walii i uchodzi do morza przez Bristol Channel.",
+  "Where is Ben Nevis, the highest mountain in the UK?":
+    "Gdzie leży Ben Nevis, najwyższa góra Wielkiej Brytanii?",
+  "The Lake District, England": "Lake District w Anglii",
+  "Snowdonia, Wales": "Snowdonia w Walii",
+  "The Scottish Highlands": "Scottish Highlands",
+  "The Mourne Mountains, Northern Ireland": "Mourne Mountains w Irlandii Północnej",
+  "Ben Nevis (1,345 m) is in the Highlands of Scotland. Snowdon is the highest in Wales, Scafell Pike in England, and Slieve Donard in Northern Ireland.":
+    "Ben Nevis (1345 m) leży w Scottish Highlands. Snowdon jest najwyższy w Walii, Scafell Pike w Anglii, a Slieve Donard w Irlandii Północnej.",
+  "Which national flower belongs to Wales?": "Który kwiat narodowy należy do Walii?",
+  "The thistle": "Oset",
+  "The daffodil": "Żonkil",
+  "The shamrock": "Koniczyna",
+  "The rose": "Róża",
+  "The daffodil is worn in Wales on St David's Day, alongside the leek. The thistle is Scotland's, the shamrock Northern Ireland's, and the rose England's.":
+    "Żonkil nosi się w Walii w St David's Day, obok pora. Oset należy do Szkocji, koniczyna do Irlandii Północnej, a róża do Anglii.",
+  "Why does the Union Flag contain no Welsh emblem?":
+    "Dlaczego na Union Flag nie ma godła Walii?",
+  "Wales chose not to join the Union": "Walia nie zdecydowała się przystąpić do unii",
+  "Wales had already been united with England when the flag was designed":
+    "Walia była już połączona z Anglią, gdy projektowano flagę",
+  "The dragon was thought too difficult to draw": "Uznano, że smoka za trudno narysować",
+  "Wales joined the UK only in the twentieth century":
+    "Walia dołączyła do Wielkiej Brytanii dopiero w XX wieku",
+  "Wales was joined to England before the first Union Flag of 1606, so it was not represented as a separate kingdom. It flies the Red Dragon on its own flag.":
+    "Walia została połączona z Anglią jeszcze przed pierwszą Union Flag z 1606 roku, więc nie przedstawiono jej jako osobnego królestwa. Na własnej fladze ma czerwonego smoka.",
+  "Which Roman leader successfully began the conquest of Britain?":
+    "Który rzymski wódz skutecznie rozpoczął podbój Brytanii?",
+  "Julius Caesar, in 55 BC": "Juliusz Cezar w 55 roku p.n.e.",
+  "Claudius, in AD 43": "Klaudiusz w 43 roku n.e.",
+  "Hadrian, in AD 122": "Hadrian w 122 roku n.e.",
+  "Augustus, in AD 1": "August w 1 roku n.e.",
+  "Caesar's expedition of 55 BC failed. The conquest began under Claudius in AD 43. Hadrian came later and built the wall.":
+    "Wyprawa Cezara z 55 roku p.n.e. nie powiodła się. Podbój zaczął się za Klaudiusza w 43 roku n.e. Hadrian przyszedł później i zbudował mur.",
+  "What was the Danelaw?": "Czym był Danelaw?",
+  "A Viking law code used across all of England":
+    "Kodeksem prawa wikingów obowiązującym w całej Anglii",
+  "The part of England under Danish rule after Alfred the Great's settlement":
+    "Częścią Anglii pod duńskimi rządami po porozumieniu Alfreda Wielkiego",
+  "The treaty that ended the Norman Conquest": "Traktatem kończącym podbój normański",
+  "A tax paid to the Roman Empire": "Podatkiem płaconym Cesarstwu Rzymskiemu",
+  "Alfred the Great could not drive the Vikings out entirely, so a boundary was agreed. The north and east — the Danelaw — kept Danish law.":
+    "Alfred Wielki nie zdołał wyprzeć wikingów całkowicie, więc uzgodniono granicę. Północ i wschód — Danelaw — zachowały prawo duńskie.",
+  "Who led a revolt against the Romans and has a statue on Westminster Bridge?":
+    "Kto poprowadził bunt przeciw Rzymianom i ma pomnik na Westminster Bridge?",
+  "Boudicca": "Boudicca",
+  "Alfred the Great": "Alfred Wielki",
+  "St Columba": "St Columba",
+  "Boudicca was queen of the Iceni in eastern England. Her rebellion against Roman rule made her a lasting national figure.":
+    "Boudicca była królową Icenów we wschodniej Anglii. Jej bunt przeciw rzymskim rządom uczynił z niej trwałą postać narodową.",
+  "What did Magna Carta establish in 1215?": "Co ustanowiła Magna Carta w 1215 roku?",
+  "That Parliament could choose the king": "Że parlament może wybierać króla",
+  "That the king was subject to the law and could not tax at will":
+    "Że król podlega prawu i nie może dowolnie nakładać podatków",
+  "That all men could vote": "Że wszyscy mężczyźni mogą głosować",
+  "That England and Scotland were united": "Że Anglia i Szkocja zostały połączone",
+  "Magna Carta bound King John to the law. It did not create Parliament or give anyone the vote, but the principle that no one is above the law starts here.":
+    "Magna Carta związała króla Jana prawem. Nie stworzyła parlamentu ani nie dała nikomu prawa głosu, ale zasada, że nikt nie stoi ponad prawem, zaczyna się właśnie tutaj.",
+  "Who defeated the English at the Battle of Bannockburn in 1314?":
+    "Kto pokonał Anglików w Battle of Bannockburn w 1314 roku?",
+  "Edward I": "Edward I",
+  "Owain Glyndwr": "Owain Glyndwr",
+  "Robert the Bruce won at Bannockburn, securing Scottish independence. Wallace had led the earlier resistance and was executed in 1305.":
+    "Robert Bruce zwyciężył pod Bannockburn, zapewniając Szkocji niepodległość. Wallace prowadził wcześniejszy opór i został stracony w 1305 roku.",
+  "Roughly what share of Britain's population died in the Black Death of 1348?":
+    "Mniej więcej jaka część ludności Brytanii zmarła podczas czarnej śmierci w 1348 roku?",
+  "About a tenth": "Około jedna dziesiąta",
+  "About a third": "Około jedna trzecia",
+  "About two thirds": "Około dwie trzecie",
+  "About a twentieth": "Około jedna dwudziesta",
+  "Around a third. The shortage of labour that followed gave surviving peasants bargaining power and helped end the feudal system.":
+    "Około jedna trzecia. Brak rąk do pracy, który po tym nastąpił, dał ocalałym chłopom siłę przetargową i pomógł zakończyć feudalizm.",
+  "Why did Henry VIII break with the Roman Catholic Church?":
+    "Dlaczego Henryk VIII zerwał z Kościołem rzymskokatolickim?",
+  "He had become a Protestant by conviction": "Z przekonania stał się protestantem",
+  "The Pope refused to annul his marriage to Catherine of Aragon":
+    "Papież odmówił unieważnienia jego małżeństwa z Katarzyną Aragońską",
+  "Parliament voted to leave the Church": "Parlament przegłosował wyjście z Kościoła",
+  "The Pope excommunicated all English kings":
+    "Papież ekskomunikował wszystkich angielskich królów",
+  "The break began as a dispute over his first marriage. Henry made himself Head of the Church of England so the annulment could be granted at home.":
+    "Zerwanie zaczęło się od sporu o jego pierwsze małżeństwo. Henryk uczynił siebie zwierzchnikiem Church of England, żeby unieważnienie mogło zapaść w kraju.",
+  "What happened to the Spanish Armada in 1588?": "Co stało się z Wielką Armadą w 1588 roku?",
+  "It successfully landed in Kent": "Wylądowała pomyślnie w Kent",
+  "It was defeated by the English navy and scattered by storms":
+    "Została pokonana przez angielską flotę i rozproszona przez sztormy",
+  "It turned back before reaching Britain": "Zawróciła przed dotarciem do Brytanii",
+  "It captured Elizabeth I": "Pojmała Elżbietę I",
+  "The Armada was beaten off by English ships and then wrecked by weather on its way home. The victory made England a naval power.":
+    "Armadę odparły angielskie okręty, a w drodze powrotnej zniszczyła ją pogoda. Zwycięstwo uczyniło z Anglii potęgę morską.",
+  "Where was William Shakespeare born?": "Gdzie urodził się William Shakespeare?",
+  "London": "Londyn",
+  "Stratford-upon-Avon": "Stratford-upon-Avon",
+  "Canterbury": "Canterbury",
+  "York": "York",
+  "Shakespeare was born in Stratford-upon-Avon in 1564 and worked in London, at the Globe Theatre.":
+    "Shakespeare urodził się w Stratford-upon-Avon w 1564 roku, a pracował w Londynie, w Globe Theatre.",
+  "Who were the Roundheads in the English Civil War?":
+    "Kim byli Roundheads w angielskiej wojnie domowej?",
+  "Supporters of the King": "Zwolennikami króla",
+  "Supporters of Parliament": "Zwolennikami parlamentu",
+  "Scottish rebels": "Szkockimi buntownikami",
+  "Catholic plotters": "Katolickimi spiskowcami",
+  "Roundheads were the Parliamentarians, named for their short hair. The Cavaliers, or Royalists, supported Charles I.":
+    "Roundheads to stronnicy parlamentu, nazwani tak od krótkich włosów. Cavaliers, czyli rojaliści, popierali Karola I.",
+  "What did the Bill of Rights of 1689 establish?": "Co ustanowił Bill of Rights z 1689 roku?",
+  "That everyone over 21 could vote": "Że każdy powyżej 21 lat może głosować",
+  "That the monarch could not raise taxes or keep an army without Parliament":
+    "Że monarcha nie może nakładać podatków ani utrzymywać armii bez parlamentu",
+  "That Catholics could not be prosecuted": "Że katolików nie wolno ścigać",
+  "The Bill of Rights made the monarchy constitutional: no taxation or standing army without Parliament, regular parliaments, and free elections.":
+    "Bill of Rights uczynił monarchię konstytucyjną: żadnych podatków ani stałej armii bez parlamentu, regularne parlamenty i wolne wybory.",
+  "Why is the events of 1688 called the Glorious Revolution?":
+    "Dlaczego wydarzenia z 1688 roku nazywa się chwalebną rewolucją?",
+  "It restored the monarchy after a republic": "Przywróciły monarchię po republice",
+  "William of Orange took the throne with almost no bloodshed in England":
+    "Wilhelm Orański objął tron niemal bez rozlewu krwi w Anglii",
+  "It gave the vote to ordinary people": "Dały prawo głosu zwykłym ludziom",
+  "It ended the Hundred Years War": "Zakończyły wojnę stuletnią",
+  "James II fled rather than fight, so the change of monarch happened without a battle in England. The Restoration of 1660 is the separate event that brought back the monarchy.":
+    "Jakub II wolał uciec niż walczyć, więc zmiana monarchy odbyła się w Anglii bez bitwy. Restauracja z 1660 roku to osobne wydarzenie, które przywróciło monarchię.",
+  "Which Act abolished slavery itself throughout the British Empire?":
+    "Która ustawa zniosła samo niewolnictwo w całym imperium brytyjskim?",
+  "The Act of 1807": "Ustawa z 1807 roku",
+  "The Act of 1833": "Ustawa z 1833 roku",
+  "The Reform Act of 1832": "Reform Act z 1832 roku",
+  "The Act of Union of 1801": "Act of Union z 1801 roku",
+  "1807 ended the slave trade — the buying and carrying of people. 1833 abolished slavery itself and freed those already enslaved.":
+    "Rok 1807 zakończył handel niewolnikami — kupowanie i przewożenie ludzi. Rok 1833 zniósł samo niewolnictwo i uwolnił tych, którzy już byli zniewoleni.",
+  "Who commanded the British fleet at the Battle of Trafalgar in 1805?":
+    "Kto dowodził brytyjską flotą w Battle of Trafalgar w 1805 roku?",
+  "The Duke of Wellington": "Duke of Wellington",
+  "Admiral Nelson": "Admirał Nelson",
+  "Bonnie Prince Charlie": "Bonnie Prince Charlie",
+  "Nelson won at Trafalgar and was killed there. Wellington was the general who beat Napoleon on land at Waterloo in 1815.":
+    "Nelson zwyciężył pod Trafalgarem i tam zginął. Wellington był generałem, który pokonał Napoleona na lądzie pod Waterloo w 1815 roku.",
+  "How long did Queen Victoria reign?": "Jak długo panowała królowa Wiktoria?",
+  "From 1837 to 1901": "Od 1837 do 1901 roku",
+  "From 1801 to 1837": "Od 1801 do 1837 roku",
+  "From 1707 to 1760": "Od 1707 do 1760 roku",
+  "From 1901 to 1936": "Od 1901 do 1936 roku",
+  "Victoria reigned 64 years, from 1837 to 1901 — the second longest reign, after Elizabeth II.":
+    "Wiktoria panowała 64 lata, od 1837 do 1901 roku — to drugie najdłuższe panowanie, po Elżbiecie II.",
+  "In which year did all women in the UK get the vote on the same terms as men?":
+    "W którym roku wszystkie kobiety w Wielkiej Brytanii uzyskały prawo głosu na tych samych zasadach co mężczyźni?",
+  "1945": "1945",
+  "1969": "1969",
+  "1918 gave the vote to women over 30 who met a property qualification. Full equality at 21 came in 1928.":
+    "Rok 1918 dał prawo głosu kobietom powyżej 30 lat, które spełniały cenzus majątkowy. Pełne zrównanie od 21 lat przyszło w 1928 roku.",
+  "Who founded the National Health Service in 1948?":
+    "Kto założył National Health Service w 1948 roku?",
+  "Aneurin Bevan": "Aneurin Bevan",
+  "William Beveridge": "William Beveridge",
+  "Bevan, as Health Minister, founded the NHS. Beveridge wrote the 1942 report that set out the plan, and Attlee was the Prime Minister of the government that carried it out.":
+    "Bevan jako minister zdrowia założył NHS. Beveridge napisał raport z 1942 roku, który nakreślił plan, a Attlee był premierem rządu, który go zrealizował.",
+  "When did the UK formally leave the European Union?":
+    "Kiedy Wielka Brytania formalnie opuściła Unię Europejską?",
+  "June 2016": "Czerwiec 2016",
+  "31 January 2020": "31 stycznia 2020",
+  "31 December 2020": "31 grudnia 2020",
+  "1 January 2021": "1 stycznia 2021",
+  "The referendum was in June 2016; the UK formally left on 31 January 2020. A transition period ran to the end of that year.":
+    "Referendum odbyło się w czerwcu 2016 roku; Wielka Brytania formalnie wystąpiła 31 stycznia 2020 roku. Okres przejściowy trwał do końca tego roku.",
+  "Put these in order: Magna Carta, the Battle of Hastings, the Spanish Armada.":
+    "Ustaw w kolejności: Magna Carta, Battle of Hastings, Wielka Armada.",
+  "Hastings, Magna Carta, Armada": "Hastings, Magna Carta, Armada",
+  "Magna Carta, Hastings, Armada": "Magna Carta, Hastings, Armada",
+  "Hastings, Armada, Magna Carta": "Hastings, Armada, Magna Carta",
+  "Armada, Hastings, Magna Carta": "Armada, Hastings, Magna Carta",
+  "Hastings 1066, Magna Carta 1215, the Armada 1588. The Norman Conquest comes first, and everything medieval sits between it and the Tudors.":
+    "Hastings 1066, Magna Carta 1215, Armada 1588. Najpierw podbój normański, a wszystko, co średniowieczne, mieści się między nim a Tudorami.",
+  "Which came first: the founding of the NHS, or the end of the Second World War?":
+    "Co było pierwsze: powstanie NHS czy koniec drugiej wojny światowej?",
+  "The NHS, in 1945": "NHS, w 1945 roku",
+  "The end of the war, in 1945 — the NHS followed in 1948":
+    "Koniec wojny, w 1945 roku — NHS przyszedł w 1948",
+  "They happened in the same year": "Zdarzyły się w tym samym roku",
+  "The NHS was founded before the war began": "NHS powstał przed wybuchem wojny",
+  "The war in Europe ended on 8 May 1945. The NHS opened three years later, in 1948, built by the government elected after the war.":
+    "Wojna w Europie skończyła się 8 maja 1945 roku. NHS ruszył trzy lata później, w 1948, zbudowany przez rząd wybrany po wojnie.",
+  "Which of these happened in 1707?": "Które z tych wydarzeń miało miejsce w 1707 roku?",
+  "The Act of Union joining England and Scotland": "Act of Union łączący Anglię i Szkocję",
+  "The Bill of Rights": "Bill of Rights",
+  "The Battle of Culloden": "Battle of Culloden",
+  "The Act of Union with Ireland": "Act of Union z Irlandią",
+  "1707 created the Kingdom of Great Britain. The Bill of Rights was 1689, Culloden 1746, and the union with Ireland 1801.":
+    "Rok 1707 stworzył Kingdom of Great Britain. Bill of Rights to 1689, Culloden 1746, a unia z Irlandią 1801.",
+  "What is Royal Assent?": "Czym jest Royal Assent?",
+  "The monarch's power to reject any law": "Prawem monarchy do odrzucenia każdej ustawy",
+  "The monarch's formal signature that turns a bill into an Act of Parliament":
+    "Formalnym podpisem monarchy, który zmienia projekt w Act of Parliament",
+  "The ceremony that crowns a new monarch": "Ceremonią koronacji nowego monarchy",
+  "The monarch's approval of a new Prime Minister":
+    "Zatwierdzeniem nowego premiera przez monarchę",
+  "Royal Assent is the final formal step in making a law. It has not been withheld since 1708, which is what makes the monarchy constitutional rather than ruling.":
+    "Royal Assent to ostatni formalny krok w stanowieniu prawa. Nie odmówiono go od 1708 roku i właśnie to czyni monarchię konstytucyjną, a nie rządzącą.",
+  "Who reigned for 70 years and died in 2022?": "Kto panował 70 lat i zmarł w 2022 roku?",
+  "Queen Victoria": "Królowa Wiktoria",
+  "Queen Elizabeth II": "Królowa Elżbieta II",
+  "Queen Elizabeth I": "Królowa Elżbieta I",
+  "Queen Mary II": "Królowa Maria II",
+  "Elizabeth II reigned from 1952 to 2022 — the longest reign in British history. Victoria's 64 years is second.":
+    "Elżbieta II panowała od 1952 do 2022 roku — to najdłuższe panowanie w historii Brytanii. 64 lata Wiktorii są drugie.",
+  "How many MPs are there in the House of Commons?": "Ilu MPs zasiada w House of Commons?",
+  "500": "500",
+  "650": "650",
+  "800": "800",
+  "1,000": "1000",
+  "650 MPs, one for each constituency, each elected by first past the post.":
+    "650 MPs, po jednym z każdego okręgu wyborczego, wybieranych systemem first past the post.",
+  "How do people become members of the House of Lords?":
+    "W jaki sposób zostaje się członkiem House of Lords?",
+  "They are elected by constituencies": "Wybierają ich okręgi wyborcze",
+  "They are appointed, or sit as hereditary peers or bishops":
+    "Są mianowani albo zasiadają jako parowie dziedziczni lub biskupi",
+  "They are chosen by the House of Commons": "Wybiera ich House of Commons",
+  "They are selected at random, like a jury": "Są losowani, jak ława przysięgłych",
+  "The Lords is not elected. Most members are life peers appointed for their expertise or service, alongside some hereditary peers and senior Church of England bishops.":
+    "House of Lords nie jest wybierany. Większość członków to parowie dożywotni mianowani za wiedzę lub zasługi, obok kilku parów dziedzicznych i wyższych biskupów Church of England.",
+  "What is the maximum period between UK general elections?":
+    "Jaki jest najdłuższy odstęp między wyborami powszechnymi w Wielkiej Brytanii?",
+  "Three years": "Trzy lata",
+  "Four years": "Cztery lata",
+  "Five years": "Pięć lat",
+  "Seven years": "Siedem lat",
+  "At least one general election must be held every five years, though one can be called sooner.":
+    "Wybory powszechne muszą się odbyć przynajmniej raz na pięć lat, choć można je rozpisać wcześniej.",
+  "Which of these is a reserved matter, kept by the UK Parliament rather than devolved?":
+    "Która z tych spraw jest zastrzeżona dla parlamentu Wielkiej Brytanii, a nie przekazana krajom?",
+  "Health": "Zdrowie",
+  "Defence and foreign policy": "Obronność i polityka zagraniczna",
+  "Housing": "Mieszkalnictwo",
+  "Defence, foreign policy, immigration, the currency and national security are reserved to Westminster. Health, education and housing are devolved.":
+    "Obronność, polityka zagraniczna, imigracja, waluta i bezpieczeństwo narodowe są zastrzeżone dla Westminsteru. Zdrowie, edukacja i mieszkalnictwo są przekazane.",
+  "What are members of the Scottish Parliament called?":
+    "Jak nazywa się członków szkockiego parlamentu?",
+  "MPs": "MPs",
+  "MSPs": "MSPs",
+  "MSs": "MSs",
+  "MLAs": "MLAs",
+  "MSPs in Scotland, MSs in the Senedd in Wales, MLAs in the Northern Ireland Assembly, and MPs at Westminster.":
+    "MSPs w Szkocji, MSs w walijskim Senedd, MLAs w Northern Ireland Assembly i MPs w Westminsterze.",
+  "How many people sit on a jury in a Crown Court in England and Wales?":
+    "Ile osób zasiada w ławie przysięgłych w Crown Court w Anglii i Walii?",
+  "10": "10",
+  "12": "12",
+  "15": "15",
+  "20": "20",
+  "12 in England, Wales and Northern Ireland. Scotland is the exception, with 15.":
+    "12 w Anglii, Walii i Irlandii Północnej. Szkocja jest wyjątkiem — tam 15.",
+  "Who normally hears minor criminal cases in England and Wales?":
+    "Kto zwykle rozpoznaje drobne sprawy karne w Anglii i Walii?",
+  "A Crown Court judge and jury": "Sędzia Crown Court z ławą przysięgłych",
+  "Magistrates, who are usually unpaid volunteers":
+    "Magistrates, zwykle niewynagradzani ochotnicy",
+  "A panel of barristers": "Zespół barristers",
+  "Magistrates handle the great majority of criminal cases. They are members of the local community and are not usually paid or legally qualified.":
+    "Magistrates rozpoznają zdecydowaną większość spraw karnych. To członkowie lokalnej społeczności, zwykle bez wynagrodzenia i bez wykształcenia prawniczego.",
+  "Which of these is a civil rather than a criminal matter?":
+    "Która z tych spraw jest cywilna, a nie karna?",
+  "Theft from a shop": "Kradzież w sklepie",
+  "A dispute with a landlord over a deposit": "Spór z wynajmującym o kaucję",
+  "Dangerous driving": "Niebezpieczna jazda",
+  "Assault": "Napaść",
+  "Civil law covers disputes between people and organisations — housing, debt, employment. Theft, assault and dangerous driving are criminal offences.":
+    "Prawo cywilne obejmuje spory między ludźmi i organizacjami — mieszkanie, długi, zatrudnienie. Kradzież, napaść i niebezpieczna jazda to przestępstwa.",
+  "From what age must you attend jury service if summoned?":
+    "Od jakiego wieku trzeba stawić się w ławie przysięgłych po otrzymaniu wezwania?",
+  "16": "16",
+  "18": "18",
+  "21": "21",
+  "25": "25",
+  "Between 18 and 70, if you are on the electoral register. It is a legal duty, not an invitation.":
+    "Między 18 a 70 rokiem życia, jeśli jesteś w rejestrze wyborców. To obowiązek prawny, a nie zaproszenie.",
+  "What does National Insurance pay towards?": "Na co idą składki National Insurance?",
+  "Only the NHS": "Wyłącznie na NHS",
+  "The state pension and certain benefits": "Na emeryturę państwową i niektóre świadczenia",
+  "Council services such as refuse collection": "Na usługi gminne, takie jak wywóz śmieci",
+  "Private health insurance": "Na prywatne ubezpieczenie zdrowotne",
+  "National Insurance contributions build entitlement to the state pension and some benefits. Council tax pays for local services.":
+    "Składki National Insurance budują uprawnienie do emerytury państwowej i niektórych świadczeń. Za usługi lokalne płaci się z council tax.",
+  "What is the legal position on forced marriage in the UK?":
+    "Jak prawo Wielkiej Brytanii traktuje małżeństwo przymusowe?",
+  "It is permitted with parental consent": "Jest dozwolone za zgodą rodziców",
+  "It is a criminal offence": "Jest przestępstwem",
+  "It is allowed for those over 21": "Jest dozwolone dla osób powyżej 21 lat",
+  "It is a civil matter only": "To wyłącznie sprawa cywilna",
+  "Forcing someone to marry is a crime. Both people must consent freely — an arranged marriage that both freely accept is lawful, a forced one is not.":
+    "Zmuszanie kogoś do małżeństwa jest przestępstwem. Obie osoby muszą zgodzić się dobrowolnie — małżeństwo aranżowane, na które oboje godzą się swobodnie, jest legalne, przymusowe nie.",
+  "Roughly what is the population of the UK?":
+    "Ile mniej więcej wynosi ludność Wielkiej Brytanii?",
+  "About 45 million": "Około 45 milionów",
+  "About 67 million": "Około 67 milionów",
+  "About 85 million": "Około 85 milionów",
+  "About 100 million": "Około 100 milionów",
+  "Around 67 million, with much the largest share in England.":
+    "Około 67 milionów, przy czym zdecydowanie największa część mieszka w Anglii.",
+  "Who is the Supreme Governor of the Church of England?":
+    "Kim jest Supreme Governor Church of England?",
+  "The Archbishop of Canterbury": "Archbishop of Canterbury",
+  "The monarch": "Monarcha",
+  "The Pope": "Papież",
+  "The monarch is Supreme Governor — a role dating from Henry VIII's break with Rome. The Archbishop of Canterbury is its most senior bishop.":
+    "Monarcha jest Supreme Governor — ta rola sięga zerwania Henryka VIII z Rzymem. Archbishop of Canterbury jest najwyższym biskupem tego Kościoła.",
+  "Which nation of the UK has a Presbyterian national church rather than an Anglican one?":
+    "Który kraj Wielkiej Brytanii ma prezbiteriański, a nie anglikański kościół narodowy?",
+  "The Church of Scotland is Presbyterian and is Scotland's national church. Wales and Northern Ireland have no established church.":
+    "Church of Scotland jest prezbiteriański i jest kościołem narodowym Szkocji. Walia i Irlandia Północna nie mają kościoła państwowego.",
+  "What does Bonfire Night on 5 November commemorate?":
+    "Co upamiętnia Bonfire Night 5 listopada?",
+  "The end of the First World War": "Koniec pierwszej wojny światowej",
+  "The failure of the Gunpowder Plot in 1605": "Niepowodzenie spisku prochowego w 1605 roku",
+  "The Great Fire of London": "Wielki pożar Londynu",
+  "The defeat of the Spanish Armada": "Klęskę Wielkiej Armady",
+  "Guy Fawkes and his fellow plotters failed to blow up Parliament in 1605. Remembrance Day, six days later on 11 November, is the one that marks the end of the First World War.":
+    "Guy Fawkes i pozostali spiskowcy nie zdołali wysadzić parlamentu w 1605 roku. To Remembrance Day, sześć dni później, 11 listopada, upamiętnia koniec pierwszej wojny światowej.",
+  "Which patron saint's day falls on 1 March?":
+    "Wspomnienie którego świętego patrona przypada 1 marca?",
+  "St Patrick": "St Patrick",
+  "St David": "St David",
+  "St George": "St George",
+  "St Andrew": "St Andrew",
+  "St David of Wales, 1 March. St Patrick follows on 17 March — the two March dates are the ones people mix up.":
+    "St David, patron Walii, 1 marca. St Patrick przypada 17 marca — to właśnie te dwie marcowe daty ludzie mylą.",
+  "What is Hogmanay?": "Czym jest Hogmanay?",
+  "The Scottish New Year celebration on 31 December":
+    "Szkockim świętowaniem Nowego Roku 31 grudnia",
+  "A Welsh harvest festival": "Walijskim świętem plonów",
+  "The day before Lent": "Dniem przed wielkim postem",
+  "A Northern Irish bank holiday in July": "Lipcowym dniem wolnym w Irlandii Północnej",
+  "Hogmanay is New Year's Eve in Scotland and is celebrated on a larger scale than in the rest of the UK. Scotland also takes 2 January as a holiday.":
+    "Hogmanay to sylwester w Szkocji, obchodzony na większą skalę niż w reszcie Wielkiej Brytanii. Szkocja ma też wolne 2 stycznia.",
+  "Where is the Wimbledon tennis tournament held?":
+    "Gdzie rozgrywa się turniej tenisowy Wimbledon?",
+  "Manchester": "Manchester",
+  "Edinburgh": "Edinburgh",
+  "Birmingham": "Birmingham",
+  "Wimbledon is a district of south-west London. It is the oldest tennis tournament in the world and the only Grand Slam played on grass.":
+    "Wimbledon to dzielnica południowo-zachodniego Londynu. To najstarszy turniej tenisowy świata i jedyny Wielki Szlem rozgrywany na trawie.",
+  "Which sport originated in Scotland?": "Który sport narodził się w Szkocji?",
+  "Rugby league": "Rugby league",
+  "Golf began in Scotland, and St Andrews remains its historic home. Cricket and rugby originated in England.":
+    "Golf zaczął się w Szkocji, a St Andrews pozostaje jego historyczną siedzibą. Krykiet i rugby narodziły się w Anglii.",
+  "How many times has London hosted the summer Olympic Games?":
+    "Ile razy Londyn gościł letnie igrzyska olimpijskie?",
+  "Once": "Raz",
+  "Twice": "Dwa razy",
+  "Three times": "Trzy razy",
+  "Four times": "Cztery razy",
+  "1908, 1948 and 2012 — more than any other city.":
+    "1908, 1948 i 2012 — więcej niż jakiekolwiek inne miasto.",
+  "Who wrote The Canterbury Tales?": "Kto napisał The Canterbury Tales?",
+  "Chaucer wrote The Canterbury Tales in the fourteenth century — two hundred years before Shakespeare.":
+    "Chaucer napisał The Canterbury Tales w XIV wieku — dwieście lat przed Shakespeare'em.",
+  "Which city were The Beatles from?": "Z którego miasta pochodzili The Beatles?",
+  "Liverpool": "Liverpool",
+  "Liverpool. They are the most commercially successful band in British history.":
+    "Liverpool. To najbardziej kasowy zespół w historii Brytanii.",
+  "Robert Burns is the national poet of which nation?":
+    "Robert Burns jest poetą narodowym którego kraju?",
+  "Burns is Scotland's Bard. Burns Night is celebrated on 25 January, and his Auld Lang Syne is sung at New Year across the world.":
+    "Burns to szkocki Bard. Burns Night obchodzi się 25 stycznia, a jego Auld Lang Syne śpiewa się w Nowy Rok na całym świecie.",
+  "Who discovered penicillin?": "Kto odkrył penicylinę?",
+  "Fleming, a Scottish scientist, discovered penicillin in 1928. It became the first widely used antibiotic and has saved countless lives.":
+    "Fleming, szkocki uczony, odkrył penicylinę w 1928 roku. Stała się pierwszym powszechnie stosowanym antybiotykiem i uratowała niezliczone życia.",
+  "Who invented the World Wide Web?": "Kto wynalazł World Wide Web?",
+  "Charles Babbage": "Charles Babbage",
+  "Tim Berners-Lee, a British scientist, invented the World Wide Web in 1989. Turing laid the foundations of computing decades earlier.":
+    "Tim Berners-Lee, brytyjski uczony, wynalazł World Wide Web w 1989 roku. Turing położył podwaliny informatyki kilkadziesiąt lat wcześniej.",
+  "Who was the first woman Prime Minister of the UK?":
+    "Kto był pierwszą kobietą na stanowisku premiera Wielkiej Brytanii?",
+  "Theresa May": "Theresa May",
+  "Margaret Thatcher, Prime Minister from 1979 to 1990. Theresa May was the second, from 2016.":
+    "Margaret Thatcher, premier w latach 1979–1990. Theresa May była drugą, od 2016 roku.",
+  "Which Prime Minister led Britain through the Second World War?":
+    "Który premier przeprowadził Brytanię przez drugą wojnę światową?",
+  "Neville Chamberlain": "Neville Chamberlain",
+  "David Lloyd George": "David Lloyd George",
+  "Churchill became Prime Minister in 1940 and led the country for the rest of the war. Attlee won the election that followed in 1945.":
+    "Churchill został premierem w 1940 roku i prowadził kraj przez resztę wojny. Attlee wygrał wybory, które nastąpiły po niej w 1945 roku.",
+  "Between which ages is education compulsory in England?":
+    "W jakim wieku nauka jest w Anglii obowiązkowa?",
+  "4 to 16": "Od 4 do 16 lat",
+  "5 to 16": "Od 5 do 16 lat",
+  "6 to 18": "Od 6 do 18 lat",
+  "5 to 14": "Od 5 do 14 lat",
+  "5 to 16 in England, Wales and Scotland; Northern Ireland starts at 4. In England, young people must remain in education or training until 18.":
+    "Od 5 do 16 lat w Anglii, Walii i Szkocji; w Irlandii Północnej zaczyna się od 4. W Anglii młodzi ludzie muszą pozostać w nauce lub szkoleniu do 18 roku życia.",
+  "Which number do you call for urgent medical advice that is not an emergency?":
+    "Pod który numer dzwoni się po pilną poradę medyczną, gdy nie jest to nagły wypadek?",
+  "999": "999",
+  "111": "111",
+  "101": "101",
+  "112": "112",
+  "111 is the NHS urgent advice line. 999 and 112 are for emergencies, and 101 is for non-emergency police matters.":
+    "111 to linia pilnych porad NHS. 999 i 112 są od nagłych wypadków, a 101 od spraw policyjnych, które nie są nagłe.",
+  "What does free at the point of use mean for the NHS?":
+    "Co dla NHS oznacza bezpłatność w miejscu korzystania?",
+  "The NHS costs the taxpayer nothing": "Że NHS nic nie kosztuje podatnika",
+  "You are not charged for treatment when you receive it, because it is funded through taxation":
+    "Że za leczenie nie płacisz w chwili, gdy je otrzymujesz, bo jest finansowane z podatków",
+  "Only emergency treatment is free": "Że bezpłatne jest tylko leczenie w nagłych wypadkach",
+  "Treatment is free only for British citizens":
+    "Że leczenie jest bezpłatne tylko dla obywateli brytyjskich",
+  "The NHS is paid for through taxation rather than at the door. Care is based on clinical need, not on ability to pay.":
+    "NHS opłaca się z podatków, a nie przy wejściu. O opiece decyduje potrzeba medyczna, a nie zdolność do zapłaty.",
 };
