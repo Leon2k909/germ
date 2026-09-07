@@ -101,11 +101,12 @@ const CASES = [
   ["en", "it", "off,en"],
   ["fr", "it", "off,fr"],
   ["pl", "it", "off"],
-  // Spain is the last of the four. English now reads every country course
-  // there is, which until now only German did.
+  // Spain is the last of the four for English, which reads every country
+  // course there is, and the third of the four for French — only Russia is
+  // left there.
   ["de", "es", "off,de"],
   ["en", "es", "off,en"],
-  ["fr", "es", "off"],
+  ["fr", "es", "off,fr"],
   ["pl", "es", "off"],
 ];
 

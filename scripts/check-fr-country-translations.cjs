@@ -74,6 +74,19 @@ const COURSES = [
     // survive would ask for worse French.
     keep: ["codice fiscale", "Ferragosto", "questura", "IRPEF", "INPS"],
   },
+  {
+    label: "Vivir en Espana",
+    source: "es",
+    course: { module: "vivirEnEspanaCourse", symbol: "vivirEnEspanaCourse" },
+    table: { module: "vivirEnEspanaTranslationsFr", symbol: "VIVIR_EN_ESPANA_FR" },
+    // French has the accents Spanish uses, so only the letters and marks it
+    // does not use at all can carry this test.
+    sourceLetters: /[áíóúñ¿¡]/,
+    // Only terms with NO French equivalent. Constitución and Parlamento have
+    // one and should be translated; asking for those to survive would be
+    // asking for worse French.
+    keep: ["Cortes", "padrón", "NIE", "Bachillerato", "empadronamiento"],
+  },
 ];
 
 // Every table spread into TRANSLATIONS.fr, including the two checked
