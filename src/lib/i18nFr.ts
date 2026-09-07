@@ -3499,4 +3499,9 @@ export const FR: Record<string, string> = {
   "Round the museum halls": "Dans les salles du musée",
   "Saturday night at the culture house": "Samedi soir à la maison de la culture",
   "Taking the honey off": "Récolter le miel",
+  "The communal clean-up": "Le nettoyage collectif",
+  "When the alarm goes off": "Quand l'alarme se déclenche",
+  "At the desk by the door": "Au bureau de l'entrée",
+  "Buying second-hand": "Acheter d'occasion",
+  "Lifting the potatoes": "Arracher les pommes de terre",
 };

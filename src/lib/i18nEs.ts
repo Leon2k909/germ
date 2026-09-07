@@ -3064,4 +3064,9 @@ export const ES: Record<string, string> = {
   "Round the museum halls": "Por las salas del museo",
   "Saturday night at the culture house": "Sábado en la casa de cultura",
   "Taking the honey off": "Sacar la miel",
+  "The communal clean-up": "La limpieza vecinal",
+  "When the alarm goes off": "Cuando salta la alarma",
+  "At the desk by the door": "En el mostrador de la entrada",
+  "Buying second-hand": "Comprar de segunda mano",
+  "Lifting the potatoes": "Sacar las patatas",
 };
