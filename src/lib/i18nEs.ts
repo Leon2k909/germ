@@ -3046,4 +3046,10 @@ export const ES: Record<string, string> = {
   "Keeping your place in line": "Guardar el sitio en la cola",
   "Asking a favour of someone close": "Pedir un favor a alguien cercano",
   "Saying what you think, carefully": "Opinar con cuidado",
+  "A room by the sea": "Una habitación junto al mar",
+  "Pulled over": "Parado por la policía",
+  "The wooden house": "La casa de madera",
+  "The main course comes out": "Sale el segundo plato",
+  "The man who can fix it": "El que lo arregla todo",
+  "Music you carry with you": "La música que llevas contigo",
 };

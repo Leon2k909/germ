@@ -3481,4 +3481,10 @@ export const FR: Record<string, string> = {
   "Keeping your place in line": "Garder sa place dans la file",
   "Asking a favour of someone close": "Demander un service à un proche",
   "Saying what you think, carefully": "Dire son avis avec prudence",
+  "A room by the sea": "Une chambre au bord de la mer",
+  "Pulled over": "Arrêté au bord de la route",
+  "The wooden house": "La maison en bois",
+  "The main course comes out": "Le plat chaud arrive",
+  "The man who can fix it": "Celui qui répare tout",
+  "Music you carry with you": "La musique qu'on emporte",
 };

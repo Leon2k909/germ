@@ -3729,4 +3729,10 @@ export const DE: Record<string, string> = {
   "Keeping your place in line": "Den Platz in der Schlange halten",
   "Asking a favour of someone close": "Einen Freund um etwas bitten",
   "Saying what you think, carefully": "Vorsichtig widersprechen",
+  "A room by the sea": "Ein Zimmer am Meer",
+  "Pulled over": "Am Straßenrand angehalten",
+  "The wooden house": "Das Holzhaus",
+  "The main course comes out": "Das Warme kommt auf den Tisch",
+  "The man who can fix it": "Der, der alles repariert",
+  "Music you carry with you": "Musik, die man mitnimmt",
 };
