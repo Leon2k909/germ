@@ -97,11 +97,12 @@ const CASES = [
   // A Polish app beside the Polish course offers nothing but off, the same
   // way a German one does beside Leben in Deutschland.
   ["pl", "pl", "off"],
-  // Italy is the third English has reached, and the second French has.
+  // Italy is the third English has reached, the second French has, and the
+  // first Polish reaches beyond the three it started with.
   ["de", "it", "off,de"],
   ["en", "it", "off,en"],
   ["fr", "it", "off,fr"],
-  ["pl", "it", "off"],
+  ["pl", "it", "off,pl"],
   // Spain is the last of the four for English, which reads every country
   // course there is, and the third of the four for French — only Russia is
   // left there.
