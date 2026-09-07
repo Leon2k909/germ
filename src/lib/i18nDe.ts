@@ -3793,4 +3793,10 @@ export const DE: Record<string, string> = {
   "The print and copy shop": "Der Copyshop",
   "Registering where you live": "Die Anmeldung am Wohnort",
   "When the order comes to the door": "Wenn die Lieferung klingelt",
+  "Changing money": "Geld wechseln",
+  "The car has been towed": "Das Auto wurde abgeschleppt",
+  "Knitting at home": "Stricken zu Hause",
+  "At the pet shop": "Im Tierbedarfsladen",
+  "The building's group chat": "Die Hausgruppe im Messenger",
+  "At the notary's office": "Beim Notar",
 };

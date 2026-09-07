@@ -3545,4 +3545,10 @@ export const FR: Record<string, string> = {
   "The print and copy shop": "Le magasin de photocopies",
   "Registering where you live": "L'enregistrement du domicile",
   "When the order comes to the door": "Quand la commande arrive à la porte",
+  "Changing money": "Changer de l'argent",
+  "The car has been towed": "La voiture a été enlevée",
+  "Knitting at home": "Tricoter à la maison",
+  "At the pet shop": "À l'animalerie",
+  "The building's group chat": "Le groupe de l'immeuble",
+  "At the notary's office": "Chez le notaire",
 };

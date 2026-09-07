@@ -3461,4 +3461,10 @@ export const PT: Record<string, string> = {
   "The print and copy shop": "A loja de cópias",
   "Registering where you live": "O registo de morada",
   "When the order comes to the door": "Quando a encomenda chega à porta",
+  "Changing money": "Trocar dinheiro",
+  "The car has been towed": "O carro foi rebocado",
+  "Knitting at home": "Tricotar em casa",
+  "At the pet shop": "Na loja de animais",
+  "The building's group chat": "O grupo do prédio",
+  "At the notary's office": "No notário",
 };

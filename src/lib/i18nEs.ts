@@ -3110,4 +3110,10 @@ export const ES: Record<string, string> = {
   "The print and copy shop": "La copistería",
   "Registering where you live": "El empadronamiento",
   "When the order comes to the door": "Cuando el pedido llega a la puerta",
+  "Changing money": "Cambiar dinero",
+  "The car has been towed": "Se han llevado el coche",
+  "Knitting at home": "Tejer en casa",
+  "At the pet shop": "En la tienda de animales",
+  "The building's group chat": "El grupo de vecinos",
+  "At the notary's office": "En la notaría",
 };

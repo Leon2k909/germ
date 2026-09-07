@@ -3545,4 +3545,10 @@ export const PL: Record<string, string> = {
   "The print and copy shop": "Punkt ksero",
   "Registering where you live": "Meldunek w miejscu zamieszkania",
   "When the order comes to the door": "Kiedy zamówienie puka do drzwi",
+  "Changing money": "Wymiana pieniędzy",
+  "The car has been towed": "Auto odholowane",
+  "Knitting at home": "Robótki w domu",
+  "At the pet shop": "W sklepie zoologicznym",
+  "The building's group chat": "Grupa mieszkańców bloku",
+  "At the notary's office": "U notariusza",
 };
