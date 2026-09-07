@@ -1161,10 +1161,11 @@ export const LEBEN_IN_DEUTSCHLAND_FR: Record<string, string> = {
     "À partir de 18 ans. Pour certaines élections communales et régionales l'âge est plus bas ; pour le Bundestag il reste à 18 ans.",
   "Wie viele Bundesländer hat Deutschland?":
     "Combien l'Allemagne compte-t-elle de Bundesländer ?",
-  "12": "12",
+  // 12, 16 and 18 are answered by LIFE_IN_THE_UK_FR. Both tables are spread
+  // into one object, so a second entry for the same key would lose one of
+  // the two with no error anywhere — and the number reads the same either
+  // way. Only 14, which that table does not have, belongs here.
   "14": "14",
-  "16": "16",
-  "18": "18",
   "16 seit der Wiedervereinigung 1990: die alten elf plus die fünf neuen Länder und das wiedervereinigte Berlin.":
     "16 depuis la réunification de 1990 : les onze anciens, les cinq nouveaux Länder et Berlin réunifié.",
   "Wer ist in Deutschland für die Schulen zuständig?":
@@ -1544,7 +1545,7 @@ export const LEBEN_IN_DEUTSCHLAND_FR: Record<string, string> = {
   "Welche Nummer wählst du in Deutschland bei einem medizinischen Notfall?":
     "Quel numéro appelle-t-on en Allemagne en cas d'urgence médicale ?",
   "110": "110",
-  "112": "112",
+  // 112 is answered by LIFE_IN_THE_UK_FR, for the same reason as above.
   "116117": "116117",
   "115": "115",
   "112 für Notarzt und Feuerwehr, 110 für die Polizei. 116117 ist der ärztliche Bereitschaftsdienst außerhalb der Sprechzeiten.":

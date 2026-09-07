@@ -33,7 +33,8 @@ const built = esbuild.buildSync({
       'export { lebenInDeutschlandCourse } from "./src/lib/lebenInDeutschlandCourse.ts";\n' +
       'export { LEBEN_IN_DEUTSCHLAND_EN } from "./src/lib/lebenInDeutschlandTranslationsEn.ts";\n' +
       'export { LEBEN_IN_DEUTSCHLAND_PL } from "./src/lib/lebenInDeutschlandTranslationsPl.ts";\n' +
-      'export { LEBEN_IN_DEUTSCHLAND_FR } from "./src/lib/lebenInDeutschlandTranslationsFr.ts";',
+      'export { LEBEN_IN_DEUTSCHLAND_FR } from "./src/lib/lebenInDeutschlandTranslationsFr.ts";\n' +
+      'export { translateCourseText } from "./src/lib/courseTranslation.ts";',
     resolveDir: root,
     sourcefile: "de-translations-entry.ts",
   },
@@ -50,8 +51,13 @@ const compiled = new Module("de-translations-check", module);
 compiled.filename = path.join(root, ".de-translations-check.cjs");
 compiled.paths = Module._nodeModulePaths(root);
 compiled._compile(built.outputFiles[0].text, compiled.filename);
-const { lebenInDeutschlandCourse: course, LEBEN_IN_DEUTSCHLAND_EN, LEBEN_IN_DEUTSCHLAND_PL, LEBEN_IN_DEUTSCHLAND_FR } =
-  compiled.exports;
+const {
+  lebenInDeutschlandCourse: course,
+  LEBEN_IN_DEUTSCHLAND_EN,
+  LEBEN_IN_DEUTSCHLAND_PL,
+  LEBEN_IN_DEUTSCHLAND_FR,
+  translateCourseText,
+} = compiled.exports;
 
 // One course, one set of rules, three target languages.
 const TABLES = [
@@ -192,6 +198,15 @@ const coverage = TABLES.map(({ language, table }) => {
   const covered = Object.keys(table).length;
   return `${covered} of ${total} have ${language} (${Math.floor((covered / total) * 100)}%)`;
 }).join(", ");
+// Those three counts describe THIS FILE. What a reader gets is the merged
+// lookup behind translateCourseText, and the two differ: a bare number this
+// course shares with another — 12, 112, 1918 — belongs to whichever table
+// holds it first, because a second entry for one key in one merged object
+// loses one of the two silently. Counting the file alone reports those as
+// missing when the reader has them, so the line a reader would recognise is
+// printed beside it.
+const reachable = [...translatable].filter((german) => translateCourseText(german, "fr") !== null).length;
 console.log(
-  `check-de-translations: ${coverage}, every key matches real course text, and the picker offers them beside the German course`
+  `check-de-translations: ${coverage}, every key matches real course text, a French reader reaches ` +
+    `${reachable} of ${total}, and the picker offers them beside the German course`
 );
