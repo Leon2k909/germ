@@ -3533,4 +3533,10 @@ export const PL: Record<string, string> = {
   "The car wash": "Myjnia samochodowa",
   "In the station hall": "W hali dworca",
   "On the city bus": "W miejskim autobusie",
+  "The shoe repair booth": "Zakład szewski",
+  "At the vet's": "U weterynarza",
+  "The children's summer camp": "Kolonie letnie",
+  "At the flower shop": "W kwiaciarni",
+  "Registering a marriage": "Rejestracja małżeństwa",
+  "Dealing with the insurer": "Sprawy z ubezpieczycielem",
 };

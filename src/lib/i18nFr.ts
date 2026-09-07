@@ -3533,4 +3533,10 @@ export const FR: Record<string, string> = {
   "The car wash": "La station de lavage",
   "In the station hall": "Dans le hall de la gare",
   "On the city bus": "Dans le bus de ville",
+  "The shoe repair booth": "L'atelier du cordonnier",
+  "At the vet's": "Chez le vétérinaire",
+  "The children's summer camp": "La colonie de vacances",
+  "At the flower shop": "Chez le fleuriste",
+  "Registering a marriage": "Enregistrer le mariage",
+  "Dealing with the insurer": "Traiter avec l'assurance",
 };

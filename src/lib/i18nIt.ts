@@ -3079,4 +3079,10 @@ export const IT: Record<string, string> = {
   "The car wash": "L'autolavaggio",
   "In the station hall": "Nell'atrio della stazione",
   "On the city bus": "Sull'autobus di città",
+  "The shoe repair booth": "Il calzolaio",
+  "At the vet's": "Dal veterinario",
+  "The children's summer camp": "Il campo estivo",
+  "At the flower shop": "Dal fioraio",
+  "Registering a marriage": "Registrare il matrimonio",
+  "Dealing with the insurer": "Trattare con l'assicurazione",
 };

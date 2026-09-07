@@ -3449,4 +3449,10 @@ export const PT: Record<string, string> = {
   "The car wash": "A lavagem de carros",
   "In the station hall": "No átrio da estação",
   "On the city bus": "No autocarro da cidade",
+  "The shoe repair booth": "A sapataria de arranjos",
+  "At the vet's": "No veterinário",
+  "The children's summer camp": "A colónia de férias",
+  "At the flower shop": "Na florista",
+  "Registering a marriage": "Registar o casamento",
+  "Dealing with the insurer": "Lidar com a seguradora",
 };

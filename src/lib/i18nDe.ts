@@ -3781,4 +3781,10 @@ export const DE: Record<string, string> = {
   "The car wash": "Die Waschanlage",
   "In the station hall": "In der Bahnhofshalle",
   "On the city bus": "Im Stadtbus",
+  "The shoe repair booth": "Die Schuhmacherwerkstatt",
+  "At the vet's": "Beim Tierarzt",
+  "The children's summer camp": "Das Ferienlager",
+  "At the flower shop": "Im Blumenladen",
+  "Registering a marriage": "Die Eheschließung anmelden",
+  "Dealing with the insurer": "Mit der Versicherung zu tun haben",
 };
