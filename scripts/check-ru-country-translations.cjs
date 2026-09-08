@@ -85,6 +85,31 @@ const COURSES = [
       ["województw", "воеводств"],
     ],
   },
+  {
+    label: "Vivre en France",
+    source: "fr",
+    course: { module: "vivreEnFranceCourse", symbol: "vivreEnFranceCourse" },
+    table: { module: "vivreEnFranceTranslationsRu", symbol: "VIVRE_EN_FRANCE_RU" },
+    keep: [
+      // The words a reader meets on a doorplate, a card or a form and nowhere
+      // else. They lead in French wherever the course is about them.
+      "préfecture",
+      "carte Vitale",
+      "Assurance maladie",
+      "Sécurité sociale",
+      "état civil",
+      "tiers payant",
+      "mutuelle",
+      // The one the republic names in French because no single Russian word
+      // carries it: laïcité is neither atheism nor a wall between two powers,
+      // and a translation would have to pick one of those and be wrong.
+      "laïcité",
+      // And the one on the other side of that line. The mairie is where a
+      // reader registers a birth and joins the electoral roll, and Russian
+      // has always called it the мэрия.
+      ["mairie", "мэри"],
+    ],
+  },
 ];
 
 const imports = COURSES.flatMap(({ course, table }) => [
@@ -257,11 +282,14 @@ for (const entry of COURSES) {
   // reader looking for a building that is not signposted anywhere.
   // A plain string must survive as it stands; a pair says the source term on
   // the left has one Russian name, on the right, and the reader has to get
-  // that one rather than a smooth paraphrase.
+  // that one rather than a smooth paraphrase. Case is not part of the test:
+  // a term that opens a sentence is capitalised in Russian too, and demanding
+  // the source's own casing would fail every card that begins with it.
   for (const rule of entry.keep) {
     const [needle, expected] = Array.isArray(rule) ? rule : [rule, rule];
+    const wanted = expected.toLowerCase();
     const withTerm = Object.entries(table).filter(([key]) => key.includes(needle));
-    const dropped = withTerm.filter(([, value]) => !value.includes(expected));
+    const dropped = withTerm.filter(([, value]) => !String(value).toLowerCase().includes(wanted));
     if (withTerm.length >= 4 && dropped.length > withTerm.length / 2) {
       failures.push(
         `${label}: ${JSON.stringify(expected)} survives in only ${withTerm.length - dropped.length} of ${withTerm.length} `
