@@ -51,7 +51,7 @@ import {
   type GuidedBackground,
 } from "@/lib/guidedBackground";
 import { getCompanion } from "@/lib/companion";
-import { getLearningDirection, learningEnglish } from "@/lib/direction";
+import { getLearningDirection, learningEnglish, targetLangTag } from "@/lib/direction";
 import { courseSides } from "@/lib/courseLanguages";
 import { frenchMeaningLanguage } from "@/lib/frenchCourse";
 import { polishMeaningLanguage } from "@/lib/polishCourse";
@@ -1289,16 +1289,23 @@ function LangBlock({ label, text, active, onHear, onKnown, onStruggle }: {
   );
 }
 
-function guidedTargetLanguageTag(): "de-DE" | "en-GB" | "en-US" | "fr-FR" | "ru-RU" {
+/**
+ * The tag of the language this lesson teaches.
+ *
+ * This used to answer for French and English and send everything else to
+ * German, which is how Polish, Spanish, Italian, Portuguese and Russian
+ * lessons came to call themselves German: read out by a German voice, and —
+ * because TappableSentence only transcribes when the tag says Russian — with
+ * the alphabet setting reaching nothing. direction.ts already answers this
+ * for every course, so it answers it here too; only the English variant is
+ * this screen's own, because a British learner is marked against British.
+ */
+function guidedTargetLanguageTag(): string {
   const direction = getLearningDirection();
-  if (direction === "learn-fr") return "fr-FR";
-  // Russian was missing here, so a Russian lesson called itself German: the
-  // sentence was read out by a German voice, and TappableSentence — which
-  // only transcribes when the tag says Russian — left the Cyrillic alone
-  // whichever alphabet the learner had chosen.
-  if (direction === "learn-ru") return "ru-RU";
-  if (direction !== "learn-en") return "de-DE";
-  return resolveEnglishVariant(getEnglishVariant()) === "british" ? "en-GB" : "en-US";
+  if (direction === "learn-en") {
+    return resolveEnglishVariant(getEnglishVariant()) === "british" ? "en-GB" : "en-US";
+  }
+  return targetLangTag();
 }
 
 /**
@@ -2019,6 +2026,7 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
   const targetLabel = learnFr ? "French"
     : learnPl ? "Polish"
     : learnEs ? "Spanish"
+    : learnIt ? "Italian"
     : learnPt ? "Portuguese"
     : learnRu ? "Russian"
     : learnEn ? "English"

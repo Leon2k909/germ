@@ -112,6 +112,7 @@ export function targetLangTag(): string {
     case "learn-es": return "es-ES";
     case "learn-it": return "it-IT";
     case "learn-pt": return "pt-PT";
+    case "learn-ru": return "ru-RU";
     default: return "de-DE";
   }
 }
