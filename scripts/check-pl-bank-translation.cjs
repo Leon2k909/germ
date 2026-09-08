@@ -38,8 +38,10 @@ const built = esbuild.buildSync({
     contents:
       'export { UK_QUESTIONS } from "./src/lib/ukQuestionBank.ts";\n' +
       'export { DE_QUESTIONS } from "./src/lib/deQuestionBank.ts";\n' +
+      'export { FR_QUESTIONS } from "./src/lib/frQuestionBank.ts";\n' +
       'export { UK_QUESTION_BANK_PL } from "./src/lib/ukQuestionBankTranslationsPl.ts";\n' +
       'export { DE_QUESTION_BANK_PL } from "./src/lib/deQuestionBankTranslationsPl.ts";\n' +
+      'export { FR_QUESTION_BANK_PL } from "./src/lib/frQuestionBankTranslationsPl.ts";\n' +
       'export { LIFE_IN_THE_UK_PL } from "./src/lib/lifeInTheUkTranslationsPl.ts";\n' +
       'export { LEBEN_IN_DEUTSCHLAND_PL } from "./src/lib/lebenInDeutschlandTranslationsPl.ts";\n' +
       'export { VIVRE_EN_FRANCE_PL } from "./src/lib/vivreEnFranceTranslationsPl.ts";\n' +
@@ -109,6 +111,24 @@ const BANKS = [
       "Bundespräsident",
       "Bundesverfassungsgericht",
       "Standesamt",
+    ],
+  },
+  {
+    label: "Vivre en France",
+    questions: M.FR_QUESTIONS,
+    table: M.FR_QUESTION_BANK_PL,
+    symbol: "FR_QUESTION_BANK_PL",
+    // Polish inflects these where a sentence needs a case — Senatu,
+    // senatorów — so the rule only asks that most entries keep the name, not
+    // every one.
+    keep: [
+      "laïcité",
+      "Sénat",
+      "SMIC",
+      "Défenseur des droits",
+      "Assurance maladie",
+      "Sécurité sociale",
+      "prud'hommes",
     ],
   },
 ];
