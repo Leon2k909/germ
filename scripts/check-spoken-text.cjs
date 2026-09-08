@@ -44,6 +44,17 @@ const cases = [
   ["client keeps ordinary text", "Just a normal sentence.", "Just a normal sentence."],
   ["client smooths the reported selbstständig phrase for German TTS", "sich selbstständig machen", "sich selbständig machen"],
   ["client smooths inflected selbstständig forms for German TTS", "viel selbstständiger", "viel selbständiger"],
+  // One spelling, two words. The synthesiser guesses from the sentence and
+  // guessed the weather in "things that wind me up", so the verb is respelled
+  // on its way to the voice — and only the verb, which is why the weather
+  // cases sit right beside it here.
+  ["client respells the verb wind so it rhymes with mind", "things that wind me up", "things that wynd me up"],
+  ["client respells it with an object and a particle apart", "wind it back down", "wynd it back down"],
+  ["client respells the fixed phrase", "Wind your neck in.", "Wynd your neck in."],
+  ["client respells the hyphenated noun", "That was a wind-up.", "That was a wynd-up."],
+  ["client leaves the weather alone", "The wind knocked the tree over.", "The wind knocked the tree over."],
+  ["client leaves the weather alone even before up", "The wind whistles up top", "The wind whistles up top"],
+  ["client leaves German Wind alone", "Bei dem Wind ist es am schlimmsten.", "Bei dem Wind ist es am schlimmsten."],
 ];
 
 for (const [name, input, expected] of cases) {

@@ -3113,7 +3113,7 @@ export const expansionPartBlueprints: Record<string, Blueprint> = {
       { title: "Black ice morning", lines: [
         { speaker: "A", de: "Fährst du heute mit dem Auto zur Arbeit?", en: "Are you driving to work today?" },
         { speaker: "B", de: "Bei dem Glatteis? Lieber nicht.", en: "In this black ice? Better not." },
-        { speaker: "A", de: "Die Bahn fährt aber auch nur unregelmäßig.", en: "The trains are only running patchily too, mind." },
+        { speaker: "A", de: "Die Bahn fährt aber auch nur unregelmäßig.", en: "The trains are only running now and then, mind." },
         { speaker: "B", de: "Dann gehe ich eben zu Fuß und passe auf.", en: "Then I'll just walk and watch my step." },
       ]},
     ],

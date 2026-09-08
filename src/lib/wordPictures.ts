@@ -718,7 +718,12 @@ const VERBS: Record<string, string> = {
   protect: "🛡️", "look after": "🤲", help: "🤝",
   meet: "🤝", cooperate: "🤝", vote: "🗳️",
   forbid: "🚫", prevent: "🚫", avoid: "🚫",
-  stop: "⏹️", wait: "⏳", finish: "🏁", hurt: "🤕",
+  // The red octagon rather than the media button: ⏹ is a white square on a
+  // blue tile, which reads as a stop sign somebody got wrong rather than as
+  // stopping. The sign is the same shape and colour in Britain and Germany,
+  // and Twemoji's carries no lettering, so it says stop without saying it in
+  // a language. "end" keeps the button — that one is an ending, not a halt.
+  stop: "🛑", wait: "⏳", finish: "🏁", hurt: "🤕",
   heal: "🩹", train: "🏋️", practise: "🎯",
   aim: "🎯", mix: "🥣",
   divide: "➗", add: "➕", subtract: "➖",

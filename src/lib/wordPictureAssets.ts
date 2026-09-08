@@ -499,6 +499,7 @@ export const WORD_PICTURE_FILES: Record<string, string> = {
   "🛋️": "1f6cb",
   "🛍️": "1f6cd",
   "🛏️": "1f6cf",
+  "🛑": "1f6d1",
   "🛒": "1f6d2",
   "🛕": "1f6d5",
   "🛗": "1f6d7",

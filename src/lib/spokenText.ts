@@ -16,14 +16,46 @@ function removeParentheticalAnnotations(value: string): string {
   return result.replace(/\s{2,}/gu, " ").trim();
 }
 
+/**
+ * "wind" the verb, told apart from "wind" the weather.
+ *
+ * One spelling, two words: the breeze rhymes with tinned, winding something
+ * up rhymes with mind, and the synthesiser has to guess from the sentence.
+ * It guessed wrong on "things that wind me up", which came out as the
+ * weather and left the line meaningless. Edge's endpoint rejects custom SSML,
+ * so there is no phoneme tag to reach for — the lever available is the
+ * spelling sent to it, and wynd is an ordinary English word with exactly the
+ * sound wanted.
+ *
+ * Matched by construction rather than by guessing at the sense: the verb
+ * takes an object and a particle (wind me up, wind it back down, wind down),
+ * or the fixed "wind your neck in", or the hyphenated wind-up. The weather
+ * never does — "the wind whistles up top" and "wind force eight" both stay as
+ * they are, which is why the words allowed to sit between are listed rather
+ * than left as "any two words".
+ */
+const WIND_VERB = new RegExp(
+  String.raw`\bwind(s|ing)?\b(?=`
+  + String.raw`(?:\s+(?:me|him|her|it|us|them|you|myself|yourself|himself|herself|ourselves|themselves|someone|somebody|people))?`
+  + String.raw`(?:\s+(?:right|back|really|properly|slowly|down|up))*`
+  + String.raw`\s+(?:up|down)\b`
+  + String.raw`|\s+your\s+neck\s+in\b`
+  + String.raw`|-up\b)`,
+  "giu"
+);
+
 function applyPronunciationOverrides(value: string): string {
   // Microsoft's German neural voices can over-articulate the doubled "st"
   // seam in selbstständig. The accepted spelling selbständig has the same
   // meaning and pronunciation, but gives the synthesiser a clean word shape.
   // This is speech-only: learner-facing catalogue text stays untouched.
-  return value.replace(/selbstständig/giu, (match) =>
-    match.startsWith("S") ? "Selbständig" : "selbständig"
-  );
+  return value
+    .replace(/selbstständig/giu, (match) =>
+      match.startsWith("S") ? "Selbständig" : "selbständig"
+    )
+    .replace(WIND_VERB, (match) =>
+      (match.startsWith("W") ? "Wynd" : "wynd") + match.slice(4)
+    );
 }
 
 /**

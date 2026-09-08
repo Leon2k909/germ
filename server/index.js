@@ -506,12 +506,33 @@ function removeParentheticalAnnotations(value) {
   return result.replace(/\s{2,}/gu, " ").trim();
 }
 
+// "wind" the verb, told apart from "wind" the weather: one spelling, two
+// words, and the synthesiser read "things that wind me up" as the breeze.
+// Edge rejects custom SSML, so the spelling sent to it is the only lever, and
+// wynd is an ordinary word with the sound wanted. Matched by construction —
+// object plus particle, "wind your neck in", or the hyphenated wind-up — so
+// "wind force eight" and "the wind whistles up top" are left alone. Mirrors
+// src/lib/spokenText.ts; check-spoken-text holds the two together.
+const WIND_VERB = new RegExp(
+  String.raw`\bwind(s|ing)?\b(?=`
+  + String.raw`(?:\s+(?:me|him|her|it|us|them|you|myself|yourself|himself|herself|ourselves|themselves|someone|somebody|people))?`
+  + String.raw`(?:\s+(?:right|back|really|properly|slowly|down|up))*`
+  + String.raw`\s+(?:up|down)\b`
+  + String.raw`|\s+your\s+neck\s+in\b`
+  + String.raw`|-up\b)`,
+  "giu"
+);
+
 function applyPronunciationOverrides(value) {
   // Keep display spelling intact while steering German neural voices around
   // the doubled "st" seam that they can over-articulate in selbstständig.
-  return value.replace(/selbstständig/giu, (match) =>
-    match.startsWith("S") ? "Selbständig" : "selbständig"
-  );
+  return value
+    .replace(/selbstständig/giu, (match) =>
+      match.startsWith("S") ? "Selbständig" : "selbständig"
+    )
+    .replace(WIND_VERB, (match) =>
+      (match.startsWith("W") ? "Wynd" : "wynd") + match.slice(4)
+    );
 }
 
 export function firstSpokenAlternative(value) {
