@@ -41,11 +41,13 @@ const built = esbuild.buildSync({
       'export { FR_QUESTIONS } from "./src/lib/frQuestionBank.ts";\n' +
       'export { IT_QUESTIONS } from "./src/lib/itQuestionBank.ts";\n' +
       'export { ES_QUESTIONS } from "./src/lib/esQuestionBank.ts";\n' +
+      'export { RU_QUESTIONS } from "./src/lib/ruQuestionBank.ts";\n' +
       'export { UK_QUESTION_BANK_PL } from "./src/lib/ukQuestionBankTranslationsPl.ts";\n' +
       'export { DE_QUESTION_BANK_PL } from "./src/lib/deQuestionBankTranslationsPl.ts";\n' +
       'export { FR_QUESTION_BANK_PL } from "./src/lib/frQuestionBankTranslationsPl.ts";\n' +
       'export { IT_QUESTION_BANK_PL } from "./src/lib/itQuestionBankTranslationsPl.ts";\n' +
       'export { ES_QUESTION_BANK_PL } from "./src/lib/esQuestionBankTranslationsPl.ts";\n' +
+      'export { RU_QUESTION_BANK_PL } from "./src/lib/ruQuestionBankTranslationsPl.ts";\n' +
       'export { LIFE_IN_THE_UK_PL } from "./src/lib/lifeInTheUkTranslationsPl.ts";\n' +
       'export { LEBEN_IN_DEUTSCHLAND_PL } from "./src/lib/lebenInDeutschlandTranslationsPl.ts";\n' +
       'export { VIVRE_EN_FRANCE_PL } from "./src/lib/vivreEnFranceTranslationsPl.ts";\n' +
@@ -172,6 +174,33 @@ const BANKS = [
       "NIE",
     ],
   },
+  {
+    label: "Zhizn v Rossii",
+    questions: M.RU_QUESTIONS,
+    table: M.RU_QUESTION_BANK_PL,
+    symbol: "RU_QUESTION_BANK_PL",
+    // Written the way ZHIZN_V_ROSSII_PL writes them, because the lesson and
+    // its questions are read one after the other: the abbreviations the exam
+    // asks for, and the everyday words the course teaches beside their
+    // meaning.
+    // Polish declines these, so the kept half of each pair is the stem that
+    // survives the case: Dumę and Dumy both carry "Dum". A whole word here
+    // would accuse a correct sentence.
+    keep: [
+      ["СНИЛС", "SNILS"],
+      ["МРОТ", "MROT"],
+      ["ЕГЭ", "EGE"],
+      ["ИНН", "INN"],
+      ["ЗАТО", "ZATO"],
+      ["Дума", "Dum"],
+      ["Совет Федерации", "Federacji"],
+      ["Конституционный Суд", "d Konstytucyjn"],
+      ["Транссиб", "ranssyb"],
+      ["прописк", "propisk"],
+      ["маршрутк", "marszrutk"],
+      ["отчеств", "otczestw"],
+    ],
+  },
 ];
 
 const failures = [];
@@ -239,9 +268,14 @@ for (const { label, questions, table, symbol, keep } of BANKS) {
     }
   }
 
-  for (const term of keep) {
+  for (const entry of keep) {
+    // Five of the six banks are written in the Latin alphabet, so the word
+    // to look for is the same on both sides and one string says it. Russian
+    // is not: СНИЛС in the question has to come back as SNILS, so that bank
+    // gives the pair.
+    const [term, kept] = Array.isArray(entry) ? entry : [entry, entry];
     const withTerm = Object.entries(table).filter(([key]) => key.includes(term));
-    const dropped = withTerm.filter(([, value]) => !value.includes(term));
+    const dropped = withTerm.filter(([, value]) => !value.includes(kept));
     if (withTerm.length >= 4 && dropped.length > withTerm.length / 2) {
       failures.push(
         `${label}: ${dropped.length} of ${withTerm.length} entries mentioning "${term}" no longer carry it. ` +
