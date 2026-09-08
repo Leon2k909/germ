@@ -3609,4 +3609,6 @@ export const PL: Record<string, string> = {
   "Sending something by post": "Wysłać coś pocztą",
   "Arriving as a guest": "Przyjść w gości",
   "Wishing someone well": "Złożyć komuś życzenia",
+  "Board cleared — that is every phrase in this lesson": "Plansza wyczyszczona — to wszystkie zdania z tej lekcji",
+  "Start sentence practice whenever you are ready.": "Zacznij ćwiczenie zdań, kiedy chcesz.",
 };

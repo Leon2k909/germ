@@ -3156,4 +3156,6 @@ export const IT: Record<string, string> = {
   "Arriving as a guest": "Arrivare come ospite",
   "Wishing someone well": "Fare gli auguri",
   "words inside": "parole dentro",
+  "Board cleared — that is every phrase in this lesson": "Griglia completata — sono tutte le frasi di questa lezione",
+  "Start sentence practice whenever you are ready.": "Inizia la pratica delle frasi quando vuoi.",
 };

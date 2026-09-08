@@ -3102,4 +3102,6 @@ export const RU: Record<string, string> = {
   "Arriving as a guest": "Прийти в гости",
   "Wishing someone well": "Пожелать человеку добра",
   "История, устройство и повседневная жизнь: как устроена страна.": "История, устройство и повседневная жизнь: как устроена страна.",
+  "Board cleared — that is every phrase in this lesson": "Всё собрано — это все фразы этого урока",
+  "Start sentence practice whenever you are ready.": "Начни практику фраз, когда будешь готов.",
 };

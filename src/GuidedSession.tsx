@@ -6048,6 +6048,17 @@ function SessionMatchingPairs({
   const sourceText = (item: MatchingItem) => readingMeaningFirst ? item.meaning : item.target;
   const targetText = (item: MatchingItem) => readingMeaningFirst ? item.target : item.meaning;
   const boardCleared = boardItems.length > 0 && matchedIds.size === boardItems.length;
+  /**
+   * Whether a next board exists at all.
+   *
+   * The refill below advances by a whole board and wraps, which deals the
+   * next six of a longer round. A lesson previews at most six cards and the
+   * board holds six, so the wrap landed back on nought and re-dealt the very
+   * same six — shuffled into new positions, which reads as a new board and is
+   * not one. Somebody who had just matched all six was asked to match them
+   * again, with the counter behind it saying six pairs so far.
+   */
+  const moreToDeal = items.length > boardItems.length;
 
   useEffect(() => {
     onProgress(matchedIds.size, boardItems.length);
@@ -6061,7 +6072,7 @@ function SessionMatchingPairs({
    * reads as having got something wrong.
    */
   useEffect(() => {
-    if (!boardCleared) return;
+    if (!boardCleared || !moreToDeal) return;
     refillTimer.current = window.setTimeout(() => {
       setCleared((total) => total + boardItems.length);
       setBoardStart((start) => (start + boardItems.length) % items.length);
@@ -6071,7 +6082,7 @@ function SessionMatchingPairs({
       setWrongIds(new Set());
     }, 620);
     return () => window.clearTimeout(refillTimer.current);
-  }, [boardCleared, boardItems.length, items.length]);
+  }, [boardCleared, boardItems.length, items.length, moreToDeal]);
 
   useEffect(() => () => {
     if (resetTimer.current) window.clearTimeout(resetTimer.current);
@@ -6230,13 +6241,17 @@ function SessionMatchingPairs({
           <div>
             <strong>
               {boardCleared
-                ? ui("Board cleared — here comes the next one")
+                ? (moreToDeal
+                  ? ui("Board cleared — here comes the next one")
+                  : ui("Board cleared — that is every phrase in this lesson"))
                 : `${ui("Matched")} ${matchedIds.size} ${ui("of")} ${boardItems.length}`}
             </strong>
             <span>
-              {cleared > 0
-                ? uiFmt("{n} pairs so far. Keep going, or move on whenever you like.", { n: cleared + matchedIds.size })
-                : ui("Keep going as long as you like — move on whenever you want.")}
+              {boardCleared && !moreToDeal
+                ? ui("Start sentence practice whenever you are ready.")
+                : cleared > 0
+                  ? uiFmt("{n} pairs so far. Keep going, or move on whenever you like.", { n: cleared + matchedIds.size })
+                  : ui("Keep going as long as you like — move on whenever you want.")}
             </span>
           </div>
           <div className="fs-match-progress-track" aria-hidden>

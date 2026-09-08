@@ -3526,4 +3526,6 @@ export const PT: Record<string, string> = {
   "Arriving as a guest": "Chegar como convidado",
   "Wishing someone well": "Desejar as felicidades",
   "words inside": "palavras dentro",
+  "Board cleared — that is every phrase in this lesson": "Grelha concluída — são todas as frases desta lição",
+  "Start sentence practice whenever you are ready.": "Começa a prática de frases quando quiseres.",
 };
