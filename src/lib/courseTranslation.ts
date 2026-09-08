@@ -21,6 +21,8 @@ import { IT_QUESTION_BANK_PL } from "@/lib/itQuestionBankTranslationsPl";
 import { ES_QUESTION_BANK_PL } from "@/lib/esQuestionBankTranslationsPl";
 import { RU_QUESTION_BANK_PL } from "@/lib/ruQuestionBankTranslationsPl";
 import { LEBEN_IN_DEUTSCHLAND_RU } from "@/lib/lebenInDeutschlandTranslationsRu";
+import { LIFE_IN_THE_UK_RU } from "@/lib/lifeInTheUkTranslationsRu";
+import { ZYCIE_W_POLSCE_RU } from "@/lib/zycieWPolsceTranslationsRu";
 import { LIFE_IN_THE_UK_FR } from "@/lib/lifeInTheUkTranslationsFr";
 import { LEBEN_IN_DEUTSCHLAND_FR } from "@/lib/lebenInDeutschlandTranslationsFr";
 import { ZYCIE_W_POLSCE_FR } from "@/lib/zycieWPolsceTranslationsFr";
@@ -116,8 +118,8 @@ export const TRANSLATION_LANGUAGES: Array<{
   // switch beside a card. Leben in Deutschland is the first course it can
   // read, and deliberately the first — a Russian speaker sitting the German
   // citizenship test is who this course is for. The others follow, one entry
-  // in this list each.
-  { id: "ru", label: "Russian", endonym: "Русский", from: ["de"] },
+  // in this list each: Life in the UK and Zycie w Polsce next.
+  { id: "ru", label: "Russian", endonym: "Русский", from: ["de", "en", "pl"] },
 ];
 
 const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>> = {
@@ -147,7 +149,7 @@ const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>>
     ...RU_QUESTION_BANK_PL,
   },
   fr: { ...LIFE_IN_THE_UK_FR, ...LEBEN_IN_DEUTSCHLAND_FR, ...ZYCIE_W_POLSCE_FR, ...VIVERE_IN_ITALIA_FR, ...VIVIR_EN_ESPANA_FR, ...ZHIZN_V_ROSSII_FR },
-  ru: { ...LEBEN_IN_DEUTSCHLAND_RU },
+  ru: { ...LEBEN_IN_DEUTSCHLAND_RU, ...LIFE_IN_THE_UK_RU, ...ZYCIE_W_POLSCE_RU },
 };
 
 /**

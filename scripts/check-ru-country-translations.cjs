@@ -59,6 +59,32 @@ const COURSES = [
     // demanding that those survive would ask for worse Russian.
     keep: ["BAföG", "Bundesgesetzblatt", "Abitur", "Bürgeramt", "Einwohnermeldeamt"],
   },
+  {
+    label: "Life in the UK",
+    source: "en",
+    course: { module: "lifeInTheUkCourse", symbol: "lifeInTheUkCourse" },
+    table: { module: "lifeInTheUkTranslationsRu", symbol: "LIFE_IN_THE_UK_RU" },
+    // What a reader meets printed on a letter or a doorplate. The NHS is not
+    // called anything else on the card that tells you to register with a GP.
+    keep: ["NHS", "National Insurance", "GCSE", "council tax"],
+  },
+  {
+    label: "Zycie w Polsce",
+    source: "pl",
+    course: { module: "zycieWPolsceCourse", symbol: "zycieWPolsceCourse" },
+    table: { module: "zycieWPolsceTranslationsRu", symbol: "ZYCIE_W_POLSCE_RU" },
+    keep: [
+      "PESEL",
+      "wójt",
+      // Polish institutions Russian does have a name for. Leaving them in
+      // Polish would be as wrong as translating PESEL: the reader knows the
+      // Sejm as the Сейм, and a card that called it a parliament instead
+      // would be smooth Russian about nothing in particular.
+      ["Sejm", "Сейм"],
+      ["powiat", "повят"],
+      ["województw", "воеводств"],
+    ],
+  },
 ];
 
 const imports = COURSES.flatMap(({ course, table }) => [
@@ -198,7 +224,11 @@ for (const entry of COURSES) {
   // Bundesagentur für Arbeit is not called anything else in Russian. Every
   // word of such a line is capitalised apart from the small joining words.
   // Anything with real sentence words in it still has to change.
-  const particles = new Set(["und", "für", "von", "der", "die", "das", "des", "den", "im", "am", "zur", "zum", "bei"]);
+  const particles = new Set([
+    "und", "für", "von", "der", "die", "das", "des", "den", "im", "am", "zur", "zum", "bei",
+    "and", "of", "the", "for", "in", "on", "at", "to", "a", "an",
+    "i", "w", "we", "z", "ze", "na", "do", "o", "po", "za", "przy", "dla", "od", "oraz",
+  ]);
   const isProperNames = (text) => {
     const lexical = String(text)
       .replace(/[0-9]+/g, " ")
@@ -225,13 +255,17 @@ for (const entry of COURSES) {
   // The words the course is about have to survive. A translation that turned
   // the Bürgeramt into a town hall would read more smoothly and send the
   // reader looking for a building that is not signposted anywhere.
-  for (const keep of entry.keep) {
-    const withTerm = Object.entries(table).filter(([key]) => key.includes(keep));
-    const dropped = withTerm.filter(([, value]) => !value.includes(keep));
+  // A plain string must survive as it stands; a pair says the source term on
+  // the left has one Russian name, on the right, and the reader has to get
+  // that one rather than a smooth paraphrase.
+  for (const rule of entry.keep) {
+    const [needle, expected] = Array.isArray(rule) ? rule : [rule, rule];
+    const withTerm = Object.entries(table).filter(([key]) => key.includes(needle));
+    const dropped = withTerm.filter(([, value]) => !value.includes(expected));
     if (withTerm.length >= 4 && dropped.length > withTerm.length / 2) {
       failures.push(
-        `${label}: ${JSON.stringify(keep)} survives in only ${withTerm.length - dropped.length} of ${withTerm.length} `
-        + "entries about it — that is the word the country uses and it should stay in the sentence"
+        `${label}: ${JSON.stringify(expected)} survives in only ${withTerm.length - dropped.length} of ${withTerm.length} `
+        + `entries about ${JSON.stringify(needle)} — that is the word the country uses and it should stay in the sentence`
       );
     }
   }
