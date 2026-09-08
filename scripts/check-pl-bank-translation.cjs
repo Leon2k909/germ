@@ -40,10 +40,12 @@ const built = esbuild.buildSync({
       'export { DE_QUESTIONS } from "./src/lib/deQuestionBank.ts";\n' +
       'export { FR_QUESTIONS } from "./src/lib/frQuestionBank.ts";\n' +
       'export { IT_QUESTIONS } from "./src/lib/itQuestionBank.ts";\n' +
+      'export { ES_QUESTIONS } from "./src/lib/esQuestionBank.ts";\n' +
       'export { UK_QUESTION_BANK_PL } from "./src/lib/ukQuestionBankTranslationsPl.ts";\n' +
       'export { DE_QUESTION_BANK_PL } from "./src/lib/deQuestionBankTranslationsPl.ts";\n' +
       'export { FR_QUESTION_BANK_PL } from "./src/lib/frQuestionBankTranslationsPl.ts";\n' +
       'export { IT_QUESTION_BANK_PL } from "./src/lib/itQuestionBankTranslationsPl.ts";\n' +
+      'export { ES_QUESTION_BANK_PL } from "./src/lib/esQuestionBankTranslationsPl.ts";\n' +
       'export { LIFE_IN_THE_UK_PL } from "./src/lib/lifeInTheUkTranslationsPl.ts";\n' +
       'export { LEBEN_IN_DEUTSCHLAND_PL } from "./src/lib/lebenInDeutschlandTranslationsPl.ts";\n' +
       'export { VIVRE_EN_FRANCE_PL } from "./src/lib/vivreEnFranceTranslationsPl.ts";\n' +
@@ -149,6 +151,27 @@ const BANKS = [
       "INAIL",
     ],
   },
+  {
+    label: "Vivir en Espana",
+    questions: M.ES_QUESTIONS,
+    table: M.ES_QUESTION_BANK_PL,
+    symbol: "ES_QUESTION_BANK_PL",
+    // Cortes and padrón have Polish translations that sound right and teach
+    // the wrong word: the course table keeps both Spanish and undeclined,
+    // and the bank has to answer with the same word the lesson taught.
+    keep: [
+      "Cortes",
+      "Defensor del Pueblo",
+      "padrón",
+      "Bachillerato",
+      "Instituto Cervantes",
+      "Consejo General del Poder Judicial",
+      "Agencia Tributaria",
+      "arraigo",
+      "ESO",
+      "NIE",
+    ],
+  },
 ];
 
 const failures = [];
@@ -222,7 +245,7 @@ for (const { label, questions, table, symbol, keep } of BANKS) {
     if (withTerm.length >= 4 && dropped.length > withTerm.length / 2) {
       failures.push(
         `${label}: ${dropped.length} of ${withTerm.length} entries mentioning "${term}" no longer carry it. ` +
-          "The exam asks for that exact English wording, so it stays as it is:\n" +
+          "The exam asks for that exact wording, so it stays as it is:\n" +
           dropped.slice(0, 4).map(([key]) => `      ${JSON.stringify(key.slice(0, 80))}`).join("\n")
       );
     }
