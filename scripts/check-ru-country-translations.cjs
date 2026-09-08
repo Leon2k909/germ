@@ -110,6 +110,28 @@ const COURSES = [
       ["mairie", "мэри"],
     ],
   },
+  {
+    label: "Vivere in Italia",
+    source: "it",
+    course: { module: "vivereInItaliaCourse", symbol: "vivereInItaliaCourse" },
+    table: { module: "vivereInItaliaTranslationsRu", symbol: "VIVERE_IN_ITALIA_RU" },
+    keep: [
+      // Printed on a card, a payslip or a form, and nowhere else.
+      "codice fiscale",
+      "carta d'identità",
+      "tessera sanitaria",
+      "permesso di soggiorno",
+      "questura",
+      "anagrafe",
+      "INPS",
+      "INAIL",
+      "IRPEF",
+      "CCNL",
+      // The region is on the other side: Russian names it, and the course
+      // says region on fourteen cards about who runs the hospitals.
+      ["regione", "обла"],
+    ],
+  },
 ];
 
 const imports = COURSES.flatMap(({ course, table }) => [
