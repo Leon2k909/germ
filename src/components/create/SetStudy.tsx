@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { ui } from "@/lib/i18n";
+import { courseSides } from "@/lib/courseLanguages";
 import { cn } from "@/lib/utils";
 import { tts } from "@/lib/voice";
 import {
@@ -140,7 +141,7 @@ export function SetStudy({
 
   const speak = useCallback((text: string) => {
     if (!set.speak) return;
-    void tts(text, 0.95, "de-DE").catch(() => undefined);
+    void tts(text, 0.95, courseSides().target.voice).catch(() => undefined);
   }, [set.speak]);
 
   const header = (

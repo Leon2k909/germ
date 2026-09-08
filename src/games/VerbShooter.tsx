@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RotateCcw, Trophy } from "lucide-react";
-import { speakGerman } from "@/lib/tts";
 
 import { useGameContent } from "@/games/gameContent";
 import { recordWordMastery } from "@/lib/mastery";
@@ -412,8 +411,11 @@ export default function VerbShooter() {
           const spoken = verb.pronoun.endsWith("'")
             ? `${verb.pronoun}${verb.correct}`
             : `${verb.pronoun} ${verb.correct}`;
-          if (learnsEnglish || learnsFrench || learnsPolish) void tts(spoken, 0.9, sides.target.voice);
-          else speakGerman(spoken);
+          // Whatever course this is. The branch used to name three languages
+          // and the game had grown to five, so Spanish and Italian verbs were
+          // read out by a German voice; sides.target.voice is German on the
+          // German course anyway, so no list is needed.
+          void tts(spoken, 0.9, sides.target.voice);
         }, 200);
         recordWordMastery(`${verb.infinitive}:${verb.pronoun}`);
         // Brief pause then next round
@@ -423,7 +425,7 @@ export default function VerbShooter() {
       }
     }, 50);
     return () => clearInterval(loopRef.current!);
-  }, [phase, highScore, learnsEnglish, learnsFrench, learnsPolish, sides.target.voice, nextRound]);
+  }, [phase, highScore, sides.target.voice, nextRound]);
 
   // Keyboard
   useEffect(() => {
