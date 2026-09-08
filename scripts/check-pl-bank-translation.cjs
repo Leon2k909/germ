@@ -37,7 +37,9 @@ const built = esbuild.buildSync({
   stdin: {
     contents:
       'export { UK_QUESTIONS } from "./src/lib/ukQuestionBank.ts";\n' +
+      'export { DE_QUESTIONS } from "./src/lib/deQuestionBank.ts";\n' +
       'export { UK_QUESTION_BANK_PL } from "./src/lib/ukQuestionBankTranslationsPl.ts";\n' +
+      'export { DE_QUESTION_BANK_PL } from "./src/lib/deQuestionBankTranslationsPl.ts";\n' +
       'export { LIFE_IN_THE_UK_PL } from "./src/lib/lifeInTheUkTranslationsPl.ts";\n' +
       'export { LEBEN_IN_DEUTSCHLAND_PL } from "./src/lib/lebenInDeutschlandTranslationsPl.ts";\n' +
       'export { VIVRE_EN_FRANCE_PL } from "./src/lib/vivreEnFranceTranslationsPl.ts";\n' +
@@ -90,6 +92,23 @@ const BANKS = [
       "Church of England",
       "House of Commons",
       "House of Lords",
+    ],
+  },
+  {
+    label: "Leben in Deutschland",
+    questions: M.DE_QUESTIONS,
+    table: M.DE_QUESTION_BANK_PL,
+    symbol: "DE_QUESTION_BANK_PL",
+    // Same reason, in German: the test asks for the word itself, so the word
+    // itself is what a Polish reader has to come away with.
+    keep: [
+      "Grundgesetz",
+      "Bundestag",
+      "Bundesrat",
+      "Bundeskanzler",
+      "Bundespräsident",
+      "Bundesverfassungsgericht",
+      "Standesamt",
     ],
   },
 ];
