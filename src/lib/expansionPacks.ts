@@ -8131,7 +8131,7 @@ export const expansionPartBlueprints: Record<string, Blueprint> = {
       ]},
       { title: "Cake at three", lines: [
         { speaker: "A", de: "Was gibt es heute an der Theke?", en: "What's on the counter today?" },
-        { speaker: "B", de: "Käsekuchen, Apfelstreusel und Schwarzwälder.", en: "Cheesecake, apple streusel cake and Black Forest gateau.", use: "A counter shortens the names and so does this line. Apfelstreusel is Apfelstreuselkuchen — a cake with a crumbly topping, eaten cold with coffee, not the hot pudding English calls apple crumble. Schwarzwälder is Schwarzwälder Kirschtorte; on its own, English 'Black Forest' is a place rather than a cake." },
+        { speaker: "B", de: "Käsekuchen, Apfelstreusel und Schwarzwälder.", en: "Cheesecake, apple streusel cake and Black Forest gateau.", use: "A counter shortens the names and so does this line. Apfelstreusel is Apfelstreuselkuchen — a yeast or shortcrust base, apple, and streusel on top, eaten cold with coffee. English 'apple crumble' is a different dish: stewed apple under a crumb topping, served hot, with no base at all. Schwarzwälder is Schwarzwälder Kirschtorte; on its own, English 'Black Forest' is a place rather than a cake." },
         { speaker: "A", de: "Käsekuchen. Mit Sahne.", en: "Cheesecake. With cream." },
         { speaker: "B", de: "Und ich nehme nur einen Löffel von deinem.", en: "And I'll just have one spoonful of yours." },
       ]},
