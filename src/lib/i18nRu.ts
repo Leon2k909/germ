@@ -3144,4 +3144,26 @@ export const RU: Record<string, string> = {
   "Board cleared — that is every phrase in this lesson": "Всё собрано — это все фразы этого урока",
   "Start sentence practice whenever you are ready.": "Начни практику фраз, когда будешь готов.",
   "Or use the number keys: one press for the left column, then one for the right. Escape undoes a half-made pair.": "Или цифровыми клавишами: одно нажатие для левого столбца, затем одно для правого. Escape отменяет недоделанную пару.",
+  "Not interested": "Не интересует",
+  "Normal priority": "Обычный приоритет",
+  "Learned last": "Изучается последним",
+  "Keep these packs in the course, but learn them last — after everything else.":
+    "Эти пакеты остаются в курсе, но изучаются последними — после всего остального.",
+  "Keep this pack in the course, but learn it last — after everything else, in both Continue Learning and Listen.":
+    "Этот пакет остаётся в курсе, но изучается последним — после всего остального, и в «Учиться дальше», и в «Слушать».",
+  "Give this pack its normal place in the order again.":
+    "Вернуть этому пакету обычное место в очереди.",
+  "Topics you are not interested in": "Темы, которые тебя не интересуют",
+  "These stay in your course and keep any progress — they are simply learned last, after everything else, in lessons and in Listen.":
+    "Они остаются в твоём курсе и сохраняют весь прогресс — просто изучаются последними, после всего остального, и в уроках, и в «Слушать».",
+  "Give {topic} its normal place in the order again.":
+    "Вернуть теме «{topic}» обычное место в очереди.",
+  "Search topics, like cooking or football…":
+    "Искать тему, например готовку или футбол…",
+  "Loading your lessons…": "Загружаем твои уроки…",
+  "The meaning on a lesson card": "Значение на карточке урока",
+  "On the card it sits under the sentence at a size you can read at a glance. Underneath keeps it small and out of the way, for practising without it.":
+    "На карточке оно стоит под предложением такого размера, что читается с одного взгляда. Снизу оно остаётся мелким и не мешает — чтобы упражняться без него.",
+  "On the card": "На карточке",
+  "Underneath": "Снизу",
 };

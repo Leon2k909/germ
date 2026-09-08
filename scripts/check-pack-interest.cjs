@@ -169,3 +169,11 @@ if (failures) {
 }
 
 console.log("\nA deprioritized pack stays in the course and is always learned last");
+
+// Exit rather than fall off the end. setPackDeprioritized writes through
+// saveScopedJson, which schedules the shared-storage sync — a setTimeout that
+// reschedules itself every second while the request keeps failing, and here
+// there is no server for it to reach. The work above is finished either way;
+// without this the process simply never ends and the whole build hangs behind
+// it. The failure path already exits; this is its other half.
+process.exit(0);
