@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Check, CheckCircle2, Clock3, Headphones, List, Minus, PauseCircle, PlayCircle, Route, Search, SquareCheck, TrendingDown, X } from "lucide-react";
+import { ArrowRight, BookOpen, Check, CheckCircle2, Clock3, Headphones, List, Minus, PauseCircle, PlayCircle, Route, Search, SquareCheck, ThumbsDown, ThumbsUp, TrendingDown, X } from "lucide-react";
 import { Part } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { DuoPath } from "@/components/duo/DuoPath";
@@ -13,6 +13,7 @@ import { ui, uiFmt, uiOr } from "@/lib/i18n";
 import { courseSides } from "@/lib/courseLanguages";
 import { buildCatalogSearchText, normalizeCatalogSearchText } from "@/lib/catalogSearch";
 import { getMutedPacks, setPackMuted, setPacksMuted } from "@/lib/mutedPacks";
+import { getDeprioritizedPacks, setPackDeprioritized, setPacksDeprioritized } from "@/lib/packInterest";
 import {
   getHideFinishedLessons,
   isFinishedLesson,
@@ -25,7 +26,7 @@ import {
 
 type LevelFilter = "all" | CefrTier;
 type KindFilter = "all" | "core" | "wordbank";
-type ProgressFilter = "all" | "unstarted" | "started" | "done" | "paused";
+type ProgressFilter = "all" | "unstarted" | "started" | "done" | "paused" | "deprioritized";
 
 const LEVEL_FILTERS: { id: LevelFilter; label: string }[] = [
   { id: "all", label: "All levels" },
@@ -48,6 +49,7 @@ const PROGRESS_FILTERS: { id: ProgressFilter; label: string }[] = [
   { id: "started", label: "In progress" },
   { id: "done", label: "Finished" },
   { id: "paused", label: "Paused" },
+  { id: "deprioritized", label: "Not interested" },
 ];
 
 /** The Words tracker's checkbox toggle, in lesson-card clothes — same box,
@@ -166,6 +168,7 @@ export function LearnView({
   const [progressFilter, setProgressFilter] = useState<ProgressFilter>("all");
   const [hideFinished, setHideFinished] = useState<boolean>(getHideFinishedLessons);
   const [mutedPacks, setMutedPacks] = useState<Set<string>>(() => getMutedPacks());
+  const [deprioritizedPacks, setDeprioritizedPacks] = useState<Set<string>>(() => getDeprioritizedPacks());
   const [selected, setSelected] = useState<Set<string>>(new Set());
   /**
    * A box on every card said "you are choosing lessons" to everyone who was
@@ -183,6 +186,10 @@ export function LearnView({
     setMutedPacks(new Set(setPackMuted(key, !mutedPacks.has(key))));
   };
 
+  const toggleDeprioritized = (key: string) => {
+    setDeprioritizedPacks(new Set(setPackDeprioritized(key, !deprioritizedPacks.has(key))));
+  };
+
   const toggleSelect = (key: string) => {
     setSelected((prev) => {
       const next = new Set(prev);
@@ -196,6 +203,11 @@ export function LearnView({
   const bulkSetPaused = (muted: boolean) => {
     if (selected.size === 0) return;
     setMutedPacks(new Set(setPacksMuted(selected, muted)));
+  };
+
+  const bulkSetDeprioritized = (deprioritized: boolean) => {
+    if (selected.size === 0) return;
+    setDeprioritizedPacks(new Set(setPacksDeprioritized(selected, deprioritized)));
   };
 
   /**
@@ -260,7 +272,8 @@ export function LearnView({
     )) return false;
 
     if (progressFilter === "paused" && !mutedPacks.has(key)) return false;
-    if (progressFilter !== "all" && progressFilter !== "paused") {
+    if (progressFilter === "deprioritized" && !deprioritizedPacks.has(key)) return false;
+    if (progressFilter !== "all" && progressFilter !== "paused" && progressFilter !== "deprioritized") {
       const progress = progressByPart.get(key) ?? { done: 0, total: 0, fading: 0 };
       const ratio = progress.total ? progress.done / progress.total : 0;
       if (progressFilter === "unstarted" && progress.done !== 0) return false;
@@ -272,7 +285,7 @@ export function LearnView({
     const corpus = corpora.get(key) ?? "";
     return terms.every((term) => corpus.includes(term));
   }),
-  [parts, corpora, terms, levelFilter, kindFilter, progressFilter, progressByPart, mutedPacks, hideFinished]);
+  [parts, corpora, terms, levelFilter, kindFilter, progressFilter, progressByPart, mutedPacks, deprioritizedPacks, hideFinished]);
 
   // Counted over every lesson, not the filtered ones: the button says how
   // much is on the shelf, and that number must not move when a search does.
@@ -539,6 +552,23 @@ export function LearnView({
                         {ui("Resume selected")}
                       </button>
                       <button
+                        className="inline-flex h-8 items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 text-[11px] font-black text-[var(--text-2)] transition-colors hover:bg-[var(--surface-3)] hover:text-[var(--text-1)]"
+                        onClick={() => bulkSetDeprioritized(true)}
+                        title={ui("Keep these packs in the course, but learn them last — after everything else.")}
+                        type="button"
+                      >
+                        <ThumbsDown className="h-3.5 w-3.5" />
+                        {ui("Not interested")}
+                      </button>
+                      <button
+                        className="inline-flex h-8 items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 text-[11px] font-black text-[var(--text-2)] transition-colors hover:bg-[var(--surface-3)] hover:text-[var(--text-1)]"
+                        onClick={() => bulkSetDeprioritized(false)}
+                        type="button"
+                      >
+                        <ThumbsUp className="h-3.5 w-3.5" />
+                        {ui("Normal priority")}
+                      </button>
+                      <button
                         className="inline-flex h-8 items-center gap-1 rounded-full px-2.5 text-[11px] font-black text-[var(--text-3)] hover:text-[var(--text-1)]"
                         onClick={() => setSelected(new Set())}
                         type="button"
@@ -587,6 +617,7 @@ export function LearnView({
             const progress = progressByPart.get(key) ?? { done: 0, total: 0, fading: 0 };
             const finished = isFinishedLesson(progress);
             const paused = mutedPacks.has(key);
+            const deprioritized = deprioritizedPacks.has(key);
             return (
               <motion.div
                 className={[
@@ -625,6 +656,12 @@ export function LearnView({
                       <span className="inline-flex items-center gap-1 rounded-full bg-[var(--surface-3)] px-2.5 py-1 text-[11px] font-black text-[var(--text-2)]">
                         <PauseCircle className="h-3 w-3" />
                         {ui("Paused")}
+                      </span>
+                    )}
+                    {!paused && deprioritized && (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-[var(--surface-3)] px-2.5 py-1 text-[11px] font-black text-[var(--text-2)]">
+                        <ThumbsDown className="h-3 w-3" />
+                        {ui("Learned last")}
                       </span>
                     )}
                     {finished && (
@@ -675,6 +712,20 @@ export function LearnView({
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
+                    {!paused && (
+                      <button
+                        aria-pressed={deprioritized}
+                        className="pointer-events-auto flex h-10 items-center gap-1.5 rounded-full bg-[var(--surface-2)] px-3 text-[11px] font-black text-[var(--text-2)] transition-colors hover:bg-[var(--surface-3)] hover:text-[var(--text-1)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                        onClick={() => toggleDeprioritized(key)}
+                        title={ui(deprioritized
+                          ? "Give this pack its normal place in the order again."
+                          : "Keep this pack in the course, but learn it last — after everything else, in both Continue Learning and Listen.")}
+                        type="button"
+                      >
+                        {deprioritized ? <ThumbsUp className="h-4 w-4" /> : <ThumbsDown className="h-4 w-4" />}
+                        {ui(deprioritized ? "Normal priority" : "Not interested")}
+                      </button>
+                    )}
                     <button
                       aria-pressed={paused}
                       className="pointer-events-auto flex h-10 items-center gap-1.5 rounded-full bg-[var(--surface-2)] px-3 text-[11px] font-black text-[var(--text-2)] transition-colors hover:bg-[var(--surface-3)] hover:text-[var(--text-1)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"

@@ -42,6 +42,7 @@ import {
 } from "@/lib/conversationPriority";
 import { cefrRung, cefrRungLabel, cefrStep, cefrStepLabel, CEFR_STEPS, type CefrStep } from "@/lib/cefr";
 import { withoutMutedPacks } from "@/lib/mutedPacks";
+import { getDeprioritizedPacks } from "@/lib/packInterest";
 import { packNoteForWord } from "@/lib/curriculum";
 import {
   getAuthUser,
@@ -1302,6 +1303,7 @@ export function buildListenQueue(
   now = Date.now()
 ): ListenItem[] {
   const parts = withoutMutedPacks(apiParts);
+  const deprioritizedPacks = getDeprioritizedPacks();
   const direction = options.direction ?? getLearningDirection();
   const content = listenContentKinds(options.contentSource ?? getListenContentKinds(direction));
   const order = options.order ?? getListenQueueOrder(direction);
@@ -1441,6 +1443,7 @@ export function buildListenQueue(
         kind: item.kind,
         commonality: sentenceCommonality(item.de, corpusIndex),
         lessonPriority: item.lessonPriority,
+        deprioritized: deprioritizedPacks.has(String(item.partKey ?? "")),
       }),
     }))
     .sort((a, b) => a.popularity - b.popularity || a.index - b.index);

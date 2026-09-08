@@ -21,6 +21,7 @@ import {
   primaryGermanMeaning,
   takeMatchingSafe,
 } from "@/lib/germanTextMatch";
+import { getMeaningPlacement } from "@/lib/meaningPlacement";
 import { getMeaningLenience } from "@/lib/meaningLenience";
 import { computeGap, gapEntryIsComplete, matchesGapInput, spokenWord } from "@/lib/gapFill";
 import type { AnswerPerformance } from "@/lib/adaptivePractice";
@@ -2168,6 +2169,27 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
       : primaryAnswer(displayEnglish),
     [displayEnglish, isWordItem, meaningIsGerman]
   );
+  /**
+   * The other language: on the card under the target, or in the row below it.
+   *
+   * Read once per card rather than watched, because the placement is a
+   * settings choice and a card being read is not where it changes. Both
+   * shapes render the same two things — which language it is, and what it
+   * says — so a stage passes them and does not care which it gets.
+   */
+  const meaningOnCard = useMemo(() => getMeaningPlacement() === "card", []);
+  const secondLanguage = (chip: string, body: React.ReactNode) => (meaningOnCard ? (
+    <p className="fs-board-meaning">
+      <span className="fs-board-meaning-chip" aria-hidden="true">{chip}</span>
+      {body}
+    </p>
+  ) : (
+    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className="fs-trow">
+      <span className="fs-chip">{chip}</span>
+      <p>{body}</p>
+    </motion.div>
+  ));
+
   const meaningSelectPool = useMemo(
     () => translationChoicePool.map((value) => {
       const displayValue = meaningIsGerman ? value : formatEnglishText(value, englishVariant);
@@ -3469,11 +3491,9 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
                   ? <TappableSentence text={item.de} lang={targetLang} meaningText={item.en} onWordAudio={restartReadingCountdown} />
                   : missingWord.display}
               </div>
+              {meaningOnCard && secondLanguage(meaningIsGerman ? "DE" : "EN", shownEnglish)}
             </div>
-            <div className="fs-trow">
-              <span className="fs-chip">{meaningIsGerman ? "DE" : "EN"}</span>
-              <p>{shownEnglish}</p>
-            </div>
+            {!meaningOnCard && secondLanguage(meaningIsGerman ? "DE" : "EN", shownEnglish)}
           </>
         ) : phase === "MeaningFirst" ? (
           /*
@@ -3493,11 +3513,17 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
                 <small>{ui("What you want to say")}</small>
               </div>
               <div className="fs-line">{shownEnglish}</div>
+              {/* The inverse board, so what joins it here is the target. Same
+                  rule either way: the two halves of the card stay together. */}
+              {meaningOnCard && secondLanguage(
+                meaningIsGerman ? "EN" : "DE",
+                <TappableSentence text={item.de} lang={targetLang} meaningText={item.en} onWordAudio={restartReadingCountdown} />
+              )}
             </div>
-            <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className="fs-trow">
-              <span className="fs-chip">{meaningIsGerman ? "EN" : "DE"}</span>
-              <p><TappableSentence text={item.de} lang={targetLang} meaningText={item.en} onWordAudio={restartReadingCountdown} /></p>
-            </motion.div>
+            {!meaningOnCard && secondLanguage(
+              meaningIsGerman ? "EN" : "DE",
+              <TappableSentence text={item.de} lang={targetLang} meaningText={item.en} onWordAudio={restartReadingCountdown} />
+            )}
           </>
         ) : phase === "RecallBoth" ? (
           <div className="fs-closed-recall-cue">
@@ -3592,6 +3618,10 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
                   : phase === "WriteFromMemory" && !sayChecked ? "• • •"
                   : <TappableSentence text={item.de} lang={targetLang} meaningText={item.en} onWordAudio={restartReadingCountdown} />}
               </div>
+              {/* Translate is the exception, here as below: there the meaning
+                  is the answer, so the card cannot be the one to give it. */}
+              {meaningOnCard && phase !== "Translate"
+                && secondLanguage(meaningIsGerman ? "DE" : "EN", shownEnglish)}
             </div>
             <AnimatePresence>
               {/*
@@ -3607,12 +3637,8 @@ function SentenceExercise({ item, listeningChoicePool, translationChoicePool = [
                 Translate still withholds it, and for the reason Read no longer
                 has: there the meaning is the answer.
               */}
-              {phase !== "Translate" && (
-                <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className="fs-trow">
-                  <span className="fs-chip">{meaningIsGerman ? "DE" : "EN"}</span>
-                  <p>{shownEnglish}</p>
-                </motion.div>
-              )}
+              {phase !== "Translate" && !meaningOnCard
+                && secondLanguage(meaningIsGerman ? "DE" : "EN", shownEnglish)}
               {phase === "Translate" && (
                 <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className="fs-trow">
                   <span className="fs-chip">{meaningIsGerman ? "DE" : "EN"}</span>
@@ -6065,11 +6091,13 @@ function SessionMatchingPairs({
   }, [matchedIds, boardItems.length, onProgress]);
 
   /**
-   * A cleared board deals the next one rather than ending the round.
+   * A cleared board deals the next one — until the sitting's cards run out,
+   * and then the round is done.
    *
-   * After a beat, so the last pair is seen to land green instead of vanishing
-   * under its replacement — the whole board turning over the instant you match
-   * reads as having got something wrong.
+   * After a beat either way, so the last pair is seen to land green instead of
+   * vanishing under its replacement — the whole board turning over the instant
+   * you match reads as having got something wrong.
+
    */
   useEffect(() => {
     if (!boardCleared || !moreToDeal) return;

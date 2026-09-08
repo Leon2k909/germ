@@ -134,11 +134,9 @@ check(
 );
 
 const guidedSource = fs.readFileSync(path.join(root, "src/GuidedSession.tsx"), "utf8");
-// The session's own matching round has gone — the flashcards hand straight to
-// the lesson. What survives here is the dedupe those cards share with the
-// standalone Matcher: two entries whose visible text is the same on either
-// side are one card shown twice, which was an unsolvable board there and is a
-// wasted flashcard here.
+// The dedupe the session's flashcards share with the standalone Matcher: two
+// entries whose visible text is the same on either side are one card shown
+// twice, which is an unsolvable board there and a wasted flashcard here.
 check(
   "the session's flashcards drop cards that would read identically",
   guidedSource.includes("const keys = matchingVisibleKeys(target, meaning);")
@@ -162,28 +160,23 @@ check(
     && /onProgress=\{\(matched, boardSize\) =>/u.test(guidedSource)
     && /onComplete=\{\(\) => \{\s*setMatchingActive\(false\);/u.test(guidedSource)
 );
-
-// ── a cleared board does not deal the same cards again ─────────────────────
-// The refill advances by a whole board and wraps, which is right for a round
-// longer than one board. A lesson previews at most six cards and the board
-// holds six, so the wrap landed back on nought and dealt the identical six —
-// reshuffled into new positions, which reads as a new board and is not one.
-// Somebody who had just matched all six was asked to match them again.
+// ── and it finishes ─────────────────────────────────────────────────────
+// Being ABLE to finish was all this asked, and the round could — by the
+// button. Clearing every pair correctly dealt the same cards again instead,
+// so the round cycled: the counter back to nought, a fresh board, and no way
+// on that did not read as skipping it. What ends it is running out of the
+// sitting's own cards, and the footer has to say so — a cleared board that
+// silently stops dealing is indistinguishable from one that is still going.
 check(
-  "a board is only refilled when there are cards it has not just shown",
-  /const moreToDeal = items\.length > boardItems\.length;/u.test(guidedSource)
-    && /if \(!boardCleared \|\| !moreToDeal\) return;/u.test(guidedSource),
-  "with nothing left to deal the round must stay cleared rather than loop"
+  "a board with nothing left to deal does not deal another",
+  guidedSource.includes("const moreToDeal = items.length > boardItems.length;")
+    && guidedSource.includes("if (!boardCleared || !moreToDeal) return;")
 );
 check(
-  "and it says so, rather than promising a next board that will not come",
-  guidedSource.includes('ui("Board cleared — here comes the next one")')
-    && guidedSource.includes('ui("Board cleared — that is every phrase in this lesson")')
+  "and says so, rather than sitting there looking unfinished",
+  guidedSource.includes('ui("Board cleared — that is every phrase in this lesson")')
     && guidedSource.includes('ui("Start sentence practice whenever you are ready.")')
-    && guidedSource.includes("boardCleared && !moreToDeal"),
-  "the finished-for-good board needs its own words, and the footer must use them"
 );
-
 if (failures) {
   console.error(`\n${failures} matching-pair regression${failures === 1 ? "" : "s"}`);
   process.exit(1);

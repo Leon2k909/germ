@@ -93,7 +93,9 @@ import { getInterfaceLanguage, setInterfaceLanguage, type InterfaceLanguage } fr
 import { VoicePicker } from "@/components/VoicePicker";
 import { UpdateStatusCard } from "@/components/UpdateStatusCard";
 import { SettingsCategory, SettingsCategoryLayout } from "@/components/SettingsCategory";
+import { InterestsSetting } from "@/components/settings/InterestsSetting";
 import { getMeaningLenience, setMeaningLenience, type MeaningLenience } from "@/lib/meaningLenience";
+import { getMeaningPlacement, setMeaningPlacement, type MeaningPlacement } from "@/lib/meaningPlacement";
 import { AppLanguagePicker } from "@/components/AppLanguagePicker";
 import { DataAndStorage } from "@/components/DataAndStorage";
 import { BROWSER_EXTENSION_ICON, BrowserExtension } from "@/components/BrowserExtension";
@@ -497,7 +499,7 @@ const SETTINGS_SEARCH_INDEX: Record<string, string> = {
   // Flashcards were a category of their own once. The search terms came into
   // this one along with the setting, so typing flip or front still lands on
   // the drawer it now lives in.
-  "Learning options": "learning style direction german english words learned elsewhere external vocabulary count mode flashcard card side front back reveal flip order behaviour",
+  "Learning options": "learning style direction german english words learned elsewhere external vocabulary count mode flashcard card side front back reveal flip order behaviour meaning translation english on card underneath bigger size placement interests interested topics subjects cooking kitchen football sport skip last priority deprioritise deprioritize",
   "Language & voice": "audio audioeinstellungen ton sound sprache stimme english spelling british american tyre tire colour spoken voice speaker accent app language german deutsch tts",
   "Pet & mascot": "pet mascot monkey desk companion talk frequency messages tips questions greetings mute hide",
   "Data & storage": "data storage space disk size used delete remove clear erase wipe cache reset progress download install uninstall language pack privacy gdpr export import transfer backup",
@@ -796,6 +798,7 @@ export default function GamificationPanel({
   const [flashcardMode, setFlashcardModeState] = useState<FlashcardMode>(() => getFlashcardMode());
   const [flashcardFace, setFlashcardFaceState] = useState<FlashcardFace>(() => getFlashcardFace());
   const [meaningLenience, setMeaningLenienceState] = useState<MeaningLenience>(() => getMeaningLenience());
+  const [meaningPlacement, setMeaningPlacementState] = useState<MeaningPlacement>(() => getMeaningPlacement());
   const [englishVariant, setEnglishVariantState] = useState<EnglishVariant>(() => getEnglishVariant(user));
   const [settingsQuery, setSettingsQuery] = useState("");
   const settingsSearchRef = useRef<HTMLInputElement | null>(null);
@@ -1731,6 +1734,52 @@ export default function GamificationPanel({
                   </div>
 
                   <LearningModePicker value={learningMode} onChange={updateLearningMode} />
+
+                  {/* Where the card puts the language you already speak. The
+                      meaning used to sit outside the board at a third of the
+                      size, which is the smallest thing on screen and the one
+                      that says what any of it means. */}
+                  <div className="mt-5 rounded-[18px] bg-[var(--surface)] p-4">
+                    <p className="text-sm font-black text-[var(--text-1)]">{ui("The meaning on a lesson card")}</p>
+                    <p className="mt-1 text-xs font-semibold leading-5 text-[var(--text-3)]">
+                      {ui("On the card it sits under the sentence at a size you can read at a glance. Underneath keeps it small and out of the way, for practising without it.")}
+                    </p>
+                    <div
+                      aria-label={ui("The meaning on a lesson card")}
+                      className="mt-3 grid grid-cols-2 gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-1.5"
+                      role="radiogroup"
+                    >
+                      {([
+                        ["card", "On the card"],
+                        ["below", "Underneath"],
+                      ] as const).map(([value, label]) => {
+                        const selected = meaningPlacement === value;
+                        return (
+                          <button
+                            aria-checked={selected}
+                            className={cn(
+                              "min-h-10 rounded-xl border px-2 py-2 text-xs font-black transition-[background-color,border-color,color] duration-150",
+                              selected
+                                ? "border-[var(--accent)] bg-[var(--accent)] text-[var(--accent-text)] shadow-[0_3px_0_var(--accent-dark)]"
+                                : "border-transparent bg-transparent text-[var(--text-2)] hover:border-[var(--border-strong)] hover:bg-[var(--surface-2)] hover:text-[var(--text-1)]"
+                            )}
+                            data-testid={`meaning-placement-${value}`}
+                            key={value}
+                            onClick={() => { setMeaningPlacementState(setMeaningPlacement(value)); }}
+                            role="radio"
+                            type="button"
+                          >
+                            {ui(label)}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* What you would rather not learn is as much a setting as
+                      how you learn it, and it belongs beside the rest of what
+                      shapes a lesson rather than only on the lesson list. */}
+                  <InterestsSetting apiParts={apiParts} onRequestCatalogue={onRequestCatalogue} />
 
                   {/* Flashcards had a category to themselves, sitting between
                       the learning options above and the language settings below.

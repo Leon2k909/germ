@@ -30,6 +30,7 @@ import {
 } from "@/lib/registerCheck";
 import { computeAbility, itemDifficulty, itemPriority } from "@/lib/ability";
 import { withoutMutedPacks } from "@/lib/mutedPacks";
+import { getDeprioritizedPacks } from "@/lib/packInterest";
 import { buildCorpusIndex, sentenceCommonality } from "@/lib/corpusFrequency";
 import { conversationPriorityScore, nextFastTrackPart } from "@/lib/conversationPriority";
 
@@ -1146,6 +1147,7 @@ export default function GuidedLearningSession() {
         if (buildsOn) chainTargetKeys.add(sentenceIdentityKey(String(buildsOn)).toLowerCase());
       });
       const chainBaseScores = new Map<string, number>();
+      const deprioritizedPacks = getDeprioritizedPacks();
       // level, de and commonality are what the sitting order sorts on — see
       // sittingComparator; the course's own pick is the score.
       const candidates: { pId: string; index: number; score: number; level?: string; de: string; commonality: number; step: any }[] = [];
@@ -1165,6 +1167,7 @@ export default function GuidedLearningSession() {
                 kind: item.kind,
                 commonality: baseCommonality,
                 lessonPriority: item.lessonPriority,
+                deprioritized: deprioritizedPacks.has(item.partKey),
               }) + itemPriority({
                 ability: ability.band,
                 commonality: baseCommonality,
@@ -1205,6 +1208,7 @@ export default function GuidedLearningSession() {
             kind: item.kind,
             commonality,
             lessonPriority: item.lessonPriority,
+            deprioritized: deprioritizedPacks.has(pId),
           }) + itemPriority({
             ability: ability.band,
             commonality,

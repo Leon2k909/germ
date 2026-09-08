@@ -119,6 +119,17 @@ type ConversationPriorityInput = {
   commonality?: number;
   /** authored nudge inside a pack: lower means teach sooner */
   lessonPriority?: number;
+  /**
+   * The learner has marked this item's pack as one they have little interest
+   * in (see packInterest.ts) — cooking, say, for somebody who never cooks.
+   * Not the same as the item being unusual: "Ich habe die Ausbildung
+   * abgebrochen" can be rare AND wanted, but every sentence about ovens and
+   * boiling water is unwanted regardless of how common it is. So this sits
+   * outside the band-and-commonality scoring below it, pushed past every
+   * band there is, rather than folded into commonality where a common word
+   * from an uninteresting pack would still win.
+   */
+  deprioritized?: boolean;
 };
 
 /**
@@ -651,11 +662,16 @@ export function conversationPriorityScore(input: ConversationPriorityInput): num
 
   // Within-band total stays below the 10,000,000 band gap:
   // 5,000,000 + 3,000,000 + 60,000 + packRank < 10,000,000.
-  return info.band * 10_000_000
+  const base = info.band * 10_000_000
     + commonality * 1_000
     + authored
     + kindOffset
     + info.packRank;
+
+  // Bigger than the highest band (5) can ever reach on its own — a
+  // deprioritized item still sorts by all of the above AMONG other
+  // deprioritized items, it is just never ahead of an ordinary one.
+  return input.deprioritized ? base + 100_000_000 : base;
 }
 
 /**
