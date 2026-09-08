@@ -132,6 +132,28 @@ const COURSES = [
       ["regione", "обла"],
     ],
   },
+  {
+    label: "Vivir en Espana",
+    source: "es",
+    course: { module: "vivirEnEspanaCourse", symbol: "vivirEnEspanaCourse" },
+    table: { module: "vivirEnEspanaTranslationsRu", symbol: "VIVIR_EN_ESPANA_RU" },
+    keep: [
+      // What a reader meets printed on a card, a payslip or a counter.
+      "DNI",
+      "NIE",
+      "TIE",
+      "IRPF",
+      "Seguridad Social",
+      "empadronamiento",
+      // And the four the course names in Russian, because Russian names
+      // them: the Cortes, the autonomous community, the town hall and the
+      // language itself.
+      ["Cortes", "кортес"],
+      ["comunidad autónoma", "сообществ"],
+      ["ayuntamiento", "управ"],
+      ["castellano", "кастиль"],
+    ],
+  },
 ];
 
 const imports = COURSES.flatMap(({ course, table }) => [

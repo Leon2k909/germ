@@ -25,6 +25,7 @@ import { LIFE_IN_THE_UK_RU } from "@/lib/lifeInTheUkTranslationsRu";
 import { ZYCIE_W_POLSCE_RU } from "@/lib/zycieWPolsceTranslationsRu";
 import { VIVRE_EN_FRANCE_RU } from "@/lib/vivreEnFranceTranslationsRu";
 import { VIVERE_IN_ITALIA_RU } from "@/lib/vivereInItaliaTranslationsRu";
+import { VIVIR_EN_ESPANA_RU } from "@/lib/vivirEnEspanaTranslationsRu";
 import { LIFE_IN_THE_UK_FR } from "@/lib/lifeInTheUkTranslationsFr";
 import { LEBEN_IN_DEUTSCHLAND_FR } from "@/lib/lebenInDeutschlandTranslationsFr";
 import { ZYCIE_W_POLSCE_FR } from "@/lib/zycieWPolsceTranslationsFr";
@@ -121,7 +122,7 @@ export const TRANSLATION_LANGUAGES: Array<{
   // read, and deliberately the first — a Russian speaker sitting the German
   // citizenship test is who this course is for. The others follow, one entry
   // in this list each: Life in the UK and Zycie w Polsce next.
-  { id: "ru", label: "Russian", endonym: "Русский", from: ["de", "en", "pl", "fr", "it"] },
+  { id: "ru", label: "Russian", endonym: "Русский", from: ["de", "en", "pl", "fr", "it", "es"] },
 ];
 
 const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>> = {
@@ -153,7 +154,7 @@ const TRANSLATIONS: Partial<Record<TranslationLanguage, Record<string, string>>>
   fr: { ...LIFE_IN_THE_UK_FR, ...LEBEN_IN_DEUTSCHLAND_FR, ...ZYCIE_W_POLSCE_FR, ...VIVERE_IN_ITALIA_FR, ...VIVIR_EN_ESPANA_FR, ...ZHIZN_V_ROSSII_FR },
   ru: {
     ...LEBEN_IN_DEUTSCHLAND_RU, ...LIFE_IN_THE_UK_RU, ...ZYCIE_W_POLSCE_RU,
-    ...VIVRE_EN_FRANCE_RU, ...VIVERE_IN_ITALIA_RU,
+    ...VIVRE_EN_FRANCE_RU, ...VIVERE_IN_ITALIA_RU, ...VIVIR_EN_ESPANA_RU,
   },
 };
 

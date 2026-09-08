@@ -301,10 +301,10 @@ export const VIVRE_EN_FRANCE_RU: Record<string, string> = {
     "Заявление подаётся раз в год и обязательно, даже если подоходного налога в итоге платить не придётся.",
   "Quand la Sécurité sociale a-t-elle été établie en France ?":
     "Когда во Франции была учреждена Sécurité sociale?",
-  "En 1905": "В 1905",
-  "En 1936": "В 1936",
-  "En 1945": "В 1945",
-  "En 1958": "В 1958",
+  "En 1905": "В 1905 году",
+  "En 1936": "В 1936 году",
+  "En 1945": "В 1945 году",
+  "En 1958": "В 1958 году",
   "En 1945, à la Libération. Elle couvre la maladie, la vieillesse, la famille et les accidents du travail.":
     "В 1945 году, при Освобождении. Она покрывает болезнь, старость, семью и увечья на работе.",
   "La Constitution et l'État de droit": "Конституция и правовое государство",
