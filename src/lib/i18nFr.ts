@@ -3657,4 +3657,5 @@ export const FR: Record<string, string> = {
   "Wishing someone well": "Souhaiter du bien à quelqu'un",
   "Board cleared — that is every phrase in this lesson": "Grille terminée — ce sont toutes les phrases de cette leçon",
   "Start sentence practice whenever you are ready.": "Commence les phrases quand tu veux.",
+  "Or use the number keys: one press for the left column, then one for the right. Escape undoes a half-made pair.": "Ou avec les touches numérotées : une pression pour la colonne de gauche, puis une pour celle de droite. Échap annule une paire à moitié faite.",
 };

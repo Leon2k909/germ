@@ -3211,4 +3211,5 @@ export const IT: Record<string, string> = {
   "words inside": "parole dentro",
   "Board cleared — that is every phrase in this lesson": "Griglia completata — sono tutte le frasi di questa lezione",
   "Start sentence practice whenever you are ready.": "Inizia la pratica delle frasi quando vuoi.",
+  "Or use the number keys: one press for the left column, then one for the right. Escape undoes a half-made pair.": "Oppure con i tasti numerici: una pressione per la colonna di sinistra, poi una per quella di destra. Esc annulla una coppia a metà.",
 };

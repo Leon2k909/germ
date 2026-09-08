@@ -6187,6 +6187,47 @@ function SessionMatchingPairs({
     if (sourceId) checkPair(sourceId, matchId);
   };
 
+  /**
+   * The whole board is playable from the number row.
+   *
+   * A digit picks the row it is printed beside, and which column it lands in
+   * is whichever one the board is waiting for: with nothing chosen it takes
+   * the left, and once the left is chosen it takes the right. So a pair is
+   * two presses — the same digit twice when the rows happen to line up, and
+   * two different ones when they do not, which is the same rhythm as
+   * clicking. Escape puts a half-made pair back.
+   *
+   * Deliberately no modifier and no focus requirement: this screen has no
+   * text field, and a matcher you have to click into before the keys work is
+   * one nobody discovers. Anything typed into an input elsewhere is left
+   * alone all the same.
+   */
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      const from = event.target as HTMLElement | null;
+      if (from && (from.tagName === "INPUT" || from.tagName === "TEXTAREA" || from.isContentEditable)) return;
+      if (event.key === "Escape") {
+        if (!sourceId && !targetId) return;
+        event.preventDefault();
+        setSourceId(null);
+        setTargetId(null);
+        return;
+      }
+      const row = Number(event.key);
+      if (!Number.isInteger(row) || row < 1 || row > boardItems.length) return;
+      if (resolving) return;
+      const item = sourceId ? targetItems[row - 1] : boardItems[row - 1];
+      if (!item || matchedIds.has(item.matchId)) return;
+      event.preventDefault();
+      if (sourceId) selectTarget(item.matchId);
+      else selectSource(item.matchId);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [boardItems, targetItems, sourceId, targetId, resolving, matchedIds]);
+
   return (
     <div className="fs-card-body fs-matching">
       <div className="fs-matching-head">
@@ -6194,6 +6235,7 @@ function SessionMatchingPairs({
           <span className="fs-eyebrow"><i />{ui("Quick match")}</span>
           <h1 className="fs-h1">{ui("Match today's phrases")}</h1>
           <p className="fs-sub">{ui("Choose one phrase from each column.")}</p>
+          <p className="fs-sub fs-match-keys">{ui("Or use the number keys: one press for the left column, then one for the right. Escape undoes a half-made pair.")}</p>
         </div>
 
         <div className="fs-match-direction" role="group" aria-label={ui("Matching direction")}>
@@ -6248,6 +6290,7 @@ function SessionMatchingPairs({
                   disabled={sourceMatched || resolving}
                   onClick={() => selectSource(sourceItem.matchId)}
                 >
+                  <kbd className="fs-match-key" aria-hidden>{rowIndex + 1}</kbd>
                   <span>{sourceText(sourceItem)}</span>
                   {sourceMatched && <CheckCircle2 className="h-4 w-4" />}
                 </button>
@@ -6263,6 +6306,7 @@ function SessionMatchingPairs({
                   disabled={targetMatched || resolving}
                   onClick={() => selectTarget(targetItem.matchId)}
                 >
+                  <kbd className="fs-match-key" aria-hidden>{rowIndex + 1}</kbd>
                   <span>{targetText(targetItem)}</span>
                   {targetMatched && <CheckCircle2 className="h-4 w-4" />}
                 </button>

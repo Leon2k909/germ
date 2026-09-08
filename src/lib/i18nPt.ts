@@ -3581,4 +3581,5 @@ export const PT: Record<string, string> = {
   "words inside": "palavras dentro",
   "Board cleared — that is every phrase in this lesson": "Grelha concluída — são todas as frases desta lição",
   "Start sentence practice whenever you are ready.": "Começa a prática de frases quando quiseres.",
+  "Or use the number keys: one press for the left column, then one for the right. Escape undoes a half-made pair.": "Ou com as teclas numéricas: uma tecla para a coluna da esquerda, depois outra para a direita. Escape desfaz um par a meio.",
 };

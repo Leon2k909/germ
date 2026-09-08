@@ -177,6 +177,39 @@ check(
   guidedSource.includes('ui("Board cleared — that is every phrase in this lesson")')
     && guidedSource.includes('ui("Start sentence practice whenever you are ready.")')
 );
+
+// ── the board is playable without a mouse ──────────────────────────────────
+// A digit picks the row printed beside it, and the column it lands in is
+// whichever the board is waiting for: the left with nothing chosen, the right
+// once the left is. Escape puts a half-made pair back. Verified in the browser
+// as well: 1 then 1 matched a pair and the footer moved to 1 of 4.
+check(
+  "the number row plays the board, left column first and right second",
+  guidedSource.includes("const row = Number(event.key);")
+    && guidedSource.includes("const item = sourceId ? targetItems[row - 1] : boardItems[row - 1];")
+    && guidedSource.includes("if (sourceId) selectTarget(item.matchId);"),
+  "a digit must pick the awaited column, not always the same one"
+);
+check(
+  "Escape puts a half-made pair back",
+  guidedSource.includes('if (event.key === "Escape")')
+);
+check(
+  "a matched row and a resolving board ignore the keys",
+  guidedSource.includes("if (!item || matchedIds.has(item.matchId)) return;")
+    && guidedSource.includes("if (resolving) return;")
+);
+check(
+  "typing into a field somewhere else is never stolen",
+  guidedSource.includes('from.tagName === "INPUT" || from.tagName === "TEXTAREA" || from.isContentEditable')
+    && guidedSource.includes("if (event.metaKey || event.ctrlKey || event.altKey) return;")
+);
+check(
+  "and the digit is on screen, or nobody can know which key plays which row",
+  guidedSource.includes('<kbd className="fs-match-key" aria-hidden>{rowIndex + 1}</kbd>')
+    && guidedSource.includes('ui("Or use the number keys: one press for the left column, then one for the right. Escape undoes a half-made pair.")')
+);
+
 if (failures) {
   console.error(`\n${failures} matching-pair regression${failures === 1 ? "" : "s"}`);
   process.exit(1);

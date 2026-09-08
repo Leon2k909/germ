@@ -11689,6 +11689,20 @@ html[data-theme="dark"] {
   animation: fsMatchWrong 0.34s ease;
 }
 .guided-session .fs-match-option:disabled { cursor: default; }
+/* The digit that plays the row. Sits inside the option so the number and the
+   phrase cannot drift apart when the text wraps, and stays quiet enough that
+   it reads as a hint rather than as part of the phrase. */
+.guided-session .fs-match-key {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 5px; margin-right: 2px;
+  border: 1px solid var(--fs-line-strong); border-radius: 6px;
+  background: rgba(255,255,255,0.05); color: currentColor; opacity: 0.62;
+  font-size: 11px; font-weight: 800; font-family: inherit; line-height: 1;
+}
+.guided-session .fs-match-option > span { flex: 1 1 auto; min-width: 0; }
+/* The keyboard hint is a second, quieter line under the instruction. */
+.guided-session .fs-match-keys { opacity: 0.72; }
+
 .fs-match-footer {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 18px;
 }
