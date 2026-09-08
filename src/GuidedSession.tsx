@@ -65,7 +65,7 @@ import { russianMeaningLanguage } from "@/lib/russianCourse";
 import { matchPortugueseSentence, PORTUGUESE_SPECIAL_CHARACTERS } from "@/lib/portugueseTextMatch";
 import { matchRussianSentence } from "@/lib/russianTextMatch";
 import { INTERFACE_LANGUAGE_CHANGE_EVENT } from "@/lib/interfaceLanguage";
-import { getRussianScript, resolveRussianScript, russianScriptLabel, RUSSIAN_SCRIPT_EVENT, RUSSIAN_SPECIAL_CHARACTERS, setRussianScript } from "@/lib/russianScript";
+import { getRussianScript, resolveRussianScript, russianScriptLabel, russianScriptShows, RUSSIAN_SCRIPT_EVENT, RUSSIAN_SPECIAL_CHARACTERS, setRussianScript } from "@/lib/russianScript";
 
 import {
   AUDIO_SETTINGS_EVENT,
@@ -447,7 +447,13 @@ function AccentKeys({ language, onInsert }: { language: "de" | "en" | "fr" | "pl
 }
 
 function AccentRow({ language, onInsert }: { language: "de" | "en" | "fr" | "pl" | "es" | "it" | "pt" | "ru"; onInsert: (c: string) => void }) {
+  const russianScript = resolveRussianScript(useRussianScript());
   if (language === "en") return null;
+  // The Cyrillic row is not a helper beside the keyboard, it IS the keyboard,
+  // so it belongs on screen only while Cyrillic is what the learner reads. On
+  // the Latin setting the transcription is written in letters the keyboard
+  // already has, which is the point of it — see RussianCharBar.
+  if (language === "ru" && !russianScriptShows(russianScript, "cyrillic")) return null;
   return <div className="fs-charsrow"><AccentKeys language={language} onInsert={onInsert} /></div>;
 }
 
